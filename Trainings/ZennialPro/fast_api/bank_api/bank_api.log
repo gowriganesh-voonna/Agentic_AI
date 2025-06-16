@@ -1,0 +1,17 @@
+2025-05-29 18:46:12,671 - INFO - MainThread - Account created for the Naresh003 Successfully
+2025-05-29 18:46:45,588 - INFO - MainThread - Account Already Exists Exception 
+2025-05-29 18:47:21,794 - INFO - MainThread - Fund added to the customer Naresh003 with amount : 560098.0
+2025-05-29 18:47:35,899 - INFO - MainThread - Amount with drawed Successfully from the customer : Naresh003 with amount 4000.0
+2025-06-02 13:58:16,015 - WARNING - MainThread - Account Already Exists Exception  with Naresh003
+2025-06-02 13:59:05,051 - INFO - MainThread - Account created for the Ganesh004 Successfully
+2025-06-02 13:59:25,897 - INFO - MainThread - Fund added to the customer Ganesh004 with amount : 5600982.0
+2025-06-02 13:59:37,373 - INFO - MainThread - Amount with drawed Successfully from the customer : Ganesh004 with amount 4000.0
+2025-06-02 14:08:39,789 - INFO - MainThread - All Customer Id has been fetced succesfully
+2025-06-02 14:10:25,785 - INFO - MainThread - All Customer Id has been fetced succesfully
+2025-06-02 14:10:31,887 - INFO - MainThread - Amount with drawed Successfully from the customer : Ganesh004 with amount 4000.0
+2025-06-02 17:56:55,192 - main - INFO - MainThread - Amount with drawed Successfully from the customer : Ganesh004 with amount 4000.0
+2025-06-02 19:17:51,246 - app.api.accounts_route - INFO - MainThread - Amount with drawed Successfully from the customer : Ganesh004 with amount 4000.0
+2025-06-02 19:52:43,485 - app.api.accounts_route - INFO - MainThread - All Customer Id has been fetced succesfully
+2025-06-02 19:52:52,071 - app.api.accounts_route - INFO - MainThread - Fund added to the customer Ganesh004 with amount : 5600982.0
+2025-06-02 19:53:07,581 - app.api.accounts_route - INFO - MainThread - Amount with drawed Successfully from the customer : Ganesh004 with amount 5600982.0
+2025-06-02 19:53:37,048 - app.services.account_service - WARNING - MainThread - Account Already Exists Exception  with Ganesh004

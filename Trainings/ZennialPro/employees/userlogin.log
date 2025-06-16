@@ -1,0 +1,26 @@
+2025-05-14 15:18:25,171 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.12.145:5000
+2025-05-14 15:18:25,172 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-14 15:19:04,923 - WARNING - Login failed for voonna@gmail.com
+2025-05-14 15:19:04,924 - INFO - 127.0.0.1 - - [14/May/2025 15:19:04] "[31m[1mPOST /user/login HTTP/1.1[0m" 401 -
+2025-05-14 15:19:33,010 - WARNING - Login failed for voonna@gmail.com
+2025-05-14 15:19:33,010 - INFO - 127.0.0.1 - - [14/May/2025 15:19:33] "[31m[1mPOST /user/login HTTP/1.1[0m" 401 -
+2025-05-14 15:19:35,703 - WARNING - Login failed for voonna@gmail.com
+2025-05-14 15:19:35,703 - INFO - 127.0.0.1 - - [14/May/2025 15:19:35] "[31m[1mPOST /user/login HTTP/1.1[0m" 401 -
+2025-05-14 15:19:59,118 - WARNING - Login failed for voonna@gmail.com
+2025-05-14 15:19:59,119 - INFO - 127.0.0.1 - - [14/May/2025 15:19:59] "[31m[1mPOST /user/login HTTP/1.1[0m" 401 -
+2025-05-14 15:20:11,398 - INFO - voonna@gmail.com logged in
+2025-05-14 15:20:11,398 - INFO - 127.0.0.1 - - [14/May/2025 15:20:11] "POST /user/login HTTP/1.1" 200 -
+2025-05-14 15:21:59,510 - INFO - 127.0.0.1 - - [14/May/2025 15:21:59] "[31m[1mPOST /users/ HTTP/1.1[0m" 405 -
+2025-05-14 15:22:08,777 - INFO - 127.0.0.1 - - [14/May/2025 15:22:08] "GET /users/ HTTP/1.1" 200 -
+2025-05-14 15:22:10,363 - INFO - 127.0.0.1 - - [14/May/2025 15:22:10] "GET /users/ HTTP/1.1" 200 -
+2025-05-14 15:22:36,913 - INFO - 127.0.0.1 - - [14/May/2025 15:22:36] "GET /users/ HTTP/1.1" 200 -
+2025-05-14 15:22:38,817 - INFO - 127.0.0.1 - - [14/May/2025 15:22:38] "GET /users/ HTTP/1.1" 200 -
+2025-05-14 15:22:58,972 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.12.145:5000
+2025-05-14 15:22:58,972 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-14 15:23:07,574 - INFO - 127.0.0.1 - - [14/May/2025 15:23:07] "GET /users/ HTTP/1.1" 200 -

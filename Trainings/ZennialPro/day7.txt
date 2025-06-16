@@ -1,0 +1,32 @@
+#Client Requirement
+# Module : UserRequirement -> Userservice.
+# Desription : Write an API which will support below user features.
+# Features : Register User,Update User, Change Password,Get User Profile,Login
+# storage : JSON 
+
+#questions 
+# Flask, FastAPI ->Flask - {Flask does not Support Async as a bulit in - import asyncio
+# Operations : Sync, Async
+# Sync -> One after Another
+#  Example : Add Department{IT} {5 secs to Execute}  ->[Delay(5)]-> Assign Employee ->{IT}
+
+# Async -> Eecuting multiple tasks without waiting for result.
+# Add Role {5 secs}, Add Department {5 sec}
+# Python =>Read add role -> [start Executing add Role ] -> Read Add Department
+#  await  unless Add Department {IT} is successful
+"jsonify" typically refers to the process of converting Python objects, such as dictionaries or lists, into JSON (JavaScript Object Notation) format.
+#Requirement.txt
+pip install Flask==2.3.2 
+pip install Werkzeug==2.3.6 
+
+User Entity - first_name,last_name , email , dob,password
+Register -> Endpoint -> 
+ Request  payload  - first_name,last_name,email,dob,password
+ Response - message =" User Added Successfully", Code =200 
+Login -> ENdpoint ->
+ Request Payload - email,password
+ Response - message ="User logged successfuly", code =200
+change password -> Endpoint ->
+Request payload -> newpassword,oldpasword ,email
+Response - message ->"Changed password successfully ", code =200
+          

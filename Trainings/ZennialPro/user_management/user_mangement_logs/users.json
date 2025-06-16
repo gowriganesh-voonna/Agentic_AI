@@ -1,0 +1,51 @@
+[
+    {
+        "first_name": "Ameyaan",
+        "last_name": "Parse",
+        "email": "ameet@gmail.com",
+        "dob": "01/01/2011",
+        "password": "zp@511786#"
+    },
+    {
+        "first_name": "Manish",
+        "last_name": "Kumar",
+        "email": "manish@gmail.com",
+        "dob": "01/01/2011",
+        "password": "zp@511786#"
+    },
+    {
+        "first_name": "Ganesh",
+        "last_name": "Reddyw",
+        "email": "gannu@gmail.com",
+        "dob": "02-02-2003",
+        "password": "Voonna"
+    },
+    {
+        "first_name": "Pavan",
+        "last_name": "Kumar",
+        "email": "pavan@gmail.com",
+        "dob": "02-02-2003",
+        "password": "Voonna"
+    },
+    {
+        "first_name": "Pavan",
+        "last_name": "Kumar",
+        "email": "pavan@gmail.com",
+        "dob": "02-02-2003",
+        "password": "pavan"
+    },
+    {
+        "first_name": "Pavan",
+        "last_name": "Kumar",
+        "email": "pavan@gmail.com",
+        "dob": "02-02-2003",
+        "password": "pavan"
+    },
+    {
+        "first_name": "Pavan",
+        "last_name": "Kumar",
+        "email": "pavan@gmail.com",
+        "dob": "02-02-2003",
+        "password": "pavan"
+    }
+]

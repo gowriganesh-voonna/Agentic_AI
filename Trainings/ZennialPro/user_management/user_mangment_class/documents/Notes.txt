@@ -1,0 +1,77 @@
+# Client Requirement
+#   Module : UserManagement -> UserService
+#   Description : Write an API which will support below user features 
+#   Features : Register User, Update User, Change Password, Get User Profile, Login 
+#   Storage : JSON    
+
+# Questions
+# Flask, FastAPI  -> Flask   -- {Flask  does not Support Async built in - Import AsyncIO to make Async }
+# Operations : Sync, Async
+#   Sync -> One after Another
+#       Add Department {IT} {5 Seconds to Execute} ->[Delay(5)] -> Assign Employee -> {IT}
+#   Async -> One after Another
+#       Add Role {5 seconds}, Add Department {{5 seconds}}
+#       Python => Read Add Role -> [Start Executing  Add Role] -> Read Add Department -> [Start Executing  Add Department]
+#       Add Department {IT} {5 Seconds to Execute} ->[Delay(5)] -> Assign Employee -> {IT}
+#       await unless Add Department {IT} is Successful
+
+
+# Quick and Dirty Steps
+# requirements.txt
+pip install Flask==2.3.2
+pip install Werkzeug==2.3.6
+
+User Entity - first_name, last_name, email, dob, password
+
+Register -> Endpoint -> 
+    Request Payload - first_name, last_name, email, dob, password
+    Response - message = "User Added Successfully", Code = 200
+Login -> Endpoint -> 
+    Request Payload - email, password
+    Response - message = "User Logged Successfully", Code = 200
+Change Password -> Endpoint -> email, newpassword, oldpassword 
+    Request Payload - email, newpassword, oldpassword
+    Response - message = "Password Changed Successfully", Code = 201
+
+Change Password
+# Step 1  - > Get the values from User (email, oldpass, newpass)
+        # Step 2 - Assign Value to variables
+        # Step 3 - Load all Users 
+        # Step 4 - Find user with email id 
+        # Step 5 - if found then update the value (For loop)
+        # Step 5.1 - Updated. Save the JSON and Return 201
+        # Step 6 - Not found - Return 404
+
+        # Find the User -> if exists -> 
+
+
+        # Why my was having issues for 
+        # Load JSON -> Load File -> RETURN Dict -> Key and Value
+        # Read DICT as Object - DICT to Object (from_Dict) 
+        # Save Users -> Input -> Was Dict -> Key and Value -> Object
+        # Used from_Dict and To_Dict
+        # Used To_Dict => Object into Dict
+
+
+
+# Todo
+# 1. Do not allow to add Duplicate Users
+
+
+# Earlier Implementation
+#   Program => Dict ==>> Was used to Load and Read JSON. Then we used Dict for Representation of User Entity 
+#   Program => Dict to Class ==> Dict is Generic What he ==> Class 
+#   Challange (My Implementation)
+#       Dict can cast JSON Easily. Dict can be converted to JSON and then JSON File.
+#       JSON can be converted to back to Dict
+#   Class Implementation
+#       Instead of Dict we used Class {User}
+#       JSON => Read JSON => Build Class {User} ==> Read from JSON
+#       Class  {User} => Dict => JSON ==> Write to JSON
+
+
+# Routes
+1. Register - Access Level - Guest
+2. Login - Access Level - Guest - Post Login - USER - Identity
+3. Logged In User Can Change the Password - Access Level - Access Protected - 401 - 201
+4. Logged in User can List the Users - Access Level - Access Protected - 401 - 200

@@ -1,0 +1,17 @@
+Requiremenrt - Flask API with
+ 
+API Endpoints
+1. user registration - POST /register - 
+1.1 user_id,first_name, last_name,username,password,age, dob
+2. login -  POST /login
+2.1 Login Payload : username and password
+ 
+1. Business Rule - with duplicate checks - Users should be unique
+2. Business Rule - Response Should be in JSON Format and Must have Status code and Message
+3. Business Rule - Save Users information in users.json
+ 
+I need to find out, All users whose Birth date does match with age
+ 
+You have to Calcuate Age based on DOB. Then compar with age provided by Users
+ 
+if both are mathcing then No Problem.  Else "Mark -it"

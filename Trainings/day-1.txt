@@ -1,0 +1,75 @@
+
+1)Setting development environmnet.
+
+conda update conda (update cmd)
+conda env list (gives all enviroments in conda)
+conda create -n Python_3.12 python=3.12              (naming convention should need to follow)
+conda activate Python_3.12
+python --version
+conda deactivate
+conda env list
+--new env
+conda list (it will list the packages)
+(installing packages )
+conda install numpy (it is an env specific)
+cls (clear)
+conda update numpy (package updating)
+conda env export > python_3.12.yml  (exporting env)
+Now check python_3.12.yml manually using notepad++
+conda env remove -n Python_3.12
+conda env create -f python_3.12.yml
+
+
+---------------------
+Python.
+Data types- varibles
+Programmig constructs --if
+modularity  - we call as functions (def)
+-classes - oops
+
+Data types
+
+1) Mutable 2) Immutable
+1)Mutable also called by val.
+2)immtable 
+   int 
+   float
+   string
+   tuple
+   fronzenset
+ 
+1) Mutable 
+   list
+   dict -key value pairs
+   set
+   bytearry
+
+    
+
+working with numbers
+
+Tasks 
+
+1)Setup conda
+2)create env 
+  A. 3.11 - numpy
+  b. 3.12 - pandas
+  c. 3.13 - xyz
+3)Export Enviornment
+4)Import it.
+
+
+---
+
+strip
+
+
+collections ->list
+assigning tuple = remeber _ also
+
+type conversion
+
+
+
+
+

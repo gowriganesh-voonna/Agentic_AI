@@ -1,0 +1,29 @@
+[
+    {
+        "emp_id": "2",
+        "first_name": "Surendra",
+        "last_name": "Reddy",
+        "doj": "2025-05-01",
+        "salary": "60000",
+        "department": "IT-Admin",
+        "role": "HR Manager"
+    },
+    {
+        "emp_id": "3",
+        "first_name": "Manish",
+        "last_name": "Kumar",
+        "doj": "2025-05-01",
+        "salary": "70000",
+        "department": "IT-Dev",
+        "role": "Infra Developer (SAAS)"
+    },
+    {
+        "emp_id": "1",
+        "first_name": "Ameyaan",
+        "last_name": "Parse",
+        "doj": "2025-05-05",
+        "salary": "50000",
+        "department": "IT- Human Resource",
+        "role": "HR Manager"
+    }
+]

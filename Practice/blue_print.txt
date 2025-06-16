@@ -1,0 +1,11 @@
+Task 1:
+
+1) Create an API call for user register, login .
+
+
+register  function 
+username , password , email id, dob :
+
+postive response : 200 - {"Registration Success"}
+Negative response : 405 -{ "Registration failed"}
+

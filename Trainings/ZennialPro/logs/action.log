@@ -1,0 +1,17 @@
+2025-05-06 20:20:28,824 - WARNING - File not found D:\Course\ZennialPro\services\day5\departments.json returning an empty list
+2025-05-06 20:20:53,003 - WARNING - File not found D:\Course\ZennialPro\services\day5\departments.json returning an empty list
+2025-05-06 20:20:53,003 - ERROR - Failed to save D:\Course\ZennialPro\services\day5\departments.json due to [Errno 2] No such file or directory: 'D:\\Course\\ZennialPro\\services\\day5\\departments.json'
+Traceback (most recent call last):
+  File "D:\Course\ZennialPro\utils\helper.py", line 24, in save_to_file
+    with open(file,"w") as f:
+         ^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'D:\\Course\\ZennialPro\\services\\day5\\departments.json'
+2025-05-06 20:20:58,589 - WARNING - File not found D:\Course\ZennialPro\services\day5\departments.json returning an empty list
+2025-05-06 20:22:38,044 - INFO - Loaded data from the Json file D:\Course\ZennialPro\services\..\json\departments.json
+2025-05-06 20:26:48,616 - WARNING - File not found D:\Course\ZennialPro\services\day5\roles.json returning an empty list
+2025-05-06 20:27:11,184 - INFO - Loaded data from the Json file D:\Course\ZennialPro\services\..\json\departments.json
+2025-05-06 20:27:13,335 - INFO - Loaded data from the Json file D:\Course\ZennialPro\services\..\json\roles.json
+2025-05-06 20:27:17,711 - WARNING - File not found D:\Course\ZennialPro\services\..\json\employee.json returning an empty list
+2025-05-06 20:28:02,021 - WARNING - File not found D:\Course\ZennialPro\services\..\json\employee.json returning an empty list
+2025-05-06 20:28:02,025 - INFO - saved the data into the D:\Course\ZennialPro\services\..\json\employee.json
+2025-05-06 20:28:05,529 - INFO - Loaded data from the Json file D:\Course\ZennialPro\services\..\json\employee.json

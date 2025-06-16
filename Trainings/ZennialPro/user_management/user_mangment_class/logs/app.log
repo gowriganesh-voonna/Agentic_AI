@@ -1,0 +1,76 @@
+2025-05-09 10:44:51,197 [INFO] [app.py:105 change_password()] Comparing emails: input='naresh@gmail.com' stored='zp@511786#'
+2025-05-09 10:44:51,197 [INFO] [app.py:105 change_password()] Comparing emails: input='naresh@gmail.com' stored='zp@511786#'
+2025-05-09 10:44:51,197 [INFO] [app.py:105 change_password()] Comparing emails: input='naresh@gmail.com' stored='zp@511786#'
+2025-05-09 10:44:51,197 [INFO] [app.py:105 change_password()] Comparing emails: input='naresh@gmail.com' stored='zp@511786#'
+2025-05-09 10:44:51,197 [INFO] [app.py:105 change_password()] Comparing emails: input='naresh@gmail.com' stored='zp@511'
+2025-05-09 10:44:51,197 [INFO] [app.py:105 change_password()] Comparing emails: input='naresh@gmail.com' stored='ap@511'
+2025-05-09 10:44:51,197 [INFO] [app.py:116 change_password()] No user found with email: naresh@gmail.com
+2025-05-09 10:44:51,198 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [09/May/2025 10:44:51] "[33mPOST /user/change_password HTTP/1.1[0m" 404 -
+2025-05-09 10:46:50,074 [INFO] [_internal.py:187 _log()]  * Detected change in 'C:\\AP\\py_user_management\\app.py', reloading
+2025-05-09 10:46:50,461 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-09 10:46:51,179 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-09 10:46:51,190 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 995-688-366
+2025-05-09 10:47:28,401 [INFO] [app.py:105 change_password()] Comparing emails: input='naresh@gmail.com' stored='ameet@gmail.com'
+2025-05-09 10:47:28,401 [INFO] [app.py:105 change_password()] Comparing emails: input='naresh@gmail.com' stored='manish@gmail.com'
+2025-05-09 10:47:28,402 [INFO] [app.py:105 change_password()] Comparing emails: input='naresh@gmail.com' stored='manish@gmail.com'
+2025-05-09 10:47:28,402 [INFO] [app.py:105 change_password()] Comparing emails: input='naresh@gmail.com' stored='ameetparse@gmail.com'
+2025-05-09 10:47:28,402 [INFO] [app.py:105 change_password()] Comparing emails: input='naresh@gmail.com' stored='surendra@gmail.com'
+2025-05-09 10:47:28,402 [INFO] [app.py:105 change_password()] Comparing emails: input='naresh@gmail.com' stored='naresh@gmail.com'
+2025-05-09 10:47:28,402 [INFO] [app.py:108 change_password()] Email match found
+2025-05-09 10:47:28,404 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [09/May/2025 10:47:28] "POST /user/change_password HTTP/1.1" 200 -
+2025-05-09 10:47:42,827 [INFO] [app.py:105 change_password()] Comparing emails: input='naresh@gmail.com' stored='ameet@gmail.com'
+2025-05-09 10:47:42,827 [INFO] [app.py:105 change_password()] Comparing emails: input='naresh@gmail.com' stored='manish@gmail.com'
+2025-05-09 10:47:42,827 [INFO] [app.py:105 change_password()] Comparing emails: input='naresh@gmail.com' stored='manish@gmail.com'
+2025-05-09 10:47:42,827 [INFO] [app.py:105 change_password()] Comparing emails: input='naresh@gmail.com' stored='ameetparse@gmail.com'
+2025-05-09 10:47:42,827 [INFO] [app.py:105 change_password()] Comparing emails: input='naresh@gmail.com' stored='surendra@gmail.com'
+2025-05-09 10:47:42,827 [INFO] [app.py:105 change_password()] Comparing emails: input='naresh@gmail.com' stored='naresh@gmail.com'
+2025-05-09 10:47:42,827 [INFO] [app.py:108 change_password()] Email match found
+2025-05-09 10:47:42,828 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [09/May/2025 10:47:42] "[31m[1mPOST /user/change_password HTTP/1.1[0m" 400 -
+2025-05-09 13:47:05,646 [INFO] [_internal.py:187 _log()] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-09 13:47:05,646 [INFO] [_internal.py:187 _log()] [33mPress CTRL+C to quit[0m
+2025-05-09 13:47:05,651 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-09 13:47:05,967 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-09 13:47:05,971 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-09 13:48:06,699 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [09/May/2025 13:48:06] "POST /register HTTP/1.1" 200 -
+2025-05-09 13:48:09,743 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [09/May/2025 13:48:09] "POST /register HTTP/1.1" 200 -
+2025-05-09 13:48:17,862 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [09/May/2025 13:48:17] "[33mGET /users HTTP/1.1[0m" 404 -
+2025-05-09 13:49:16,009 [INFO] [app.py:74 login()] User found is <model.user.User object at 0x0000019649F19F60> and cred matched
+2025-05-09 13:49:16,009 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [09/May/2025 13:49:16] "POST /user/login HTTP/1.1" 200 -
+2025-05-09 13:49:33,323 [INFO] [app.py:105 change_password()] Comparing emails: input='pavan@gmail.com' stored='ameet@gmail.com'
+2025-05-09 13:49:33,323 [INFO] [app.py:105 change_password()] Comparing emails: input='pavan@gmail.com' stored='manish@gmail.com'
+2025-05-09 13:49:33,323 [INFO] [app.py:105 change_password()] Comparing emails: input='pavan@gmail.com' stored='manish@gmail.com'
+2025-05-09 13:49:33,323 [INFO] [app.py:105 change_password()] Comparing emails: input='pavan@gmail.com' stored='ameetparse@gmail.com'
+2025-05-09 13:49:33,323 [INFO] [app.py:105 change_password()] Comparing emails: input='pavan@gmail.com' stored='surendra@gmail.com'
+2025-05-09 13:49:33,323 [INFO] [app.py:105 change_password()] Comparing emails: input='pavan@gmail.com' stored='naresh@gmail.com'
+2025-05-09 13:49:33,323 [INFO] [app.py:105 change_password()] Comparing emails: input='pavan@gmail.com' stored='pavan@gmail.com'
+2025-05-09 13:49:33,323 [INFO] [app.py:108 change_password()] Email match found
+2025-05-09 13:49:33,324 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [09/May/2025 13:49:33] "POST /user/change_password HTTP/1.1" 200 -
+2025-05-09 13:51:23,746 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangment_class\\app.py', reloading
+2025-05-09 13:51:23,819 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-09 13:51:24,203 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-09 13:51:24,208 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-09 13:51:34,299 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangment_class\\app.py', reloading
+2025-05-09 13:51:34,340 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-09 13:51:34,712 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-09 13:51:34,717 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-09 13:52:11,014 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangment_class\\app.py', reloading
+2025-05-09 13:52:11,068 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-09 13:52:11,448 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-09 13:52:11,452 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-09 13:52:21,534 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangment_class\\app.py', reloading
+2025-05-09 13:52:21,591 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-09 13:52:22,006 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-09 13:52:22,011 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-09 13:52:52,790 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [09/May/2025 13:52:52] "POST /register HTTP/1.1" 200 -
+2025-05-09 13:53:33,092 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [09/May/2025 13:53:33] "POST /register HTTP/1.1" 200 -
+2025-05-09 13:53:38,292 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [09/May/2025 13:53:38] "GET /users HTTP/1.1" 200 -
+2025-05-09 13:54:44,097 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangment_class\\app.py', reloading
+2025-05-09 13:54:44,158 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-09 13:54:44,548 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-09 13:54:44,552 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-09 13:54:53,647 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangment_class\\app.py', reloading
+2025-05-09 13:54:53,704 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-09 13:54:54,078 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-09 13:54:54,081 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-09 13:55:12,937 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [09/May/2025 13:55:12] "GET /get_user/kumar@gmail.com HTTP/1.1" 200 -

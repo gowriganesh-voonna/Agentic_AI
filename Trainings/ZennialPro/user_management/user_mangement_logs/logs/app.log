@@ -1,0 +1,394 @@
+2025-05-08 16:39:33,000 [INFO] [_internal.py:187 _log()] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-08 16:39:33,000 [INFO] [_internal.py:187 _log()] [33mPress CTRL+C to quit[0m
+2025-05-08 16:39:33,006 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 16:39:33,512 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 16:39:33,517 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 16:39:55,716 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 16:39:55] "POST /register HTTP/1.1" 200 -
+2025-05-08 16:41:00,769 [INFO] [app.py:67 login()] User found is <model.user.User object at 0x0000028DE65C1B50> and cred matched
+2025-05-08 16:41:00,770 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 16:41:00] "POST /user/login HTTP/1.1" 200 -
+2025-05-08 16:41:11,908 [INFO] [app.py:70 login()] User found is None but cred are not matching
+2025-05-08 16:41:11,909 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 16:41:11] "[31m[1mPOST /user/login HTTP/1.1[0m" 401 -
+2025-05-08 18:10:11,155 [INFO] [_internal.py:187 _log()] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-08 18:10:11,155 [INFO] [_internal.py:187 _log()] [33mPress CTRL+C to quit[0m
+2025-05-08 18:10:11,160 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 18:10:11,580 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 18:10:11,585 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 18:10:39,373 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 18:10:39] "[33mPOST /change_password HTTP/1.1[0m" 404 -
+2025-05-08 18:14:08,623 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 18:14:08,700 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 18:14:09,220 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 18:14:09,225 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 18:14:19,983 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 18:14:19] "[33mPOST /change_password HTTP/1.1[0m" 404 -
+2025-05-08 18:15:47,848 [ERROR] [app.py:115 change_password()] Error in change_password: 'Logger' object has no attribute 'INFO'
+2025-05-08 18:15:47,849 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 18:15:47] "[35m[1mPOST /user/change_password HTTP/1.1[0m" 500 -
+2025-05-08 18:16:29,518 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 18:16:29,584 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 18:16:30,051 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 18:16:30,057 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 18:16:31,085 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 18:16:31,159 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 18:16:31,636 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 18:16:31,642 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 18:16:48,220 [ERROR] [app.py:115 change_password()] Error in change_password: 'Logger' object has no attribute 'INFO'
+2025-05-08 18:16:48,221 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 18:16:48] "[35m[1mPOST /user/change_password HTTP/1.1[0m" 500 -
+2025-05-08 18:17:56,443 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 18:17:56,503 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 18:17:56,986 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 18:17:56,991 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 18:18:00,351 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 18:18:00] "POST /user/change_password HTTP/1.1" 200 -
+2025-05-08 18:24:06,673 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 18:24:06,754 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 18:24:07,200 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 18:24:07,204 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 18:24:15,285 [ERROR] [app.py:115 change_password()] Error in change_password: 'User' object is not subscriptable
+2025-05-08 18:24:15,285 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 18:24:15] "[35m[1mPOST /user/change_password HTTP/1.1[0m" 500 -
+2025-05-08 18:24:39,544 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 18:24:39,620 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 18:24:40,056 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 18:24:40,060 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 18:24:53,204 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 18:24:53,276 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 18:24:53,797 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 18:24:53,803 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 18:24:57,187 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 18:24:57] "POST /user/change_password HTTP/1.1" 200 -
+2025-05-08 18:25:50,313 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 18:25:50,393 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 18:25:50,833 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 18:25:50,837 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 18:26:15,062 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 18:26:15,145 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 18:26:15,577 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 18:26:15,581 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 18:26:20,551 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 18:26:20] "POST /user/change_password HTTP/1.1" 200 -
+2025-05-08 18:27:38,431 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 18:27:38,516 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 18:27:39,021 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 18:27:39,026 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 18:27:43,168 [ERROR] [app.py:117 change_password()] Error in change_password: 'list' object has no attribute 'email'
+2025-05-08 18:27:43,168 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 18:27:43] "[35m[1mPOST /user/change_password HTTP/1.1[0m" 500 -
+2025-05-08 18:28:10,318 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 18:28:10,406 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 18:28:10,839 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 18:28:10,844 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 18:28:14,751 [ERROR] [app.py:117 change_password()] Error in change_password: 'list' object has no attribute 'get'
+2025-05-08 18:28:14,751 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 18:28:14] "[35m[1mPOST /user/change_password HTTP/1.1[0m" 500 -
+2025-05-08 18:28:23,979 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 18:28:24,045 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 18:28:24,521 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 18:28:24,527 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 18:28:27,632 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 18:28:27] "POST /user/change_password HTTP/1.1" 200 -
+2025-05-08 18:29:07,955 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 18:29:08,030 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 18:29:08,490 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 18:29:08,495 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 18:29:12,295 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 18:29:12] "POST /user/change_password HTTP/1.1" 200 -
+2025-05-08 18:35:51,168 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 18:35:51,236 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 18:35:51,701 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 18:35:51,706 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 18:35:56,761 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 18:35:56,830 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 18:35:57,377 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 18:35:57,383 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 18:35:59,692 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 18:35:59] "POST /user/change_password HTTP/1.1" 200 -
+2025-05-08 18:36:44,807 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 18:36:44,881 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 18:36:45,315 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 18:36:45,322 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 18:36:55,440 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 18:36:55,518 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 18:36:56,001 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 18:36:56,007 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 18:37:37,431 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 18:37:37,512 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 18:37:37,957 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 18:37:37,962 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 18:37:48,067 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 18:37:48,132 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 18:37:48,600 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 18:37:48,606 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 18:37:52,082 [INFO] [app.py:102 change_password()] Comparing emails: input='gannu@gmail.com' stored='ameet@gmail.com'
+2025-05-08 18:37:52,082 [INFO] [app.py:102 change_password()] Comparing emails: input='gannu@gmail.com' stored='manish@gmail.com'
+2025-05-08 18:37:52,082 [INFO] [app.py:102 change_password()] Comparing emails: input='gannu@gmail.com' stored='gannu@gmail.com'
+2025-05-08 18:37:52,083 [INFO] [app.py:105 change_password()] Email match found
+2025-05-08 18:37:52,084 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 18:37:52] "POST /user/change_password HTTP/1.1" 200 -
+2025-05-08 18:38:42,525 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 18:38:42] "POST /register HTTP/1.1" 200 -
+2025-05-08 18:38:58,122 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 18:38:58] "[33mGET /find_user/pavan@gmail.com HTTP/1.1[0m" 404 -
+2025-05-08 18:39:21,064 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 18:39:21] "[33mGET /users HTTP/1.1[0m" 404 -
+2025-05-08 18:39:48,434 [INFO] [app.py:67 login()] User found is <model.user.User object at 0x000002213DD06B70> and cred matched
+2025-05-08 18:39:48,435 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 18:39:48] "POST /user/login HTTP/1.1" 200 -
+2025-05-08 18:40:11,876 [INFO] [app.py:102 change_password()] Comparing emails: input='pavan@gmail.com' stored='ameet@gmail.com'
+2025-05-08 18:40:11,876 [INFO] [app.py:102 change_password()] Comparing emails: input='pavan@gmail.com' stored='manish@gmail.com'
+2025-05-08 18:40:11,876 [INFO] [app.py:102 change_password()] Comparing emails: input='pavan@gmail.com' stored='gannu@gmail.com'
+2025-05-08 18:40:11,877 [INFO] [app.py:102 change_password()] Comparing emails: input='pavan@gmail.com' stored='pavan@gmail.com'
+2025-05-08 18:40:11,877 [INFO] [app.py:105 change_password()] Email match found
+2025-05-08 18:40:11,878 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 18:40:11] "POST /user/change_password HTTP/1.1" 200 -
+2025-05-08 18:40:26,660 [INFO] [app.py:67 login()] User found is <model.user.User object at 0x000002213DCA6410> and cred matched
+2025-05-08 18:40:26,661 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 18:40:26] "POST /user/login HTTP/1.1" 200 -
+2025-05-08 18:42:56,471 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 18:42:56,548 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 18:42:57,048 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 18:42:57,054 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 18:43:04,075 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 18:43:04] "[35m[1mGET /users HTTP/1.1[0m" 500 -
+2025-05-08 18:43:23,506 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 18:43:23] "[35m[1mGET /users HTTP/1.1[0m" 500 -
+2025-05-08 18:46:54,224 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 18:46:54,295 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 18:46:54,829 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 18:46:54,834 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 18:46:59,523 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 18:46:59] "[35m[1mGET /users HTTP/1.1[0m" 500 -
+2025-05-08 18:48:41,860 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 18:48:41,936 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 18:48:42,438 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 18:48:42,443 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 18:49:22,836 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 18:49:22,909 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 18:49:23,366 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 18:49:23,371 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 18:49:27,930 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 18:49:27] "GET /users HTTP/1.1" 200 -
+2025-05-08 18:50:45,200 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\model\\user.py', reloading
+2025-05-08 18:50:45,286 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 18:50:45,736 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 18:50:45,743 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 18:50:50,551 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 18:50:50] "[35m[1mGET /users HTTP/1.1[0m" 500 -
+2025-05-08 18:50:54,832 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\model\\user.py', reloading
+2025-05-08 18:50:54,908 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 18:50:55,322 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 18:50:55,327 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 18:51:05,460 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\model\\user.py', reloading
+2025-05-08 18:51:05,537 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 18:51:05,952 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 18:51:05,957 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 18:51:10,881 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 18:51:10] "GET /users HTTP/1.1" 200 -
+2025-05-08 18:54:00,618 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 18:54:00,701 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 18:54:01,165 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 18:54:01,170 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 18:54:09,315 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 18:54:09,379 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 18:54:09,826 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 18:54:09,831 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 18:54:16,970 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 18:54:16] "POST /register HTTP/1.1" 200 -
+2025-05-08 18:55:33,551 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 18:55:33] "POST /register HTTP/1.1" 200 -
+2025-05-08 18:56:24,127 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 18:56:24,191 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 18:56:24,788 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 18:56:24,793 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 18:56:29,503 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 18:56:29] "POST /register HTTP/1.1" 200 -
+2025-05-08 18:58:20,909 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 18:58:20,975 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 18:58:21,420 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 18:58:21,425 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 18:58:29,753 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 18:58:29] "GET /users HTTP/1.1" 200 -
+2025-05-08 18:59:35,067 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 18:59:35,136 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 18:59:35,595 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 18:59:35,599 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 18:59:40,442 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 18:59:40] "[35m[1mGET /users HTTP/1.1[0m" 500 -
+2025-05-08 19:00:05,914 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 19:00:05,990 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 19:00:06,468 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 19:00:06,473 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 19:00:10,146 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 19:00:10] "[35m[1mGET /users HTTP/1.1[0m" 500 -
+2025-05-08 19:00:35,745 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 19:00:35,821 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 19:00:36,259 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 19:00:36,305 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 19:00:40,218 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 19:00:40] "[35m[1mGET /users HTTP/1.1[0m" 500 -
+2025-05-08 19:00:50,475 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 19:00:50,550 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 19:00:51,072 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 19:00:51,077 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 19:00:53,422 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 19:00:53] "GET /users HTTP/1.1" 200 -
+2025-05-08 19:03:02,265 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 19:03:02,330 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 19:03:02,827 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 19:03:02,836 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 19:03:11,933 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 19:03:11,997 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 19:03:12,412 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 19:03:12,418 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 19:03:18,926 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 19:03:18] "[35m[1mGET /users HTTP/1.1[0m" 500 -
+2025-05-08 19:03:37,662 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 19:03:37,739 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 19:03:38,283 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 19:03:38,288 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 19:03:40,559 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 19:03:40] "[35m[1mGET /users HTTP/1.1[0m" 500 -
+2025-05-08 19:04:12,629 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 19:04:12,736 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 19:04:13,258 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 19:04:13,265 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 19:04:17,528 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 19:04:17] "[35m[1mGET /users HTTP/1.1[0m" 500 -
+2025-05-08 19:05:07,772 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 19:05:07,848 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 19:05:08,409 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 19:05:08,414 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 19:05:13,242 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 19:05:13] "[35m[1mGET /users HTTP/1.1[0m" 500 -
+2025-05-08 19:07:39,829 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 19:07:39,911 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 19:07:40,435 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 19:07:40,440 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 19:07:52,576 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 19:07:52,653 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 19:07:53,178 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 19:07:53,186 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 19:07:55,684 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 19:07:55] "GET /users HTTP/1.1" 200 -
+2025-05-08 19:08:10,087 [INFO] [_internal.py:187 _log()] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-08 19:08:10,088 [INFO] [_internal.py:187 _log()] [33mPress CTRL+C to quit[0m
+2025-05-08 19:08:10,092 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 19:08:10,454 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 19:08:10,459 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 19:08:13,443 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 19:08:13] "GET /users HTTP/1.1" 200 -
+2025-05-08 19:36:34,845 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 19:36:34,930 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 19:36:35,374 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 19:36:35,379 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 19:36:46,959 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 19:36:46] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+2025-05-08 19:37:53,106 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 19:37:53,190 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 19:37:53,654 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 19:37:53,659 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 19:37:56,990 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 19:37:56] "POST /register HTTP/1.1" 200 -
+2025-05-08 19:42:32,264 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 19:42:32,344 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 19:42:32,807 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 19:42:32,812 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 19:43:19,267 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 19:43:19,327 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 19:43:19,737 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 19:43:19,742 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 19:43:51,031 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 19:43:51,096 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 19:43:51,551 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 19:43:51,556 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 19:45:15,291 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 19:45:15,365 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 19:45:15,833 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 19:45:15,839 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 20:32:24,923 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 20:32:24,984 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 20:32:25,372 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 20:32:25,377 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 20:32:29,410 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 20:32:29,467 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 20:32:29,848 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 20:32:29,852 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 20:33:41,857 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 20:33:41] "GET /get_user/pavan@gmail.com HTTP/1.1" 200 -
+2025-05-08 20:34:15,453 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 20:34:15,521 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 20:34:15,911 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 20:34:15,916 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 20:34:19,120 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 20:34:19] "[35m[1mGET /get_user/pavan@gmail.com HTTP/1.1[0m" 500 -
+2025-05-08 20:34:52,145 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 20:34:52,201 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 20:34:52,581 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 20:34:52,588 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 20:34:57,016 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 20:34:57] "[35m[1mGET /get_user/pavan@gmail.com HTTP/1.1[0m" 500 -
+2025-05-08 20:34:59,600 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 20:34:59] "[35m[1mGET /get_user/pavan@gmail.com HTTP/1.1[0m" 500 -
+2025-05-08 20:35:37,802 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 20:35:37,852 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 20:35:38,239 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 20:35:38,244 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 20:35:40,192 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 20:35:40] "GET /get_user/pavan@gmail.com HTTP/1.1" 200 -
+2025-05-08 20:36:36,564 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 20:36:36,612 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 20:36:37,020 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 20:36:37,024 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 20:36:41,064 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 20:36:41,113 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 20:36:41,553 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 20:36:41,558 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 20:36:45,238 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 20:36:45] "[35m[1mGET /get_user/pavan@gmail.com HTTP/1.1[0m" 500 -
+2025-05-08 20:37:01,685 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 20:37:01,744 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 20:37:02,149 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 20:37:02,153 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 20:37:37,379 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 20:37:37,431 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 20:37:37,804 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 20:37:37,808 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 20:38:37,183 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 20:38:37,232 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 20:38:37,650 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 20:38:37,654 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 20:38:40,509 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 20:38:40] "GET /get_user/pavan@gmail.com HTTP/1.1" 200 -
+2025-05-08 20:39:15,611 [INFO] [_internal.py:187 _log()] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-08 20:39:15,611 [INFO] [_internal.py:187 _log()] [33mPress CTRL+C to quit[0m
+2025-05-08 20:39:15,615 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 20:39:15,961 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 20:39:15,965 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 20:39:21,024 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 20:39:21] "GET /get_user/pavan@gmail.com HTTP/1.1" 200 -
+2025-05-08 20:39:30,039 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 20:39:30,096 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 20:39:30,499 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 20:39:30,504 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 20:42:22,444 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 20:42:22,509 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 20:42:23,080 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 20:42:23,089 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 20:42:29,186 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 20:42:29] "[35m[1mGET /get_user/pavan@gmail.com HTTP/1.1[0m" 500 -
+2025-05-08 20:42:50,239 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 20:42:50,292 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 20:42:50,788 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 20:42:50,795 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 20:42:53,368 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 20:42:53] "[35m[1mGET /get_user/pavan@gmail.com HTTP/1.1[0m" 500 -
+2025-05-08 20:42:55,311 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 20:42:55] "[35m[1mGET /get_user/pavan@gmail.com HTTP/1.1[0m" 500 -
+2025-05-08 20:43:12,939 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 20:43:12,983 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 20:43:13,494 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 20:43:13,499 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 20:43:15,136 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 20:43:15] "GET /get_user/pavan@gmail.com HTTP/1.1" 200 -
+2025-05-08 20:43:29,607 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 20:43:29,652 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 20:43:30,052 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 20:43:30,056 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 20:43:32,407 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 20:43:32] "GET /get_user/pavan@gmail.com HTTP/1.1" 200 -
+2025-05-08 20:44:39,454 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 20:44:39,507 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 20:44:39,921 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 20:44:39,925 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 20:44:45,968 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 20:44:46,027 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 20:44:46,483 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 20:44:46,488 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 20:44:49,114 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 20:44:49] "[35m[1mGET /get_user/pavan@gmail.com HTTP/1.1[0m" 500 -
+2025-05-08 20:45:19,692 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 20:45:19,740 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 20:45:20,104 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 20:45:20,109 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 20:45:27,152 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 20:45:27,196 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 20:45:27,827 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 20:45:27,838 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 20:46:34,870 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 20:46:34] "GET /users HTTP/1.1" 200 -
+2025-05-08 20:58:10,236 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 20:58:10] "GET /get_user/pavan@gmail.com HTTP/1.1" 200 -
+2025-05-08 20:58:53,164 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 20:58:53,217 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 20:58:53,638 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 20:58:53,643 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 20:58:57,519 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 20:58:57] "GET /get_user/pavan@gmail.com HTTP/1.1" 200 -
+2025-05-08 20:59:28,834 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 20:59:28,887 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 20:59:29,279 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 20:59:29,283 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 20:59:42,353 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 20:59:42,398 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 20:59:42,799 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 20:59:42,803 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 20:59:52,947 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 20:59:52] "[31m[1mGET /get_user/pavan1@gmail.com HTTP/1.1[0m" 405 -
+2025-05-08 20:59:58,572 [INFO] [_internal.py:187 _log()] 127.0.0.1 - - [08/May/2025 20:59:58] "GET /get_user/pavan@gmail.com HTTP/1.1" 200 -
+2025-05-08 21:01:10,278 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 21:01:10,356 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 21:01:10,813 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 21:01:10,818 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 21:01:15,861 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 21:01:15,927 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 21:01:16,322 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 21:01:16,327 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440
+2025-05-08 21:01:28,404 [INFO] [_internal.py:187 _log()]  * Detected change in 'D:\\Course\\ZennialPro\\user_management\\user_mangement_logs\\app.py', reloading
+2025-05-08 21:01:28,464 [INFO] [_internal.py:187 _log()]  * Restarting with stat
+2025-05-08 21:01:28,840 [WARNING] [_internal.py:187 _log()]  * Debugger is active!
+2025-05-08 21:01:28,844 [INFO] [_internal.py:187 _log()]  * Debugger PIN: 736-760-440

@@ -1,0 +1,74 @@
+from flask import Flask, request , jsonify
+import json,os
+
+
+
+app= Flask(__name__)
+
+def get_user_path():
+
+    current_dir=os.path.dirname(__file__)
+    default_path=os.path.join(current_dir,"data","user_data.json")
+    return os.path.abspath(default_path)
+
+def load_users():
+    user_file_path=get_user_path()
+
+    if not  os.path.exists(user_file_path):
+        return []
+    with open(user_file_path,"r") as f:
+        return json.load(f)
+    
+
+def save_user(data):
+    users= get_user_path()
+    os.makedirs(os.path.dirname(users),exist_ok=True)
+
+    with open(users,"w") as f:
+        json.dump(data,f,indent=4)
+
+
+# @app.route("/register",methods=["POST"])
+# def register():
+#     user_data=request.get_json()
+#     required =["user_name","password","email","password"]
+#     users=load_users()
+#     if not all( r in user_data for r in required):
+#         return jsonify({"message":'"user_name","password","email","password" are Required '}),407
+#     users.append(user_data)
+#     save_user(users)
+
+#     return jsonify({"message":"user saved successfully"}),200
+
+@app.route("/register", methods=["POST"])
+def register():
+    print("Headers:", dict(request.headers))  # Add this
+    print("Content-Type:", request.content_type)  # And this
+    if not request.is_json:
+        return jsonify({"error": "Request must be JSON and have 'Content-Type: application/json' header"}), 415
+   
+    user_data = request.get_json()
+    users = load_users()
+    required = ["user_name", "password", "email","dob"]
+    if not all(key in user_data for key in required):
+        return jsonify({"message": '"user_name", "password", and "email" are required fields.'}), 400
+
+    
+    users.append(user_data)
+    save_user(users)
+    print("Saving to:", get_user_path())
+    return jsonify({"Messgae":"Added successfully"}),200
+
+
+@app.route("/users",methods=["GET"])
+def fetch_users():
+    data=load_users()
+    return data
+
+    return jsonify({"message": "User saved successfully"}), 200
+
+
+
+
+if __name__=="__main__":
+    app.run(debug=True)

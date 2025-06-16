@@ -1,0 +1,39 @@
+2025-05-13 14:15:37,685 - INFO - Loading the data for file load_data
+2025-05-13 14:15:37,685 - INFO - Loading the data for file find_by_department
+2025-05-13 14:19:07,735 - INFO - Loading the data for file load_data
+2025-05-13 14:19:07,740 - INFO - Loading the data for file find_by_department
+2025-05-13 14:28:57,154 - INFO - Loading the data for file load_data
+2025-05-13 14:28:57,155 - INFO - Loading the data for file find_by_department
+2025-05-13 14:28:57,156 - INFO - Loading the data for file find_by_active_department
+2025-05-13 14:31:52,628 - INFO - Loading the data for file load_data
+2025-05-13 14:31:52,629 - INFO - Loading the data for file find_by_department
+2025-05-13 14:31:52,630 - INFO - Loading the data for file find_by_active_department
+2025-05-13 20:00:44,992 - INFO - Loading the data for file load_data
+2025-05-13 20:00:44,993 - INFO - Loading the data for file summary_stats
+2025-05-13 20:16:46,526 - INFO - Loading the data for file load_data
+2025-05-13 20:16:46,527 - INFO - Loading the data for file summary_stats
+2025-05-13 20:17:06,668 - INFO - Loading the data for file load_data
+2025-05-13 20:17:06,669 - INFO - Loading the data for file summary_stats
+2025-05-13 20:21:15,002 - INFO - Loading the data for file load_data
+2025-05-13 20:21:15,003 - INFO - Loading the data for file summary_stats
+2025-05-13 20:21:15,003 - ERROR - Exception  in summary_stats : 'dict' object has no attribute 'item'
+Traceback (most recent call last):
+  File "D:\Course\ZennialPro\employees\employee_data.py", line 38, in wrapper
+    return func(*args,**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\Course\ZennialPro\employees\employee_data.py", line 113, in summary_stats
+    result=max([(k,v) for k,v in dept_count.item()],key= lambda x:x[1]),[0]
+                                 ^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'item'
+2025-05-13 20:21:31,183 - INFO - Loading the data for file load_data
+2025-05-13 20:21:31,183 - INFO - Loading the data for file summary_stats
+2025-05-13 20:21:48,408 - INFO - Loading the data for file load_data
+2025-05-13 20:21:48,408 - INFO - Loading the data for file summary_stats
+2025-05-13 20:21:54,856 - INFO - Loading the data for file load_data
+2025-05-13 20:21:54,857 - INFO - Loading the data for file summary_stats
+2025-05-13 20:26:11,812 - INFO - Loading the data for file load_data
+2025-05-13 20:26:11,815 - INFO - Loading the data for file summary_stats
+2025-05-13 20:28:35,832 - INFO - Loading the data for file load_data
+2025-05-13 20:28:35,834 - INFO - Loading the data for file summary_stats
+2025-05-13 20:30:14,439 - INFO - Loading the data for file load_data
+2025-05-13 20:30:14,439 - INFO - Loading the data for file summary_stats

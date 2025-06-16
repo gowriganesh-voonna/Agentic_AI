@@ -1,0 +1,14 @@
+
+ function divide_salary_by_employee  with args (400000, 0) 
+ Execution in divide_salary_by_employee 
+
+ function divide_salary_by_employee  with args (400000, 0) 
+ Execution in divide_salary_by_employee 
+Traceback (most recent call last):
+  File "D:\Course\day3_logger.py", line 7, in wrapper
+    return func(*args,**kwargs)    #func= divide_salary_by_employee(salary,count)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\Course\day3_logger.py", line 22, in divide_salary_by_employee
+    return salary/ count
+           ~~~~~~^~~~~~~
+ZeroDivisionError: division by zero

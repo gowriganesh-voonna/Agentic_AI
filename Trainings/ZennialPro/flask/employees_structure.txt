@@ -1,0 +1,11 @@
+app ( Folder)  -------- data (folder) ----> employees_details.json
+ |              | ----- model (folder) -----> (classes we have defined) employee.py / project.py
+ |              | ----- service (folder) ---> employee_service.py 
+ |              | ----  utils ( folder) -----> decoratores.py / logger.py 
+ 
+ |              |
+ |
+ |
+ |
+ |
+ main.py

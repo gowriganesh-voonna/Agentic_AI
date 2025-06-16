@@ -1,0 +1,116 @@
+[
+    {
+        "emp_id": "E001",
+        "name": "Amit Sharma",
+        "department": "Tech",
+        "projects": [
+            {
+                "project_name": "Backend Revamp",
+                "status": "Completed"
+            }
+        ]
+    },
+    {
+        "emp_id": "E002",
+        "name": "Sneha Rao",
+        "department": "HR",
+        "projects": [
+            {
+                "project_name": "Recruitment Drive",
+                "status": "Active"
+            }
+        ]
+    },
+    {
+        "emp_id": "E003",
+        "name": "Rohit Desai",
+        "department": "Finance",
+        "projects": [
+            {
+                "project_name": "Audit",
+                "status": "Completed"
+            }
+        ]
+    },
+    {
+        "emp_id": "E004",
+        "name": "Meena Iyer",
+        "department": "Tech",
+        "projects": [
+            {
+                "project_name": "AI Integration",
+                "status": "Active"
+            },
+            {
+                "project_name": "Bug Fixes",
+                "status": "Active"
+            }
+        ]
+    },
+    {
+        "emp_id": "E005",
+        "name": "Kunal Joshi",
+        "department": "Operations",
+        "projects": [
+            {
+                "project_name": "Workflow Automation",
+                "status": "Active"
+            }
+        ]
+    },
+    {
+        "emp_id": "E006",
+        "name": "Divya Nair",
+        "department": "Marketing",
+        "projects": [
+            {
+                "project_name": "Campaign Alpha",
+                "status": "Completed"
+            }
+        ]
+    },
+    {
+        "emp_id": "E007",
+        "name": "Ankit Mehra",
+        "department": "Sales",
+        "projects": [
+            {
+                "project_name": "Q2 Pipeline",
+                "status": "Active"
+            }
+        ]
+    },
+    {
+        "emp_id": "E008",
+        "name": "Neha Sinha",
+        "department": "Tech",
+        "projects": [
+            {
+                "project_name": "DevOps Upgrade",
+                "status": "Completed"
+            }
+        ]
+    },
+    {
+        "emp_id": "E009",
+        "name": "Ravi Kapoor",
+        "department": "HR",
+        "projects": [
+            {
+                "project_name": "Employee Handbook",
+                "status": "Completed"
+            }
+        ]
+    },
+    {
+        "emp_id": "E010",
+        "name": "Pooja Mishra",
+        "department": "Tech",
+        "projects": [
+            {
+                "project_name": "Frontend Redesign",
+                "status": "Active"
+            }
+        ]
+    }
+]

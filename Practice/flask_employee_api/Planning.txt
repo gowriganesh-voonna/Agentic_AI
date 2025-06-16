@@ -1,0 +1,9 @@
+step 1 : load data into main.py
+
+step2 : use logger and decoratores and test it.
+
+step3 : start defining your methods in main.py
+
+Problems :
+1) In Employee_service : senstive data hiding which is salary
+

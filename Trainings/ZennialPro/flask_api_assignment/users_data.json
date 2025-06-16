@@ -1,0 +1,38 @@
+[
+    {
+        "user_id": "100A1",
+        "first_name": "Voonna",
+        "last_name": "Gowri",
+        "username": "voonna",
+        "password": "Voonna1p2",
+        "age": 22,
+        "dob": "02-02-2003"
+    },
+    {
+        "user_id": "100A2",
+        "first_name": "Gandhra",
+        "last_name": "Reddy",
+        "username": "gsr.reddy",
+        "password": "sreddy",
+        "age": 22,
+        "dob": "02-02-2003"
+    },
+    {
+        "user_id": "100A3",
+        "first_name": "Macherla",
+        "last_name": "Prem Shankar",
+        "username": "premshankar123",
+        "password": "prem123@",
+        "age": 22,
+        "dob": "02-02-2004"
+    },
+    {
+        "user_id": "1004",
+        "first_name": "Gidugu",
+        "last_name": "Nikitha",
+        "username": "Nikitha.G",
+        "password": "niki@",
+        "age": 22,
+        "dob": "02-02-2003"
+    }
+]

@@ -1,0 +1,65 @@
+[
+    {
+        "first_name": "Ameyaan",
+        "last_name": "Parse",
+        "email": "ameet@gmail.com",
+        "dob": "01/01/2011",
+        "password": "zp@511786#"
+    },
+    {
+        "first_name": "Manish",
+        "last_name": "Kumar",
+        "email": "manish@gmail.com",
+        "dob": "01/01/2011",
+        "password": "zp@511786#"
+    },
+    {
+        "first_name": "Manish",
+        "last_name": "Kumar",
+        "email": "manish@gmail.com",
+        "dob": "01/01/2011",
+        "password": "zp@511786#"
+    },
+    {
+        "first_name": "Manish",
+        "last_name": "Kumar",
+        "email": "ameetparse@gmail.com",
+        "dob": "01/01/2011",
+        "password": "zp@511786#"
+    },
+    {
+        "first_name": "Surendra",
+        "last_name": "Reddy",
+        "email": "surendra@gmail.com",
+        "dob": "01/01/2011",
+        "password": "zp@511"
+    },
+    {
+        "first_name": "Naresh",
+        "last_name": "Cherukuthotapalli",
+        "email": "Naresh@gmail.com",
+        "dob": "01/01/2011",
+        "password": "zp@111"
+    },
+    {
+        "first_name": "Pavan",
+        "last_name": "Kumar",
+        "email": "pavan@gmail.com",
+        "dob": "02-02-2003",
+        "password": "Voonna"
+    },
+    {
+        "first_name": "Rahul",
+        "last_name": "Kumar",
+        "email": "kumar@gmail.com",
+        "dob": "02-02-2003",
+        "password": "Kumar"
+    },
+    {
+        "first_name": "lahari",
+        "last_name": "kumari",
+        "email": "lahari@gmail.com",
+        "dob": "02-02-2003",
+        "password": "lahari123"
+    }
+]

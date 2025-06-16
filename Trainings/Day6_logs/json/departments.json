@@ -1,0 +1,26 @@
+[
+    {
+        "dept_id": "1",
+        "dept_name": "IT-Admin"
+    },
+    {
+        "dept_id": "2",
+        "dept_name": "IT- Human Resource"
+    },
+    {
+        "dept_id": "3",
+        "dept_name": "IT - Infra"
+    },
+    {
+        "dept_id": "4",
+        "dept_name": "IT-Dev"
+    },
+    {
+        "dept_id": "5",
+        "dept_name": "Sales"
+    },
+    {
+        "dept_id": "1",
+        "dept_name": "IT"
+    }
+]

@@ -1,0 +1,27 @@
+
+# Build a Employee and Department Management System
+# Employee
+# >> Add Employee : 
+# >> Delete Employee
+# >> List Employee
+# >> List Employee By Criteria 
+# >> Find Employee with Highest Salary
+# >> Find Employee with Least Salary
+
+# Department
+# >> Add Department
+# >> List Department
+# >> Delete Department
+# >> Delete Department
+
+# Roles
+# Roles => Software Developer
+# Roles => IT - Manager
+# Roles => HR - Manager
+
+# JSON
+# employee.json -> employee(s) => Dict
+# department.json
+# role.json
+ 
+

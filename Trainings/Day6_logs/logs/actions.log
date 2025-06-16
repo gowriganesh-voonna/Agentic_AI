@@ -1,0 +1,6 @@
+2025-05-06 19:58:56,416 | INFO | helpers | load_from_json | line:43 | Loaded data from JSON file: D:\Course\Day6_logs\services\..\json\departments.json
+2025-05-06 19:58:56,427 | INFO | helpers | save_to_json | line:29 | Saved data to the file: D:\Course\Day6_logs\services\..\json\departments.json
+2025-05-06 19:58:58,400 | DEBUG | decorators | wrapper | line:8 | Entering the Function: list_departments
+2025-05-06 19:58:58,413 | INFO | helpers | load_from_json | line:43 | Loaded data from JSON file: D:\Course\Day6_logs\services\..\json\departments.json
+2025-05-06 19:58:58,414 | INFO | department | list_departments | line:30 | All Departments Loaded....
+2025-05-06 19:58:58,423 | DEBUG | decorators | wrapper | line:11 | Executed and Exiting the Function: list_departments

@@ -1,0 +1,50 @@
+2025-05-15 13:21:59,226 - INFO - Executing: load_employees
+2025-05-15 13:21:59,226 - ERROR - Error while Executing: load_employees : [Errno 2] No such file or directory: 'employees_details.json'
+Traceback (most recent call last):
+  File "D:\Course\ZennialPro\flask\app.py", line 20, in wrapper
+    return func(*args, **kwargs)
+  File "D:\Course\ZennialPro\flask\app.py", line 56, in load_employees
+    with open (filepath, 'r') as f:
+         ~~~~~^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'employees_details.json'
+2025-05-15 13:22:55,937 - INFO - Executing: load_employees
+2025-05-15 13:23:05,056 - INFO - Amit Sharma
+2025-05-15 13:23:05,058 - INFO - Neha Patel
+2025-05-15 13:23:05,058 - INFO - Raj Malhotra
+2025-05-15 13:23:05,059 - INFO - Sneha Reddy
+2025-05-15 13:23:05,059 - INFO - Vikram Deshmukh
+2025-05-15 13:23:05,059 - INFO - Priya Iyer
+2025-05-15 13:23:05,063 - INFO - Manoj Tiwari
+2025-05-15 13:23:05,063 - INFO - Anjali Verma
+2025-05-15 13:23:05,064 - INFO - Rohit Mehra
+2025-05-15 13:23:05,064 - INFO - Divya Joshi
+2025-05-15 13:23:05,064 - INFO - Arjun Nair
+2025-05-15 13:23:05,064 - INFO - Meena Khatri
+2025-05-15 13:23:05,065 - INFO - Kunal Rao
+2025-05-15 13:23:05,065 - INFO - Tanvi Shah
+2025-05-15 13:23:05,065 - INFO - Suresh Yadav
+2025-05-15 16:45:41,681 - INFO - Executing: load_employees
+2025-05-15 16:45:41,682 - ERROR - Error while Executing: load_employees : [Errno 2] No such file or directory: 'employees_details.json'
+Traceback (most recent call last):
+  File "D:\Course\ZennialPro\flask\app1.py", line 19, in wrapper
+    return func(*args, **kwargs)
+  File "D:\Course\ZennialPro\flask\app1.py", line 58, in load_employees
+    with open (filepath, 'r') as f:
+         ~~~~~^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'employees_details.json'
+2025-05-15 16:45:56,076 - INFO - Executing: load_employees
+2025-05-15 16:46:02,295 - INFO - Amit Sharma
+2025-05-15 16:46:02,297 - INFO - Neha Patel
+2025-05-15 16:46:02,297 - INFO - Raj Malhotra
+2025-05-15 16:46:02,297 - INFO - Sneha Reddy
+2025-05-15 16:46:02,297 - INFO - Vikram Deshmukh
+2025-05-15 16:46:02,297 - INFO - Priya Iyer
+2025-05-15 16:46:02,300 - INFO - Manoj Tiwari
+2025-05-15 16:46:02,301 - INFO - Anjali Verma
+2025-05-15 16:46:02,301 - INFO - Rohit Mehra
+2025-05-15 16:46:02,301 - INFO - Divya Joshi
+2025-05-15 16:46:02,301 - INFO - Arjun Nair
+2025-05-15 16:46:02,302 - INFO - Meena Khatri
+2025-05-15 16:46:02,302 - INFO - Kunal Rao
+2025-05-15 16:46:02,302 - INFO - Tanvi Shah
+2025-05-15 16:46:02,302 - INFO - Suresh Yadav
