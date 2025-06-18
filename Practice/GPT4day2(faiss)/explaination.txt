@@ -1,0 +1,189 @@
+Overview of the Code
+This Python script creates a system that:
+
+Uses OpenAI embeddings to convert text into vectors (numerical representations).
+
+Stores these vectors efficiently in a FAISS index for fast similarity searches.
+
+Maps each vector to a label (a name or tag).
+
+Saves and loads the index and labels so the system remembers the data between runs.
+
+
+-----------------------------------------------------------------------------------
+Detailed Explanation
+1. Imports
+
+from openai import OpenAI # To call OpenAI API (for embeddings)
+import numpy as np       # For handling numerical arrays and vectors
+import pickle            # To save/load Python objects (like dicts) to disk
+import faiss             # Fast similarity search library for vectors
+import os                # To access environment variables and files
+
+
+-----------------------------------------------------------------------------------------
+
+2. Configuration Variables
+
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")  # Reads your OpenAI API key from environment variables (keeps it secret)
+FAISS_INDEX = "text_index.faiss"               # Filename to save/load the FAISS index (the vector database)
+LABEL_MAP_FILE = "text_label.pk1"               # Filename to save/load the label map (dictionary of labels)
+VECTOR_DIM = 1536                               # Dimension size of the embedding vectors (depends on the model)
+
+OPENAI_API_KEY: Your private API key is not hardcoded but read from your environment for security.
+
+FAISS_INDEX and LABEL_MAP_FILE: Files to save/load your vector database and label mappings.
+
+VECTOR_DIM: The size of each vector, depends on the embedding model. Here it’s 1536, which fits some OpenAI embeddings.
+
+
+-------------------------------------------------------------------------------------------
+
+3. Initialize OpenAI Client
+python
+Copy
+Edit
+client = OpenAI(api_key=OPENAI_API_KEY)
+This creates an OpenAI client object to call OpenAI’s API, especially to create embeddings from text.
+
+You pass your API key to authenticate.
+
+
+----------------------------------------------------------------------------------------------
+
+4. Load or Create the FAISS Index
+
+if os.path.exists(FAISS_INDEX):
+    index = faiss.read_index(FAISS_INDEX)  # Load existing FAISS index from file
+else:
+    index = faiss.IndexFlatL2(VECTOR_DIM)  # Create a new FAISS index with L2 (Euclidean) distance
+If the text_index.faiss file exists, load the saved index (your vector database).
+
+Otherwise, create a new empty FAISS index that works with vectors of length 1536.
+
+IndexFlatL2 means FAISS uses simple Euclidean distance to compare vectors.
+
+-------------------------------------------------------------------------------------------------------------
+
+5. Load or Create Label Map
+
+if os.path.exists(LABEL_MAP_FILE):
+    with open(LABEL_MAP_FILE, "rb") as f:
+        label_map = pickle.load(f)  # Load existing label map (dictionary)
+else:
+    label_map = {}  # Start with an empty dictionary if no file exists
+The label map is a Python dictionary that links vector indices to human-readable labels.
+
+You save and load it using Python’s pickle module.
+
+If no file exists yet, start with an empty dictionary.
+
+-------------------------------------------------------------------------------------------------------
+
+6. Function to Get Embeddings
+
+def get_embeddings(text: str) -> list:
+    response = client.embeddings.create(model="text-embedding-3-small", input=text)
+    return response.data[0].embedding
+Given a piece of text, this function calls OpenAI’s embedding API (text-embedding-3-small model).
+
+It returns a list of floats which is the vector representation of the input text.
+
+This vector captures the semantic meaning of the text for similarity search.
+
+
+-------------------------------------------------------------------------------------------------------------
+
+7. Add Text and Label to the Index
+
+def add_to_index():
+    text = input("Enter text to add to faiss db (index): ")   # User enters some text
+    label = input(f"Enter label for text {text} : ")          # User enters a label for that text
+
+    text_embeddings = get_embeddings(text)                     # Get vector representation of the text
+    print(f"text_embeddings : {text_embeddings}")
+
+    vector = np.array([text_embeddings]).astype("float32")    # Convert to numpy float32 array (required by FAISS)
+    print(f"vector : {vector}")
+
+    index_id = index.ntotal                                   # Get the current number of vectors in index (new vector’s ID)
+    print(f"index_id : {index_id}")
+
+    index.add(vector)                                         # Add new vector to FAISS index
+    label_map[index_id] = label                               # Map the vector ID to the label
+
+    save_index()                                              # Save everything to disk
+Takes input text and a label from the user.
+
+Converts the text to embeddings.
+
+Converts the embeddings into a NumPy array of float32 (FAISS requires float32).
+
+Gets the current size of the FAISS index to use as the vector's ID.
+
+Adds the vector to the FAISS index.
+
+Adds the label to the label_map dictionary, keyed by the vector ID.
+
+Saves the index and label map to disk.
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+
+8. Save FAISS Index and Label Map
+
+def save_index():
+    faiss.write_index(index, FAISS_INDEX)                    # Save FAISS index to file
+    with open(LABEL_MAP_FILE, "wb") as f:
+        pickle.dump(label_map, f)                             # Save label map to pickle file
+Saves the vector index and label dictionary persistently on disk.
+
+Ensures data is not lost after program ends.
+
+-----------------------------------------------------------------------------------
+
+9. List Stored Labels
+
+def list_labels():
+    for idx, label in label_map.items():
+        print(f"{idx} : {label}")
+Prints all stored labels along with their vector index IDs.
+
+Useful to see what data is currently in your index.
+
+--------------------------------------------------------------------------------
+10. Main Entry Point
+
+def main():
+    # add_to_index()
+    list_labels()
+
+if __name__ == "__main__":
+    main()
+When you run the script, it will call main().
+
+Currently, it calls list_labels() to print all saved labels.
+
+You can uncomment add_to_index() to allow adding new entries interactively.
+
+Summary
+The code builds a text vector search system using OpenAI embeddings and FAISS.
+
+Text is turned into vectors, which are stored in a fast, searchable index.
+
+Each vector is linked to a human label.
+
+The index and labels are saved to disk and loaded on start.
+
+You can add new text + label pairs interactively.
+
+You can view all labels currently saved.
+
+
+
+
+
+
+
