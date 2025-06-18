@@ -1,0 +1,80 @@
+from openai import OpenAI
+import pickle
+import numpy as np
+import faiss
+import os
+
+# === CONFIGURATION ===
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")  # Make sure this environment variable is set
+FAISS_INDEX = "text_index.faiss"              # File to store FAISS vector index
+LABEL_MAP_FILE = "text_labels.pkl"            # File to store index-to-label mapping
+VECTOR_DIM = 1536                              # Vector dimension for OpenAI embeddings (text-embedding-3-small)
+
+# === INITIALIZE OPENAI CLIENT ===
+client = OpenAI(api_key=OPENAI_API_KEY)
+
+# === LOAD OR CREATE FAISS INDEX ===
+if os.path.exists(FAISS_INDEX):
+    index = faiss.read_index(FAISS_INDEX)
+    print(f"Loaded existing FAISS index from {FAISS_INDEX}")
+else:
+    index = faiss.IndexFlatL2(VECTOR_DIM)
+    print("Created new FAISS index.")
+
+# === LOAD OR CREATE LABEL MAPPING ===
+if os.path.exists(LABEL_MAP_FILE):
+    with open(LABEL_MAP_FILE, "rb") as f:
+        label_map = pickle.load(f)
+    print(f"Loaded label mapping from {LABEL_MAP_FILE}")
+else:
+    label_map = {}  # Maps vector ID -> label
+    print("Initialized empty label mapping.")
+
+# === FUNCTION: Get OpenAI Embedding ===
+def get_mean_embeddings(text: str) -> list:
+    response = client.embeddings.create(
+        model="text-embedding-3-small",
+        input=text
+    )
+    return response.data[0].embedding  # return list of 1536 floats
+
+# === FUNCTION: Add a new text & label to index ===
+def add_index():
+    text = input("Enter text to add to FAISS index: ").strip()
+    label = input(f"Enter label for text '{text}': ").strip()
+
+    # Get embeddings
+    text_embeddings = get_mean_embeddings(text)
+    vector = np.array([text_embeddings]).astype('float32')
+
+    # Add to FAISS
+    index_id = index.ntotal  # current size (becomes the ID)
+    index.add(vector)
+    label_map[index_id] = label
+
+    print(f"Added to index at position {index_id}")
+
+    # Save updated index and label map
+    save_index()
+
+# === FUNCTION: Save index and label map to disk ===
+def save_index():
+    faiss.write_index(index, FAISS_INDEX)
+    with open(LABEL_MAP_FILE, "wb") as f:
+        pickle.dump(label_map, f)
+    print("Saved index and label map.")
+
+# === FUNCTION: List all saved labels ===
+def list_labels():
+    print("\nCurrent labels in FAISS index:")
+    for idx, label in label_map.items():
+        print(f"Index {idx}: {label}")
+
+# === MAIN FUNCTION ===
+def main():
+    add_index()      # Add a new entry
+    list_labels()    # Show all stored labels
+
+# === RUN SCRIPT ===
+if __name__ == "__main__":
+    main()
