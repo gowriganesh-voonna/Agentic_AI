@@ -23,7 +23,9 @@ from app.service.book_issue_service import (
 )
 
 from fastapi import FastAPI
-from app.service.library_service import router
+#from app.service.library_service import router
+from app.service.student_service import router
+from app.utiles.logger import get_logger
 
 
 logger = get_logger(__name__)

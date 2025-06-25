@@ -64,5 +64,11 @@
         "name": "Voonna",
         "branch": "CSE",
         "year": 3
+    },
+    {
+        "student_id": "CSM001",
+        "name": "Voonna",
+        "branch": "CSM",
+        "year": 1
     }
 ]

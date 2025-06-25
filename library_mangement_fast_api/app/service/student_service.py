@@ -1,54 +1,55 @@
 from app.data.file_data import load_json,save_json
-from app.models.students import Student
+from app.models.students import Student,UpdateStudent,SearchStudent,RemoveStudent
 from app.utiles.decoratores import handle_exceptions
 from app.utiles.logger import get_logger
+from fastapi import APIRouter,HTTPException
+from typing import List
 
+DATA_PATH = "app/data/students.json"
 
 logger = get_logger(__name__)
-DATA_PATH = "app/data/students.json"
+router = APIRouter()
+
 
 students = load_json(DATA_PATH)
 
 @handle_exceptions
-def add_student():
-
-    student= Student(
-        student_id= input("Enter Student_id :").strip(),
-        name = input("Enter name :").strip(),
-        branch = input("Enter Branch Name :").strip(),
-        year = int(input("Enter the year :"))
-
-    )
+@router.post("/students/add_student")
+async def add_student(student: Student):
 
     students.append(student.dict())
     save_json(DATA_PATH,students)
+    refresh_students()
     logger.info(f"Student_id : {student.student_id} Added Successfully")
-    print(f"Student_id : {student.student_id} Added Successfully")
+    return {"Message":f"Student_id : {student.student_id} Added Successfully"}
 
 
 
 @handle_exceptions
-def view_all_students():
+@router.get("/students/view_all_students",response_model=List[Student])
+async def view_all_students():
     logger.info(f"View all Students Method is called")
-    print(students)
+    return students
 
 
 @handle_exceptions
-def update_student():
-    student_id = input("Enter student_id for update :").strip()
+@router.put("/students/update_student")
+async def update_student(student: UpdateStudent):
+    student_id = student.student_id.strip()
     exists = any(s["student_id"] == student_id for s in students )
     if not exists:
         logger.info(f"Student_id : {student_id} Not Found")
-        raise ValueError(f"Student_ID : {student_id} not found")
+        raise HTTPException(status_code= 404,
+                             detail=f" {student_id}Details Not Found")
     
     for s in students:
 
         if s["student_id"] == student_id:
-            s["name"] = input("Enter New Name :").strip() or s["name"]
-            s["branch"] = input("Enter the branch or leave blank :").strip() or s["branch"]
+            s["name"] = student.name or s["name"]
+            s["branch"] = student.branch or s["branch"]
 
             while True:
-                year= int(input("Enter the year b/w 1 to 4 :"))
+                year= student.year
 
                 if not year:
                     break
@@ -56,44 +57,60 @@ def update_student():
                     s["year"] = year
                     break
                 else:
-                    print("Year should be in b/w 1 to 4")
+                    raise HTTPException(status_code=400, detail="Year should be between 1 and 4")
     save_json(DATA_PATH,students)
+    refresh_students()
     logger.info(f"Student_id : {student_id} Updated Succeessfully")
-    print(f"Student_id : {student_id} Updated Succeessfully")
+    return {"Message":f"Student_id : {student_id} Updated Succeessfully"}
 
 
 
 @handle_exceptions
-def search_student():
-    text = input("Enter student_id or name :").strip()
+@router.post("/students/search_student",response_model=List[Student])
+async def search_student(student : SearchStudent):
+    text = student.query.strip()
     result = list(filter(lambda s:text in s["student_id"] or text in s["name"],students))
 
     if not result:
         logger.info(f" Student Not found : {text}")
-        print("Details Not Found")
-    else :
-        logger.info(f" Displaying Search Result" )
-        print(f"{result} added successfully")
+        raise HTTPException(status_code= 404,
+                             detail="Details Not Found")
+    logger.info(f" Displaying Search Result" )
+    return result
         
 
 @handle_exceptions
-def remove_student():
-     student_id = input("Enter the Student_id").strip()
+@router.delete("/students/remove_student")
+async def remove_student(student : RemoveStudent):
+     before = len(students)
+     student_id = student.student_id.strip()
      exists = any(s["student_id"] == student_id for s in students )
 
      if not exists:
         logger.info(f"Student_id : {student_id} Not Found")
-        raise ValueError(f"Student_ID : {student_id} not found")
-     name = input("Enter the name :").strip()
+        raise HTTPException(status_code=404, detail=f"Student_ID : {student_id} not found")
+       
+     name = student.name.strip()
 
-     filtered = [s for s in students if s["student_id"]!= student_id and s["name"]!= name]
+     filtered = [s for s in students if not (s["student_id"]== student_id and s["name"]== name)]
+
+     after = len(filtered)
+
+     if before == after:
+        raise HTTPException(status_code=404, detail="Student not found or name mismatch")
 
      save_json(DATA_PATH,filtered)
+     refresh_students()
      logger.info(f"Student : {student_id} Deleted succeesfully")
-     print(f"Student : {student_id} Deleted succeesfully")
+     return {"Message":f"Student : {student_id} Deleted succeesfully"}
 
 
     # "student_id": "S001",
     # "name": "Alice",
     # "branch": "CS",
     # "year": 2
+
+
+def refresh_students():
+    global students
+    students = load_json(DATA_PATH)

@@ -224,3 +224,18 @@ ValueError: This book was not issued to the student.
 2025-06-25 12:24:03,779 - app.service.library_service - INFO - MainThread - View all books Method is called
 2025-06-25 12:24:11,730 - app.service.library_service - INFO - MainThread - Book_id : G002 Sucessfully Added
 2025-06-25 12:24:11,731 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 14:59:10,815 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 14:59:10,858 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 14:59:40,990 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 14:59:41,008 - app.service.student_service - INFO - MainThread - Student_id : CSM001 Added Successfully
+2025-06-25 15:00:00,194 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 15:00:00,204 - app.service.student_service - INFO - MainThread - Student_id : CSM002 Added Successfully
+2025-06-25 15:00:54,113 - app.service.student_service - INFO - MainThread - View all Students Method is called
+2025-06-25 15:03:10,271 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 15:03:10,291 - app.service.student_service - INFO - MainThread - Student_id : CSM002 Updated Succeessfully
+2025-06-25 15:03:18,716 - app.service.student_service - INFO - MainThread - View all Students Method is called
+2025-06-25 15:05:06,073 - app.service.student_service - INFO - MainThread -  Displaying Search Result
+2025-06-25 15:06:55,958 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 15:06:55,960 - app.service.student_service - INFO - MainThread - Student : CSM002 Deleted succeesfully
+2025-06-25 15:07:06,437 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 15:07:06,451 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
