@@ -14,4 +14,6 @@ app.include_router(library_route,prefix="/api/books", tags=["LibraryMangement"])
 app.include_router(student_route,prefix="/api/students", tags=["LibraryMangement"])
 app.include_router(issue_route,prefix="/api/issue", tags=["LibraryMangement"])
 
-
+@app.get("/")
+def root():
+    return {"message": "Welcome to the Library Management API"}
