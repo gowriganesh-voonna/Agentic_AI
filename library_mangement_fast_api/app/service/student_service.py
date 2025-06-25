@@ -14,7 +14,7 @@ router = APIRouter()
 students = load_json(DATA_PATH)
 
 @handle_exceptions
-@router.post("/students/add_student")
+@router.post("/add_student")
 async def add_student(student: Student):
 
     students.append(student.dict())
@@ -26,14 +26,14 @@ async def add_student(student: Student):
 
 
 @handle_exceptions
-@router.get("/students/view_all_students",response_model=List[Student])
+@router.get("/view_all_students",response_model=List[Student])
 async def view_all_students():
     logger.info(f"View all Students Method is called")
     return students
 
 
 @handle_exceptions
-@router.put("/students/update_student")
+@router.put("/update_student")
 async def update_student(student: UpdateStudent):
     student_id = student.student_id.strip()
     exists = any(s["student_id"] == student_id for s in students )
@@ -66,7 +66,7 @@ async def update_student(student: UpdateStudent):
 
 
 @handle_exceptions
-@router.post("/students/search_student",response_model=List[Student])
+@router.post("/search_student",response_model=List[Student])
 async def search_student(student : SearchStudent):
     text = student.query.strip()
     result = list(filter(lambda s:text in s["student_id"] or text in s["name"],students))
@@ -80,7 +80,7 @@ async def search_student(student : SearchStudent):
         
 
 @handle_exceptions
-@router.delete("/students/remove_student")
+@router.delete("/remove_student")
 async def remove_student(student : RemoveStudent):
      before = len(students)
      student_id = student.student_id.strip()

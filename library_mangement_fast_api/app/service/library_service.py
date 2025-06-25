@@ -77,7 +77,7 @@ async def view_all_books():
     return books_data
 
 @handle_exceptions
-@router.post("/books/search_book",response_model=List[Books])
+@router.post("/search_book",response_model=List[Books])
 def search_book(request : SearchRequest):
     """Arugments : book_id or title
      this method will display the book based on book_id or title .If book not found
@@ -94,7 +94,7 @@ def search_book(request : SearchRequest):
             
    
 @handle_exceptions
-@router.delete("/books/{book_id}")
+@router.delete("/delete/{book_id}")
 async def delete_book(book_id: str):
     
     global books 
@@ -111,7 +111,7 @@ async def delete_book(book_id: str):
 
 
 @handle_exceptions
-@router.get("/books/generate_report",response_model=List)
+@router.get("/generate_report",response_model=List)
 def generate_report():
     report = []
     for b in books:

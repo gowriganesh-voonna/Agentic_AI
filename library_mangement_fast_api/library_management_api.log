@@ -239,3 +239,183 @@ ValueError: This book was not issued to the student.
 2025-06-25 15:06:55,960 - app.service.student_service - INFO - MainThread - Student : CSM002 Deleted succeesfully
 2025-06-25 15:07:06,437 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
 2025-06-25 15:07:06,451 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 16:40:36,218 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 16:40:36,226 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 16:40:36,243 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 16:40:36,244 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 16:40:36,244 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 16:40:52,581 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 16:40:52,592 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 16:40:52,602 - app.service.book_issue_service - INFO - MainThread - Issued Book G001 to Student S001
+2025-06-25 16:42:47,853 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 16:42:47,862 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 16:42:47,881 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 16:42:47,882 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 16:42:47,882 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 16:43:19,333 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 16:43:19,342 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 16:43:19,359 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 16:43:19,360 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 16:43:19,360 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 16:43:48,791 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 16:43:48,801 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 16:43:48,821 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 16:43:48,822 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 16:43:48,823 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 16:43:58,157 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 16:43:58,166 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 16:43:58,176 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 16:43:58,176 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 16:43:58,176 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 16:46:04,455 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 16:46:04,464 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 16:46:04,465 - app.service.book_issue_service - INFO - MainThread - Returned Book G001 from Student S001
+2025-06-25 17:01:19,486 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:01:19,498 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:01:19,499 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:01:19,500 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:01:38,559 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:01:38,569 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:01:38,573 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:01:38,574 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:01:38,574 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:01:48,180 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:01:48,189 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:01:48,196 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:01:48,197 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:01:48,198 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:02:05,101 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:02:05,110 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:02:05,116 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:02:05,117 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:02:05,117 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:02:13,853 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:02:13,861 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:02:13,867 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:02:13,867 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:02:13,868 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:02:17,122 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:02:17,131 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:02:17,138 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:02:17,139 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:02:17,139 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:03:58,205 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:03:58,213 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:03:58,219 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:03:58,220 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:03:58,220 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:04:56,573 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:04:56,604 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:04:56,621 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:04:56,622 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:04:56,629 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:05:14,557 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:05:14,566 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:05:14,571 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:05:14,573 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:05:14,573 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:06:00,506 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:06:00,514 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:06:00,521 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:06:00,521 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:06:00,521 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:06:39,232 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:06:39,241 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:06:39,246 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:06:39,248 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:06:39,248 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:07:15,552 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:07:15,576 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:07:15,581 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:07:15,582 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:07:15,582 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:07:51,829 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:07:51,837 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:07:51,843 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:07:51,843 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:07:51,843 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:08:53,089 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:08:53,109 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:08:53,122 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:08:53,122 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:08:53,123 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:11:05,289 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:11:05,298 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:11:05,303 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:11:05,304 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:11:05,304 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:12:32,330 - app.service.library_service - INFO - MainThread - Book_id : G003 Sucessfully Added
+2025-06-25 17:12:32,330 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:13:29,763 - app.service.library_service - INFO - MainThread - Book_id : G003 Record Found
+2025-06-25 17:13:29,763 - app.service.library_service - INFO - MainThread - books data Updated  successfully
+2025-06-25 17:13:29,765 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:13:36,047 - app.service.library_service - INFO - MainThread - View all books Method is called
+2025-06-25 17:13:48,236 - app.service.library_service - INFO - AnyIO worker thread - Search query 'g003' found 1 results.
+2025-06-25 17:13:53,562 - app.service.library_service - INFO - AnyIO worker thread - Generated book issue report.
+2025-06-25 17:14:36,140 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:14:36,150 - app.service.student_service - INFO - MainThread - Student_id : CSE001 Added Successfully
+2025-06-25 17:14:42,945 - app.service.student_service - INFO - MainThread - View all Students Method is called
+2025-06-25 17:15:06,284 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:15:06,292 - app.service.student_service - INFO - MainThread - Student_id : CSE001 Updated Succeessfully
+2025-06-25 17:15:20,927 - app.service.student_service - INFO - MainThread -  Displaying Search Result
+2025-06-25 17:15:43,364 - app.service.book_issue_service - INFO - MainThread - Student Id :CSE001  Not FOund
+2025-06-25 17:16:56,718 - app.service.book_issue_service - INFO - MainThread - Student Id :CSE001  Not FOund
+2025-06-25 17:17:18,904 - app.service.book_issue_service - INFO - MainThread - book :None  Not FOund
+2025-06-25 17:17:35,345 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:17:35,347 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:17:35,348 - app.service.book_issue_service - INFO - MainThread - Issued Book G001 to Student S001
+2025-06-25 17:17:43,581 - app.service.book_issue_service - INFO - MainThread - book :None  Not FOund
+2025-06-25 17:17:52,031 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:17:52,040 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:17:52,046 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:17:52,046 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:17:52,047 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:18:48,129 - app.service.library_service - INFO - MainThread - View all books Method is called
+2025-06-25 17:19:01,991 - app.service.library_service - INFO - MainThread - Book_id : G003 Sucessfully Added
+2025-06-25 17:19:01,993 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:19:28,502 - app.service.book_issue_service - INFO - MainThread - book :None  Not FOund
+2025-06-25 17:20:14,823 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:20:14,832 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:20:14,842 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:20:14,843 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:20:14,843 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:20:26,804 - app.service.library_service - INFO - MainThread - View all books Method is called
+2025-06-25 17:20:42,390 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:20:42,400 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:20:42,408 - app.service.book_issue_service - INFO - MainThread - Issued Book G003 to Student CSE001
+2025-06-25 17:23:26,969 - app.service.library_service - INFO - MainThread - Book_id : H001 Sucessfully Added
+2025-06-25 17:23:26,971 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:23:53,008 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:23:53,017 - app.service.student_service - INFO - MainThread - Student_id : CSE002 Added Successfully
+2025-06-25 17:24:32,510 - app.service.book_issue_service - INFO - MainThread - Student Id :CSE002  Not FOund
+2025-06-25 17:24:34,990 - app.service.book_issue_service - INFO - MainThread - Student Id :CSE002  Not FOund
+2025-06-25 17:24:36,348 - app.service.book_issue_service - INFO - MainThread - Student Id :CSE002  Not FOund
+2025-06-25 17:24:51,532 - app.service.student_service - INFO - MainThread - View all Students Method is called
+2025-06-25 17:25:13,293 - app.service.book_issue_service - INFO - MainThread - Student Id :CSE002  Not FOund
+2025-06-25 17:25:38,759 - app.service.book_issue_service - INFO - MainThread - Student Id :CSE002  Not FOund
+2025-06-25 17:25:40,637 - app.service.book_issue_service - INFO - MainThread - Student Id :CSE002  Not FOund
+2025-06-25 17:26:13,881 - app.service.book_issue_service - INFO - MainThread - Student Id :CSE002  Not FOund
+2025-06-25 17:26:20,626 - app.service.book_issue_service - INFO - MainThread - Student Id :CSE002  Not FOund
+2025-06-25 17:26:23,969 - app.service.book_issue_service - INFO - MainThread - Student Id :CSE002  Not FOund
+2025-06-25 17:26:24,600 - app.service.book_issue_service - INFO - MainThread - Student Id :CSE002  Not FOund
+2025-06-25 17:27:34,008 - app.service.book_issue_service - INFO - MainThread - Student Id :CSE002  Not FOund
+2025-06-25 17:27:49,231 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:27:49,240 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:27:49,245 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:27:49,246 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:27:49,246 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:27:54,156 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:27:54,164 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:27:54,172 - app.service.book_issue_service - INFO - MainThread - Issued Book H001 to Student CSE002
+2025-06-25 17:30:49,573 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:30:49,583 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:30:49,605 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:30:49,606 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:30:49,607 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:32:13,570 - app.service.library_service - INFO - MainThread - Book_id : H002 Sucessfully Added
+2025-06-25 17:32:13,571 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:32:27,622 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:32:27,623 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:32:27,626 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:32:27,633 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 17:32:27,641 - app.service.book_issue_service - INFO - MainThread - Issued Book H002 to Student CSE002

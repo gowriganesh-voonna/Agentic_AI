@@ -5,7 +5,7 @@
         "author": "Dr.K. Suba Rao",
         "genre": "History",
         "total_copies": 5,
-        "available_copies": 5
+        "available_copies": 4
     },
     {
         "book_id": "G002",
@@ -14,5 +14,29 @@
         "genre": "Arts",
         "total_copies": 5,
         "available_copies": 5
+    },
+    {
+        "book_id": "G003",
+        "title": "How to influence Friends",
+        "author": "Dr. William johns",
+        "genre": "psychology",
+        "total_copies": 10,
+        "available_copies": 10
+    },
+    {
+        "book_id": "H001",
+        "title": "Rule the city",
+        "author": "G Mohan",
+        "genre": "politcis",
+        "total_copies": 8,
+        "available_copies": 7
+    },
+    {
+        "book_id": "H002",
+        "title": "King of the ocean",
+        "author": "Rajas",
+        "genre": "politcis",
+        "total_copies": 8,
+        "available_copies": 7
     }
 ]

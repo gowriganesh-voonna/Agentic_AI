@@ -70,5 +70,17 @@
         "name": "Voonna",
         "branch": "CSM",
         "year": 1
+    },
+    {
+        "student_id": "CSE001",
+        "name": "G Surendhra",
+        "branch": "CSE",
+        "year": 2
+    },
+    {
+        "student_id": "CSE002",
+        "name": "Prem",
+        "branch": "CSE",
+        "year": 2
     }
 ]

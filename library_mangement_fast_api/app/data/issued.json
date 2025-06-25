@@ -2,5 +2,21 @@
     {
         "student_id": "S001",
         "book_id": "B001"
+    },
+    {
+        "student_id": "S001",
+        "book_id": "G001"
+    },
+    {
+        "student_id": "CSE001",
+        "book_id": "G003"
+    },
+    {
+        "student_id": "CSE002",
+        "book_id": "H001"
+    },
+    {
+        "student_id": "CSE002",
+        "book_id": "H002"
     }
 ]
