@@ -1,0 +1,25 @@
+Project Structure
+
+library_cli/
+├── main.py                # CLI entry point
+├── data/
+│   ├── books.json         # Stores book records
+│   ├── students.json      # Stores student records
+│   └── issued.json        # Tracks issued books
+├── modules/
+│   ├── book_manager.py    # Add/Update/Delete/Search books
+│   ├── student_manager.py # Add/Update/Delete/Search students
+│   ├── issue_manager.py   # Issue and return books
+│   └── report_manager.py  # Generate reports
+├── utils/
+│   ├── decorators.py      # Decorators for logging and error handling
+│   └── logger.py          # Logging setup
+└── requirements.txt       # Optional, for dependencies if any
+
+Developing hierarchy
+
+--> First Loggers & Decorators - Beacuse these are same for everthing (We can use basic logging & write our basic exceptions in decorators) If we want we can add more 
+afterwards as we develop our code as needed
+--> Then we need to create sample json files - Get the data using chatgpt
+--> Then we can tackle the modules one by one, let's furst start with the student_manager and book_manager
+--> Finally we can work on the issue_manager and report_manager modules

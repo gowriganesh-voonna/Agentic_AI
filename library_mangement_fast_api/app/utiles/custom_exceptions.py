@@ -1,0 +1,2 @@
+class BookIDNotFoundError(Exception):
+    pass

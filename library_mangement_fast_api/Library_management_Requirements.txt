@@ -1,0 +1,49 @@
+
+Project: Library Management
+This is a CLI to manage the a small library. 
+It handles operations such as book management, student records, issue and return tracking, and report using json files.
+
+1. Add Book
+   Add a new book with book_id, title, author, genre, total_copies.
+
+2. Update Book
+   Update existing book details like title, author, genre, or total copies.
+
+3. Delete Book
+   Remove a book from the library by book_id.
+
+4. Add Student
+   Register a new student with student_id, name, branch, year.
+
+5. Update Student
+   Update student info like name, branch, or year.
+
+6. Delete Student
+   Remove a student record.
+
+7. Issue Book
+   Issue a book to a student if available.
+
+8. Return Book
+   Accept book return from student,update in record.
+
+9. View All Books
+   Display all available books with current stock.
+
+10. View All Students
+    Display all registered students.
+
+11. View Issued Books
+    Show list of books currently issued to students.
+
+12. Search Book
+    Search for a book by title, author, or genre.
+
+13. Search Student
+    Find student details by student_id or name.
+
+14. Generate Book Report
+    Generate a report of books issued and available stock.
+
+15. Generate Student Report
+    Show all books issued to a specific student.

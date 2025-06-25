@@ -1,0 +1,114 @@
+[
+    {
+        "book_id": "B001",
+        "title": "Python Programming",
+        "author": "John Doe",
+        "genre": "Education",
+        "total_copies": 5,
+        "available_copies": 5
+    },
+    {
+        "book_id": "B002",
+        "title": "Advanced Data Structures",
+        "author": "Jane Smith",
+        "genre": "Computer Science",
+        "total_copies": 4,
+        "available_copies": 4
+    },
+    {
+        "book_id": "B003",
+        "title": "Machine Learning Basics",
+        "author": "Andrew Ng",
+        "genre": "Artificial Intelligence",
+        "total_copies": 6,
+        "available_copies": 6
+    },
+    {
+        "book_id": "B004",
+        "title": "Database Systems",
+        "author": "Hector Garcia-Molina",
+        "genre": "Technology",
+        "total_copies": 3,
+        "available_copies": 3
+    },
+    {
+        "book_id": "B005",
+        "title": "Operating Systems Concepts",
+        "author": "Abraham Silberschatz",
+        "genre": "Computer Science",
+        "total_copies": 7,
+        "available_copies": 7
+    },
+    {
+        "book_id": "B006",
+        "title": "Introduction to Algorithms",
+        "author": "Thomas H. Cormen",
+        "genre": "Computer Science",
+        "total_copies": 5,
+        "available_copies": 5
+    },
+    {
+        "book_id": "B007",
+        "title": "Clean Code",
+        "author": "Robert C. Martin",
+        "genre": "Software Engineering",
+        "total_copies": 4,
+        "available_copies": 4
+    },
+    {
+        "book_id": "B008",
+        "title": "The Pragmatic Programmer",
+        "author": "Andy Hunt",
+        "genre": "Software Engineering",
+        "total_copies": 6,
+        "available_copies": 6
+    },
+    {
+        "book_id": "B009",
+        "title": "Deep Learning with Python",
+        "author": "Fran\u00c3\u00a7ois Chollet",
+        "genre": "Artificial Intelligence",
+        "total_copies": 3,
+        "available_copies": 3
+    },
+    {
+        "book_id": "B010",
+        "title": "You Don\u00e2\u20ac\u2122t Know JS",
+        "author": "Kyle Simpson",
+        "genre": "JavaScript",
+        "total_copies": 5,
+        "available_copies": 5
+    },
+    {
+        "book_id": "K001",
+<<<<<<< HEAD
+        "title": "King of the Ocean",
+        "author": "Max",
+        "genre": "History",
+        "total_copies": 5,
+        "available_copies": 5
+=======
+        "title": "King of the ocean",
+        "author": "Gowri",
+        "genre": "History",
+        "total_copies": 5,
+        "available_copies": 5
+    },
+    {
+        "book_id": "K002",
+        "title": "King of the jungle",
+        "author": "Gopal",
+        "genre": "Forest",
+        "total_copies": 5,
+        "available_copies": 5
+    },
+    {
+        "book_id": "K003",
+        "title": "King of the desert",
+        "author": "Sand Manval",
+        "genre": "History",
+        "total_copies": 5,
+        "available_copies": 6
+>>>>>>> 5faf0182f48afb641a8c53fdbdb1013b5c585ddf
+    }
+]

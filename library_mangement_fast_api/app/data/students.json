@@ -1,0 +1,68 @@
+[
+    {
+        "student_id": "S001",
+        "name": "Alice",
+        "branch": "CS",
+        "year": 2
+    },
+    {
+        "student_id": "S002",
+        "name": "Bob",
+        "branch": "IT",
+        "year": 1
+    },
+    {
+        "student_id": "S003",
+        "name": "Charlie",
+        "branch": "ECE",
+        "year": 3
+    },
+    {
+        "student_id": "S004",
+        "name": "Diana",
+        "branch": "ME",
+        "year": 4
+    },
+    {
+        "student_id": "S005",
+        "name": "Ethan",
+        "branch": "CS",
+        "year": 2
+    },
+    {
+        "student_id": "S006",
+        "name": "Fiona",
+        "branch": "EEE",
+        "year": 1
+    },
+    {
+        "student_id": "S007",
+        "name": "George",
+        "branch": "IT",
+        "year": 3
+    },
+    {
+        "student_id": "S008",
+        "name": "Hannah",
+        "branch": "CS",
+        "year": 4
+    },
+    {
+        "student_id": "S009",
+        "name": "Ivan",
+        "branch": "CE",
+        "year": 2
+    },
+    {
+        "student_id": "S010",
+        "name": "Julia",
+        "branch": "ECE",
+        "year": 3
+    },
+    {
+        "student_id": "SC001",
+        "name": "Voonna",
+        "branch": "CSE",
+        "year": 3
+    }
+]
