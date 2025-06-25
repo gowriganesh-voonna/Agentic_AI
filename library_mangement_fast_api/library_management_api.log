@@ -202,3 +202,25 @@ ValueError: This book was not issued to the student.
 2025-06-05 21:28:50,122 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
 2025-06-05 21:28:50,127 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
 2025-06-05 21:28:50,128 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 12:10:08,694 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 12:10:08,710 - app.data.file_data - ERROR - MainThread - JSON decode error: Expecting property name enclosed in double quotes: line 84 column 1 (char 2181)
+2025-06-25 12:10:08,732 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 12:10:35,027 - app.service.library_service - INFO - MainThread - Book_id : G001 Sucessfully Added
+2025-06-25 12:10:35,028 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 12:12:43,791 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 12:12:43,803 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 12:13:12,971 - app.service.library_service - INFO - MainThread - View all books Method is called
+2025-06-25 12:16:13,377 - app.service.library_service - INFO - AnyIO worker thread - Search query 'g001' found 1 results.
+2025-06-25 12:17:11,877 - app.service.library_service - INFO - AnyIO worker thread - Generated book issue report.
+2025-06-25 12:18:45,510 - app.service.library_service - INFO - MainThread - Book_id : G002 Sucessfully Added
+2025-06-25 12:18:45,511 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 12:18:53,405 - app.service.library_service - INFO - MainThread - View all books Method is called
+2025-06-25 12:18:59,592 - app.service.library_service - INFO - AnyIO worker thread - Generated book issue report.
+2025-06-25 12:22:36,023 - app.service.library_service - INFO - MainThread - Book_id : G001 Record Found
+2025-06-25 12:22:36,023 - app.service.library_service - INFO - MainThread - books data Updated  successfully
+2025-06-25 12:22:36,028 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 12:23:57,501 - app.service.library_service - INFO - MainThread - Book_id : G002 deleted Successfully
+2025-06-25 12:23:57,502 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-25 12:24:03,779 - app.service.library_service - INFO - MainThread - View all books Method is called
+2025-06-25 12:24:11,730 - app.service.library_service - INFO - MainThread - Book_id : G002 Sucessfully Added
+2025-06-25 12:24:11,731 - app.utiles.decoratores - INFO - MainThread - Executing: load_json

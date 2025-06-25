@@ -10,7 +10,7 @@ class Books(BaseModel):
     total_copies: int
     available_copies: int
 
-    available_copies : int
+    
 
 
 class Update_book(BaseModel):
@@ -19,3 +19,7 @@ class Update_book(BaseModel):
     author: Optional[str] = None
     genre: Optional[str] = None
     total_copies: Optional[int] = None
+    available_copies: Optional[int] = None
+
+class SearchRequest(BaseModel):
+    query: str
