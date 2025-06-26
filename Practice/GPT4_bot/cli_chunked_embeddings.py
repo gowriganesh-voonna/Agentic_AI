@@ -35,6 +35,7 @@ def extract_text(pdf_file_path):
     except Exception as e:
         logger.exception(f"Failed to read text from {pdf_file_path}.Error {e}")
 
+#step4 - chunk the PDF content based on chunk size
 def chunk_text(pdf_file_full_text,chunk_size):
     words = pdf_file_full_text.split()
     return [" ".join(words[i:i+chunk_size]) for i in range(0,len(words),chunk_size)]
@@ -69,7 +70,12 @@ def main():
     #print(f"\n PDF Chunked Content are : {chunked_content}")
 
     vectores =chunk_embeddings(chunked_content)
-    print(f"\n Vectores from chunked Text are {vectores}")
+    #print(f"\n Vectores from chunked Text are {vectores}")
+    
+    #768,1930 declare a faiss index
+    index=faiss.IndexFlatL2(vectores.shape[1])
+    index.add(vectores)
+    logger.info(f"Faiss Index Created .........{len(chunked_content)}")
 
 if __name__== "__main__":
     main()
