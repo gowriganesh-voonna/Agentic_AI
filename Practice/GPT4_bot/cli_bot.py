@@ -13,6 +13,7 @@ load_dotenv() # - load the enviroment variables
 
 PDF_FILE_PATH =r"D:\Practice\Agentic_AI\Practice\GPT4_bot\Microsoft Corporation Overview.pdf"
 
+chunk_size = 500
 # Step 2 - Setup logging
 logging.basicConfig(
     filename="cli_bot.log",
@@ -33,6 +34,10 @@ def extract_text(pdf_file_path):
     except Exception as e:
         logger.exception(f"Failed to read text from {pdf_file_path}.Error {e}")
 
+def chunk_text(pdf_file_full_text,chunk_size):
+    words = pdf_file_full_text.split()
+    return [" ".join(words[i:i+chunk_size]) for i in range(0,len(words),chunk_size)]
+
 
 def main():
     
@@ -47,7 +52,10 @@ def main():
         print("Source PDF File is not avaible")
         sys.exit(1)
     pdf_text = extract_text(pdf_file_path)
-    print(f"\n PDF Content are : {pdf_text}")
+    #print(f"\n PDF Content are : {pdf_text}")
+
+    chunked_content = chunk_text(pdf_text,chunk_size)
+    print(f"\n PDF Chunked Content are : {chunked_content}")
 
 if __name__== "__main__":
     main()

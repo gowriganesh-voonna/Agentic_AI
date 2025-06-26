@@ -40,3 +40,4 @@ Traceback (most recent call last):
     raise FileNotFoundError(f"no such file: '{filename}'")
 pymupdf.FileNotFoundError: no such file: 'D:\Practice\Agentic_AI\Practice\GPT4_bot\Microsoft'
 2025-06-26 14:24:11,217 - INFO - Extracted text from PDF File D:\Practice\Agentic_AI\Practice\GPT4_bot\MicrosoftCorporationOverview.pdf with  length:1504
+2025-06-26 14:32:37,130 - INFO - Extracted text from PDF File D:\Practice\Agentic_AI\Practice\GPT4_bot\MicrosoftCorporationOverview.pdf with  length:1504
