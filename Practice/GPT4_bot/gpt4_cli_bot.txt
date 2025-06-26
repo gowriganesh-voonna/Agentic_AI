@@ -1,0 +1,15 @@
+Reads text from a PDF file.
+
+Splits the text into manageable chunks (about 500 words each).
+
+Converts these chunks into embedding vectors using OpenAI’s embedding model.
+
+Stores these embeddings in a FAISS index (a fast similarity search library).
+
+Lets you type a question, converts the question into an embedding vector.
+
+Finds the chunks in the PDF most relevant to the question using FAISS.
+
+Passes those relevant chunks as context to GPT-4 to generate an answer based only on that PDF content.
+
+Prints the answer.

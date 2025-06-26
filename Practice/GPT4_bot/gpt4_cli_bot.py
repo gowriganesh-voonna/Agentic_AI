@@ -1,0 +1,128 @@
+import fitz   # pip install PyMuPDF  . fitz is original name.
+import os
+import openai
+import sys
+import faiss
+import numpy as np
+from dotenv import load_dotenv
+import logging
+
+# step 1
+load_dotenv() # - load the enviroment variables
+# openai.api_key = os.getenv("OPENAI_API_KEY")
+
+PDF_FILE_PATH =r"D:\Practice\Agentic_AI\Practice\GPT4_bot\Microsoft Corporation Overview.pdf"
+
+chunk_size = 500
+EMBEDDING_MODEL = "text-embedding-3-small"
+# Step 2 - Setup logging
+logging.basicConfig(
+    filename="cli_bot.log",
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
+
+logger = logging.getLogger(__name__)
+
+# step 3 - Read PDF File
+
+def extract_text(pdf_file_path):
+    try:
+        pdf_pages=fitz.open(pdf_file_path)
+        full_pdf_text ="\n".join([page.get_text() for page in pdf_pages] )
+        logger.info(f"Extracted text from PDF File {pdf_file_path} with  length:{len(full_pdf_text)}")
+        return full_pdf_text
+    except Exception as e:
+        logger.exception(f"Failed to read text from {pdf_file_path}.Error {e}")
+
+#step4 - chunk the PDF content based on chunk size
+def chunk_text(pdf_file_full_text,chunk_size):
+    words = pdf_file_full_text.split()
+    return [" ".join(words[i:i+chunk_size]) for i in range(0,len(words),chunk_size)]
+
+
+def chunk_embeddings(chunk_text):
+    try:
+        embeddings=openai.embeddings.create(model= EMBEDDING_MODEL,input=chunk_text)
+
+        vectores=np.array([e.embedding for e in embeddings.data]).astype("float32")
+        return vectores
+    except Exception as e:
+        logger.exception(f"Python_GPT4 Exception :{e}")
+        sys.exit(1)
+
+
+def search_faiss_index(index,query_vector):
+    distance,indices = index.search(query_vector,5)
+    return indices[0]
+
+def ask_gpt4(context,query):
+    content = "\n".join(context)
+
+    system_prompt =(
+        "You are an expert AI Agent.Answer ONLY based on the provied context."
+        "If the answer is not found.Say information not avaible."
+    )
+
+    messages = [
+        {"role":"system","content":system_prompt},
+        {"role":"user","content":f"Context : {content} \n Question {query}"},
+    ]
+
+    response = openai.chat.completions.create(
+        model="gpt-4",
+        messages=messages,
+        temperature=0.2
+    )
+
+    return response.choices[0].message.content.strip()
+
+
+def main():
+    
+    if len(sys.argv)<2:
+        print(f"Tool Usage : Python gpt4-cli-bot.py {pdf_file_path} :")
+        sys.exit(1)
+
+    pdf_file_path = sys.argv[1]
+    print(f"File Path : {pdf_file_path}")
+    # Check if source pdf file exists
+    if not os.path.exists(pdf_file_path):
+        print("Source PDF File is not avaible")
+        sys.exit(1)
+    pdf_text = extract_text(pdf_file_path)
+    #print(f"\n PDF Content are : {pdf_text}")
+
+    chunked_content = chunk_text(pdf_text,chunk_size)
+    #print(f"\n PDF Chunked Content are : {chunked_content}")
+
+    vectores =chunk_embeddings(chunked_content)
+    #print(f"\n Vectores from chunked Text are {vectores}")
+    
+    #768,1930 declare a faiss index
+    index=faiss.IndexFlatL2(vectores.shape[1])
+    index.add(vectores)
+    logger.info(f"Faiss Index Created .........{len(chunked_content)}")
+
+    while True:
+        query = input("Ask your question (type exit to close application):")
+
+        if query.lower() == "exit":
+            print("Application Existed")
+            break
+
+        try:
+            query_embeddings = openai.embeddings.create(model=EMBEDDING_MODEL,input=query)
+            query_vector = np.array([query_embeddings.data[0].embedding],dtype= 'float32')
+            top_indices = search_faiss_index(index,query_vector)
+            context = [chunked_content[i] for i in top_indices]
+            answer = ask_gpt4(context,query)
+            print(f"\n Answer : {answer}")
+        except Exception as e:
+            print(e)
+
+if __name__== "__main__":
+    main()
+
+# cmd : python cli_bot.py Rahul_Krish
+# use cmd: python cli_bot.py .pdf_HERE without quotes
