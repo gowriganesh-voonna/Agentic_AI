@@ -1,0 +1,42 @@
+2025-06-26 14:03:02,729 - INFO - Extracted text from PDF File D:\Practice\Agentic_AI\Practice\GPT4_bot\Microsoft Corporation Overview.pdf with  length:1504
+2025-06-26 14:19:09,878 - ERROR - Failed to read text from Gowri_Roy.Error no such file: 'Gowri_Roy'
+Traceback (most recent call last):
+  File "D:\Practice\Agentic_AI\Practice\GPT4_bot\cli_bot.py", line 29, in extract_text
+    pdf_pages=fitz.open(pdf_file_path)
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pymupdf\__init__.py", line 2957, in __init__
+    raise FileNotFoundError(f"no such file: '{filename}'")
+pymupdf.FileNotFoundError: no such file: 'Gowri_Roy'
+2025-06-26 14:19:20,412 - ERROR - Failed to read text from D:\Practice\Agentic_AI\Practice\GPT4_bot\Microsoft.Error no such file: 'D:\Practice\Agentic_AI\Practice\GPT4_bot\Microsoft'
+Traceback (most recent call last):
+  File "D:\Practice\Agentic_AI\Practice\GPT4_bot\cli_bot.py", line 29, in extract_text
+    pdf_pages=fitz.open(pdf_file_path)
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pymupdf\__init__.py", line 2957, in __init__
+    raise FileNotFoundError(f"no such file: '{filename}'")
+pymupdf.FileNotFoundError: no such file: 'D:\Practice\Agentic_AI\Practice\GPT4_bot\Microsoft'
+2025-06-26 14:19:30,920 - ERROR - Failed to read text from D:\Practice\Agentic_AI\Practice\GPT4_bot\Microsoft.Error no such file: 'D:\Practice\Agentic_AI\Practice\GPT4_bot\Microsoft'
+Traceback (most recent call last):
+  File "D:\Practice\Agentic_AI\Practice\GPT4_bot\cli_bot.py", line 29, in extract_text
+    pdf_pages=fitz.open(pdf_file_path)
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pymupdf\__init__.py", line 2957, in __init__
+    raise FileNotFoundError(f"no such file: '{filename}'")
+pymupdf.FileNotFoundError: no such file: 'D:\Practice\Agentic_AI\Practice\GPT4_bot\Microsoft'
+2025-06-26 14:19:51,998 - ERROR - Failed to read text from D:\Practice\Agentic_AI\Practice\GPT4_bot\Microsoft.Error no such file: 'D:\Practice\Agentic_AI\Practice\GPT4_bot\Microsoft'
+Traceback (most recent call last):
+  File "D:\Practice\Agentic_AI\Practice\GPT4_bot\cli_bot.py", line 29, in extract_text
+    pdf_pages=fitz.open(pdf_file_path)
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pymupdf\__init__.py", line 2957, in __init__
+    raise FileNotFoundError(f"no such file: '{filename}'")
+pymupdf.FileNotFoundError: no such file: 'D:\Practice\Agentic_AI\Practice\GPT4_bot\Microsoft'
+2025-06-26 14:20:41,172 - ERROR - Failed to read text from D:\Practice\Agentic_AI\Practice\GPT4_bot\Microsoft.Error no such file: 'D:\Practice\Agentic_AI\Practice\GPT4_bot\Microsoft'
+Traceback (most recent call last):
+  File "D:\Practice\Agentic_AI\Practice\GPT4_bot\cli_bot.py", line 29, in extract_text
+    pdf_pages=fitz.open(pdf_file_path)
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pymupdf\__init__.py", line 2957, in __init__
+    raise FileNotFoundError(f"no such file: '{filename}'")
+pymupdf.FileNotFoundError: no such file: 'D:\Practice\Agentic_AI\Practice\GPT4_bot\Microsoft'
+2025-06-26 14:24:11,217 - INFO - Extracted text from PDF File D:\Practice\Agentic_AI\Practice\GPT4_bot\MicrosoftCorporationOverview.pdf with  length:1504
