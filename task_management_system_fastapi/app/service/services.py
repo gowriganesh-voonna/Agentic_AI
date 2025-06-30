@@ -26,14 +26,14 @@ async def create_task(task:TaskCreate):
     tasks = await load_json(FILE_PATH)
 
     new_task = {
-        "id":generate_new_id(tasks),
+        "id":generate_new_id(tasks), # Generate unique ID
         "title":task.title,
         "description":task.description,
         "status":task.status,
         "priority":task.priority,
-        "deadline":task.deadline.isoformat(),
+        "deadline":task.deadline.isoformat(), # Serialize datetime
         "assigned_to":task.assigned_to,
-        "created_at":datetime.now().isoformat()
+        "created_at":datetime.now().isoformat() # Add timestamp
     }
 
     tasks.append(new_task)
@@ -43,7 +43,7 @@ async def create_task(task:TaskCreate):
 
     return new_task
 
-
+# Get all tasks with optional filters
 @handle_exceptions
 @router.get("/all_tasks",response_model=List[Task])
 async def get_tasks(
@@ -55,7 +55,7 @@ async def get_tasks(
     tasks = await load_json(FILE_PATH)
     now = datetime.now()
 
-    # log overdue tasks
+    # Log warning for overdue tasks
     
     for task in tasks:
         deadline_dt = datetime.fromisoformat(task["deadline"])
@@ -73,6 +73,7 @@ async def get_tasks(
     
     return tasks
 
+# Get a single task by ID
 @handle_exceptions
 @router.get("/get_by_task_id/{task_id}",response_model=Task)
 async def get_task(task_id:int):
@@ -83,6 +84,7 @@ async def get_task(task_id:int):
             return task
     raise HTTPException(status_code=404,detail=f"Task {task_id} not found")
 
+# Update a task by ID
 @handle_exceptions
 @router.put("/tasks/{task_id}")
 async def update_task(task_id:int,update_task : TaskUpdate):
@@ -110,12 +112,14 @@ async def update_task(task_id:int,update_task : TaskUpdate):
     logger.info(f"Task Updated : {task_id}")
     return {"Message":f"Task_id {task_id} has been updated successfully"}
 
+# Delete a task by ID and title
 @handle_exceptions
 @router.delete("/delete_task/{task_id}")
 @handle_exceptions
 async def delete_task(task_id : int,remove_task:DeleteTask):
     tasks = await load_json(FILE_PATH)  # need to write await  keyword if not coroutine error will occurs
 
+    # Remove task that matches both ID and title
     new_tasks = [task for task in tasks if not(task["id"]== task_id and task["title"] == remove_task.title)]
 
     if len(tasks) == len(new_tasks):
