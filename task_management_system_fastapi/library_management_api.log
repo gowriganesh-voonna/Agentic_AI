@@ -1,0 +1,14 @@
+2025-06-30 15:32:35,084 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-30 15:32:35,085 - app.service.services - INFO - MainThread - Task created : 1
+2025-06-30 15:33:23,310 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-30 15:33:23,321 - app.service.services - INFO - MainThread - Task created : 2
+2025-06-30 15:33:45,244 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-30 15:33:45,257 - app.service.services - INFO - MainThread - Task created : 3
+2025-06-30 15:35:30,893 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-30 15:36:12,364 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-30 15:37:51,260 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-30 15:38:17,822 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-30 15:38:30,461 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-30 15:38:32,802 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-30 15:39:55,623 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-06-30 15:41:17,372 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
