@@ -1,4 +1,3 @@
-
 from fastapi import FastAPI
 from app.service.library_service import router as library_route
 from app.service.student_service import router as student_route

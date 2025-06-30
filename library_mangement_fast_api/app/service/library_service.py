@@ -22,7 +22,7 @@ async def add_book(book:Books):
     
     if any(b["book_id"]== book.book_id for b in books):
         logger.info(f"BooK_id : {book.book_id} Already Exists")
-        raise HTTPException(status_code=400, detail="Book already exists.")
+        raise HTTPException(status_code=409, detail="Book already exists.")  #409 Conflict:
         
      
     books.append(book.dict())
