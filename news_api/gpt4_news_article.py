@@ -9,13 +9,14 @@ NEWS_API_KEY = "259d402894094797b40607ced1ecbac5"
 
 app = FastAPI()
 
-def save_news_articles(article : dict , query : str):
+def save_news_articles(article : dict , id : int):
 
+    #if articles folder not exists it will create new one
     if not os.path.exists("articles"):
         os.makedirs("articles")
 
-    query_clean = query.replace(" ", "_")
-    filename = f"articles/{query_clean}_articles.json"
+    
+    filename = f"articles/article_{id+1}.json"
 
     with open(filename,"w",encoding="utf-8") as f:
         json.dump(article,f,indent=4,ensure_ascii=False)
@@ -23,7 +24,8 @@ def save_news_articles(article : dict , query : str):
     print(f"Saved : {filename}")
 
 def download_news_articles(query:str,page_size:int):
-
+    """Inputs : query and articles count (page size)
+    return articles fetched from newsapi.org based page_size"""
     url = "https://newsapi.org/v2/everything"
 
     params= {
@@ -40,7 +42,8 @@ def download_news_articles(query:str,page_size:int):
         articles = data.get("articles",[])
 
         
-        save_news_articles(articles,query)
+        for id,article in enumerate(articles):
+            save_news_articles(article,id)
         
         return {"Message":f"Downloaded and saved {len(articles)} articles."}
     
