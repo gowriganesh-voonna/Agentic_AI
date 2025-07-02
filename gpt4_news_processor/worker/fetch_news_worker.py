@@ -14,6 +14,7 @@ from config.settings import (
 from utiles.image_handler import handle_article_image
 from utiles.logger import get_logger
 from datetime import datetime,timezone
+from tqdm import tqdm
 
 logger = get_logger(__name__)
 
@@ -73,7 +74,7 @@ def main():
 
     # Save Articles in Folder
 
-    for idx, article in enumerate (articles):
+    for idx, article in enumerate (tqdm(articles,desc="Saving Articles")):
         if article.get("title") and article.get("url"):
             save_articles(article)
 
