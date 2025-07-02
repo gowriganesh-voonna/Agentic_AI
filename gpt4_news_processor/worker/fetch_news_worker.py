@@ -57,7 +57,7 @@ def save_articles(article):
 
     json_path = os.path.join(folder_path,f"{article_id}.json")
 
-    try:
+    try:      # for only articles pass file_path 
         with open(json_path,"w",encoding="utf-8") as f:
             json.dump(article,f,indent=4)
         logger.info (f"Saved article to {json_path}")
