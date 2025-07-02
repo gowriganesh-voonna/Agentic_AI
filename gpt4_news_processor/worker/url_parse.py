@@ -28,3 +28,12 @@ new_url = urlunparse((
 ))
 
 print("New Url :",new_url)
+print("Parsing new url:",urlparse(new_url))
+
+#out put :
+#New Url : https://www.geeksforgeeks.org/python/python-pillow-a-fork-of-pil/?q=python+tutorial&page=2
+#Parsing new url: ParseResult(scheme='https',
+#  netloc='www.geeksforgeeks.org',
+#  path='/python/python-pillow-a-fork-of-pil/',
+#  params='', query='q=python+tutorial&page=2', fragment='')
+
