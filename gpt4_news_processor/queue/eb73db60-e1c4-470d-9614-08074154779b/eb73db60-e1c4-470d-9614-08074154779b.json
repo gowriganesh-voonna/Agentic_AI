@@ -10,8 +10,8 @@
   "urlToImage": "https://www.thenation.com/wp-content/uploads/2025/06/operationrisinglio.jpeg",
   "publishedAt": "2025-06-19T09:30:00Z",
   "content": "An interview with Richard Falk.\r\nAd Policy\r\nPeople survey the damage in Nobonyad Square in Tehran, Iran after Israeli airstrikes, which also targeted nuclear and military facilities, according to pub\u2026 [+11436 chars]",
-  "fetched_at": "2025-07-02T16:16:21.238789+00:00",
-  "article_image_original": "queue/ee99fba2-6f0e-4ea1-80cd-a682ab2ce27f/ee99fba2-6f0e-4ea1-80cd-a682ab2ce27f_operationrisinglio.jpeg",
-  "recommended_category": "Given the title, description, content of a news article, identify the most suitable category from the list Politics,Finance,Health,Science,Technology,Sports,Crypto Currency,Other,Entertainment. If none matches then return 'Other'.\n\nAs a general rule, the category may contain more than one news item from the top 10",
-  "gpt4_suggestion_category": "Given the title, description, content of a news article, suggest a sytentic category name that best describes its subject. e.g. 'Crypto', 'Climate Newss', 'Sustainability', 'Technology', 'Technology-savvy', 'Technology-hated"
+  "fetched_at": "2025-07-03T15:40:14.598971+00:00",
+  "article_image_original": "queue/eb73db60-e1c4-470d-9614-08074154779b/eb73db60-e1c4-470d-9614-08074154779b_operationrisinglio.jpeg",
+  "recommended_category": "Given the title, description, content of a news article, identify the most suitable category from the list Politics,Finance,Health,Science,Technology,Sports,Crypto Currency,Other,Entertainment. If none matches then return 'Other'.\n\nSearch criteria:",
+  "gpt4_suggestion_category": "Given the title, description, content of a news article, suggest a sytentic category name that best describes its subject. e.g. 'Crypto', 'Climate Newss' or 'Bitcoin.' If there's a term you think makes the most sense in a sentence,"
 }

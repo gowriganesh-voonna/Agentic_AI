@@ -12,6 +12,6 @@
   "content": "An interview with Richard Falk.\r\nAd Policy\r\nPeople survey the damage in Nobonyad Square in Tehran, Iran after Israeli airstrikes, which also targeted nuclear and military facilities, according to pub\u2026 [+11436 chars]",
   "fetched_at": "2025-07-02T16:16:21.238789+00:00",
   "article_image_original": "queue/ee99fba2-6f0e-4ea1-80cd-a682ab2ce27f/ee99fba2-6f0e-4ea1-80cd-a682ab2ce27f_operationrisinglio.jpeg",
-  "recommended_category": "Given the title, description, content of a news article, identify the most suitable category from the list Politics,Finance,Health,Science,Technology,Sports,Crypto Currency,Other,Entertainment. If none matches then return 'Other'.\n\nAs a general rule, the category may contain more than one news item from the top 10",
-  "gpt4_suggestion_category": "Given the title, description, content of a news article, suggest a sytentic category name that best describes its subject. e.g. 'Crypto', 'Climate Newss', 'Sustainability', 'Technology', 'Technology-savvy', 'Technology-hated"
+  "recommended_category": "Given the title, description, content of a news article, identify the most suitable category from the list Politics,Finance,Health,Science,Technology,Sports,Crypto Currency,Other,Entertainment. If none matches then return 'Other'.\n\n2) In the same category as \"Other\", the content should have the title \"Other",
+  "gpt4_suggestion_category": "Given the title, description, content of a news article, suggest a sytentic category name that best describes its subject. e.g. 'Crypto', 'Climate Newss', 'Gazette' 'Climate News', etc. However, many news articles and other information"
 }

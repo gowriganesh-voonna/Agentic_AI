@@ -12,6 +12,6 @@
   "content": "The decision by Indonesian President Prabowo Subianto to skip the G7 meeting in Canada and to visit Russia has raised eyebrows in Western capitals.\r\nThe official reason provided was that his meeting \u2026 [+5775 chars]",
   "fetched_at": "2025-07-02T16:16:18.111218+00:00",
   "article_image_original": "queue/d3b65ba1-426b-4c7f-a65e-47ef139c9f54/d3b65ba1-426b-4c7f-a65e-47ef139c9f54_169a2abc37ecb8355a76bed6b0bd361c",
-  "recommended_category": "Given the title, description, content of a news article, identify the most suitable category from the list Politics,Finance,Health,Science,Technology,Sports,Crypto Currency,Other,Entertainment. If none matches then return 'Other'. If there are no specific categories, then add the one you think best matches your current search term.",
-  "gpt4_suggestion_category": "Given the title, description, content of a news article, suggest a sytentic category name that best describes its subject. e.g. 'Crypto', 'Climate Newss', 'The Dark Ages', 'Dangers and Opportunities', 'Why Are They Being Discovered"
+  "recommended_category": "Given the title, description, content of a news article, identify the most suitable category from the list Politics,Finance,Health,Science,Technology,Sports,Crypto Currency,Other,Entertainment. If none matches then return 'Other'. You can search for this by clicking the search button and selecting one or more of the sub categories.",
+  "gpt4_suggestion_category": "Given the title, description, content of a news article, suggest a sytentic category name that best describes its subject. e.g. 'Crypto', 'Climate Newss', etc.\n\nSensible\n\nSee also Cascading Style Guide\n\nThe following"
 }

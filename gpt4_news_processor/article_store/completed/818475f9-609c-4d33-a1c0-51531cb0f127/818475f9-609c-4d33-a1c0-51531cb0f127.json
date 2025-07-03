@@ -12,6 +12,6 @@
   "content": "On Tuesday, Turkish President Recep Tayyip Erdoan met with US President Donald Trump on the margins of the NATO summit at the Hague. His office issued a statement afterwards: \u201cWelcoming the ceasefire\u2026 [+7774 chars]",
   "fetched_at": "2025-07-02T16:16:19.432169+00:00",
   "article_image_original": "queue/818475f9-609c-4d33-a1c0-51531cb0f127/818475f9-609c-4d33-a1c0-51531cb0f127_IMG_6518.jpg",
-  "recommended_category": "Given the title, description, content of a news article, identify the most suitable category from the list Politics,Finance,Health,Science,Technology,Sports,Crypto Currency,Other,Entertainment. If none matches then return 'Other'. In this case only 'Sports' will be used.\n\n\n'Other' does not represent media",
-  "gpt4_suggestion_category": "Given the title, description, content of a news article, suggest a sytentic category name that best describes its subject. e.g. 'Crypto', 'Climate Newss.', 'Skeptics' and 'Bitcoin.' If a headline is defined in terms of the"
+  "recommended_category": "Given the title, description, content of a news article, identify the most suitable category from the list Politics,Finance,Health,Science,Technology,Sports,Crypto Currency,Other,Entertainment. If none matches then return 'Other'. If you don't find the appropriate category, leave it blank. If you want to search the results",
+  "gpt4_suggestion_category": "Given the title, description, content of a news article, suggest a sytentic category name that best describes its subject. e.g. 'Crypto', 'Climate Newssion', 'Global Climate Change'. For the purposes of this test, we selected this keyword as '"
 }
