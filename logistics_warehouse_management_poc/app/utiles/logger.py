@@ -19,7 +19,7 @@ def get_logger(name):
 
        
         file_handlers = RotatingFileHandler(
-            "library_management_api.log", maxBytes=100_000_00, backupCount=10 , encoding='utf-8'
+            "logistics_warehouse_api.log", maxBytes=100_000_00, backupCount=10 , encoding='utf-8'
         )
         file_handlers.setFormatter(formatter)  # Apply the formatter to the file handler
 

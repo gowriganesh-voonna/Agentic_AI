@@ -1,0 +1,2 @@
+2025-07-04 13:43:29,665 - app.utiles.decoratores - INFO - MainThread - Executing: load_json
+2025-07-04 13:43:29,667 - app.routers.products - INFO - MainThread - Product_id: So002 Product_name : Detol Deleted Successfully.

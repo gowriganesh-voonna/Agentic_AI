@@ -1,0 +1,38 @@
+[
+    {
+        "id": "Mi001",
+        "name": "Vijay Milk",
+        "price": 32.0,
+        "stock": 100,
+        "category": "Dairy",
+        "description": null,
+        "expiry_date": "2025-09-01"
+    },
+    {
+        "id": "Mi002",
+        "name": "Vijay Curd",
+        "price": 20.0,
+        "stock": 201,
+        "category": "Dairy",
+        "description": null,
+        "expiry_date": "2025-09-01"
+    },
+    {
+        "id": "Oi001",
+        "name": "Freedom Sunflower oil",
+        "price": 145.0,
+        "stock": 9,
+        "category": "Cooking Oil",
+        "description": null,
+        "expiry_date": "2025-10-01"
+    },
+    {
+        "id": "So001",
+        "name": "Lifeboy sopa",
+        "price": 50.0,
+        "stock": 20,
+        "category": "Bath Soap",
+        "description": null,
+        "expiry_date": "2025-07-01"
+    }
+]

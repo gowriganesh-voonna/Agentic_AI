@@ -11,6 +11,13 @@ class Product(BaseModel):
     description : Optional[str] = None
     expiry_date : date
 
+class UpdateProduct(BaseModel):
+    name : str
+    stock: Optional[int] =None
+    price : Optional[float] = None
+    description : Optional[str] = None
+
 class GetProduct(BaseModel):
     id : Optional[str] = None
     name : Optional[str] = None
+
