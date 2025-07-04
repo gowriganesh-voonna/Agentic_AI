@@ -6,6 +6,8 @@ from app.data.file_handler import load_json,save_json
 from typing import List
 from datetime import datetime
 router = APIRouter()
+
+# initilizing logger 
 logger = get_logger(__name__)
 
 FILE_PATH = "app/data/products.json"
@@ -13,6 +15,9 @@ FILE_PATH = "app/data/products.json"
 @handle_exceptions
 @router.post("/add_products")
 async def add_product(product : Product):
+    """Input : Product class as dict
+    if id was already added then raise HTTP Exception
+    else : Product Added"""
     data =load_json(FILE_PATH)
 
     for p in data:
@@ -113,3 +118,5 @@ async def products_expiring_this_month():
         return {"Expiring_Products":expiring_products}
     else:
         return {"Message":"No products expiring this month"}
+    
+    
