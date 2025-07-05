@@ -17,7 +17,8 @@ FILE_PATH = "app/data/products.json"
 async def add_product(product : Product):
     """Input : Product class as dict
     if id was already added then raise HTTP Exception
-    else : Product Added"""
+    else : Product Added
+    """
     data =load_json(FILE_PATH)
 
     for p in data:

@@ -38,5 +38,13 @@
         "genre": "politcis",
         "total_copies": 8,
         "available_copies": 7
+    },
+    {
+        "book_id": "H003",
+        "title": "Indian Forest",
+        "author": "Rajas",
+        "genre": "Forest",
+        "total_copies": 7,
+        "available_copies": 7
     }
 ]

@@ -1,6 +1,6 @@
 
-Project: Library Management
-This is a CLI to manage the a small library. 
+Project: Library Management FastAPI
+ 
 It handles operations such as book management, student records, issue and return tracking, and report using json files.
 
 1. Add Book
