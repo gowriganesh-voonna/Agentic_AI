@@ -90,47 +90,52 @@ def process_articles(article_id):
         shutil.move(os.path.join(FAILED_DIR,article_json_file))
         return
     
-    with open (article_json_file, "r", encoding="utf-8") as f:
-        try:
-            article_json = json.load(f)
-        except Exception as e:
-            logger.info ("Failed.......")
-            return
-        
-    title = article_json.get("title","")
-    description = article_json.get("description","")
-    content = article_json.get("content","")
+    try:
+        with open (article_json_file, "r", encoding="utf-8") as f:
+            try:
+                article_json = json.load(f)
+            except Exception as e:
+                logger.info ("Failed.......")
+                return
+            
+        title = article_json.get("title","")
+        description = article_json.get("description","")
+        content = article_json.get("content","")
 
-    if not any([title, description, content]):
-            raise ValueError("Missing required fields.")
+        if not any([title, description, content]):
+                raise ValueError("Missing required fields.")
 
-    category_prompt = CATEGORY_PROMPT.format(
-        title=title,
-        description= description,
-        content=content
-    )
+        category_prompt = CATEGORY_PROMPT.format(
+            title=title,
+            description= description,
+            content=content
+        )
 
-    raw_category_prompt = RAW_CATEGORY_PROMPT.format(
-        title=title,
-        content=content,
-        description=description 
-    )
+        raw_category_prompt = RAW_CATEGORY_PROMPT.format(
+            title=title,
+            content=content,
+            description=description 
+        )
 
-    recommonded_cateogry = get_category_from_gpt2(category_prompt)
-    gpt4_suggestion_category =get_category_from_gpt2(raw_category_prompt)
+        recommonded_cateogry = get_category_from_gpt2(category_prompt)
+        gpt4_suggestion_category =get_category_from_gpt2(raw_category_prompt)
 
-    article_json['recommended_category'] = recommonded_cateogry
-    article_json['gpt4_suggestion_category'] = gpt4_suggestion_category
+        article_json['recommended_category'] = recommonded_cateogry
+        article_json['gpt4_suggestion_category'] = gpt4_suggestion_category
 
-    completed_folder = os.path.join(COMPLETED_DIR,article_id)
-    os.makedirs(completed_folder,exist_ok=True)
-    shutil.copytree(working_folder,completed_folder,dirs_exist_ok=True)
-    completed_json_file = os.path.join(completed_folder,f"{article_id}.json")
-    with open (completed_json_file, "w", encoding="utf-8") as f:
-        json.dump(article_json, f, indent=2)
-    shutil.rmtree(working_folder)
-        
-    logger.info (f"Categorized article {article_id}")
+        completed_folder = os.path.join(COMPLETED_DIR,article_id)
+        os.makedirs(completed_folder,exist_ok=True)
+        shutil.copytree(working_folder,completed_folder,dirs_exist_ok=True)
+        completed_json_file = os.path.join(completed_folder,f"{article_id}.json")
+        with open (completed_json_file, "w", encoding="utf-8") as f:
+            json.dump(article_json, f, indent=2)
+        shutil.rmtree(working_folder)
+            
+        logger.info (f"Categorized article {article_id}")
+
+    except Exception as e:
+        logger.error(f"Failed to process article {article_id}: {e}")
+        shutil.move(working_folder, os.path.join(FAILED_DIR, article_id))
 
 
 def main():
