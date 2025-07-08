@@ -16,7 +16,7 @@ collection = database[sample_data]
 #     "Company":"Zennial Pro"
 # })
 
-print(collection.find_one())  # no find or find_many will work
+#print(collection.find_one())  # no find or find_many will work
 
 # inseting many dictionaries
 # data = collection.insert_many( [
@@ -27,5 +27,87 @@ print(collection.find_one())  # no find or find_many will work
 # ]
 # )
 
-for d in collection.find():
+# for d in collection.find():
+#     print(d)
+
+# filtered = collection.find({"Salary":
+#                             {"$gt":50000}})
+
+# print("Salary greater than >50000")
+# for d in filtered:
+#     print(d)
+
+
+print("=================================================")
+
+# nested_data = collection.insert_one(
+#     {
+#         "Name":"Pavan",
+#         "Destignation":"CEO",
+#         "Company" : "Human Empower",
+#         "address" : {
+#             "Door_No":"22-14/1-89/3",
+#             "Area":"Madhapur",
+#             "City":"Hyderabad"
+#         }
+#     }
+# )
+
+#print(collection.find_one({"Name":"Pavan"}))
+
+# nested_data_many = collection.insert_many(
+#     [
+#     {
+#         "Name":"Pavan",
+#         "Destignation":"CEO",
+#         "Company" : "Human Empower",
+#         "address" : {
+#             "Door_No":"22-14/1-89/3",
+#             "Area":"Madhapur",
+#             "City":"Hyderabad"
+#         }
+#     },
+#     {
+#         "Name":"Priyanka",
+#         "Destignation":"MD",
+#         "Company" : "Human Bank",
+#         "address" : {
+#             "Door_No":"22-1-3/A",
+#             "Area":"Bhanu Nagar",
+#             "City":"Vijayawada"
+#         }
+
+#     }
+
+#     ]
+# )
+
+
+# it is not working
+query0 = {"Name":{"$regx":r"^P","$options":"i"}}  # ^P means finding name with P stating letter and i is case sensitive
+
+query = {
+    "$expr":{
+        "$eq":[
+            {"$substr":["$Name",0,1]},
+            "P"
+        ]
+    }
+}
+filtered=collection.find(query)
+
+print("People Name whose started with P")
+
+for d in filtered:
+    print(d)
+
+query = {
+    "address.City":"Vijayawada"
+}
+
+results = collection.find(query)
+
+print("Nested filtering")
+
+for d in results:
     print(d)
