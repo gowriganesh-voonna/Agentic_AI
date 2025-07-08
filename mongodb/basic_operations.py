@@ -102,12 +102,10 @@ for d in filtered:
     print(d)
 
 query = {
-    "address.City":"Vijayawada"
+    "address.City":"Hyderabad"
 }
 
-results = collection.find(query)
+results = collection.delete_one(query)
 
-print("Nested filtering")
+print("Deleted")
 
-for d in results:
-    print(d)
