@@ -112,6 +112,8 @@ for d in filtered:
 print("-------------------------------------------------")
 print("------------------------Filtered ends name with ra")
 
+
+#================== see structure_data.txt file for explanation
 query1 = {
     "$expr":{
         "$eq":[

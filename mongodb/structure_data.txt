@@ -1,0 +1,65 @@
+
+MongoDB Query: Find documents where Name ends with 'ra' (without using $regex)
+
+-----------------------------------------------------
+Query Explanation
+-----------------------------------------------------
+
+{
+  "$expr": {
+    "$eq": [
+      {
+        "$substrCP": [
+          "$Name",
+          { "$subtract": [ { "$strLenCP": "$Name" }, 2 ] },
+          2
+        ]
+      },
+      "ra"
+    ]
+  }
+}
+
+What this does:
+
+1) $expr
+   Allows you to run aggregation operators in a normal find query.
+
+2) $eq
+   Compares two values to check if they are equal.
+
+3) $substrCP
+   Extracts a substring from 'Name'.
+   CP means Code Point safe (works well with Unicode).
+   Format: $substrCP: [ <string>, <start>, <length> ]
+
+4) $strLenCP
+   Returns the length of the 'Name' field.
+
+5) $subtract
+   Calculates the start index for the last 2 characters: (length - 2).
+
+Example for 'Indra':
+   - $strLenCP('Indra') = 5
+   - $subtract = 5 - 2 = 3
+   - $substrCP('Indra', 3, 2) => 'ra'
+   - $eq: is 'ra' equal to 'ra'? YES -> document matches.
+
+If you want case-insensitive:
+Use $toLower around $substrCP.
+
+Example:
+{
+  "$expr": {
+    "$eq": [
+      { "$toLower": { "$substrCP": [ "$Name", { "$subtract": [ { "$strLenCP": "$Name" }, 2 ] }, 2 ] } },
+      "ra"
+    ]
+  }
+}
+
+This matches 'Indra', 'Mitra', 'AKSHARA', etc.
+
+-----------------------------------------------------
+This approach works even if $regex is not allowed by your storage engine.
+-----------------------------------------------------
