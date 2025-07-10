@@ -9,7 +9,7 @@ from pymongo import MongoClient
 PDF_FOLDER = "resumes"
 FAISS_INDEX_FILE = "resume_index.faiss"
 INDEX_DATA_FILE = "resume_chunks.npy"
-MONGO_URI = os.getenv("MONGO_URI", "mongodb+srv://vamsikrishnapanga77:oaJbD6sowGS6bZes@resumestore.egj3wqb.mongodb.net/")
+MONGO_URI = "mongodb+srv://gowriganeshvoonna:3EhpwdUK0FnSh3YP@resume-data.wz0y1el.mongodb.net/"
 DB_NAME = "resume_manager"
 COLLECTION_NAME = "resumes"
 #OPENAI_API_KEY = os.getenv ("OPENAI_API_KEY")
@@ -17,9 +17,12 @@ COLLECTION_NAME = "resumes"
  
 # -------------------- Initalisation --------------------
 #openai_client = OpenAI  (api_key=OPENAI_API_KEY )
-mongo_client = MongoClient(MONGO_URI)
-db = mongo_client[DB_NAME]
-resume_collection = db[COLLECTION_NAME]
+DB_NAME = "Resume_db"
+sample_data = "sample_data"
+
+client = MongoClient(MONGO_URI)
+database = client[DB_NAME]
+collection = database[sample_data]
 embedding_dim = 1536
 index = faiss.IndexFlatL2(embedding_dim) # faiss
 index_data = []
@@ -54,12 +57,13 @@ def index_resumes():
     global index_data
     for filename in os.listdir (PDF_FOLDER):
         if filename.endswith(".pdf"):
-            if resume_collection.find_one({"_id": filename }):
+            if collection.find_one({"_id": filename }):
                 print (f"Skipping : {filename} - already indexed")
                 continue
  
             text = load_pdf_text (os.path.join(PDF_FOLDER, filename))
             chunks = chunk_text (text)
+            collection.insert_one({"_id":filename,"text":text})
             return chunks
             # for chunk in chunks:
             #     embedding = get_openai_embeddings (chunk)
