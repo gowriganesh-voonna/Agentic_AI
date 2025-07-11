@@ -131,7 +131,7 @@ def query_resume (query):
     # 
     
     query_embedding = model.encode(query).astype('float32').reshape(1,-1)
-    D,I = index.search(query_embedding,3)
+    D,I = index.search(query_embedding,1)
     results =[]
     for id in I[0]:
         if id<len(index_data):
