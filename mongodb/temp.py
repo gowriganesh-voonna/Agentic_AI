@@ -4,6 +4,8 @@ import numpy as np
 import fitz
 from openai import OpenAI
 from pymongo import MongoClient
+from transformers import GPT2Tokenizer,GPT2LMHeadModel,GPT2Model
+import torch
  
 # -------------------- Configuration --------------------
 PDF_FOLDER = "resumes"
@@ -26,6 +28,17 @@ collection = database[sample_data]
 embedding_dim = 1536
 index = faiss.IndexFlatL2(embedding_dim) # faiss
 index_data = []
+
+
+# ---------------------------------- define tokenizer and model --------------------------
+tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
+# model = GPT2LMHeadModel.from_pretrained("gpt2")
+model = GPT2Model.from_pretrained("gpt2")
+
+#by default GPT2 model is not having pad_tokens
+tokenizer.pad_token = tokenizer.eos_token
+
+model.pad_token_id = model.config.eos_token_id
  
 def load_index():
     if os.path.exists (FAISS_INDEX_FILE):
@@ -42,12 +55,28 @@ def chunk_text (text, chunk_size=500):
     words = text.split()
     return [ " ".join(words[i:i + chunk_size]) for i in range(0, len(words), chunk_size)]
  
-def get_openai_embeddings(text):
-    response = openai_client.embeddings.create(
-        model = TEXT_EMBEDDINGS_MODEL,
-        input =  text
-    )
-    return response.data[0].embedding
+# def get_openai_embeddings(text):
+#     response = openai_client.embeddings.create(
+#         model = TEXT_EMBEDDINGS_MODEL,
+#         input =  text
+#     )
+#     return response.data[0].embedding
+
+def get_embeddings(chunked_text):
+    """
+    Gets the mean embedding from the input_text
+
+    Args:
+        input_text : Text to get the mean embedding
+    """
+
+    tokens = tokenizer(chunked_text,return_tensors="pt")  # Gets the result in PY Tensor format
+
+    with torch.no_grad():  # Load the model for basic operations and not for training
+        model_output = model(**tokens)   # In the PY- TF format
+        full_embeddings = model_output.last_hidden_state
+        return full_embeddings
+     
    
 def save_index():
     faiss.write_index(index, FAISS_INDEX_FILE)
@@ -63,18 +92,20 @@ def index_resumes():
  
             text = load_pdf_text (os.path.join(PDF_FOLDER, filename))
             chunks = chunk_text (text)
-            collection.insert_one({"_id":filename,"text":text})
-            return chunks
-            # for chunk in chunks:
-            #     embedding = get_openai_embeddings (chunk)
-            #     index.add(np.array([embedding], dtype="float32"))
-            #     index_data.append({"_id" : filename, "chunk" : chunk})
-            #     resume_collection.insert_one({"_id" : filename, "text" : text})
-            # print (f"Indexed the resume {filename}")
+            #collection.insert_one({"_id":filename,"text":text})
+            #return chunks
+            for chunk in chunks:
+                embedding = get_embeddings(chunk)
+                #index.add(np.array([embedding], dtype="float32"))
+                index.add(embedding)
+                index_data.append({"_id" : filename, "chunk" : chunk})
+                save_index()
+                #collection.insert_one({"_id" : filename, "text" : text})
+            print (f"Indexed the resume {filename}")
     
  
 def query_resume (query):
-    return True
+   
     # if index.ntotal ==0 or len (index_data) ==0:
     #     print ("No resumes are indexed. Please Use Option 1 ")
     #     return
@@ -83,7 +114,19 @@ def query_resume (query):
    
     # context = []
     # for i in I [0]:
- 
+
+    if index.ntotal ==0 or len(index_data) == 0:
+        print("No resumes are indexed. Please use Option 1")
+        return
+    query_vector = get_embeddings(query)
+
+    X,I = index.search(np.array([query_vector],dtype = "float32"),3) # Extract Chunk
+
+    context = []
+
+    for i in I[0]:
+        print(i)
+
    
  
  
