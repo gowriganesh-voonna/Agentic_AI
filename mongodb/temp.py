@@ -6,11 +6,15 @@ from openai import OpenAI
 from pymongo import MongoClient
 from transformers import GPT2Tokenizer,GPT2LMHeadModel,GPT2Model
 import torch
+from sentence_transformers import SentenceTransformer
+import pickle
  
 # -------------------- Configuration --------------------
 PDF_FOLDER = "resumes"
-FAISS_INDEX_FILE = "resume_index.faiss"
-INDEX_DATA_FILE = "resume_chunks.npy"
+#FAISS_INDEX_FILE = "resume_index.faiss"
+FAISS_INDEX_FILE = "faiss.index"
+#INDEX_DATA_FILE = "resume_chunks.npy"
+INDEX_DATA_FILE = "faiss_ids.pkl"
 MONGO_URI = "mongodb+srv://gowriganeshvoonna:3EhpwdUK0FnSh3YP@resume-data.wz0y1el.mongodb.net/"
 DB_NAME = "resume_manager"
 COLLECTION_NAME = "resumes"
@@ -25,27 +29,33 @@ sample_data = "sample_data"
 client = MongoClient(MONGO_URI)
 database = client[DB_NAME]
 collection = database[sample_data]
-embedding_dim = 1536
+embedding_dim = 384
 index = faiss.IndexFlatL2(embedding_dim) # faiss
 index_data = []
 
 
 # ---------------------------------- define tokenizer and model --------------------------
-tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
+#tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
 # model = GPT2LMHeadModel.from_pretrained("gpt2")
-model = GPT2Model.from_pretrained("gpt2")
+#model = GPT2Model.from_pretrained("gpt2")
+
+# use local embedding model 
+model = SentenceTransformer('all-MiniLM-L6-v2')
 
 #by default GPT2 model is not having pad_tokens
-tokenizer.pad_token = tokenizer.eos_token
+#tokenizer.pad_token = tokenizer.eos_token
 
-model.pad_token_id = model.config.eos_token_id
+#model.pad_token_id = model.config.eos_token_id
  
 def load_index():
-    if os.path.exists (FAISS_INDEX_FILE):
-        global index, index_data  
+    global index,index_data
+    if os.path.exists (FAISS_INDEX_FILE) and os.path.exists(INDEX_DATA_FILE):
+         
         index = faiss.read_index(FAISS_INDEX_FILE)
-    if os.path.exists(INDEX_DATA_FILE):
-        index_data = np.load(INDEX_DATA_FILE, allow_pickle= True).tolist()
+        with open(INDEX_DATA_FILE,"rb") as f:
+            index_data = pickle.load(f)
+    else:
+        print("NO Existing index found.A new one will be created")
  
 def load_pdf_text(pdf_path):
     pdf_document = fitz.open(pdf_path)
@@ -62,25 +72,28 @@ def chunk_text (text, chunk_size=500):
 #     )
 #     return response.data[0].embedding
 
-def get_embeddings(chunked_text):
-    """
-    Gets the mean embedding from the input_text
+# def get_embeddings(chunked_text):
+#     """
+#     Gets the mean embedding from the input_text
 
-    Args:
-        input_text : Text to get the mean embedding
-    """
+#     Args:
+#         input_text : Text to get the mean embedding
+#     """
 
-    tokens = tokenizer(chunked_text,return_tensors="pt")  # Gets the result in PY Tensor format
+#     tokens = tokenizer(chunked_text,return_tensors="pt")  # Gets the result in PY Tensor format
 
-    with torch.no_grad():  # Load the model for basic operations and not for training
-        model_output = model(**tokens)   # In the PY- TF format
-        full_embeddings = model_output.last_hidden_state
-        return full_embeddings
+#     with torch.no_grad():  # Load the model for basic operations and not for training
+#         model_output = model(**tokens)   # In the PY- TF format
+#         full_embeddings = model_output.last_hidden_state
+#         return full_embeddings.squeeze(0).numpy().astype('float32').reshape(1,-1)
      
    
 def save_index():
     faiss.write_index(index, FAISS_INDEX_FILE)
-    np.save(INDEX_DATA_FILE, index_data) # Mapping
+    with open(INDEX_DATA_FILE,"wb") as f:
+        pickle.dump(index_data,f)
+    print("Index Saved")
+    #np.save(INDEX_DATA_FILE, index_data) # Mapping
  
 def index_resumes():
     global index_data
@@ -95,12 +108,12 @@ def index_resumes():
             #collection.insert_one({"_id":filename,"text":text})
             #return chunks
             for chunk in chunks:
-                embedding = get_embeddings(chunk)
+                embedding = model.encode(chunk).astype('float32').reshape(1,-1)
                 #index.add(np.array([embedding], dtype="float32"))
                 index.add(embedding)
                 index_data.append({"_id" : filename, "chunk" : chunk})
-                save_index()
-                #collection.insert_one({"_id" : filename, "text" : text})
+            save_index()
+            collection.insert_one({"_id" : filename, "text" : text})
             print (f"Indexed the resume {filename}")
     
  
@@ -115,17 +128,15 @@ def query_resume (query):
     # context = []
     # for i in I [0]:
 
-    if index.ntotal ==0 or len(index_data) == 0:
-        print("No resumes are indexed. Please use Option 1")
-        return
-    query_vector = get_embeddings(query)
-
-    X,I = index.search(np.array([query_vector],dtype = "float32"),3) # Extract Chunk
-
-    context = []
-
-    for i in I[0]:
-        print(i)
+    # 
+    
+    query_embedding = model.encode(query).astype('float32').reshape(1,-1)
+    D,I = index.search(query_embedding,3)
+    results =[]
+    for id in I[0]:
+        if id<len(index_data):
+            results.append(index_data[id])
+    return results
 
    
  
@@ -146,7 +157,11 @@ def main():
             print(index_resumes())
         elif choice == "2":
             query = input ("Ask you question : ")
-            query_resume (query)
+            results =query_resume (query)
+            for idx,res in enumerate(results,1):
+                print(f"\n Result {idx}:")
+                print(f"Chunk Preview : {res['chunk'][:200]}")
+                print("\n"+"-"*50)
         elif choice == "3":
             print ("Goodbye..... See you again.")
             break
