@@ -30,7 +30,7 @@ sample_data = "sample_data"
 client = MongoClient(MONGO_URI)
 database = client[DB_NAME]
 collection = database[sample_data]
-embedding_dim = 758
+embedding_dim = 384
 index = faiss.IndexFlatL2(embedding_dim) # faiss
 index_data = []
 
@@ -39,6 +39,7 @@ index_data = []
 #tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
 # model = GPT2LMHeadModel.from_pretrained("gpt2")
 #model = GPT2Model.from_pretrained("gpt2")
+
 
 # use local embedding model 
 model = SentenceTransformer('all-MiniLM-L6-v2')
