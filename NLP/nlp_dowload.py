@@ -32,3 +32,7 @@ print("------------------sorted--------------------")
 print(sorted(set(text3)))
 
 print(f"length : {len(sorted(set(text3)))}")
+
+
+
+print("-------------------------------------------")
