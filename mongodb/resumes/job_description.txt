@@ -1,0 +1,114 @@
+Line-by-line Explanation
+model = SentenceTransformer('all-MiniLM-L6-v2')
+What it does:
+ 
+Loads a pre-trained Sentence Transformers model.
+ 
+'all-MiniLM-L6-v2' is a lightweight, fast model that maps text to dense numerical embeddings (vectors).
+ 
+These embeddings capture the semantic meaning of the text.
+ 
+Why:
+ 
+You can’t directly compare text with text — you need to convert them into vectors first.
+ 
+embeddings = model.encode([job_desc, resume_text])
+What it does:
+ 
+Takes your Job Description and the Resume Text, and encodes both into vectors (embeddings).
+ 
+Each text is turned into a high-dimensional vector, e.g., 384 dimensions for MiniLM.
+ 
+Result:
+ 
+embeddings is a list with 2 vectors:
+ 
+embeddings[0] → JD vector
+ 
+embeddings[1] → Resume vector
+ 
+jd_embedding = embeddings[0].reshape(1, -1)
+resume_embedding = embeddings[1].reshape(1, -1)
+What it does:
+ 
+Reshapes both embeddings to the shape (1, number of dimensions) so they can be used with FAISS.
+ 
+.reshape(1, -1) means: 1 row, auto-detect columns.
+ 
+Why:
+ 
+FAISS expects embeddings to be in a 2D array of shape (N, D) where:
+ 
+N = number of vectors
+ 
+D = vector dimension
+ 
+dimension = jd_embedding.shape[1]
+What it does:
+ 
+Gets the number of dimensions in the embedding (e.g., 384).
+ 
+Needed to initialize the FAISS index correctly.
+ 
+index = faiss.IndexFlatIP(dimension)
+What it does:
+ 
+Creates a FAISS index for similarity search.
+ 
+IndexFlatIP means it uses Inner Product (dot product) as the similarity measure.
+ 
+When vectors are normalized (which Sentence Transformers does), the inner product equals cosine similarity.
+ 
+index.add(jd_embedding)
+What it does:
+ 
+Adds your JD vector to the FAISS index.
+ 
+Think of this as the “reference” vector.
+ 
+similarity, _ = index.search(resume_embedding, k=1)
+What it does:
+ 
+Searches the FAISS index with the resume vector.
+ 
+k=1 → we want the single most similar vector (the JD itself).
+ 
+Returns:
+ 
+similarity → an array with the similarity score.
+ 
+_ → the index of the nearest vector (not used here).
+ 
+How it works:
+ 
+Since there’s only one vector in the index (the JD), it calculates the inner product between the resume and JD vectors.
+ 
+Because embeddings are normalized, inner product = cosine similarity.
+ 
+score = float(similarity[0][0])
+What it does:
+ 
+Extracts the actual similarity score from the 2D numpy array FAISS returns.
+ 
+similarity looks like: [[0.82]]
+ 
+So score becomes 0.82.
+ 
+percentage = round(score * 100, 2)
+What it does:
+ 
+Converts the similarity score from 0.0–1.0 to a human-readable percentage (e.g., 82%).
+ 
+round(..., 2) keeps 2 decimal places.
+ 
+return percentage
+What it does:
+ 
+Returns the final match percentage to the main script for decision-making.
+ 
+✅ Summary: What happens?
+1️⃣ Text → Vectors: JD and resume are turned into semantic embeddings.
+2️⃣ Vectors → Similarity: FAISS finds how close the vectors are using cosine similarity.
+3️⃣ Score → %: The match score is shown as a percentage.
+4️⃣ Use it: Decide if the candidate is shortlisted!
+ 
