@@ -36,3 +36,8 @@ print(f"length : {len(sorted(set(text3)))}")
 
 
 print("-------------------------------------------")
+
+def lexical_diversity(text): 
+    return len(text) / len(set(text)) 
+
+print(lexical_diversity(text3))
