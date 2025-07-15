@@ -68,7 +68,7 @@ def main():
     if similarity_percentage>=70:
         print(f"Your resume are shortlisted")
     else:
-        print(f"Apolgies your resume was not shortlisted")
+        print(f"Apolgies your resume was not shortlisted.")
 
 
 if __name__=="__main__":
