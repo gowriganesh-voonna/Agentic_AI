@@ -23,7 +23,8 @@ By the end of this masterclass, you'll have a foundational understanding and you
 For Example :
 ```Python :
 Text : "Learning Python is easy"
-Tokens : ['Learning' ,'Python','is','easy'] ```
+Tokens : ['Learning' ,'Python','is','easy']
+ ```
 
 The model doesnt split at just spaces - It uses a special tokenizer like Byte Pair Encoding(BPE) or others depending on the model.
 
@@ -56,7 +57,8 @@ It's widely used in the AI/NLP industry and supports models from OpenAI, Meta, G
 Install the `transformers` library using pip:
  
 ```bash
-pip install transformers ```
+pip install transformers 
+```
 
 ---------
 ###Example:  Tokenizing Text using GPT-2 Tokenizer
@@ -95,15 +97,15 @@ print(inputs)
 ```
 -----------
 
-Output :
-# Tokens (Subword Units):
-# ['Learning', 'ĠPython', 'Ġis', 'Ġvery', 'Ġinteresting', '.']
+###Output :
+Tokens (Subword Units):
+['Learning', 'ĠPython', 'Ġis', 'Ġvery', 'Ġinteresting', '.']
 
-# Token IDs (Numerical):
-# [41730, 11361, 318, 845, 3499, 13]
+Token IDs (Numerical):
+[41730, 11361, 318, 845, 3499, 13]
 
-#  Number of Tokens: 6
+Number of Tokens: 6
 
-# PyTorch Tensor Output:
-# {'input_ids': tensor([[41730, 11361,   318,   845,  3499,    13]]), 'attention_mask': tensor([[1, 1, 1, 1, 1, 1]])}
+ PyTorch Tensor Output:
+{'input_ids': tensor([[41730, 11361,   318,   845,  3499,    13]]), 'attention_mask': tensor([[1, 1, 1, 1, 1, 1]])}
 
