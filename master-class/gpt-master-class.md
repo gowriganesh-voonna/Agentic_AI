@@ -109,3 +109,18 @@ Number of Tokens: 6
  PyTorch Tensor Output:
 {'input_ids': tensor([[41730, 11361,   318,   845,  3499,    13]]), 'attention_mask': tensor([[1, 1, 1, 1, 1, 1]])}
 
+-------------------------------------------------------------------------------
+
+## Knowledge Check on Tokenization : 
+
+ 
+1. **What is the purpose of the `transformers` library in Python?**
+2. **Why do we use the `GPT2Tokenizer.from_pretrained("gpt2")` method?**
+3. **What is the difference between `tokenizer.tokenize()` and `tokenizer.encode()`?**
+4. **What does `return_tensors="pt"` do in the tokenizer?**
+5. **What is the output of `tokenizer(text, return_tensors="pt")` and what is it used for?**
+6. **How are tokens and token IDs different? Can you give examples?**
+7. **Why might you use PyTorch tensors instead of plain token IDs when working with models?**
+
+-------------------------------------------------------------------------------------------
+ 
