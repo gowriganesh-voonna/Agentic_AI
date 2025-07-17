@@ -361,3 +361,37 @@ tensor([[[-0.2023, -0.1084, -0.1990,  ..., -0.1866,  0.0799, -0.0417],
 
 ----
  
+Knowledge check :
+ 
+# Interview Questions: Embeddings & Language Models
+ 
+### 1. How does GPT-2 generate embeddings? - Describe the process of tokenization and transformer layers.  
+### 2. What is the shape of the output from a transformer model like GPT-2? - Explain `[batch_size, sequence_length, embedding_dim]`.  
+### 3. What does `last_hidden_state` represent in GPT-2 output?  
+### 4. How do you extract sentence-level embeddings from token-level outputs?  
+### 5. How do you use embeddings in downstream tasks like classification or clustering?  
+### 6. How do you visualize high-dimensional embeddings? - Use of t-SNE, PCA, or UMAP.  
+### 7. How do you store and retrieve embeddings efficiently at scale? - Mention FAISS or Annoy.  
+### 8. How does fine-tuning affect embeddings?  
+### 9. How does positional encoding influence embeddings in transformers?  
+### 10. How do transformer attention mechanisms interact with embeddings?  
+### 11. How would you extract GPT-2 embeddings using HuggingFace Transformers in PyTorch?  
+### 12. How would you handle variable-length inputs when generating embeddings?  
+### 13. If your embeddings don’t capture semantic similarity well, how would you improve them?  
+### 14. How would you compare the performance of different embeddings on a task like sentiment analysis?  
+ 
+### 15 What is the role of embedding layers in neural networks?
+ 
+### 16 Why are pre-trained embeddings useful?
+### 17. What are some commonly used embedding models?
+- Word2Vec  
+- GloVe  
+- FastText  
+- BERT  
+- GPT
+ 
+ 
+-------------
+ 
+
+ 
