@@ -392,6 +392,264 @@ Knowledge check :
  
  
 -------------
+
+# 🔍 Vector-Based Search using GPT-2 Model
+ 
+Vector-based search, also known as **semantic search**, allows you to retrieve documents or responses based on **meaning** rather than exact keyword matches. Though GPT-2 is primarily a language generation model, it can still be leveraged to **generate embeddings** (numerical vector representations of text), which can then be used in vector search.
+ 
+---
+ 
+## ⚙️ How It Works
+ 
+1. **Text Input**
+   - You provide textual data (e.g., documents, sentences, or questions).
+   
+2. **Tokenization**
+   - Use GPT-2 tokenizer (from HuggingFace) to convert text into token IDs.
+   - Example:
+     ```python
+     tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
+     inputs = tokenizer("example text", return_tensors="pt")
+     ```
+ 
+3. **Generate Embeddings using GPT-2**
+   - Pass tokenized input into the GPT-2 model to get hidden states:
+     ```python
+     model = GPT2Model.from_pretrained("gpt2")
+     outputs = model(**inputs)
+     last_hidden_state = outputs.last_hidden_state
+     ```
+ 
+4. **Extract Sentence Embedding**
+   - You can average token embeddings to form a fixed-size sentence embedding:
+     ```python
+     sentence_embedding = last_hidden_state.mean(dim=1)  # shape: [1, embedding_dim]
+     ```
+ 
+5. **Index Embeddings**
+   - Store embeddings in a **vector index** using libraries like:
+     - **FAISS** (Facebook AI Similarity Search)
+     - **Annoy** (Approximate Nearest Neighbors)
+     - **ScaNN** (Google)
+     ```python
+     import faiss
+     index = faiss.IndexFlatL2(embedding_dim)
+     index.add(embedding_matrix)  # add all embeddings to index
+     ```
+    ### Installation (Required Only Once)
+ 
+    Install the `faiss-cpu` library using pip:
+ 
+    ```bash
+    pip install faiss-cpu
+    ```
+     **faiss** stands for Facebook AI Similarity Search. It is a library developed by Facebook AI Research to perform efficient similarity search and clustering of dense vectors (typically high-dimensional embeddings, like those from NLP or image models).
+
+     #### What faiss Does:
+    faiss is mainly used for:
+    •	Fast nearest neighbor search in large datasets.
+    •	Similarity search between vectors (e.g., finding the most similar sentences, images, or documents).
+    •	Clustering of high-dimensional data.
+    •	Indexing vectors in a memory-efficient and query-optimized way.
+
+
+
+    Example Code for faiss :
+    ```Python 
+    import faiss
+    import numpy as np
+
+    # Create some 128-dimensional vectors
+    d = 128
+    nb = 1000
+    query_vector = 1
+
+    # Generate random vectors
+    data = np.random.random((nb, d)).astype('float32')
+    query = np.random.random((query_vector, d)).astype('float32')
+
+    # Build index
+    index = faiss.IndexFlatL2(d)  # L2 = Euclidean distance
+    index.add(data)               # Add data to index
+
+    # Search the nearest 5 neighbors
+    D, I = index.search(query, 5)  # D = distances, I = indices
+    print("Nearest indices:", I)
+    print("Distances:", D)
+
+    ```
+
+
+ 
+6. **Search with Query**
+   - Encode a query using the same GPT-2 embedding pipeline.
+   - Search in the index to retrieve top similar vectors:
+     ```python
+     D, I = index.search(query_embedding, k=5)  # D = distances, I = indices
+     ```
+ 
+7. **Return Results**
+   - Map indices back to original documents or responses.
+ 
+---
+ 
+## ✅ Advantages
+ 
+- Captures **semantic similarity** (e.g., "car" and "vehicle" will be close).
+- Supports **flexible and fuzzy** matching.
+- Can be extended for:
+  - FAQ bots
+  - Recommendation systems
+  - Document retrieval
+ 
+---
+ 
+## ⚠️ Limitations
+ 
+- GPT-2 is **not optimized for embeddings** (unlike BERT or Sentence-BERT).
+- Requires **fine-tuning or post-processing** for better performance.
+- Larger memory usage due to transformer architecture.
+ 
+---
+ 
+## 🧠 Alternative: Use Better Embedding Models
+ 
+Instead of GPT-2, you can use models specifically trained for embeddings:
+- `sentence-transformers/all-MiniLM-L6-v2`
+- `bert-base-uncased`
+- `text-embedding-ada-002` (OpenAI)
+ 
+---
+ 
+## 📌 Summary
+ 
+| Step             | Action                        |
+|------------------|-------------------------------|
+| Text             | Provide raw input text        |
+| Tokenization     | Use GPT-2 tokenizer           |
+| Embedding        | Extract hidden states         |
+| Indexing         | Store vectors in FAISS/Annoy  |
+| Query            | Search for similar vectors    |
+| Result           | Retrieve semantically similar |
+
+
+-------------
+
+Example Code on search_vector 
+
+```python 
+# Import required libraries
+import torch
+from transformers import GPT2Tokenizer, GPT2Model
+import faiss
+import numpy as np
+ 
+# Import custom exception handling decorator
+from utiles.decoratores import handle_exceptions
+ 
+# Load GPT-2 tokenizer and model once globally
+tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
+model = GPT2Model.from_pretrained("gpt2")
+model.eval()  # Set the model to evaluation mode (not training)
+ 
+@handle_exceptions
+def get_embedding(text):
+    """
+    Generates an embedding for the input text using GPT-2.
+    """
+    # Tokenize the input text and convert to tensor format
+    inputs = tokenizer(text, return_tensors="pt", truncation=True, max_length=512)
+    
+    # Disable gradient calculations for faster inference
+    with torch.no_grad():
+        outputs = model(**inputs)  # Forward pass through the model
+    
+    # Get the last hidden states (token-level embeddings)
+    last_hidden_state = outputs.last_hidden_state
+    
+    # Take the average across all token embeddings to form a sentence-level embedding
+    sentence_embedding = last_hidden_state.mean(dim=1).squeeze().numpy()
+    
+    return sentence_embedding
+ 
+@handle_exceptions
+def build_faiss_index(documents):
+    """
+    Builds a FAISS index from a list of documents.
+    """
+    # Convert each document into an embedding
+    embeddings = np.array([get_embedding(doc) for doc in documents]).astype('float32')
+    
+    # Determine the dimension of the embeddings
+    embedding_dim = embeddings.shape[1]
+    
+    # Create a FAISS index with L2 distance metric
+    index = faiss.IndexFlatL2(embedding_dim)
+    
+    # Add all embeddings to the FAISS index
+    index.add(embeddings)
+    
+    return index, embeddings
+ 
+@handle_exceptions
+def search_documents(query, index, documents, k=3):
+    """
+    Searches for the top K similar documents to the query.
+    """
+    # Generate an embedding for the user's query
+    query_vec = get_embedding(query).astype('float32').reshape(1, -1)
+    
+    # Search in the FAISS index for the top K similar vectors
+    D, I = index.search(query_vec, k=k)
+    
+    # Retrieve and return the matching documents
+    results = [documents[i] for i in I[0]]
+    return results
+ 
+@handle_exceptions
+def main():
+    """
+    Main driver function to demonstrate vector-based search.
+    """
+    # Sample document corpus
+    documents = [
+        "The cat is sitting on the mat.",
+        "Artificial intelligence is transforming the world.",
+        "A dog barked loudly near the house.",
+        "Machine learning is a subset of AI.",
+        "The sun rises in the east."
+    ]
+    
+    # Build index from the document list
+    index, _ = build_faiss_index(documents)
+    
+    # Example query
+    query = "What is machine learning?"
+    
+    # Perform the vector search
+    top_matches = search_documents(query, index, documents, k=3)
+    
+    # Print the query and matching results
+    print("Query:", query)
+    print("\nTop Matches:")
+    for match in top_matches:
+        print("-", match)
+ 
+
+if __name__ == "__main__":
+    main()
+ 
+```
+Output :
+Query is : I enjoy learning Python
+
+0.9990 → Studying Python is enjoyable
+0.9980 → Python is a powerful language
+0.9971 → The weather is nice today
+0.9938 → I love Programing in Java
+0.9888 → Bananas are rich is potassium
+
+----
  
 
  
