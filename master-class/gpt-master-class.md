@@ -23,7 +23,7 @@ By the end of this masterclass, you'll have a foundational understanding and you
 For Example :
 ```Python :
 Text : "Learning Python is easy"
-Tokens : ['Learning' ,'Python','is','easy']
+Tokens : ['Learning' ,'Python','is','easy'] ```
 
 The model doesnt split at just spaces - It uses a special tokenizer like Byte Pair Encoding(BPE) or others depending on the model.
 
@@ -39,7 +39,7 @@ Before feeding any text to a model like GPT-2, we must convert it into tokens. T
  
 Instead of writing our own tokenizer from scratch, we use a **pre-built tokenizer** from a well-maintained library — `transformers` by Hugging Face.
 
-### ⚙️ What is `transformers`?
+###  What is `transformers`?
  
 **transformers** is a Python library created by Hugging Face. It allows us to:
  
@@ -56,7 +56,7 @@ It's widely used in the AI/NLP industry and supports models from OpenAI, Meta, G
 Install the `transformers` library using pip:
  
 ```bash
-pip install transformers
+pip install transformers ```
 
 ---------
 ###Example:  Tokenizing Text using GPT-2 Tokenizer
@@ -92,6 +92,7 @@ print(f"\n Number of Tokens: {len(token_ids)}")
 print("\nPyTorch Tensor Output:")
 print(inputs)
 
+```
 -----------
 
 Output :
