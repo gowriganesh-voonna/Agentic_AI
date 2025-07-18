@@ -1,4 +1,4 @@
-# Masterclass for GPT-2 and GPT-4
+# Masterclass : Understanding  Tokens, Embeddings, Models, Language Models, Vectors, FastAPI and Mongodb.
 
 ## Overview
 
@@ -8,6 +8,8 @@ In this article, we will cover the following key concepts:
 - **Embeddings**: Representing words, sentences or tokens (text ->Tokens -> Embeddings) in a high dimenisonal space.
 - **Vector Based Search**: Efficiently searching through embeddings using similarity metrics.
 - **Model** : A model like GPT is a powerful language processing system that understands and generates human-like text based on input.It uses billions of parameters trained on vast text data to predict the next word or sentence in a conversation.
+- **Language Model (LM)** : LM is a model that predicts the next word or token in a sequence based on the context of previous words. It helps machines understand and generate human-like text.
+- **Large Language Model (LLM)** : LLM is a type of language model trained on massive datasets with billions of parameters, capable of understanding, generating, and reasoning with natural language at a much deeper level.
 - **FastAPI**- FastAPI is a modern and high-performance Python web framework used to build APIs quickly and efficiently.
 - **Mongodb**- MongoDB is a popular, open-source, NoSQL database that stores data in JSON-like documents organized into collections. 
 
@@ -16,9 +18,9 @@ Throughout the article, we'll explore how these components work individually wit
 
 By the end of this masterclass, you'll have a foundational understanding and you can able to do real world scenario.
 
--------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
 
-# 1. Tokens :
+# Section 1: Tokens :
 
 **Tokens** can be single characters like z or whole words like cat. Long words are broken up into several tokens. The set of all tokens used by the model is called the vocabulary, and the process of splitting text into tokens is called tokenization.
 
@@ -174,7 +176,7 @@ Number of Tokens: 6
 
 -------------------------------------------------------------------------------------------
  
-##  Embeddings in GPT-2
+# Section 2 :  Embeddings in GPT-2
  
 ###  What Are Embeddings?
  
@@ -273,7 +275,7 @@ The model's architecture and learned weights are built on top of PyTorch tensors
 - Supports **GPU acceleration** using CUDA (optional).
  
 ---
- 
+
  
  #  GPT-2 Model Overview
  
@@ -309,8 +311,17 @@ GPT-2 is a **decoder-only Transformer model** trained to predict the next word i
 5. **Output Layer**: Predicts the next token.
  
 ---
- 
-## 💡 Example for embeddings
+### Section 2: What is a Language Model (LM)?
+
+### Explanation:
+A **Language Model (LM)** predicts the likelihood of a sequence of words or the next word in a sentence. It learns language patterns from large text corpora.
+
+### Example:
+- Input: "The capital of France is"
+- LM Output: "Paris"
+
+### GPT-2 Example:
+
 ```Python
 from transformers import GPT2Tokenizer, GPT2Model
 import torch
@@ -401,8 +412,18 @@ Knowledge check :
  
  
 -------------
+# Section 3: What is a Large Language Model (LLM)?
 
-# 🔍 Vector-Based Search using GPT-2 Model
+### Explanation:
+A **Large Language Model (LLM)** is a type of Language Model trained on massive amounts of data with billions of parameters. LLMs can perform multiple language-related tasks such as answering questions, translation, summarization, and coding.
+
+### Example:
+- GPT-3 and GPT-4 are examples of LLMs.
+- LLMs like GPT-4 can answer complex queries, generate articles, and perform reasoning.
+
+---------
+
+# Section 4 :🔍 Vector-Based Search using GPT-2 Model
  
 Vector-based search, also known as **semantic search**, allows you to retrieve documents or responses based on **meaning** rather than exact keyword matches. Though GPT-2 is primarily a language generation model, it can still be leveraged to **generate embeddings** (numerical vector representations of text), which can then be used in vector search.
  
@@ -658,9 +679,11 @@ Query is : I enjoy learning Python
 0.9938 → I love Programing in Java
 0.9888 → Bananas are rich is potassium
 
-----
+
+
+---
  
-# Understanding `GPT2LMHeadModel` in Transformers
+# Section 5 : Understanding `GPT2LMHeadModel` in Transformers
  
 ##  What is `GPT2LMHeadModel`?
  
@@ -740,10 +763,35 @@ A Data Set with Python: The Problem
 To get around this, we need to create an R data set which can manipulate values. By doing
 
 ---------------------
+----
+## Knowledge Check — Interview Questions
 
-# 🧠 FastAPI + Uvicorn + GPT-2 Integration
+1. What is the difference between a model and a language model?
+2. What defines a Large Language Model (LLM)?
+3. Explain tokenization in GPT models.
+4. What is the difference between a word and a token?
+5. Why are embeddings necessary in NLP?
+6. What is the typical dimension size of token embeddings in GPT-2?
+7. Explain how vectors help in semantic similarity.
+8. What is the role of positional embeddings?
+9. How does GPT-4 handle more context than GPT-2?
+10. Define context window in LLMs.
+11. Why do LLMs operate on tokens instead of raw text?
+12. Can you extract embeddings from GPT models?
+13. Explain last_hidden_state in Huggingface Transformers.
+14. What is the importance of transformer architecture in handling vectors?
+15. What are attention mechanisms in LLMs?
+16. Why is dimensionality important in embeddings?
+17. How does token count limit affect LLM performance?
+18. Explain padding tokens and their role.
+19. What are special tokens in GPT models?
+20. How do embeddings contribute to model generalization?
+
+-----------------
+
+#  🧠 FastAPI + Uvicorn 
  
-## 🚀 What is FastAPI?
+## Section 6:🚀 What is FastAPI?
  
 **FastAPI** is a modern, high-performance web framework for building APIs with Python 3.6+ based on standard Python type hints.
  
@@ -755,7 +803,7 @@ To get around this, we need to create an R data set which can manipulate values.
  
 ---
  
-## 🔥 What is Uvicorn?
+## Section 7:🔥 What is Uvicorn?
  
 **Uvicorn** is a lightning-fast ASGI server implementation, used to run FastAPI applications.
  
@@ -763,6 +811,7 @@ To get around this, we need to create an R data set which can manipulate values.
 - Acts as the **web server** for FastAPI apps.
 - Handles incoming HTTP requests and routes them to FastAPI.
 - Supports both synchronous and asynchronous code.
+
 ### ✅ 1. Building REST APIs
 - Create full-featured RESTful APIs with simple decorators.
 - Supports HTTP methods like `GET`, `POST`, `PUT`, `DELETE`.
@@ -845,9 +894,52 @@ To get around this, we need to create an R data set which can manipulate values.
 - Built-in Dependency Injection simplifies setup.
  
 ---
+
+### Section 8 :📘 What is Pydantic in FastAPI?
  
+**Pydantic** is a Python library used in FastAPI to **validate and parse data** using Python type annotations. It ensures the data you receive (especially from API requests) is in the correct format, and it automatically handles errors for invalid data types.
  
-### ✅ Installation:
+---
+ 
+### 🧱 What is BaseModel?
+ 
+In Pydantic, we define **data models** by creating classes that inherit from `BaseModel`. These models define the **shape of request and response data**, making it easy to:
+- Validate incoming JSON data (e.g., from a POST request)
+- Automatically generate API docs in FastAPI
+- Improve code readability and reduce bugs
+ 
+---
+ 
+### ✅ Why Use Pydantic's BaseModel?
+ 
+- 🔐 **Validation**: Ensures only valid and typed data is processed.
+- ⚙️ **Auto Conversion**: Converts input types automatically (e.g., strings to integers).
+- 📚 **Documentation**: Helps FastAPI auto-generate OpenAPI docs with example schemas.
+- 🧹 **Clean Code**: Keeps API data structure organized and consistent.
+
+---
+ 
+### 📦 Example:
+ 
+```python
+from pydantic import BaseModel
+ 
+class Item(BaseModel):
+    name: str
+    price: float
+    in_stock: bool
+ ```
+ 
+---
+### Section 9: Automatic API Documentation
+
+FastAPI provides OpenAPI docs automatically:
+- Swagger UI: http://127.0.0.1:8000/docs
+- Redoc: http://127.0.0.1:8000/redoc
+ 
+
+------------
+### ✅ Installation for FastAPI:
 ```bash
 pip install fastapi uvicorn
 ```
@@ -1114,6 +1206,214 @@ For POST/PUT, go to Body → raw → JSON, and add the request body
 15. **How do you return a custom status code in a response from a FastAPI endpoint?**
 
 ---
+
+# Section 9: MongoDB definition and MongoDB Cloud Setup with Atlas
+ 
+## What is MongoDB?
+ 
+MongoDB is a **NoSQL, document-oriented database** designed to store and manage large volumes of unstructured or semi-structured data. Unlike traditional relational databases that use tables and rows, MongoDB stores data in **flexible JSON-like documents (BSON)**, making it ideal for modern applications that require scalability, high performance, and a dynamic schema.
+ 
+### Key Features:
+- **Document-based**: Stores data as documents with key-value pairs.
+- **Schema-less**: Allows flexible and dynamic data structures.
+- **Scalable**: Built to scale horizontally across distributed systems.
+- **High Performance**: Optimized for fast read and write operations.
+- **Cloud Support**: Easily deployable on MongoDB Atlas for cloud-based applications.
+
+- Visit [https://cloud.mongodb.com](https://cloud.mongodb.com)
+- Create a free cluster, database `bookstore`, collection `books`
+- Whitelist your IP and get connection URI
+- Store the connection string securely in `.env` file
+ 
+```dotenv
+MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/bookstore?retryWrites=true&w=majority
+```
+## 🏗️ Core Concepts
+ 
+### 📄 Document
+- The basic unit of data in MongoDB
+```json
+{
+  "name": "Surendra",
+  "skills": ["Python", "Django"],
+  "age": 22
+}
+```
+## Section 10:📌 MongoDB Operations using `pymongo.MongoClient`
+ 
+### 🔧 Setup MongoClient
+ 
+```python
+from pymongo import MongoClient
+ 
+client = MongoClient("mongodb://localhost:27017/")
+db = client["mydatabase"]
+collection = db["mycollection"]
+```
+### Section 10.1:✅ Insert a Single Document
+```python
+def insert_single_document():
+    document = {"name": "Alice", "age": 25, "city": "New York"}
+    result = collection.insert_one(document)
+    print("Inserted ID:", result.inserted_id)
+```
+
+### Section 10.2:✅ Insert Multiple Documents
+```python
+def insert_multiple_documents():
+    documents = [
+        {"name": "Bob", "age": 30, "city": "Chicago"},
+        {"name": "Charlie", "age": 28, "city": "San Francisco"},
+    ]
+    result = collection.insert_many(documents)
+    print("Inserted IDs:", result.inserted_ids)
+```
+
+### Section 10.3:🔍 Search Documents
+```python
+def find_all_documents():
+    docs = collection.find()
+    for doc in docs:
+        print(doc)
+ 
+def find_by_filter():
+    query = {"city": "New York"}
+    docs = collection.find(query)
+    for doc in docs:
+        print(doc)
+```
+
+**⚠️ Note**: MongoClient is synchronous and works well with regular (non-async) Python applications like small scripts, command-line tools, or Flask.
+
+----
+## Section 11 : What is `AsyncIOMotorClient`?
+ 
+`AsyncIOMotorClient` is an **asynchronous MongoDB client** provided by the `motor` library, which is the official async Python driver for MongoDB.
+ 
+It is used to **connect to MongoDB** and perform **non-blocking I/O operations** when working with FastAPI or other async frameworks.
+ 
+### Why Use It?
+- Traditional MongoDB drivers like `pymongo` are synchronous and can block the event loop in async applications.
+- `AsyncIOMotorClient` allows you to run database operations without blocking other requests, making your FastAPI apps more **efficient and scalable**.
+ 
+### Example Usage:
+```python
+from motor.motor_asyncio import AsyncIOMotorClient
+ 
+client = AsyncIOMotorClient("your_mongo_uri")
+db = client["bookstore"]
+```
+
+
+-------------------
+
+### Section 11: FastAPI CRUD API with MongoDB (Async + Pydantic)
+***✅ Highlights**:
+- Asynchronous CRUD with FastAPI and Motor
+ 
+- Input validation using Pydantic models
+ 
+- Auto-generated Swagger UI for documentation at /docs
+
+
+```Python
+from fastapi import FastAPI, HTTPException
+from motor.motor_asyncio import AsyncIOMotorClient
+from pydantic import BaseModel
+from dotenv import load_dotenv
+import os
+ 
+# Load environment variables
+load_dotenv()
+ 
+app = FastAPI()
+ 
+# Connect to MongoDB
+client = AsyncIOMotorClient(os.getenv("MONGO_URI"))
+db = client.bookstore
+ 
+# Pydantic model for validation
+class Book(BaseModel):
+    title: str
+    author: str
+ 
+# Create a new book
+@app.post("/books")
+async def create_book(book: Book):
+    result = await db.books.insert_one(book.dict())
+    return {"message": "Book added", "id": str(result.inserted_id)}
+ 
+# Read all books
+@app.get("/books")
+async def get_books():
+    books = []
+    cursor = db.books.find({})
+    async for document in cursor:
+        document["_id"] = str(document["_id"])
+        books.append(document)
+    return books
+ 
+# Read book by title
+@app.get("/books/{title}")
+async def get_book_by_title(title: str):
+    book = await db.books.find_one({"title": title})
+    if book:
+        book["_id"] = str(book["_id"])
+        return book
+    raise HTTPException(status_code=404, detail="Book not found")
+ 
+# Update book by title
+@app.put("/books/{title}")
+async def update_book(title: str, book: Book):
+    result = await db.books.update_one({"title": title}, {"$set": book.dict()})
+    if result.modified_count:
+        return {"message": "Book updated"}
+    raise HTTPException(status_code=404, detail="Book not found")
+ 
+# Delete book by title
+@app.delete("/books/{title}")
+async def delete_book(title: str):
+    result = await db.books.delete_one({"title": title})
+    if result.deleted_count:
+        return {"message": "Book deleted"}
+    raise HTTPException(status_code=404, detail="Book not found")
+```
+### Run FastAPI App:
+```
+uvicorn main:app --reload
+```
  
  
+## Knownledge Check :📋 Interview Questions on MongoDB and FastAPI + MongoDB
+ 
+### 🟢 MongoDB Basics
+1. What is MongoDB and how is it different from SQL databases?
+2. What is a document in MongoDB?
+3. What is a collection in MongoDB?
+4. What is BSON and how is it related to JSON?
+5. How does MongoDB handle indexing?
+6. What are the advantages of using MongoDB?
+7. How do you perform CRUD operations in MongoDB?
+8. How do you query nested documents in MongoDB?
+9. What is the `_id` field in MongoDB and can you change it?
+10. How do you perform aggregation in MongoDB?
+ 
+### ⚡ FastAPI + MongoDB Integration
+11. How do you connect MongoDB with FastAPI?
+12. What is `motor` and why do we use `AsyncIOMotorClient`?
+13. How do you ensure non-blocking database access in FastAPI?
+14. How are MongoDB operations handled asynchronously in FastAPI?
+15. How do you define a Pydantic model for MongoDB documents?
+16. What challenges did you face while using MongoDB with FastAPI?
+17. How do you handle ObjectId conversion between MongoDB and Pydantic models?
+18. How do you implement error handling for MongoDB queries in FastAPI?
+19. How do you insert a document using FastAPI and Motor?
+20. How do you update and delete documents using FastAPI?
+21. How do you retrieve a single document by ID in FastAPI?
+22. What happens if the document is not found in the database?
+23. How do you test MongoDB-based endpoints in FastAPI?
+24. How would you secure sensitive database credentials in a FastAPI project?
+25. How do you manage database connection lifecycle in FastAPI?
+ 
+---
 
