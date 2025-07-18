@@ -179,6 +179,7 @@ Number of Tokens: 6
 ###  What Are Embeddings?
  
 Embeddings are **dense vector representations** of tokens (words or subwords) that allow models like GPT-2 to understand and work with text in a numerical form. Instead of working directly with words, the model converts each token into a high-dimensional vector, capturing **semantic meaning and context**.
+
  
 ---
  
@@ -191,6 +192,14 @@ Embeddings are **dense vector representations** of tokens (words or subwords) th
 - GPT-2 uses embeddings at the **input layer** (token embeddings) and **positional embeddings** to understand both what the words are and where they are in a sentence.
  
 ---
+## 🏗️ Types of Embeddings
+ 
+| Type | Description |
+|------|-------------
+| **Word Embeddings** | Fixed vectors for each word 
+| **Contextual Embeddings** | Vary by sentence context 
+| **Sentence Embeddings** | Represent full sentences 
+| **Document Embeddings** | Represent paragraphs or docs
  
 ### Types of Embeddings in GPT-2
  
@@ -731,3 +740,380 @@ A Data Set with Python: The Problem
 To get around this, we need to create an R data set which can manipulate values. By doing
 
 ---------------------
+
+# 🧠 FastAPI + Uvicorn + GPT-2 Integration
+ 
+## 🚀 What is FastAPI?
+ 
+**FastAPI** is a modern, high-performance web framework for building APIs with Python 3.6+ based on standard Python type hints.
+ 
+### ✨ Key Features:
+- Fast: Built on Starlette and Pydantic; one of the fastest Python frameworks.
+- Easy: Fewer lines of code, automatic docs generation.
+- Type-safe: Type hints help with validation and editor support.
+- Async-ready: Built-in support for asynchronous request handling.
+ 
+---
+ 
+## 🔥 What is Uvicorn?
+ 
+**Uvicorn** is a lightning-fast ASGI server implementation, used to run FastAPI applications.
+ 
+### 🔧 Role of Uvicorn:
+- Acts as the **web server** for FastAPI apps.
+- Handles incoming HTTP requests and routes them to FastAPI.
+- Supports both synchronous and asynchronous code.
+### ✅ 1. Building REST APIs
+- Create full-featured RESTful APIs with simple decorators.
+- Supports HTTP methods like `GET`, `POST`, `PUT`, `DELETE`.
+- Ideal for CRUD operations.
+ 
+---
+ 
+### ✅ 2. Serving Machine Learning Models
+- Serve trained models (e.g., from TensorFlow, PyTorch, Scikit-learn).
+- Accept input via JSON and return predictions.
+- Common in real-time AI inference apps.
+ 
+---
+ 
+### ✅ 3. Asynchronous Applications
+- Built-in support for `async` and `await`.
+- Handle thousands of requests with high performance.
+- Suitable for chat apps, streaming data, etc.
+ 
+---
+ 
+### ✅ 4. Auto-Generated API Documentation
+- Automatically provides interactive API docs:
+  - Swagger UI (`/docs`)
+  - ReDoc (`/redoc`)
+- Saves time for developers and stakeholders.
+ 
+---
+ 
+### ✅ 5. Input Validation and Serialization
+- Uses **Pydantic** for:
+  - Type-checking request data
+  - Data serialization/deserialization
+  - Custom error handling
+ 
+---
+ 
+### ✅ 6. Interactive API Testing
+- Easily test endpoints via Swagger UI in the browser.
+- Helps in frontend-backend collaboration.
+- Allows live interaction with the API without Postman.
+ 
+---
+ 
+### ✅ 7. Secure Authentication & Authorization
+- Supports:
+  - OAuth2 with password and bearer tokens
+  - JWT (JSON Web Tokens)
+  - API key headers or query parameters
+ 
+---
+ 
+### ✅ 8. WebSocket Support
+- Native WebSocket integration for:
+  - Real-time communication
+  - Dashboards
+  - Multiplayer games
+ 
+---
+ 
+### ✅ 9. Background Task Handling
+- Run tasks **after** sending a response.
+- Example: sending confirmation emails, logging, etc.
+- Helps in optimizing API response times.
+ 
+---
+ 
+### ✅ 10. Microservices & Serverless
+- Lightweight for microservice architectures.
+- Easy to containerize with **Docker** or deploy with **Kubernetes**.
+- Works with AWS Lambda using **Mangum** adapter.
+ 
+---
+ 
+### ✅ 11. Database Integration
+- Works with:
+  - SQL (via SQLAlchemy)
+  - NoSQL (via MongoDB with ODMs)
+  - Tortoise ORM and others
+- Built-in Dependency Injection simplifies setup.
+ 
+---
+ 
+ 
+### ✅ Installation:
+```bash
+pip install fastapi uvicorn
+```
+
+#### Run FastAPI app using Uvicorn :
+uvicorn main:app --reload
+
+main : filename
+app : FastAPI
+
+----
+
+# 📌 FastAPI Endpoints Explained
+ 
+## ✅ What is an Endpoint?
+ 
+An **endpoint** in FastAPI is a **URL path** that your API responds to. When a client (like a browser or frontend app) makes an HTTP request to this path (such as `/login`, `/items/1`), FastAPI runs the corresponding Python function and sends back a response.
+ 
+---
+ 
+## 🧩 Basic FastAPI Structure
+ 
+```python
+from fastapi import FastAPI
+ 
+app = FastAPI()
+ 
+@app.get("/")
+def read_root():
+    return {"message": "Hello World"}
+
+```
+
+### Endpoint URL
+if your FastAPI app is running locally using uvicorn like this:
+```
+uvicorn main:app --reload
+```
+And your main.py file contains the above code,then your FastAPI server will be live at:
+**Base URL**: http://1270.0.0.1:8000
+You can access your first endpoint by visting:
+**📌 GET Endpoint**:
+http://127.0.0.1:8000/
+ 
+🔁 Response:
+ 
+```json
+
+{
+  "message": "Hello World"
+}
+```
+---
+### 📬 What is Postman?
+Postman is a popular tool for testing APIs. It allows you to:
+ 
+- Send different types of HTTP requests like GET, POST, PUT, DELETE
+ 
+- Pass headers, body, parameters easily
+ 
+- View response data in a structured way
+ 
+To test this endpoint using Postman:
+ 
+Open Postman
+ 
+Set the method to GET
+
+### 1. GET Endpoint
+**✅ Description**:
+Used to retrieve data.
+ 
+Enter the URL: http://127.0.0.1:8000/
+ 
+Click Send
+ 
+You’ll get the response:
+ 
+```json
+
+{
+  "message": "Hello World"
+}
+```
+✅ Now you’ve successfully tested your first FastAPI endpoint!
+ 
+----
+
+### 2. GET Endpoint with Path Parameter
+**✅ Description**:
+Used to retrieve a specific item by its ID or name.
+ 
+🔧 Code:
+```python
+@app.get("/items/{item_id}")
+def read_item(item_id: int):
+    return {"item_id": item_id}
+```
+🔗 URL:
+Copy code
+GET http://127.0.0.1:8000/items/5
+🔁 Sample Response:
+```json
+{
+  "item_id": 5
+}
+```
+----
+
+### 3. GET with Query Parameters
+**✅ Description**:
+Retrieve data using parameters in the URL query string.
+ 
+🔧 Code:
+```python
+@app.get("/search/")
+def search_items(q: str = None):
+    return {"query": q}
+```
+🔗 URL:
+GET http://127.0.0.1:8000/search/?q=books
+🔁 Sample Response:
+```json
+{
+  "query": "books"
+}
+```
+---
+
+### 4. POST Endpoint
+**✅ Description**:
+Used to create new data.
+ 
+```Code:
+from pydantic import BaseModel
+ 
+class Item(BaseModel):
+    name: str
+    price: float
+ 
+@app.post("/items/")
+def create_item(item: Item):
+    return {"item_created": item}
+```
+
+🔗 URL:
+
+POST http://127.0.0.1:8000/items/
+📨 Sample Request Body (Postman - Body → raw → JSON):
+
+```json
+
+{
+  "name": "Laptop",
+  "price": 75000
+}
+```
+
+🔁 Sample Response:
+```json
+{
+  "item_created": {
+    "name": "Laptop",
+    "price": 75000
+  }
+}
+```
+----
+
+### 5. PUT Endpoint
+**✅ Description**:
+Used to update existing data.
+ 
+🔧 Code:
+```python
+@app.put("/items/{item_id}")
+def update_item(item_id: int, item: Item):
+    return {"item_id": item_id, "updated_item": item}
+```
+
+🔗 URL:
+
+PUT http://127.0.0.1:8000/items/2
+
+📨 Sample Request Body:
+```json
+{
+  "name": "Mouse",
+  "price": 500
+}
+```
+
+🔁 Sample Response:
+```json
+{
+  "item_id": 2,
+  "updated_item": {
+    "name": "Mouse",
+    "price": 500
+  }
+}
+```
+---
+
+### 6. DELETE Endpoint
+**✅ Description**:
+Used to delete a resource.
+ 
+🔧 Code:
+```python
+@app.delete("/items/{item_id}")
+def delete_item(item_id: int):
+    return {"deleted_item_id": item_id}
+```
+
+🔗 URL:
+DELETE http://127.0.0.1:8000/items/10
+
+🔁 Sample Response:
+```json
+{
+  "deleted_item_id": 10
+}
+```
+
+🧪 Testing with Postman
+Open Postman
+ 
+Choose HTTP method (GET, POST, etc.)
+ 
+Enter the appropriate URL
+ 
+For POST/PUT, go to Body → raw → JSON, and add the request body
+
+## ✅ Summary Table
+ 
+| Method | Endpoint              | Description         |
+|--------|-----------------------|---------------------|
+| GET    | `/`                   | Basic Hello World   |
+| GET    | `/items/{item_id}`    | Get item by ID      |
+| GET    | `/search/?q=value`    | Get using query     |
+| POST   | `/items/`             | Create new item     |
+| PUT    | `/items/{item_id}`    | Update an item      |
+| DELETE | `/items/{item_id}`    | Delete an item      |
+
+----
+
+## 🧠 Knowledge Check – FastAPI Endpoints
+  
+1. **What is an endpoint in FastAPI?**
+2. **Which decorator is used to define a GET request in FastAPI?**
+3. **What is the default port on which FastAPI runs using Uvicorn?**
+4. **How does FastAPI know which function to run when a URL is accessed?**
+5. **What would be the output of accessing `/items/42` if `item_id` is returned from the function?**
+6. **How do you pass a query parameter in a GET request using FastAPI?**
+7. **What's the difference between a path parameter and a query parameter in FastAPI?**
+8. **What happens if you define the same route for both GET and POST methods without handling it properly?** 
+9. **What is Uvicorn, and why is it used with FastAPI?**
+10. **How do you define a POST endpoint that accepts JSON input?**
+11. **How can you test your API endpoints using Postman?**
+12. **How do you define data validation using Pydantic in a POST request?** 
+13. **Explain the use of `@app.put()` and `@app.delete()` decorators.**
+14. **Can you create nested routes in FastAPI? Give an example.**
+15. **How do you return a custom status code in a response from a FastAPI endpoint?**
+
+---
+ 
+ 
+
