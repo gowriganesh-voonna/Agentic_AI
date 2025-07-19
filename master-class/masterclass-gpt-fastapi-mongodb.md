@@ -182,7 +182,7 @@ Install the `torch` library using pip:
 ```bash
 pip install torch 
 ```
-[see indetail about torch](split_content/temp.md)
+[See more about torch](split_content/temp.md)
 
 ---
  
@@ -223,7 +223,7 @@ A **Language Model (LM)** predicts the likelihood of a sequence of words or the 
 | BERT           | Google    | Bidirectional encoder for understanding |
 | RoBERTa        | Facebook  | Robust BERT variant                     |
 
-### GPT-2 Example: [click here to see code](codesamples/gpt2_embeddings.py)
+### GPT-2 Example: [click here to view code](codesamples/gpt2_embeddings.py)
 
 ----
  
@@ -283,7 +283,7 @@ Vector-based search, also known as **semantic search**, allows you to retrieve d
 ## ⚙️ How It Works :
  
 **Text Input -> Tokenization -> Generate Embeddings using GPT -> Extract Sentence Embedding -> Index Embeddings -> Search with Query -> Return Results**
-[check more for work flow](split_content/search_vector.md)
+[check more about work flow](split_content/search_vector.md)
 
 ----
  
@@ -332,7 +332,7 @@ Vector-based search, also known as **semantic search**, allows you to retrieve d
 -------------
 
 Example Code on search_vector 
-[click here to see the example code](codesamples/gpt2_search_vector.py)
+[click here to view example code](codesamples/gpt2_search_vector.py)
 
 ---
  
