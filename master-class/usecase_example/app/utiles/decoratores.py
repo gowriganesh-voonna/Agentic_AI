@@ -1,5 +1,5 @@
 from functools import wraps
-
+from fastapi import HTTPException
 
 
 
@@ -16,5 +16,5 @@ def handle_exceptions(func):
         # If an exception occurs, handle it by returning a custom error message
         except Exception as e:
            
-            raise ValueError(status_code = 400,detail= str(e))
+            raise HTTPException(status_code = 400,detail= str(e))
     return wrapper

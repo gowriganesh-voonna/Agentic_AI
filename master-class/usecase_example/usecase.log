@@ -1,0 +1,15 @@
+2025-07-20 12:30:01,328 - app.routes.gpt2_mongo_routes - INFO - MainThread - Received document for insertion: India Occean
+2025-07-20 12:30:05,831 - app.routes.gpt2_mongo_routes - INFO - MainThread - Generated embedding for input text of length 401
+2025-07-20 12:30:06,550 - app.routes.gpt2_mongo_routes - INFO - MainThread - Document inserted with ID: 687c93f5222734e69cab33ad
+2025-07-20 12:31:08,344 - app.routes.gpt2_mongo_routes - INFO - MainThread - Searching for documents with title: India_occean
+2025-07-20 12:31:08,533 - app.routes.gpt2_mongo_routes - WARNING - MainThread - No documents found with title: India_occean
+2025-07-20 12:31:22,614 - app.routes.gpt2_mongo_routes - INFO - MainThread - Searching for documents with title: India Occean
+2025-07-20 12:31:22,715 - app.routes.gpt2_mongo_routes - INFO - MainThread - Found 1 documents with title: India Occean
+2025-07-20 12:31:42,624 - app.routes.gpt2_mongo_routes - INFO - MainThread - Tokenizing input: Information about India Occean
+2025-07-20 12:31:42,627 - app.routes.gpt2_mongo_routes - INFO - MainThread - Token count: 6
+2025-07-20 12:32:01,152 - app.routes.gpt2_mongo_routes - INFO - MainThread - Generating response for input: Information about India Occean
+2025-07-20 12:32:03,812 - app.routes.gpt2_mongo_routes - INFO - MainThread - Generated response: Information about India Occean Ltd.
+
+The Occean Ltd. is a global provider of marine and coastal services to the world's oceans. Occean is a global provider of marine and coastal services to the world's oceans. O
+2025-07-20 12:33:47,858 - app.routes.gpt2_mongo_routes - INFO - MainThread - Tokenizing input: Information about India Occean
+2025-07-20 12:33:47,861 - app.routes.gpt2_mongo_routes - INFO - MainThread - Token count: 6
