@@ -1,0 +1,125 @@
+{
+	"info": {
+		"_postman_id": "e251729f-fed9-4d3e-bace-fa195cad3323",
+		"name": "usecase",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44740028",
+		"_collection_link": "https://gowriganesh-3377276.postman.co/workspace/Gowri-Ganesh's-Workspace~5bbfdbc9-9f88-4c51-8106-a52942eb2d78/collection/44740028-e251729f-fed9-4d3e-bace-fa195cad3323?action=share&source=collection_link&creator=44740028"
+	},
+	"item": [
+		{
+			"name": "insert_doc",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"India\",\r\n    \"content\":\r\n            \"The Indian Ocean is the third-largest of the world's five oceans, covering about 20% of the Earth's water surface. It is bounded by Asia to the north, Africa to the west, Australia to the east, and the Southern Ocean (Antarctica) to the south. The Indian Ocean is known for its unique shape, described as a raindrop or pear, and its warm waters, which significantly influence global climate patterns. \"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/insert",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"insert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insert_many",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"title\":\"About SRK college\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/insert_many",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"insert_many"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search_by_title",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "tokenize",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"title\":\"About SRK college\"\r\n    }\r\n]"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/tokenize?query=Information about India",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"tokenize"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "Information about India"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "generate_response",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
