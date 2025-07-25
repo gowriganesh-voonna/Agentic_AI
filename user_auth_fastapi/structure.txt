@@ -1,0 +1,25 @@
+user_auth_api/                      ← 🔹 project root
+│
+├── app/                            ← main application folder
+│  
+│   ├── core/                       ← core utilities
+│ │ ├── config.py               ← app config, constants, settings
+│ │ ├── security.py             ← password hashing, JWT creation
+│
+│   ├── models/                     ← pydantic request/response models
+│ │ ├── user_models.py          ← request/response schemas for user APIs
+│
+│   ├── services/                   ← business logic + route handlers
+│ │ ├── user_service.py         ← user registration, login logic
+│ │ ├── user_routes.py          ← for api routes : login, register, change password,forgot password, logout etc.      
+│
+│   ├── db/                         ← database-related code
+│ │ ├── mongo.py                ← MongoDB client setup
+│
+│   ├── utils/                      ← reusable helper functions
+│ │ ├── logger.py               ← logging setup
+│ │ ├── decorators.py           ← decorators for error handling, etc.
+│
+├── main.py                         ← entry point to start FastAPI server
+├── requirements.txt                ← dependencies
+└── README.md                       ← optional: documentation
