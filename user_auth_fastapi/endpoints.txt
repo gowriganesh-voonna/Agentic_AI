@@ -53,4 +53,18 @@
       
       
    Response:
-      details updated successfully with the username
+      details updated successfully with the username.
+
+4. change Point end_point :
+   
+   Request :
+    username
+    email
+    password
+
+    Note : Previous used passwords cannot be used futher.
+    while when changing passowrd make sure to update the timestamp also in database which was created internally in Register_Endpoint.
+
+
+   Response :
+    password changed successfully some message.
