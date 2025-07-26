@@ -1,9 +1,10 @@
 from app.db.mongo import user_collection
-from app.core.security import hash_password
-from app.models.user_models import RegisterRequest
+from app.core.security import hash_password,verify_password,generate_jwt
+from app.models.user_models import RegisterRequest,LoginRequest
 from app.utiles.logger import get_logger
-from datetime import datetime
+from datetime import datetime ,timedelta
 from fastapi import HTTPException
+
 
 logger = get_logger(__name__)
  
@@ -46,4 +47,48 @@ def register_user(user_data: RegisterRequest):
         "message": "User registered successfully",
         "username": full_username,
         "email": user_data.email
+    }
+
+
+def login_user(data : LoginRequest):
+    user = user_collection.find_one({
+        "$or" : [{"email":data.username_or_email} , {"username": data.username_or_email}]
+    })
+
+    if not user:
+        raise HTTPException(status_code = 404, detail = "User Not found")
+    
+    if user["status"] != "Active":
+        raise HTTPException(status_code = 403,
+                            detail = "User is inactive due to failed attempts or admin block")
+    
+    # Check Password expiration
+    pwd_created = datetime.strptime(user["password_created_at"] , "%Y-%m-%d %H:%M:%S")
+    if (datetime.now()-pwd_created).days >30 :
+        raise HTTPException(status_code = 403,
+                            detail="Password expired.Please change your password and try again.")
+    
+    #check password
+    if not verify_password(data.password,user["password"]):
+        user_collection.update_one({"_id":user["_id"]}, {"$inc":{"failed_attempts":1}})
+
+        if user["failed_attempts"] + 1 >=3:
+            user_collection.update_one({"_id":user["_id"]}, {
+                "$set":{"status":"Inactive", "inactive_until": datetime.now()+timedelta(hours=24)}
+            
+            })
+            logger.warning(f"User {user['username']} blocked due to multiple failed login attempts")
+        raise HTTPException(status_code = 401,
+                            detail = "Invalid_Password")
+    # Reset failed_attempts
+    user_collection.update_one({"_id":user["_id"]},{"$set":{"failed_attempts":0}})
+
+    token = generate_jwt(user["username"],user["email"])
+
+    logger.info(f"{user['username']} logged successfully")
+
+    return {
+        "message":"Login Successful",
+        "username" : user["username"],
+        "token":token
     }

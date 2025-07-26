@@ -32,3 +32,12 @@ class RegisterResponse(BaseModel):
     message : str
     username : str
     email : str
+
+class LoginRequest(BaseModel):
+    username_or_email : str
+    password : str
+
+class LoginResponse(BaseModel):
+    message : str
+    username : str
+    token : str

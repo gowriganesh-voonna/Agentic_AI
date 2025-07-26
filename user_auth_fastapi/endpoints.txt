@@ -21,3 +21,36 @@
  Response :
    return username successfully registred with email id.
 
+2. login end_point:
+   Request :
+      username or email
+      password 
+   
+   Note : for password from date of created it should valid only upto onemonth if it exceed more than month it should not allow for 
+   login and return  please change your password and try again login.
+   
+   Response :
+      login successfull message with username
+      jwt token - expriy time 1 hr.
+
+3. Update_Details end_point :
+   Request:
+      token - provided by login Endpoint
+      password
+
+      username
+      first_name
+      last_name
+      email
+      phone_number
+      dob
+      address
+
+      conditions :
+      1) Recogize the user through token and password (allow update only if the token user matches the target user) who ever wanted to update their login details 
+      2) If same details given for update it should not update details and return some message
+      3) Not all fields are mandatory.If nothing was provided then raise details not provided.
+      
+      
+   Response:
+      details updated successfully with the username
