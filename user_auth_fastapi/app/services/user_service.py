@@ -1,6 +1,6 @@
 from app.db.mongo import user_collection
-from app.core.security import hash_password,verify_password,generate_jwt
-from app.models.user_models import RegisterRequest,LoginRequest
+from app.core.security import hash_password,verify_password,generate_jwt,verify_jwt
+from app.models.user_models import RegisterRequest,LoginRequest,UpdateDetailsRequest
 from app.utiles.logger import get_logger
 from datetime import datetime ,timedelta
 from fastapi import HTTPException
@@ -91,4 +91,45 @@ def login_user(data : LoginRequest):
         "message":"Login Successful",
         "username" : user["username"],
         "token":token
+    }
+
+def update_user_details(token: str, data: UpdateDetailsRequest):
+    payload = verify_jwt(token)
+   
+    logged_in_username = payload.get("email")
+ 
+    if not logged_in_username:
+        raise HTTPException(status_code=401, detail="Invalid token: no username found")
+ 
+    # Fetch user
+    user = user_collection.find_one({"email": logged_in_username})
+    
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+ 
+    # Verify password
+    if not verify_password(data.password, user["password"]):
+        raise HTTPException(status_code=403, detail="Incorrect password")
+ 
+    # Check if user is trying to update someone else (security check)
+    if data.username and data.username != logged_in_username:
+        raise HTTPException(status_code=403, detail="You can only update your own account")
+ 
+    # Prepare updates
+    updates = {}
+    for field in ["username", "first_name", "last_name", "email", "phone_number", "dob", "address"]:
+        new_val = getattr(data, field)
+        if new_val is not None and new_val != user.get(field):
+            updates[field] = new_val
+ 
+    if not updates:
+        raise HTTPException(status_code=400, detail="No new details provided or same as existing.")
+ 
+    user_collection.update_one({"_id": user["_id"]}, {"$set": updates})
+ 
+    logger.info(f"User {logged_in_username} updated details: {list(updates.keys())}")
+ 
+    return {
+        "message": "Details updated successfully",
+        "username": updates.get("username", logged_in_username)
     }
