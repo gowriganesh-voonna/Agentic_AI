@@ -60,3 +60,18 @@ class ChangePassword(BaseModel):
     email : str
     old_password : str
     new_password : str
+
+
+class ForgotPasswordRequest(BaseModel):
+    email: str
+ 
+class VerifyOtpRequest(BaseModel):
+    email: str
+    otp: str
+ 
+class ResetPasswordRequest(BaseModel):
+    email: str
+    new_password: str
+ 
+class GenericResponse(BaseModel):
+    message: str

@@ -14,7 +14,7 @@ user_auth_api/                      ← 🔹 project root
 │ │ ├── user_routes.py          ← for api routes : login, register, change password,forgot password, logout etc.      
 │
 │   ├── db/                         ← database-related code
-│ │ ├── mongo.py                ← MongoDB client setup
+│ │ ├── mongo.py                ← MongoDB client setup (Syncronous) / AsyncIOMotorClient client setup (Asyncronous compatible with FastAPI)
 │
 │   ├── utils/                      ← reusable helper functions
 │ │ ├── logger.py               ← logging setup

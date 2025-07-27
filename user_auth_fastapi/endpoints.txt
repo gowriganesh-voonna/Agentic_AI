@@ -55,7 +55,7 @@
    Response:
       details updated successfully with the username.
 
-4. change Point end_point : (Defect found)
+4. change Point end_point : (Defect found and resloved)
    
    Request :
     username
@@ -69,3 +69,15 @@
 
    Response :
     password changed successfully with  some message.
+
+5. forgot_password end_point :
+    
+   Request :
+      username or email : (after submiiting one otp will be to sent to his registred mail)
+
+      otp (which was sent in mail was verfied and allow follow for reset password)
+      new_password 
+
+   Response :
+    message : Password reset successfull with some kind of message
+    
