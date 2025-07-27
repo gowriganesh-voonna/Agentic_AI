@@ -1,3 +1,5 @@
 2025-07-27 14:14:06,252 - app.services.user_service - INFO - MainThread - User VoonnaBhavya registered with email: voonnabhavyasri@gmail.com
 2025-07-27 14:14:36,776 - app.utiles.email_otp - INFO - MainThread -  OTP sent successfully to voonnabhavyasri@gmail.com
 2025-07-27 14:17:55,285 - app.utiles.email_otp - INFO - MainThread -  OTP sent successfully to voonnabhavyasri@gmail.com
+2025-07-27 16:46:19,616 - app.services.user_service - INFO - MainThread - voonnabhavyasri logged in successfully
+2025-07-27 16:47:16,377 - app.services.user_service - INFO - MainThread - User voonnabhavyasri@gmail.com updated details: ['address']
