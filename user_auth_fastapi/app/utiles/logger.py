@@ -1,37 +1,36 @@
 import logging
-from logging.handlers  import RotatingFileHandler  # For controlling the log file size and reusing it.
-
+from logging.handlers import RotatingFileHandler  # For controlling the log file size and rotating
+ 
 def get_logger(name):
-    # Get a logger instance with the specified name.
-    # If it already exists, it will return the same logger.
+    """
+    Get a configured logger instance.
+    Prevents duplicate handlers and sets a formatter for both file and console.
+    """
     logger = logging.getLogger(name)
-    
-    # Set the minimum log level to INFO (ignores DEBUG, but logs INFO and above).
-    logger.setLevel(logging.INFO)
-
-    # Prevent adding handlers multiple times (common when get_logger is called repeatedly).
+    logger.setLevel(logging.INFO)  # Set the logging level
+ 
     if not logger.handlers:
-        # Define the log message format.
+        # Formatter with detailed log structure
         formatter = logging.Formatter(
             "%(asctime)s - %(name)s - %(levelname)s - %(threadName)s - %(message)s"
         )
-
-       
-        file_handlers = RotatingFileHandler(
-            "user_auth_fastapi.log", maxBytes=100_000_00, backupCount=10 , encoding='utf-8'
+ 
+        # File handler with rotation
+        file_handler = RotatingFileHandler(
+            "user_auth_fastapi.log",
+            maxBytes=10_000_000,  # ~10MB
+            backupCount=10,
+            encoding='utf-8',
+            delay=True  # File is opened only when needed
         )
-        file_handlers.setFormatter(formatter)  # Apply the formatter to the file handler
-
-        #stream handler (console output)
+        file_handler.setFormatter(formatter)
+ 
+        # Console handler
         stream_handler = logging.StreamHandler()
         stream_handler.setFormatter(formatter)
-
-   
-
-        # Attach both handlers to the logger
-        logger.addHandler(file_handlers)
+ 
+        # Add both handlers
+        logger.addHandler(file_handler)
         logger.addHandler(stream_handler)
-      
-
-    # Return the configured logger
+ 
     return logger

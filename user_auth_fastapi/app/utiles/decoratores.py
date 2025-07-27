@@ -1,24 +1,19 @@
 from functools import wraps
+import logging
 from fastapi import HTTPException
 from app.utiles.logger import get_logger
-import asyncio
-logger=get_logger(__name__)
-# creating an function for excpetion handling
+ 
+logger = get_logger(__name__)  # Using your custom logger
+ 
 def handle_exceptions(func):
-    # The decorator that wraps the original function
-
-    @wraps(func)# This decorator preserves the original function's name and docstring
-    async def wrapper(*args,**kwargs):
+    @wraps(func)
+    async def wrapper(*args, **kwargs):
         try:
-            logger.info(f"Executing: {func.__name__}")
-            # Trying to execute original function
-            if asyncio.iscoroutinefunction(func):
-                return await func(*args, **kwargs)
-            else:
-                return func(*args, **kwargs)
-            
-        # If an exception occurs, handle it by returning a custom error message
+            logger.info(f"Calling function: {func.__name__}")
+            result = await func(*args, **kwargs)
+            logger.info(f"Function {func.__name__} completed successfully")
+            return result
         except Exception as e:
-            logger.exception(f"Error while Executing: {func.__name__} : {e}")
-            raise HTTPException(status_code = 400,detail= str(e))
+            logger.exception(f"Exception in function: {func.__name__} - {str(e)}")
+            raise HTTPException(status_code=500, detail="Internal Server Error")
     return wrapper
