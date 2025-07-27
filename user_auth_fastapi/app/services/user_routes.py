@@ -3,11 +3,12 @@ from app.models.user_models import (
     RegisterRequest, RegisterResponse,
     LoginRequest, LoginResponse,
     UpdateDetailsRequest, UpdateDetailsResponse,
-    ChangePassword
+    ChangePassword, VerifyOtpRequest ,ForgotPasswordRequest
+
 )
 from app.services.user_service import (
     register_user, login_user,
-    update_user_details, change_password
+    update_user_details, change_password,verify_otp_and_reset_password ,forgot_password
 )
 from app.utiles.decoratores import handle_exceptions
  
@@ -37,3 +38,13 @@ async def update_user_route(
 async def change_password_route(change_request: ChangePassword):
     return await change_password(change_request)
  
+@handle_exceptions
+@router.post("/Forgot_Password")
+async def Forgot_password(data:ForgotPasswordRequest):
+    return await forgot_password(data)
+
+
+@handle_exceptions
+@router.post("/verfiy-otp-reset-password")
+async def otp_verification_reset_password(data:VerifyOtpRequest):
+    return await verify_otp_and_reset_password(data)
