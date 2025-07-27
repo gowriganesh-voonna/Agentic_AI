@@ -1,6 +1,6 @@
 from app.db.mongo import user_collection
 from app.core.security import hash_password,verify_password,generate_jwt,verify_jwt
-from app.models.user_models import RegisterRequest,LoginRequest,UpdateDetailsRequest
+from app.models.user_models import RegisterRequest,LoginRequest,UpdateDetailsRequest,ChangePassword
 from app.utiles.logger import get_logger
 from datetime import datetime ,timedelta
 from fastapi import HTTPException
@@ -35,6 +35,7 @@ def register_user(user_data: RegisterRequest):
         "doj": user_data.doj,
         "address": user_data.address,
         "status": "Active",
+        "password_history" : [hash_password(user_data.password)],
         "password_created_at": timestamp,
         "failed_attempts": 0
     }
@@ -133,3 +134,10 @@ def update_user_details(token: str, data: UpdateDetailsRequest):
         "message": "Details updated successfully",
         "username": updates.get("username", logged_in_username)
     }
+
+
+def change_password(change_data: ChangePassword):
+    user = user_collection.find_one({"email": change_data.email})
+
+    if not user:
+        raise HTTPException(status_code = 404)

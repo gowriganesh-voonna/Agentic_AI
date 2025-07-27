@@ -55,7 +55,7 @@
    Response:
       details updated successfully with the username.
 
-4. change Point end_point :
+4. change Point end_point : (Defect found)
    
    Request :
     username
@@ -64,7 +64,8 @@
 
     Note : Previous used passwords cannot be used futher.
     while when changing passowrd make sure to update the timestamp also in database which was created internally in Register_Endpoint.
+    logic for password change: while user registration internally maintain one list for password when ever user try to change_password compare with that list and then accept the change.
 
 
    Response :
-    password changed successfully some message.
+    password changed successfully with  some message.
