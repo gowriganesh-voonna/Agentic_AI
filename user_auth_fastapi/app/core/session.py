@@ -1,36 +1,32 @@
-# app/core/session_store.py
- 
 from datetime import datetime, timedelta
-from typing import Dict
+from app.db.mongo import db
+from bson.objectid import ObjectId
  
-# This dictionary holds the active user sessions temporarily in memory
-active_sessions: Dict[str, Dict[str, datetime]] = {}
+session_collection = db["user_sessions"]
  
-def create_session(user_id: str, token: str, expiry_minutes: int = 60):
-    """
-    Store a session with token and expiry time (default: 60 minutes)
-    """
-    active_sessions[user_id] = {
+SESSION_DURATION_MINUTES = 60
+ 
+async def store_token(email: str, token: str):
+    # Remove existing session if any
+    await session_collection.delete_many({"email": email})
+ 
+    # Store new session
+    await session_collection.insert_one({
+        "email": email,
         "token": token,
-        "expires": datetime.utcnow() + timedelta(minutes=expiry_minutes)
-    }
+        "created_at": datetime.utcnow(),
+        "expires_at": datetime.utcnow() + timedelta(minutes=SESSION_DURATION_MINUTES)
+    })
  
-def is_session_active(user_id: str, token: str) -> bool:
-    """
-    Check if the user session is valid and not expired
-    """
-    session = active_sessions.get(user_id)
+async def is_token_active(token: str) -> bool:
+    session = await session_collection.find_one({"token": token})
     if not session:
         return False
-    if session["token"] != token or datetime.utcnow() > session["expires"]:
-        # Cleanup expired or mismatched sessions
-        active_sessions.pop(user_id, None)
+    if datetime.utcnow() > session["expires_at"]:
+        await session_collection.delete_one({"_id": session["_id"]})
         return False
     return True
  
-def end_session(user_id: str):
-    """
-    Remove user session manually (logout)
-    """
-    active_sessions.pop(user_id, None)
+async def remove_token(email: str):
+    await session_collection.delete_many({"email": email})
  

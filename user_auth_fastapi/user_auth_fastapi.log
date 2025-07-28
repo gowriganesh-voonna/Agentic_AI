@@ -36,3 +36,23 @@
 2025-07-28 15:45:54,254 - app.services.user_routes - INFO - MainThread - Login attempt for user: macherlaprem411@gmail.com
 2025-07-28 15:47:14,795 - app.services.user_routes - INFO - MainThread - Login attempt for user: macherlaprem411@gmail.com
 2025-07-28 15:47:16,852 - app.services.user_service - WARNING - MainThread - Prem shankar password Incorrect
+2025-07-28 17:15:13,945 - app.services.user_routes - INFO - MainThread - Login attempt for user: macherlaprem411@gmail.com
+2025-07-28 17:15:16,239 - app.services.user_service - WARNING - MainThread - Prem shankar password Incorrect
+2025-07-28 17:15:16,324 - app.services.user_service - WARNING - MainThread - User Prem shankar blocked due to multiple failed login attempts
+2025-07-28 17:15:22,782 - app.services.user_routes - INFO - MainThread - Login attempt for user: macherlaprem411@gmail.com
+2025-07-28 17:15:22,820 - app.services.user_service - WARNING - MainThread - User 'Prem shankar' is inactive.
+2025-07-28 17:16:39,812 - app.services.user_routes - INFO - MainThread - Forgot password request for email/username: gsrgsreddy3@gmail.com
+2025-07-28 17:16:42,758 - app.utiles.email - INFO - MainThread -  OTP sent successfully to gsrgsreddy3@gmail.com
+2025-07-28 17:16:42,759 - app.services.user_service - INFO - MainThread - OTP sent to registered email for user: gsrgsreddy3@gmail.com
+2025-07-28 17:17:40,375 - app.services.user_routes - INFO - MainThread - OTP verification and password reset request.
+2025-07-28 17:17:42,784 - app.services.user_service - INFO - MainThread - OTP verified and password reset for user: gsrgsreddy3@gmail.com
+2025-07-28 17:18:46,851 - app.services.user_routes - INFO - MainThread - Login attempt for user: gsrgsreddy3@gmail.com
+2025-07-28 17:37:10,161 - app.services.user_routes - INFO - MainThread - Login attempt for user: gsrgsreddy3@gmail.com
+2025-07-28 17:37:15,391 - app.utiles.email - INFO - MainThread -  OTP sent successfully to gsrgsreddy3@gmail.com
+2025-07-28 17:37:15,391 - app.services.user_service - INFO - MainThread - GSReddy logged in successfully
+2025-07-28 17:45:03,885 - app.services.user_routes - INFO - MainThread - Login attempt for user: gsrgsreddy3@gmail.com
+2025-07-28 17:45:09,310 - app.utiles.email - INFO - MainThread -  OTP sent successfully to gsrgsreddy3@gmail.com
+2025-07-28 17:45:09,310 - app.services.user_service - INFO - MainThread - GSReddy logged in successfully
+2025-07-28 17:51:53,786 - app.services.user_routes - INFO - MainThread - Login attempt for user: gsrgsreddy3@gmail.com
+2025-07-28 17:51:59,143 - app.utiles.email - INFO - MainThread -  OTP sent successfully to gsrgsreddy3@gmail.com
+2025-07-28 17:51:59,144 - app.services.user_service - INFO - MainThread - GSReddy logged in successfully

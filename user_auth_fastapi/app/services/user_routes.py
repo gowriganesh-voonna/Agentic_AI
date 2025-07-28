@@ -13,8 +13,8 @@ from app.services.user_service import (
 )
 from app.utiles.decoratores import handle_exceptions
 from app.utiles.logger import get_logger
-from app.core.session import end_session
 from app.core.security import verify_jwt
+from app.core.session import remove_token
  
 router = APIRouter()
 
@@ -90,9 +90,9 @@ async def otp_verification_reset_password(data:VerifyOtpRequest):
 
 @handle_exceptions
 @router.post("/logout")
-async def logout(authorization: str = Header(...)):
-    token= authorization.replace("Bearer ","").strip()
-    payload= verify_jwt(token)
-    end_session(payload["email"])
-    logger.info(f"{payload["email"]} logged out successfully.")
-    return {"message":"Logout successful"}
+async def logout_user(authorization: str = Header(...)):
+    token = authorization.replace("Bearer ", "").strip()
+    print(token)
+    payload = verify_jwt(token)
+    await remove_token(payload.get("email"))
+    return {"message": "Logout successful"}
