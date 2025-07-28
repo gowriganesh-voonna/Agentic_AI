@@ -2,14 +2,14 @@
    
    Response username : fullname - Actual : username : username
 
-2) Reset_Endpoint : --------------                 (Pending)
+2) Reset_Endpoint : --------------                 (Resloved)
    
    Previous Password is Accepting (Allowing Duplicate Passwords) - Unquie Password
 
-3) Login_Endpoint : ---------- Security Related     (Pending)
+3) Login_Endpoint : ---------- Security Related     (Resloved)
    token - should sent in mail .(Present : Response(token))
 
-4) change_password Endpoint : ----------  Security Related  (Pending)
+4) change_password Endpoint : ----------  Security Related  (Resloved)
     
    Present : verfying credntials and allwoing to update.
 

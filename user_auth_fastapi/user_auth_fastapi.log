@@ -21,3 +21,8 @@
 2025-07-28 10:17:21,660 - app.services.user_routes - INFO - MainThread - Login attempt for user: macherlaprem411@gmail.com
 2025-07-28 10:17:25,884 - app.utiles.email - INFO - MainThread -  OTP sent successfully to macherlaprem411@gmail.com
 2025-07-28 10:17:25,886 - app.services.user_service - INFO - MainThread - Prem shankar logged in successfully
+2025-07-28 11:22:30,192 - app.services.user_routes - INFO - MainThread - Password change request received.
+2025-07-28 11:22:31,772 - app.services.user_service - INFO - MainThread - Password change requested for email: macherlaprem411@gmail.com
+2025-07-28 11:22:36,250 - app.utiles.email - INFO - MainThread -  OTP sent successfully to macherlaprem411@gmail.com
+2025-07-28 11:23:17,190 - app.services.user_service - INFO - MainThread - Password successfully updated for user: Prem shankar
+2025-07-28 11:23:17,191 - app.services.user_service - INFO - MainThread - Password Changed Successfully for Prem shankar

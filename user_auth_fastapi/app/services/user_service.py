@@ -1,6 +1,6 @@
 from app.db.mongo import user_collection
 from app.core.security import hash_password, verify_password, generate_jwt, verify_jwt
-from app.models.user_models import RegisterRequest, LoginRequest, UpdateDetailsRequest, ChangePassword ,ForgotPasswordRequest,VerifyOtpRequest,ResetPasswordRequest
+from app.models.user_models import RegisterRequest, LoginRequest, UpdateDetailsRequest, ChangePassword ,ForgotPasswordRequest,VerifyOtpRequest,VerifyOtpChangePassword
 from app.utiles.logger import get_logger
 from datetime import datetime, timedelta
 from fastapi import HTTPException
@@ -172,7 +172,7 @@ async def change_password(change_request: ChangePassword):
         logger.warning(f"Incorrect old password for user: {change_request.email}")
         raise HTTPException(status_code=401, detail="Current password is incorrect")
  
-    new_hashed_password = hash_password(change_request.new_password)
+    
     for old_hased in user['password_history']:
         if verify_password(change_request.new_password,old_hased):
             logger.warning(f"New password matches one of the old passwords for user: {change_request.email}")
@@ -180,9 +180,46 @@ async def change_password(change_request: ChangePassword):
                 status_code = 400,
                 detail = "New Password must not match any of the previous passwords."
             )
+        
+    # Generate and Send OTP
+    otp = send_otp_email(
+        receiver_email=user["email"],
+        sender_email="voonnagowriganesh@gmail.com",
+        app_password=app_password
+    )
+
+    # store OTP +new_password temporarily
+    otp_store[user["username"]] = {
+        "otp":otp,
+        "new_password" : change_request.new_password,
+        "expires" : datetime.utcnow()+timedelta(minutes=5)
+    }
+    
  
+    return {"message": "OTP Sent to your registered email"}
+
+
+async def verify_otp_password(data : VerifyOtpChangePassword):
+    record = otp_store.get(data.username)
+
+    if not record:
+        logger.warning(f"User not found for username: {data.username}")
+        raise HTTPException(status_code=404, detail=f"{data.username} Not Found")
+    
+    if datetime.utcnow()> record["expires"] :
+        logger.info("OTP Expried for change_password")
+        del otp_store[data.username]
+        raise HTTPException(status_code = 410, detail = "OTP Expired")
+    
+    if data.otp != record["otp"] :
+        logger.info("Invalid OTP ")
+        raise HTTPException(status_code = 401,
+                            detail = "Invalid OTP")
+    
+    new_hashed_password = hash_password(record["new_password"])
+
     result = await user_collection.update_one(
-        {"email": change_request.email},
+        {"username": data.username},
         {
             "$set": {
                 "password": new_hashed_password,
@@ -193,14 +230,21 @@ async def change_password(change_request: ChangePassword):
             }
         }
     )
- 
+
     if result.modified_count == 1:
-        logger.info(f"Password successfully updated for user: {change_request.email}")
+        logger.info(f"Password successfully updated for user: {data.username}")
     else:
-        logger.error(f"Failed to update password for user: {change_request.email}")
+        logger.error(f"Failed to update password for user: {data.username}")
         raise HTTPException(status_code=500, detail="Failed to update password")
- 
-    return {"message": "Password changed successfully"}
+    
+    del otp_store[data.username]
+
+    logger.info(f"Password Changed Successfully for {data.username}")
+
+    return {"mesage":"Password Changed successfully after otp verification"}
+
+
+
 
 # Function to handle forgot password - sends OTP to registered email
 async def forgot_password(data:ForgotPasswordRequest):
@@ -226,6 +270,9 @@ async def forgot_password(data:ForgotPasswordRequest):
 # Function to verify OTP and reset password
 async def verify_otp_and_reset_password(data:VerifyOtpRequest):
     record = otp_store.get(data.username_or_email)
+    user = await user_collection.find_one({
+        "$or": [{"username":data.username_or_email},{"email":data.username_or_email}]
+    })
 
     if not record:
         logger.warning(f"No OTP found for user: {data.username_or_email}")
@@ -242,6 +289,14 @@ async def verify_otp_and_reset_password(data:VerifyOtpRequest):
                             detail ="Invalid OTP")
     
     hased_password = hash_password(data.new_password)
+
+    for old_hased in user['password_history']:
+        if verify_password(data.new_password,old_hased):
+            logger.warning(f"New password matches one of the old passwords for user: {change_request.email}")
+            raise HTTPException(
+                status_code = 400,
+                detail = "New Password must not match any of the previous passwords."
+            )
 
     await user_collection.update_one(
         {"$or" : [{"username":data.username_or_email},{"email":data.username_or_email}]},

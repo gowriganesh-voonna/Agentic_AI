@@ -3,12 +3,13 @@ from app.models.user_models import (
     RegisterRequest, RegisterResponse,
     LoginRequest, LoginResponse,
     UpdateDetailsRequest, UpdateDetailsResponse,
-    ChangePassword, VerifyOtpRequest ,ForgotPasswordRequest
+    ChangePassword, VerifyOtpRequest ,ForgotPasswordRequest ,VerifyOtpChangePassword
 
 )
 from app.services.user_service import (
     register_user, login_user,
-    update_user_details, change_password,verify_otp_and_reset_password ,forgot_password
+    update_user_details, change_password,verify_otp_and_reset_password ,forgot_password,
+    verify_otp_password
 )
 from app.utiles.decoratores import handle_exceptions
 from app.utiles.logger import get_logger
@@ -57,6 +58,11 @@ async def change_password_route(change_request: ChangePassword):
     """
     logger.info("Password change request received.")
     return await change_password(change_request)
+
+@handle_exceptions
+@router.post("/change-password/verify-otp")
+async def Verfiy_otp_change_password(data : VerifyOtpChangePassword):
+    return await verify_otp_password(data)
  
 @handle_exceptions
 @router.post("/Forgot_Password")

@@ -30,7 +30,7 @@ class RegisterRequest(BaseModel):
     @validator('password')
     def validate_password(cls,v):
         if not re.match(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!#%*?&]{8,20}$', v):
-            logger.warning("Weak password format detected")
+            logger.warning("Password Requirement does not match")
             raise HTTPException(status_code =400,
                                 detail = "Password must be 8-20 chars, include uppercase, lowercase, number, special char")
         return v
@@ -68,6 +68,10 @@ class ChangePassword(BaseModel):
     old_password : str
     new_password : str
 
+class VerifyOtpChangePassword(BaseModel):
+    username:str
+    otp:str
+
 
 class ForgotPasswordRequest(BaseModel):
     username_or_email: str
@@ -81,5 +85,3 @@ class ResetPasswordRequest(BaseModel):
     username_or_email: str
     new_password: str
  
-class GenericResponse(BaseModel):
-    message: str
