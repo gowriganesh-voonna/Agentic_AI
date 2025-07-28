@@ -1,0 +1,17 @@
+1) Register_Endpoint Bugs:                        (Resloved)
+   
+   Response username : fullname - Actual : username : username
+
+2) Reset_Endpoint : --------------                 (Pending)
+   
+   Previous Password is Accepting (Allowing Duplicate Passwords) - Unquie Password
+
+3) Login_Endpoint : ---------- Security Related     (Pending)
+   token - should sent in mail .(Present : Response(token))
+
+4) change_password Endpoint : ----------  Security Related  (Pending)
+    
+   Present : verfying credntials and allwoing to update.
+
+   Actual : AN OTP Verification is Required for change_password then allow only it need to update.
+

@@ -4,7 +4,7 @@ from app.models.user_models import RegisterRequest, LoginRequest, UpdateDetailsR
 from app.utiles.logger import get_logger
 from datetime import datetime, timedelta
 from fastapi import HTTPException
-from app.utiles.email_otp import send_otp_email
+from app.utiles.email import send_otp_email,send_token
 import bcrypt
 import os
  
@@ -102,11 +102,19 @@ async def login_user(data: LoginRequest):
     await user_collection.update_one({"_id": user["_id"]}, {"$set": {"failed_attempts": 0}})
  
     token = generate_jwt(user["username"], user["email"])
+    send_token(
+        receiver_email=user["email"],
+        sender_email="voonnagowriganesh@gmail.com",
+        app_password=app_password,
+        token=token,
+        username=user["username"]
+    )
+
     logger.info(f"{user['username']} logged in successfully")
     return {
         "message": "Login Successful",
         "username": user["username"],
-        "token": token
+        "token": "Sent to your Registered Mail ID.Please Check your Inbox"
     }
  
 

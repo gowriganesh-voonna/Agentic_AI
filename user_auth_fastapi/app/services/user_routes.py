@@ -32,7 +32,7 @@ async def login_route(data: LoginRequest):
     """
     Endpoint for user login.
     """
-    logger.info("Login attempt for user: %s", data.username)
+    logger.info("Login attempt for user: %s", data.username_or_email)
     return await login_user(data)
  
 @handle_exceptions
