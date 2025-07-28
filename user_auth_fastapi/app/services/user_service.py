@@ -55,7 +55,7 @@ async def register_user(user_data: RegisterRequest):
     logger.info(f"User {full_username} registered with email: {user_data.email}")
     return {
         "message": "User registered successfully",
-        "username": full_username,
+        "username": user_data.username,
         "email": user_data.email
     }
  

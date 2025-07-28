@@ -80,11 +80,13 @@
 6. reset_password end_point :
     
    Request :
-      username or email : (after submiiting one otp will be to sent to his registred mail it will done in forgotpassword endpont)
+      username or email : (after submiiting  otp will be to sent to his registred mail it will done in forgotpassword endpont)
 
       otp (which was sent in mail was verfied and allow follow for reset password)
       new_password 
 
    Response :
     message : Password reset successfull with some kind of message
+
+
     
