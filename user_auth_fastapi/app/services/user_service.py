@@ -1,12 +1,14 @@
 from app.db.mongo import user_collection
 from app.core.security import hash_password, verify_password, generate_jwt, verify_jwt
-from app.models.user_models import RegisterRequest, LoginRequest, UpdateDetailsRequest, ChangePassword ,ForgotPasswordRequest,VerifyOtpRequest,VerifyOtpChangePassword
+from app.models.user_models import RegisterRequest, LoginRequest, UpdateDetailsRequest, ChangePassword ,ForgotPasswordRequest,VerifyOtpRequest,ChangePasswordotp
 from app.utiles.logger import get_logger
 from datetime import datetime, timedelta
 from fastapi import HTTPException
 from app.utiles.email import send_otp_email,send_token
 import bcrypt
 import os
+from app.core.session import create_session
+
  
 logger = get_logger(__name__)
 
@@ -102,6 +104,7 @@ async def login_user(data: LoginRequest):
     await user_collection.update_one({"_id": user["_id"]}, {"$set": {"failed_attempts": 0}})
  
     token = generate_jwt(user["username"], user["email"])
+    create_session(user["email"],token)
     send_token(
         receiver_email=user["email"],
         sender_email="voonnagowriganesh@gmail.com",
@@ -199,7 +202,7 @@ async def change_password(change_request: ChangePassword):
     return {"message": "OTP Sent to your registered email"}
 
 
-async def verify_otp_password(data : VerifyOtpChangePassword):
+async def verify_otp_password(data : ChangePasswordotp):
     record = otp_store.get(data.username)
 
     if not record:

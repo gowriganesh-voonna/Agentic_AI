@@ -3,7 +3,7 @@ from app.models.user_models import (
     RegisterRequest, RegisterResponse,
     LoginRequest, LoginResponse,
     UpdateDetailsRequest, UpdateDetailsResponse,
-    ChangePassword, VerifyOtpRequest ,ForgotPasswordRequest ,VerifyOtpChangePassword
+    ChangePassword, VerifyOtpRequest ,ForgotPasswordRequest ,ChangePasswordotp
 
 )
 from app.services.user_service import (
@@ -13,6 +13,8 @@ from app.services.user_service import (
 )
 from app.utiles.decoratores import handle_exceptions
 from app.utiles.logger import get_logger
+from app.core.session import end_session
+from app.core.security import verify_jwt
  
 router = APIRouter()
 
@@ -61,7 +63,7 @@ async def change_password_route(change_request: ChangePassword):
 
 @handle_exceptions
 @router.post("/change-password/verify-otp")
-async def Verfiy_otp_change_password(data : VerifyOtpChangePassword):
+async def Verfiy_otp_change_password(data : ChangePasswordotp):
     return await verify_otp_password(data)
  
 @handle_exceptions
@@ -84,3 +86,13 @@ async def otp_verification_reset_password(data:VerifyOtpRequest):
     """
     logger.info("OTP verification and password reset request.")
     return await verify_otp_and_reset_password(data)
+
+
+@handle_exceptions
+@router.post("/logout")
+async def logout(authorization: str = Header(...)):
+    token= authorization.replace("Bearer ","").strip()
+    payload= verify_jwt(token)
+    end_session(payload["email"])
+    logger.info(f"{payload["email"]} logged out successfully.")
+    return {"message":"Logout successful"}

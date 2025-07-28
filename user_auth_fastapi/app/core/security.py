@@ -4,6 +4,7 @@ from datetime import datetime,timedelta, timezone
 from app.core.config import SECRET_KEY
 from fastapi import HTTPException
 from jose import jwt, JWTError, ExpiredSignatureError
+from app.core.session import is_session_active
 
 pwd_context = CryptContext(schemes=["bcrypt"] , deprecated = "auto")
 
@@ -28,6 +29,10 @@ def generate_jwt(username: str,email:str):
 def verify_jwt(token:str):
     try:
         decoded = jwt.decode(token,SECRET_KEY,algorithms = ['HS256'])
+        user_id = decoded.get("email")
+        if not is_session_active(user_id,token):
+            raise HTTPException(status_code = 401,
+                                details = "Session expired or logged out")
         return decoded
     except ExpiredSignatureError:
         raise HTTPException(status_code= 401,

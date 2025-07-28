@@ -68,7 +68,7 @@ class ChangePassword(BaseModel):
     old_password : str
     new_password : str
 
-class VerifyOtpChangePassword(BaseModel):
+class ChangePasswordotp(BaseModel):
     username:str
     otp:str
 
@@ -81,7 +81,5 @@ class VerifyOtpRequest(BaseModel):
     otp: str
     new_password: str
  
-class ResetPasswordRequest(BaseModel):
-    username_or_email: str
-    new_password: str
+
  
