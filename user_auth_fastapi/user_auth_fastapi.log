@@ -31,3 +31,8 @@
 2025-07-28 15:42:39,657 - app.utiles.email - INFO - MainThread -  OTP sent successfully to macherlaprem411@gmail.com
 2025-07-28 15:42:39,658 - app.services.user_service - INFO - MainThread - Prem shankar logged in successfully
 2025-07-28 15:43:24,390 - app.services.user_routes - INFO - MainThread - macherlaprem411@gmail.com logged out successfully.
+2025-07-28 15:45:24,570 - app.services.user_routes - INFO - MainThread - Login attempt for user: macherla411@gmail.com
+2025-07-28 15:45:25,756 - app.services.user_service - WARNING - MainThread - Login attempt failed: User not found for macherla411@gmail.com
+2025-07-28 15:45:54,254 - app.services.user_routes - INFO - MainThread - Login attempt for user: macherlaprem411@gmail.com
+2025-07-28 15:47:14,795 - app.services.user_routes - INFO - MainThread - Login attempt for user: macherlaprem411@gmail.com
+2025-07-28 15:47:16,852 - app.services.user_service - WARNING - MainThread - Prem shankar password Incorrect

@@ -89,6 +89,7 @@ async def login_user(data: LoginRequest):
     
     #  Verify Password
     if not verify_password(data.password, user["password"]):
+        logger.warning(f"{user['username']} password Incorrect")
         await user_collection.update_one({"_id": user["_id"]}, {"$inc": {"failed_attempts": 1}})
          # Block user after 3 failed attempts
         if user["failed_attempts"] + 1 >= 3:

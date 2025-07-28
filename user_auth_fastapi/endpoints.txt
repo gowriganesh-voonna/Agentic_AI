@@ -88,5 +88,11 @@
    Response :
     message : Password reset successfull with some kind of message
 
+7. Logout end_point :
+   
+   Request :
+     pass token in header format 
 
+   Response :
+      Logout successful
     
