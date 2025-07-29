@@ -7,3 +7,6 @@ client = AsyncIOMotorClient(MONGO_URI)
 # Access the database and collection asynchronously
 db = client["user_auth_db"]
 user_collection = db["users"]
+session_collection = db["session_collection"]
+blacklist_collection = db["blacklist_collection"]
+

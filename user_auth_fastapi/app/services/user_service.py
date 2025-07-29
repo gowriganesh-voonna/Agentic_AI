@@ -7,7 +7,7 @@ from fastapi import HTTPException
 from app.utiles.email import send_otp_email,send_token
 import bcrypt
 import os
-from app.core.session import store_token,is_token_active
+from app.core.session import store_session,validate_session
 
 
 
@@ -107,7 +107,7 @@ async def login_user(data: LoginRequest):
     await user_collection.update_one({"_id": user["_id"]}, {"$set": {"failed_attempts": 0}})
  
     token = generate_jwt(user["username"], user["email"])
-    await store_token(user["email"],token)
+    await store_session(user["email"],user["username"],token)
     send_token(
         receiver_email=user["email"],
         sender_email="voonnagowriganesh@gmail.com",
@@ -126,11 +126,14 @@ async def login_user(data: LoginRequest):
 
 # Function to update user details after verifying JWT and password
 async def update_user_details(token: str, data: UpdateDetailsRequest):
+
+    await validate_session(token)
     payload =verify_jwt(token)
+
+
     logged_in_email = payload.get("email")
 
-    if not await is_token_active(token):
-        raise HTTPException(status_code = 401, detail = "Session expired or invalid")
+    
     if not logged_in_email:
         logger.warning("Invalid token: No email found in JWT")
         raise HTTPException(status_code=401, detail="Invalid token: no email found")
@@ -169,7 +172,7 @@ async def update_user_details(token: str, data: UpdateDetailsRequest):
  
 
 # Function to change password after validating current password and ensuring it's not reused
-async def change_password(change_request: ChangePassword):
+async def change_password(change_request: ChangePassword ,token: str):
     user = await user_collection.find_one({"email": change_request.email})
     logger.info(f"Password change requested for email: {change_request.email}")
  

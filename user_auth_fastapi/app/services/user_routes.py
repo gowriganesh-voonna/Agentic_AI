@@ -14,7 +14,7 @@ from app.services.user_service import (
 from app.utiles.decoratores import handle_exceptions
 from app.utiles.logger import get_logger
 from app.core.security import verify_jwt
-from app.core.session import remove_token
+
  
 router = APIRouter()
 
@@ -49,17 +49,19 @@ async def update_user_route(
     Requires Bearer Token authentication.
     """
     logger.info("Updating user details.")
-    token = authorization.replace("Bearer ", "")
+    token = authorization.replace("Bearer ", "").strip()
     return await update_user_details(token, update_data)
  
 @handle_exceptions
 @router.put("/change-password")
-async def change_password_route(change_request: ChangePassword):
+async def change_password_route(change_request: ChangePassword,
+                                authorization: str = Header(...)):
     """
     Endpoint to change user password.
     """
     logger.info("Password change request received.")
-    return await change_password(change_request)
+    token = authorization.replace("Bearer ", "")
+    return await change_password(change_request,token)
 
 @handle_exceptions
 @router.post("/change-password/verify-otp")
@@ -88,11 +90,18 @@ async def otp_verification_reset_password(data:VerifyOtpRequest):
     return await verify_otp_and_reset_password(data)
 
 
-@handle_exceptions
+# @handle_exceptions
+# @router.post("/logout")
+# async def logout_user(authorization: str = Header(...)):
+#     token = authorization.replace("Bearer ", "").strip()
+#     print(token)
+#     payload = verify_jwt(token)
+#     await remove_token(payload.get("email"))
+#     return {"message": "Logout successful"}
+
 @router.post("/logout")
-async def logout_user(authorization: str = Header(...)):
-    token = authorization.replace("Bearer ", "").strip()
-    print(token)
-    payload = verify_jwt(token)
-    await remove_token(payload.get("email"))
-    return {"message": "Logout successful"}
+async def logout_route(authorization: str = Header(...)):
+    token = authorization.replace("Bearer ", "")
+    from app.core.session import remove_session
+    message = await remove_session(token)
+    return {"message": message}

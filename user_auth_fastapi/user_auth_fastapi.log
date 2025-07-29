@@ -56,3 +56,27 @@
 2025-07-28 17:51:53,786 - app.services.user_routes - INFO - MainThread - Login attempt for user: gsrgsreddy3@gmail.com
 2025-07-28 17:51:59,143 - app.utiles.email - INFO - MainThread -  OTP sent successfully to gsrgsreddy3@gmail.com
 2025-07-28 17:51:59,144 - app.services.user_service - INFO - MainThread - GSReddy logged in successfully
+2025-07-29 11:55:44,554 - app.services.user_routes - INFO - MainThread - Forgot password request for email/username: gsrgsreddy3@gmail.com
+2025-07-29 11:55:47,905 - app.utiles.email - INFO - MainThread -  OTP sent successfully to gsrgsreddy3@gmail.com
+2025-07-29 11:55:47,907 - app.services.user_service - INFO - MainThread - OTP sent to registered email for user: gsrgsreddy3@gmail.com
+2025-07-29 11:56:44,407 - app.services.user_routes - INFO - MainThread - OTP verification and password reset request.
+2025-07-29 11:56:47,121 - app.services.user_service - INFO - MainThread - OTP verified and password reset for user: gsrgsreddy3@gmail.com
+2025-07-29 11:57:04,834 - app.services.user_routes - INFO - MainThread - Login attempt for user: gsrgsreddy3@gmail.com
+2025-07-29 11:57:08,417 - app.utiles.email - INFO - MainThread -  OTP sent successfully to gsrgsreddy3@gmail.com
+2025-07-29 11:57:08,418 - app.services.user_service - INFO - MainThread - GSReddy logged in successfully
+2025-07-29 11:59:23,656 - app.services.user_routes - INFO - MainThread - Updating user details.
+2025-07-29 12:00:05,808 - app.services.user_routes - INFO - MainThread - Updating user details.
+2025-07-29 12:00:24,464 - app.services.user_routes - INFO - MainThread - Login attempt for user: gsrgsreddy3@gmail.com
+2025-07-29 12:02:31,644 - app.services.user_routes - INFO - MainThread - Login attempt for user: gsrgsreddy3@gmail.com
+2025-07-29 12:03:16,498 - app.services.user_routes - INFO - MainThread - Login attempt for user: gsrgsreddy3@gmail.com
+2025-07-29 12:04:04,066 - app.services.user_routes - INFO - MainThread - Updating user details.
+2025-07-29 12:06:10,742 - app.services.user_routes - INFO - MainThread - Updating user details.
+2025-07-29 12:07:27,673 - app.services.user_routes - INFO - MainThread - Updating user details.
+2025-07-29 12:07:50,616 - app.services.user_routes - INFO - MainThread - Login attempt for user: gsrgsreddy3@gmail.com
+2025-07-29 12:07:54,247 - app.utiles.email - INFO - MainThread -  OTP sent successfully to gsrgsreddy3@gmail.com
+2025-07-29 12:07:54,248 - app.services.user_service - INFO - MainThread - GSReddy logged in successfully
+2025-07-29 12:08:40,331 - app.services.user_routes - INFO - MainThread - Updating user details.
+2025-07-29 12:08:40,926 - app.services.user_service - INFO - MainThread - User gsrgsreddy3@gmail.com updated details: ['address']
+2025-07-29 12:10:01,651 - app.services.user_routes - INFO - MainThread - Password change request received.
+2025-07-29 12:10:01,990 - app.services.user_service - INFO - MainThread - Password change requested for email: gsrgsreddy3@gmail.com
+2025-07-29 12:10:08,722 - app.utiles.email - INFO - MainThread -  OTP sent successfully to gsrgsreddy3@gmail.com

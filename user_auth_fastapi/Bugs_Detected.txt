@@ -15,3 +15,41 @@
 
    Actual : AN OTP Verification is Required for change_password then allow only it need to update.
 
+5) loging and logout Multiple preventation
+
+
+      While user login try to maintain one db for login data with 
+      1) username 
+      2) email
+      3) token
+      4) timestamp when token was created.
+
+      when user try to login again it first check in mongo whether is their any record is their
+      or not if record is their then check the timestamp < 1 hr dont allow login upto 1 hr (raise an exception) .
+      If not their then allow to login .
+
+
+      when user successfully login then after he have 2 options know in update details and logout.
+
+      1) while user logout he needs to just give the token .
+         condition :
+          if token was not expired then remove the record from db  else
+          if that token already expired do then also remove the token but with message like session already expired.
+
+          a)while in update endpoint first if any data is going to update  first he need to 
+          check is their any record in db with username or email if record is their then check the timestamp
+          if it was expired (>1hr ) then return login expired and at the same time try maintain 
+          one filed in db login : active or expired .mark status as expired because it already expired know.
+
+          if incase record was not their rather than point (a) simply user was not login please login and then update your details.
+
+         
+         Also check in change_password if he is login or logout .
+
+         also maintain one record called blacklist token db after user log out successfully try to maintain that token in blacklist token.
+
+         in this case after user logout and he login again with in 1 hr but he used previous token which was still active 
+
+         we can prevent that to passing .(Question : did you maintain everytoken . Ans : no for every token it is valid only upto 1 hr so we
+         can maintain this in logout while inserting token before if any tokens are their check the timestamp if it is more than 1 hr remove from db
+         then insert the current token if token timestamp is < 1 hr do nothing just insert the token with timestamp.)
