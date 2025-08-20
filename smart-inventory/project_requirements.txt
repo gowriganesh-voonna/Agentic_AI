@@ -78,7 +78,7 @@ Level 2 – Intermediate Development
  
  d) Notification system for stock, vehicle availability, and driver assignment.
  
-Level 3 – Advanced Development
+Level 3 – Advanced Development (Future Enhancements)
  
  a) Real-time tracking of vehicles (using GPS integration if available).
  

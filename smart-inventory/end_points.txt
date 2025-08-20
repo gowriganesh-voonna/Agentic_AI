@@ -1,0 +1,776 @@
+Database : 
+ 
+    MongoDB (Async → Motor)
+    
+    Collections:
+    
+    Hubs (Active & Deactive hubs)
+    
+    ClosedHubs (when hub deleted/moved)
+
+1) Hub Management Endpoints
+    a) Hub Register : 
+    
+        Method: POST
+        Request Body:
+        
+            {
+            "hub_id": "string",       // unique
+            "hub_name": "string",
+            "hub_manager": "string",
+            "hub_phone_number": "string",
+            "hub_address": "string"
+            }
+        
+        
+        Conditions:
+        
+        hub_id and hub_name must be unique → raise custom exception if duplicate.
+        
+        One hub_manager can only be assigned to one hub.
+        
+        Add internally:
+        
+        status: "Active" (default on registration)
+        
+        hub_opening_date: current date
+        
+        Response:
+        
+            {
+            "message": "Hub created successfully",
+            "hub_id": "string",
+            "hub_name": "string"
+            }
+    
+    b) Hub Details Update
+    
+        Method: PUT
+        Request Body:
+        
+            {
+            "hub_id": "string",   // required to identify record (not editable)
+            "hub_name": "string (optional)",
+            "hub_manager": "string (optional)",
+            "hub_phone_number": "string (optional)",
+            "hub_address": "string (optional)",
+            "status": "Active/Deactive (optional)"
+            }
+            
+        
+        Conditions:
+        
+        At least one field (other than hub_id) must be provided → else raise exception.
+        
+        status must be either Active or Deactive.
+        
+        Response:
+        
+            {
+            "message": "Hub details updated successfully",
+            "hub_id": "string"
+            }
+    
+    c) Delete Hub
+    
+    Method: DELETE
+    Request Body:
+    
+        {
+        "hub_id": "string",
+        "hub_name": "string",
+        "hub_manager": "string"
+        }
+    
+    
+    Conditions:
+    
+    Move the record into ClosedHubs collection.
+    
+    Add internally:
+    
+    hub_closed_date: current date
+    
+    no_of_days_active: difference between hub_opening_date and hub_closed_date.
+    
+    Response:
+    
+        {
+        "message": "Hub deleted successfully",
+        "hub_id": "string",
+        "hub_name": "string"
+        }
+    
+    d) Search Hub
+    
+        Endpoints:
+        
+        Search Running Hub (Active/Deactive)
+        Method: GET
+        Request Params:
+        
+            hub_id (optional)
+            hub_name (optional)
+        
+        
+        Response: → Hub details from Hubs collection.
+        
+        View Closed Hubs
+            Method: GET
+            Response: → All hubs from ClosedHubs collection.
+        
+        View Active/Deactive Hubs
+            Method: GET
+            Query Param:
+            
+            status=Active OR status=Deactive
+        
+        
+            Response: → List of hubs matching status.
+
+
+2) Inventory Management Endpoints :
+
+    a) Register Inventory
+        
+        Request (POST):
+        
+            {
+            "Hub_ID": "string",              // must exist in Hub_Management DB
+            "Product_ID": "string",          // unique
+            "Product_Name": "string",
+            "Quantity": int,                 // > 0
+            "Value": float,                  // total purchase price (overall quantity)
+            "Selling_Price": float,          // per unit price
+            "Category": "string",            // format: Dairy, Oil (First letter capital)
+            "Product_Description": "string (optional)",
+            "Expiry_Date": "YYYY-MM-DD",
+            "Brand": "string"
+            }
+        
+        
+        Conditions:
+        
+            1) Raise custom exception if Hub_ID not found in DB.
+            
+            2) Quantity must be > 0, else raise custom exception.
+            
+            3) If Expiry_Date < 1 month → return warning message.
+        
+        Response (201):
+        
+            {
+            "message": "Product added successfully to the inventory",
+            "Hub_ID": "string",
+            "Hub_Name": "string",
+            "warning": "Product_Name will expire within one month"   // (only if applicable)
+            }
+    
+    b) Update Inventory
+    
+        Request (PUT):
+        
+            {
+            "Hub_ID": "string",
+            "Product_ID": "string",
+            "Product_Name": "string (optional)",
+            "Quantity": int,                 // new quantity will be ADDED to existing
+            "Value": float,                  // total purchase value (new stock included)
+            "Selling_Price": float,
+            "Category": "string (optional)", // must follow format (Dairy, Oil...)
+            "Product_Description": "string (optional)",
+            "Expiry_Date": "YYYY-MM-DD",
+            "Brand": "string (optional)"
+            }
+        
+        
+        Conditions:
+        
+            If Expiry_Date < 1 month → return warning message.
+
+        Inventory Stock Update & Expiry Handling
+            
+            Logic Explanation
+            
+            Each product in inventory is tracked by ProductID, Quantity, PurchaseDate, ExpiryDate, Price.
+            
+            When new stock is added, check conditions:
+            
+            If ProductID exists & ExpiryDate matches existing stock → merge quantity into existing record.
+            
+            If ProductID exists but ExpiryDate is different → create a new stock batch with separate expiry.
+            
+            If ExpiryDate is updated for existing stock → replace old expiry date with new one, but keep quantity history for traceability.
+            
+            If no update is received for an old stock’s expiry date, that stock should remain with its old expiry date. The system should trigger a warning/alert when nearing expiry.
+            
+            Avoiding Misleading Data
+            
+            Never overwrite old stock blindly.
+            
+            Maintain batch-wise records → Example:
+            
+            ProductID: 101 | Expiry: 2025-01-15 | Qty: 50
+            ProductID: 101 | Expiry: 2025-03-10 | Qty: 30
+            
+            
+            While selling or dispatching → use FIFO (First In, First Out) method.
+            
+            Update Flow Example
+            
+            Request: UpdateStock(ProductID=101, Qty=20, Expiry=2025-03-10)
+            
+            Response:
+            
+            If batch exists → Merge (Qty=30+20=50).
+            
+            Else → Create new record.
+        
+        Response (200):
+        
+            {
+            "Product_ID": "string",
+            "Product_Name": "string",
+            "message": "Product updated successfully in Hub_Name"
+            }
+        
+    c) Delete Inventory
+    
+        Request (DELETE):
+            
+            {
+            "Product_ID": "string",
+            "Product_Name": "string",
+            "Hub_ID": "string"
+            }
+        
+        
+        Conditions:
+        
+            Raise exception if product not found.
+        
+        Response (200):
+        
+            {
+            "message": "Product_ID - Product_Name deleted successfully from Hub_Name"
+            }
+        
+    d) Dispatch Inventory Stock
+    
+        Request (POST):
+        
+            {
+            "Product_ID": "string",
+            "Product_Name": "string",
+            "Quantity": int,
+            "Hub_ID": "string",
+            "Hub_Name": "string",
+            "Dispatching_Hub_Name": "string"
+            }
+        
+        
+        Conditions:
+        
+            1) Raise exception if product not found.
+            
+            2) Raise custom exception if Quantity > Available_Stock.
+            
+            3) Raise exception if Dispatching_Hub_Name not found.
+        
+        Internal Action:
+        
+            Subtract Quantity from available stock in Inventory DB.
+        
+        Insert new record into Dispatch DB with:
+        
+            {
+            "Product_ID": "string",
+            "Product_Name": "string",
+            "Quantity": int,
+            "Hub_ID": "string",
+            "Hub_Name": "string",
+            "Dispatching_Hub_Name": "string",
+            "Vehicle_Assigned": "In-Progress",
+            "Driver_Assigned": "In-Progress",
+            "Timestamp": "auto-generated"
+            }
+            
+        
+        Response (201):
+        
+            {
+            "message": "Product dispatched successfully",
+            "Product_ID": "string",
+            "From_Hub": "string",
+            "To_Hub": "string",
+            "Remaining_Quantity": int
+            }
+    
+    e) Search Inventory
+    
+        Request (GET):
+        
+            {
+            "Product_ID": "string (optional)",
+            "Product_Name": "string (optional)",
+            "Hub_ID": "string (optional)",
+            "Hub_Name": "string (optional)"
+            }
+        
+        
+        Conditions:
+        
+            Raise exception if neither Product_ID nor Product_Name provided.
+        
+        If only Hub_ID & Hub_Name provided → return all available items for that Hub.
+        
+        Response (200):
+        
+            {
+            "Inventory": [
+                {
+                "Product_ID": "string",
+                "Product_Name": "string",
+                "Quantity": int,
+                "Category": "string",
+                "Brand": "string",
+                "Expiry_Date": "YYYY-MM-DD"
+                }
+            ]
+            }
+
+
+3) Vehcile Management Endpoint : (use vehicle db)
+    a) Add Vehicle (POST) : 
+    
+        Request
+        
+            {
+            "Vehicle_ID": "V001",
+            "Vehicle_Number": "AP-01-1234",
+            "Capacity": 5000,
+            "Status": "Available"
+            }
+        
+        
+        Conditions : 
+        
+            1) Vehicle_ID and Vehicle_Number must be unique.
+        
+            2) If duplicate found → raise custom exception.
+        
+        Response : 
+        
+            {
+            "status": "success",
+            "message": "Vehicle registered successfully"
+            }
+    
+    b) Update Vehicle (PUT)
+    
+        Request
+        
+        {
+        "Vehicle_ID": "V001",
+        "Vehicle_Number": Vehicle_Number (optional)
+        "Status": "In-Transit"
+        }
+        
+        
+        Conditions : 
+        
+            1) Vehicle_ID must exist.
+            
+            2) Status allowed values → Available / Unavailable / In-Transit / Under-Maintenance.
+        
+        Response : 
+        
+            {
+            "status": "success",
+            "message": "Vehicle status updated"
+            }
+    
+    c) Delete Vehicle (DELETE)
+    
+        Request
+        
+            {
+            "Vehicle_ID": "V001",
+            "Vehicle_Number": "AP-01-1234"
+            }
+        
+        
+        Conditions : 
+        
+            1) Both Vehicle_ID and Vehicle_Number must match existing record.
+            
+            2) If not found → raise exception.
+            
+            3) Instead of permanent delete → move record to ClosedVehicles collection with field Closed_Date.
+        
+        Response
+        
+            {
+            "message": "Vehicle AP-01-1234 deleted successfully"
+            }
+    
+    d) Search Vehicle (GET) : 
+    
+        Request (all optional) :
+            
+            {
+            "Vehicle_ID": "V001",
+            "Vehicle_Number": "AP-01-1234",
+            "Status": "Available"
+            }
+        
+        
+        Conditions : 
+        
+            1) At least one field (Vehicle_ID / Vehicle_Number / Status) must be provided.
+            
+            2) If none given → raise exception "No search criteria provided".
+        
+        Response (example) : 
+        
+            {
+            "Available_Vehicles": [
+                { "Vehicle_ID": "V001", "Vehicle_Number": "AP-01-1234", "Capacity": 5000, "Status": "Available" },
+                { "Vehicle_ID": "V002", "Vehicle_Number": "AP-01-5678", "Capacity": 3000, "Status": "Available" }
+            ]
+            }
+    
+    e) Dispatch Vehicle (GET → allocation logic)
+    
+        Logic Flow
+        
+        Fetch records from Dispatch DB with status = "In-Progress".
+        
+        If found →
+        
+        Find one Available Driver from Driver DB.
+        
+        Find one Available Vehicle from Vehicle DB.
+        
+        If both exist → allocate them.
+        
+        Update Vehicle DB → Status = "In-Transit".
+        
+        Update Driver DB → Status = "Assigned".
+        
+        Update Dispatch DB → Status = "In-Transit", and attach Vehicle_ID + Driver_ID.
+        
+        If driver or vehicle not available → return
+        
+        { "message": "Load is available for Dispatch but no driver or vehicle available" }
+        
+        
+        If no "In-Progress" records or all are already "In-Transit" → return
+        
+        { "message": "No need to dispatch vehicle" }
+
+
+4) Driver Management Endpoint :
+Collections
+ 
+Drivers (active records)
+ 
+RetiredDrivers (moved when driver crosses retirement rule or is force-retired)
+ 
+Assignments (driver ↔ vehicle ↔ dispatch linkage; status tracking)
+ 
+Fixed Enums
+ 
+Driver Status: Available, Assigned, On-Leave, Inactive, Retired
+ 
+Assignment Status: In-Progress, In-Transit, Completed, Cancelled
+ 
+a) Add Driver (POST)
+ 
+Request
+ 
+{
+  "Driver_ID": "string",                 // unique
+  "Driver_Name": "string",
+  "Age": 34,                             // must be <= 50 at registration
+  "License_No": "string",                // unique
+  "License_Valid_Till": "YYYY-MM-DD",
+  "Contact_Number": "string",
+  "Address": "string",
+  "Salary": 25000,
+  "Hub_ID": "string"                     // optional; validate if provided
+}
+ 
+ 
+Conditions
+ 
+Driver_ID and License_No must be unique → custom exception on duplicates.
+ 
+Age > 50 → reject registration with custom exception.
+ 
+License_Valid_Till must be >= today → else custom exception.
+ 
+If Hub_ID provided, it must exist in Hubs.
+ 
+Set internally on insert:
+ 
+Status = "Available"
+ 
+Registered_At = current timestamp
+ 
+Response (201)
+ 
+{
+  "status": "success",
+  "message": "Driver registered successfully",
+  "Driver_ID": "string",
+  "Driver_Name": "string"
+}
+ 
+b) Update Driver (PUT)
+ 
+Request
+ 
+{
+  "Driver_ID": "string",                 // required to locate record (not editable)
+  "Driver_Name": "string (optional)",
+  "Age": 35,                             // optional; if >50 => retirement flow
+  "License_No": "string (optional)",     // if changed, must remain unique
+  "License_Valid_Till": "YYYY-MM-DD (optional)",
+  "Contact_Number": "string (optional)",
+  "Address": "string (optional)",
+  "Salary": 26000,
+  "Status": "Available/Assigned/On-Leave/Inactive (optional)",
+  "Hub_ID": "string (optional)"
+}
+ 
+ 
+Conditions
+ 
+At least one field (other than Driver_ID) must be provided → else raise exception.
+ 
+If Age updated to > 50 → move record to RetiredDrivers, remove from Drivers, set Retired_At = now and return retirement response.
+ 
+Status = "Assigned" cannot be set manually; it’s controlled by assignment endpoints. If attempted → custom exception.
+ 
+License_Valid_Till must be >= today.
+ 
+Response (200) – normal update
+ 
+{
+  "status": "success",
+  "message": "Driver details updated successfully",
+  "Driver_ID": "string"
+}
+ 
+ 
+Response (200) – moved to retirement
+ 
+{
+  "status": "success",
+  "message": "Driver moved to retirement database due to age > 50",
+  "Driver_ID": "string"
+}
+ 
+c) Delete Driver (DELETE)
+ 
+Request
+ 
+{
+  "Driver_ID": "string",
+  "Driver_Name": "string"
+}
+ 
+ 
+Conditions
+ 
+Driver must exist; names must match.
+ 
+If driver Status = "Assigned" with an active Assignment (status In-Progress/In-Transit) → block delete (custom exception).
+ 
+Perform soft delete: move to RetiredDrivers with Reason = "Deleted", Closed_At = now.
+ 
+Response (200)
+ 
+{
+  "message": "Driver Driver_Name deleted and archived successfully",
+  "Driver_ID": "string"
+}
+ 
+d) Search Driver (GET)
+ 
+Request (all optional, but at least one required)
+ 
+{
+  "Driver_ID": "string (optional)",
+  "Driver_Name": "string (optional)",
+  "License_No": "string (optional)",
+  "Status": "Available/Assigned/On-Leave/Inactive/Retired (optional)",
+  "Hub_ID": "string (optional)"
+}
+ 
+ 
+Conditions
+ 
+If no filter provided → raise exception “No search criteria provided”.
+ 
+Response (200)
+ 
+{
+  "Drivers": [
+    {
+      "Driver_ID": "string",
+      "Driver_Name": "string",
+      "Age": 34,
+      "License_No": "string",
+      "License_Valid_Till": "YYYY-MM-DD",
+      "Contact_Number": "string",
+      "Status": "Available",
+      "Hub_ID": "string"
+    }
+  ]
+}
+ 
+e) Assign Driver to Vehicle / Dispatch (POST)
+ 
+Purpose: Manual assignment of a specific driver and vehicle for a dispatch or route.
+ 
+Request
+ 
+{
+  "Driver_ID": "string",
+  "Vehicle_ID": "string",
+  "Dispatch_ID": "string",               // optional; link to dispatch record if present
+  "From_Hub_ID": "string",
+  "To_Hub_ID": "string"
+}
+ 
+ 
+Conditions
+ 
+Driver must exist and Status = "Available".
+ 
+Driver must not have any open Assignments (In-Progress/In-Transit).
+ 
+Vehicle must exist and Status = "Available".
+ 
+From_Hub_ID and To_Hub_ID must exist (and can’t be same).
+ 
+Driver’s License_Valid_Till must be >= today.
+ 
+On success:
+ 
+Create Assignments record:
+ 
+{
+  "Assignment_ID": "auto",
+  "Driver_ID": "string",
+  "Vehicle_ID": "string",
+  "Dispatch_ID": "string/null",
+  "From_Hub_ID": "string",
+  "To_Hub_ID": "string",
+  "Status": "In-Progress",
+  "Started_At": "timestamp"
+}
+ 
+ 
+Update Drivers.Status = "Assigned"
+ 
+Update Vehicles.Status = "In-Transit" (or "Allocated" if you distinguish start vs depart)
+ 
+Response (201)
+ 
+{
+  "status": "success",
+  "message": "Driver and vehicle assigned successfully",
+  "Assignment_ID": "string"
+}
+ 
+f) Start Trip (PUT) (optional but recommended for clarity)
+ 
+Request
+ 
+{
+  "Assignment_ID": "string"
+}
+ 
+ 
+Action
+ 
+Set Assignments.Status = "In-Transit", Departed_At = now.
+ 
+Response
+ 
+{
+  "status": "success",
+  "message": "Trip started",
+  "Assignment_ID": "string"
+}
+ 
+g) Complete Trip / Release Driver (PUT)
+ 
+Request
+ 
+{
+  "Assignment_ID": "string"
+}
+ 
+ 
+Conditions & Actions
+ 
+Assignment must exist and be In-Progress or In-Transit.
+ 
+Set Assignments.Status = "Completed", Completed_At = now.
+ 
+Update Drivers.Status = "Available".
+ 
+Update Vehicles.Status = "Available".
+ 
+If a linked Dispatch exists, update its status to Delivered (or your chosen terminal state).
+ 
+Response (200)
+ 
+{
+  "status": "success",
+  "message": "Trip completed and resources released",
+  "Assignment_ID": "string"
+}
+ 
+h) Retirement Audit (POST) (utility endpoint)
+ 
+Purpose: Periodically move any driver with Age > 50 (or detected via internal rule) to RetiredDrivers.
+ 
+Request
+ 
+{
+  "Confirm": true
+}
+ 
+ 
+Action
+ 
+For each driver in Drivers where Age > 50 and Status != "Assigned":
+ 
+Move to RetiredDrivers with Retired_At = now, Reason = "Age > 50".
+ 
+Remove from Drivers.
+ 
+Response (200)
+ 
+{
+  "status": "success",
+  "moved_count": 3
+}
+ 
+Notes / Implementation Guards
+ 
+Age vs. Retirement: You chose the rule “Age > 50 cannot register; if later age crosses 50, move to retirement DB.” Keep Age as stored field; you can also compute/update during audits.
+ 
+Status Integrity: Disallow manual setting to Assigned; only assignments change it.
+ 
+Uniqueness Indexes (MongoDB): Create unique indexes on Driver_ID and License_No.
+ 
+Foreign Keys (app-level): Validate Hub_ID, Vehicle_ID, Dispatch_ID existence before writes.
+ 
+If you want, I can mirror this exact structure into a ready-to-code FastAPI route list (/drivers/add, /drivers/update, /drivers/assign, etc.) next.
+ 
