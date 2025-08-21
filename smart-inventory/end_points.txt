@@ -156,6 +156,11 @@ Database :
             2) Quantity must be > 0, else raise custom exception.
             
             3) If Expiry_Date < 1 month → return warning message.
+
+            4) while registering product add one more field Batch No.
+            maintain the expriy date batch wise.by doing we can prevent while again we are
+            refilling the stock it will not overlapped with existing details mainly purchased value,
+            expriy date,old stock quantity.
         
         Response (201):
         
@@ -187,6 +192,8 @@ Database :
         Conditions:
         
             If Expiry_Date < 1 month → return warning message.
+
+            
 
         Inventory Stock Update & Expiry Handling
             

@@ -413,3 +413,14 @@ TypeError: can't subtract offset-naive and offset-aware datetimes
 2025-08-21 12:55:37,943 - app.services.hub_service - INFO - MainThread - Returning the list of results by Hub status
 2025-08-21 12:55:37,944 - app.utiles.decoratores - INFO - MainThread - Function hubs_by_status_endpoint completed successfully
 2025-08-21 12:56:03,463 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 14:50:43,414 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 14:50:43,415 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 14:52:01,336 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-08-21 14:52:01,375 - app.services.hub_service - INFO - MainThread - Inserting hub into MongoDB: {'hub_id': 'HUB_002', 'hub_name': 'Guntur Hub', 'hub_manager': 'Hari Kirshna', 'hub_phone_number': '8885363303', 'hub_address': '22-16-G21, GHU Nagar 4 th line ,Guntur - 520102', 'status': 'Active', 'hub_opening_date': datetime.datetime(2025, 8, 21, 9, 22, 1, 337442, tzinfo=datetime.timezone.utc), 'created_at': datetime.datetime(2025, 8, 21, 9, 22, 1, 337442, tzinfo=datetime.timezone.utc), 'updated_at': None}
+2025-08-21 14:52:01,423 - app.services.hub_service - INFO - MainThread - ✅ Insert result: 68a6e5392b066ff0b1330b37
+2025-08-21 14:52:01,424 - app.utiles.decoratores - INFO - MainThread - Function register_hub completed successfully
+2025-08-21 14:53:14,947 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-08-21 14:53:14,989 - app.services.hub_service - INFO - MainThread - Inserting hub into MongoDB: {'hub_id': 'HUB_003', 'hub_name': 'Palasa Hub', 'hub_manager': 'Tappas Reddy', 'hub_phone_number': '8885363305', 'hub_address': '3-19-08/A, Near Palasa Bus stand ,Palasa - 520102', 'status': 'Active', 'hub_opening_date': datetime.datetime(2025, 8, 21, 9, 23, 14, 948264, tzinfo=datetime.timezone.utc), 'created_at': datetime.datetime(2025, 8, 21, 9, 23, 14, 948264, tzinfo=datetime.timezone.utc), 'updated_at': None}
+2025-08-21 14:53:15,042 - app.services.hub_service - INFO - MainThread - ✅ Insert result: 68a6e5822b066ff0b1330b38
+2025-08-21 14:53:15,043 - app.utiles.decoratores - INFO - MainThread - Function register_hub completed successfully
+2025-08-21 14:55:24,261 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
