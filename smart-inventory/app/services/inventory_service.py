@@ -11,6 +11,7 @@ from uuid import uuid4
 from pymongo.errors import DuplicateKeyError
 from bson import ObjectId
 
+from app.models.inventory import RegisterInventory,UpdateInventory,DispatchRequest,BatchOut,ProductSummaryOut,DispatchOut,StockTransactionOut
 from app.db.mongodb import db
 from app.utiles.logger import get_logger
 from app.core.config import COLLECTION_HUBS  # ensure this exists in your config
@@ -75,7 +76,7 @@ async def _get_total_available(product_id: str, hub_id: str) -> int:
 # Main service functions
 # ----------------------------
 
-async def register_inventory(payload) -> Dict[str, Any]:
+async def register_inventory(payload : RegisterInventory) -> Dict[str, Any]:
     """
     Register inventory: create product master (if needed) and create/merge a batch.
     payload: instance of RegisterInventory Pydantic (or dict with same keys)
@@ -217,7 +218,7 @@ async def register_inventory(payload) -> Dict[str, Any]:
     }
 
 
-async def update_inventory(payload) -> Dict[str, Any]:
+async def update_inventory(payload: UpdateInventory) -> Dict[str, Any]:
     """
     Update existing product by adding stock or updating master fields.
     payload: UpdateInventory instance
@@ -333,7 +334,7 @@ async def update_inventory(payload) -> Dict[str, Any]:
     }
 
 
-async def dispatch_inventory(payload) -> Dict[str, Any]:
+async def dispatch_inventory(payload:DispatchRequest) -> Dict[str, Any]:
     """
     Dispatch product from From_Hub to To_Hub using FIFO consumption by expiry.
     payload: DispatchRequest instance
@@ -467,3 +468,57 @@ async def get_product_summary(product_id: str, hub_id: str) -> Dict[str, Any]:
         "Nearest_Expiry": summary.get("Nearest_Expiry"),
         "Batches_Count": int(summary.get("Batches_Count", 0))
     }
+
+
+# -----------------------------
+# inventory_service.py
+# -----------------------------
+
+async def list_inventory_batches(
+    product_id: str,
+    hub_id: str,
+    status: Optional[str] = None,
+    skip: int = 0,
+    limit: int = 50
+) -> dict:
+    """
+    List inventory batches for a product in a hub with optional status filter and pagination.
+    """
+    await _ensure_db()
+    query = {"Product_ID": product_id.strip(), "Hub_ID": hub_id.strip()}
+    if status:
+        query["status"] = status.strip().lower()
+
+    cursor = db[COL_INV_BATCHES].find(query).sort("Expiry_Date", 1).skip(skip).limit(limit)
+    batches = []
+    async for batch in cursor:
+        batch["_id"] = str(batch["_id"])  # Convert ObjectId to string
+        batches.append(batch)
+
+    return {"count": len(batches), "batches": batches}
+
+
+async def list_products_in_hub(
+    hub_id: str,
+    search: Optional[str] = None,
+    skip: int = 0,
+    limit: int = 50
+) -> dict:
+    """
+    List all products in a hub with optional search and pagination.
+    """
+    await _ensure_db()
+    query = {}
+    if search:
+        query["$or"] = [
+            {"Product_ID": {"$regex": search.strip(), "$options": "i"}},
+            {"Product_Name": {"$regex": search.strip(), "$options": "i"}}
+        ]
+
+    cursor = db[COL_INV_PRODUCTS].find(query).sort("Product_Name", 1).skip(skip).limit(limit)
+    products = []
+    async for prod in cursor:
+        prod["_id"] = str(prod["_id"])
+        products.append(prod)
+
+    return {"count": len(products), "products": products}

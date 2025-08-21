@@ -424,3 +424,19 @@ TypeError: can't subtract offset-naive and offset-aware datetimes
 2025-08-21 14:53:15,042 - app.services.hub_service - INFO - MainThread - ✅ Insert result: 68a6e5822b066ff0b1330b38
 2025-08-21 14:53:15,043 - app.utiles.decoratores - INFO - MainThread - Function register_hub completed successfully
 2025-08-21 14:55:24,261 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 18:35:58,743 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 18:35:58,744 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 18:36:17,316 - app.utiles.decoratores - INFO - MainThread - Calling function: register_inventory_endpoint
+2025-08-21 18:36:17,493 - app.services.inventory_service - INFO - MainThread - Inserted product master PROD_101
+2025-08-21 18:36:17,606 - app.services.inventory_service - INFO - MainThread - Created new batch PROD_101-HUB_001-20250821130617-26585e for product PROD_101
+2025-08-21 18:36:17,671 - app.services.inventory_service - INFO - MainThread - Inserted stock transaction txn-c65e1ca0150e4cf6a5074bd9f61b87d0
+2025-08-21 18:36:17,730 - app.utiles.decoratores - INFO - MainThread - Function register_inventory_endpoint completed successfully
+2025-08-21 18:37:27,483 - app.utiles.decoratores - INFO - MainThread - Calling function: update_inventory_endpoint
+2025-08-21 18:37:27,885 - app.utiles.decoratores - INFO - MainThread - Function update_inventory_endpoint completed successfully
+2025-08-21 18:38:26,875 - app.utiles.decoratores - INFO - MainThread - Calling function: dispatch_inventory_endpoint
+2025-08-21 18:38:27,461 - app.utiles.decoratores - INFO - MainThread - Function dispatch_inventory_endpoint completed successfully
+2025-08-21 18:39:33,758 - app.utiles.decoratores - INFO - MainThread - Calling function: list_inventory_batches_endpoint
+2025-08-21 18:39:33,825 - app.utiles.decoratores - INFO - MainThread - Function list_inventory_batches_endpoint completed successfully
+2025-08-21 18:40:05,340 - app.utiles.decoratores - INFO - MainThread - Calling function: list_products_in_hub_endpoint
+2025-08-21 18:40:05,403 - app.utiles.decoratores - INFO - MainThread - Function list_products_in_hub_endpoint completed successfully
+2025-08-21 18:40:21,326 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
