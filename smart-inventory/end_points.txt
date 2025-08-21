@@ -631,110 +631,7 @@ Response (200)
   ]
 }
  
-e) Assign Driver to Vehicle / Dispatch (POST)
- 
-Purpose: Manual assignment of a specific driver and vehicle for a dispatch or route.
- 
-Request
- 
-{
-  "Driver_ID": "string",
-  "Vehicle_ID": "string",
-  "Dispatch_ID": "string",               // optional; link to dispatch record if present
-  "From_Hub_ID": "string",
-  "To_Hub_ID": "string"
-}
- 
- 
-Conditions
- 
-Driver must exist and Status = "Available".
- 
-Driver must not have any open Assignments (In-Progress/In-Transit).
- 
-Vehicle must exist and Status = "Available".
- 
-From_Hub_ID and To_Hub_ID must exist (and can’t be same).
- 
-Driver’s License_Valid_Till must be >= today.
- 
-On success:
- 
-Create Assignments record:
- 
-{
-  "Assignment_ID": "auto",
-  "Driver_ID": "string",
-  "Vehicle_ID": "string",
-  "Dispatch_ID": "string/null",
-  "From_Hub_ID": "string",
-  "To_Hub_ID": "string",
-  "Status": "In-Progress",
-  "Started_At": "timestamp"
-}
- 
- 
-Update Drivers.Status = "Assigned"
- 
-Update Vehicles.Status = "In-Transit" (or "Allocated" if you distinguish start vs depart)
- 
-Response (201)
- 
-{
-  "status": "success",
-  "message": "Driver and vehicle assigned successfully",
-  "Assignment_ID": "string"
-}
- 
-f) Start Trip (PUT) (optional but recommended for clarity)
- 
-Request
- 
-{
-  "Assignment_ID": "string"
-}
- 
- 
-Action
- 
-Set Assignments.Status = "In-Transit", Departed_At = now.
- 
-Response
- 
-{
-  "status": "success",
-  "message": "Trip started",
-  "Assignment_ID": "string"
-}
- 
-g) Complete Trip / Release Driver (PUT)
- 
-Request
- 
-{
-  "Assignment_ID": "string"
-}
- 
- 
-Conditions & Actions
- 
-Assignment must exist and be In-Progress or In-Transit.
- 
-Set Assignments.Status = "Completed", Completed_At = now.
- 
-Update Drivers.Status = "Available".
- 
-Update Vehicles.Status = "Available".
- 
-If a linked Dispatch exists, update its status to Delivered (or your chosen terminal state).
- 
-Response (200)
- 
-{
-  "status": "success",
-  "message": "Trip completed and resources released",
-  "Assignment_ID": "string"
-}
+
  
 h) Retirement Audit (POST) (utility endpoint)
  
@@ -762,15 +659,5 @@ Response (200)
   "moved_count": 3
 }
  
-Notes / Implementation Guards
- 
-Age vs. Retirement: You chose the rule “Age > 50 cannot register; if later age crosses 50, move to retirement DB.” Keep Age as stored field; you can also compute/update during audits.
- 
-Status Integrity: Disallow manual setting to Assigned; only assignments change it.
- 
-Uniqueness Indexes (MongoDB): Create unique indexes on Driver_ID and License_No.
- 
-Foreign Keys (app-level): Validate Hub_ID, Vehicle_ID, Dispatch_ID existence before writes.
- 
-If you want, I can mirror this exact structure into a ready-to-code FastAPI route list (/drivers/add, /drivers/update, /drivers/assign, etc.) next.
+
  
