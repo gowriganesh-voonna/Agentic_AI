@@ -1,0 +1,415 @@
+2025-08-21 11:27:29,539 - app.db.mongodb - INFO - MainThread - MongoDB connection established
+2025-08-21 11:28:03,975 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-08-21 11:28:03,976 - app.utiles.decoratores - ERROR - MainThread - Exception in function: register_hub - 'RegisterHub' object has no attribute 'hub_manager'
+Traceback (most recent call last):
+  File "D:\Practice\Agentic_AI\smart-inventory\app\utiles\decoratores.py", line 13, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\endpoints\hub_endpoints.py", line 17, in register_hub
+    res = await create_hub(payload)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\services\hub_service.py", line 29, in create_hub
+    if payload.hub_manager:
+       ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pydantic\main.py", line 991, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'RegisterHub' object has no attribute 'hub_manager'. Did you mean: 'hub_manger'?
+2025-08-21 11:28:52,809 - app.db.mongodb - WARNING - MainThread - MongoDB connection closed
+2025-08-21 11:28:56,409 - app.db.mongodb - INFO - MainThread - MongoDB connection established
+2025-08-21 11:29:01,371 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-08-21 11:29:01,371 - app.utiles.decoratores - ERROR - MainThread - Exception in function: register_hub - 'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "D:\Practice\Agentic_AI\smart-inventory\app\utiles\decoratores.py", line 13, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\endpoints\hub_endpoints.py", line 17, in register_hub
+    res = await create_hub(payload)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\services\hub_service.py", line 30, in create_hub
+    existing = await db[COLLECTION_HUBS].find_one({"hub_manager": payload.hub_manager, "status": "Active"})
+                     ~~^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2025-08-21 11:30:39,590 - app.db.mongodb - WARNING - MainThread - MongoDB connection closed
+2025-08-21 11:30:43,143 - app.db.mongodb - INFO - MainThread - MongoDB connection established
+2025-08-21 11:33:03,370 - app.db.mongodb - WARNING - MainThread - MongoDB connection closed
+2025-08-21 11:33:06,860 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 11:33:06,864 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 11:33:07,115 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 11:33:10,292 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 11:33:10,293 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 11:33:34,601 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-08-21 11:33:34,602 - app.utiles.decoratores - ERROR - MainThread - Exception in function: register_hub - 'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "D:\Practice\Agentic_AI\smart-inventory\app\utiles\decoratores.py", line 13, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\endpoints\hub_endpoints.py", line 17, in register_hub
+    res = await create_hub(payload)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\services\hub_service.py", line 30, in create_hub
+    existing = await db[COLLECTION_HUBS].find_one({"hub_manager": payload.hub_manager, "status": "Active"})
+                     ~~^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2025-08-21 11:38:32,761 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 11:38:36,196 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 11:38:36,198 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 11:38:49,646 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-08-21 11:38:49,646 - app.utiles.decoratores - INFO - MainThread - Function register_hub completed successfully
+2025-08-21 11:40:42,802 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 11:40:45,991 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 11:40:45,992 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 11:41:07,266 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 11:41:10,419 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 11:41:10,421 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 11:41:10,570 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 11:41:13,865 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 11:41:13,867 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 11:41:16,086 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 11:41:19,308 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 11:41:19,309 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 11:41:20,407 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-08-21 11:41:20,415 - app.utiles.decoratores - INFO - MainThread - Function register_hub completed successfully
+2025-08-21 11:43:11,011 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 11:43:14,214 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 11:43:14,215 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 11:43:20,187 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 11:43:23,273 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 11:43:23,275 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 11:44:26,845 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 11:44:30,546 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 11:44:30,548 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 11:44:35,646 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 11:44:38,791 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 11:44:38,793 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 11:44:38,969 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 11:44:42,112 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 11:44:42,114 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 11:44:42,202 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-08-21 11:44:42,203 - app.utiles.decoratores - INFO - MainThread - Function register_hub completed successfully
+2025-08-21 11:48:03,639 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 11:48:32,726 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 11:48:32,727 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 11:48:36,414 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 11:48:39,487 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 11:48:39,489 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 11:48:44,220 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 11:48:47,325 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 11:48:47,326 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 11:48:53,999 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-08-21 11:48:54,000 - app.utiles.decoratores - INFO - MainThread - Function register_hub completed successfully
+2025-08-21 11:49:32,900 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 11:49:36,138 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 11:49:36,141 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 11:49:38,741 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-08-21 11:49:38,741 - app.utiles.decoratores - INFO - MainThread - Function register_hub completed successfully
+2025-08-21 11:51:41,647 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-08-21 11:51:41,647 - app.utiles.decoratores - INFO - MainThread - Function register_hub completed successfully
+2025-08-21 11:52:43,661 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 11:52:46,902 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 11:52:46,904 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 11:52:47,096 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 11:52:50,339 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 11:52:50,341 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 11:52:53,749 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-08-21 11:52:53,750 - app.utiles.decoratores - INFO - MainThread - Function register_hub completed successfully
+2025-08-21 11:56:11,998 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 11:56:15,684 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 11:56:15,686 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 11:56:20,078 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-08-21 11:56:20,079 - app.utiles.decoratores - INFO - MainThread - Function register_hub completed successfully
+2025-08-21 11:56:57,522 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 11:57:00,806 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 11:57:00,808 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 11:57:01,606 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 11:57:04,699 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 11:57:04,701 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 11:57:09,856 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-08-21 11:57:09,857 - app.utiles.decoratores - INFO - MainThread - Function register_hub completed successfully
+2025-08-21 11:57:18,754 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 11:57:22,136 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 11:57:22,138 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 11:57:29,316 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 11:57:32,671 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 11:57:32,671 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 11:57:34,105 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-08-21 11:57:34,106 - app.utiles.decoratores - ERROR - MainThread - Exception in function: register_hub - name 'ccac' is not defined
+Traceback (most recent call last):
+  File "D:\Practice\Agentic_AI\smart-inventory\app\utiles\decoratores.py", line 13, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\endpoints\hub_endpoints.py", line 17, in register_hub
+    res = await create_hub(payload)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\services\hub_service.py", line 29, in create_hub
+    ccac
+NameError: name 'ccac' is not defined
+2025-08-21 11:57:44,920 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 11:57:48,064 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 11:57:48,066 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 11:57:51,669 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-08-21 11:57:51,670 - app.utiles.decoratores - INFO - MainThread - Function register_hub completed successfully
+2025-08-21 11:58:01,542 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 11:58:04,644 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 11:58:04,645 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 11:58:05,014 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 11:58:08,239 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 11:58:08,240 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 11:58:09,825 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-08-21 11:58:09,828 - app.utiles.decoratores - ERROR - MainThread - Exception in function: register_hub - 'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "D:\Practice\Agentic_AI\smart-inventory\app\utiles\decoratores.py", line 13, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\endpoints\hub_endpoints.py", line 17, in register_hub
+    res = await create_hub(payload)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\services\hub_service.py", line 51, in create_hub
+    existing = await db[COLLECTION_HUBS].find_one({"hub_manager": payload.hub_manager, "status": "Active"})
+                     ~~^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2025-08-21 12:03:46,948 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 12:03:50,513 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 12:03:50,514 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 12:03:50,699 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 12:03:53,869 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 12:03:53,870 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 12:03:53,949 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-08-21 12:03:53,952 - app.utiles.decoratores - ERROR - MainThread - Exception in function: register_hub - 'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "D:\Practice\Agentic_AI\smart-inventory\app\utiles\decoratores.py", line 13, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\endpoints\hub_endpoints.py", line 17, in register_hub
+    res = await create_hub(payload)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\services\hub_service.py", line 51, in create_hub
+    existing = await db[COLLECTION_HUBS].find_one({"hub_manager": payload.hub_manager, "status": "Active"})
+                     ~~^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2025-08-21 12:04:23,159 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 12:04:26,041 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 12:04:26,042 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 12:05:05,858 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-08-21 12:05:05,862 - app.utiles.decoratores - ERROR - MainThread - Exception in function: register_hub - 'NoneType' object has no attribute 'Hubs'
+Traceback (most recent call last):
+  File "D:\Practice\Agentic_AI\smart-inventory\app\utiles\decoratores.py", line 13, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\endpoints\hub_endpoints.py", line 17, in register_hub
+    res = await create_hub(payload)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\services\hub_service.py", line 51, in create_hub
+    existing = await db.Hubs.find_one({"hub_manager": payload.hub_manager, "status": "Active"})
+                     ^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'Hubs'
+2025-08-21 12:05:14,516 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 12:05:17,919 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 12:05:17,919 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 12:06:19,378 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 12:06:22,968 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 12:06:22,969 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 12:06:23,080 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-08-21 12:06:23,086 - app.utiles.decoratores - ERROR - MainThread - Exception in function: register_hub - 'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "D:\Practice\Agentic_AI\smart-inventory\app\utiles\decoratores.py", line 13, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\endpoints\hub_endpoints.py", line 17, in register_hub
+    res = await create_hub(payload)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\services\hub_service.py", line 28, in create_hub
+    print(db[COLLECTION_HUBS])
+     ~~^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2025-08-21 12:08:16,433 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 12:08:20,253 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 12:08:20,255 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 12:08:22,774 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 12:08:37,612 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 12:08:37,613 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 12:08:43,247 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-08-21 12:08:43,254 - app.utiles.decoratores - ERROR - MainThread - Exception in function: register_hub - 'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "D:\Practice\Agentic_AI\smart-inventory\app\utiles\decoratores.py", line 13, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\endpoints\hub_endpoints.py", line 17, in register_hub
+    res = await create_hub(payload)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\services\hub_service.py", line 28, in create_hub
+    print(db[COLLECTION_HUBS])
+     ~~^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2025-08-21 12:09:07,100 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 12:09:10,436 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 12:09:10,437 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 12:09:10,548 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-08-21 12:09:10,554 - app.utiles.decoratores - ERROR - MainThread - Exception in function: register_hub - 'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "D:\Practice\Agentic_AI\smart-inventory\app\utiles\decoratores.py", line 13, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\endpoints\hub_endpoints.py", line 17, in register_hub
+    res = await create_hub(payload)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\services\hub_service.py", line 51, in create_hub
+    existing = await db[COLLECTION_HUBS].find_one({"hub_manager": payload.hub_manager, "status": "Active"})
+                     ~~^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2025-08-21 12:09:22,949 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 12:14:04,197 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 12:14:04,198 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 12:14:05,071 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 12:14:07,653 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 12:14:07,655 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 12:14:17,058 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 12:14:19,575 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 12:14:19,578 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 12:14:22,607 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-08-21 12:14:22,647 - app.services.hub_service - INFO - MainThread - Inserting hub into MongoDB: {'hub_id': 'HUB_001', 'hub_name': 'Vijayawada Hub', 'hub_manager': 'Ravi Teja', 'hub_phone_number': '8885363301', 'hub_address': '22-16-H21, Singh Nagar 4 th line ,Vijayawada - 520014', 'status': 'Active', 'hub_opening_date': datetime.datetime(2025, 8, 21, 6, 44, 22, 608892, tzinfo=datetime.timezone.utc), 'created_at': datetime.datetime(2025, 8, 21, 6, 44, 22, 608892, tzinfo=datetime.timezone.utc), 'updated_at': None}
+2025-08-21 12:14:22,687 - app.services.hub_service - INFO - MainThread - ✅ Insert result: 68a6c046d803e5c5d9aeb236
+2025-08-21 12:14:22,688 - app.utiles.decoratores - INFO - MainThread - Function register_hub completed successfully
+2025-08-21 12:22:19,711 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 12:22:22,583 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 12:22:22,584 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 12:22:22,924 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 12:22:25,712 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 12:22:25,713 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 12:28:27,802 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 12:28:30,715 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 12:28:30,717 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 12:31:41,677 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 12:31:44,695 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 12:31:44,698 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 12:31:44,838 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 12:31:47,491 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 12:31:47,493 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 12:31:51,530 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 12:31:54,163 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 12:31:54,164 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 12:31:54,250 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 12:31:56,952 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 12:31:56,954 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 12:31:57,049 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 12:31:59,737 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 12:31:59,739 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 12:32:17,588 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 12:33:12,520 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 12:33:12,522 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 12:33:28,344 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 12:33:31,139 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 12:33:31,139 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 12:34:14,942 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 12:34:18,031 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 12:34:18,032 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 12:34:28,118 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 12:34:30,874 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 12:34:30,875 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 12:34:35,361 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 12:34:38,073 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 12:34:38,074 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 12:34:38,908 - app.utiles.decoratores - INFO - MainThread - Calling function: update_hub_endpoint
+2025-08-21 12:34:38,950 - app.utiles.decoratores - INFO - MainThread - Function update_hub_endpoint completed successfully
+2025-08-21 12:35:32,300 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 12:35:35,374 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 12:35:35,376 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 12:35:36,156 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 12:35:38,890 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 12:35:38,891 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 12:35:43,682 - app.models.hub - ERROR - MainThread - Hub phone should be if landline 8 digits or phone number then 10 digits it should be
+2025-08-21 12:36:06,860 - app.utiles.decoratores - INFO - MainThread - Calling function: update_hub_endpoint
+2025-08-21 12:36:06,900 - app.utiles.decoratores - INFO - MainThread - Function update_hub_endpoint completed successfully
+2025-08-21 12:37:10,145 - app.utiles.decoratores - INFO - MainThread - Calling function: search_hub_endpoint
+2025-08-21 12:37:10,181 - app.services.hub_service - INFO - MainThread - returning Hub details 
+2025-08-21 12:37:10,182 - app.utiles.decoratores - INFO - MainThread - Function search_hub_endpoint completed successfully
+2025-08-21 12:40:55,925 - app.utiles.decoratores - INFO - MainThread - Calling function: delete_hub_endpoint
+2025-08-21 12:40:55,961 - app.utiles.decoratores - ERROR - MainThread - Exception in function: delete_hub_endpoint - can't subtract offset-naive and offset-aware datetimes
+Traceback (most recent call last):
+  File "D:\Practice\Agentic_AI\smart-inventory\app\utiles\decoratores.py", line 13, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\endpoints\hub_endpoints.py", line 39, in delete_hub_endpoint
+    res = await delete_hub(hub_id, hub_name, hub_manager)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\services\hub_service.py", line 119, in delete_hub
+    delta_days = (hub_closed_date - opening).days
+                  ~~~~~~~~~~~~~~~~^~~~~~~~~
+TypeError: can't subtract offset-naive and offset-aware datetimes
+2025-08-21 12:41:52,669 - app.utiles.decoratores - INFO - MainThread - Calling function: delete_hub_endpoint
+2025-08-21 12:41:52,717 - app.utiles.decoratores - ERROR - MainThread - Exception in function: delete_hub_endpoint - can't subtract offset-naive and offset-aware datetimes
+Traceback (most recent call last):
+  File "D:\Practice\Agentic_AI\smart-inventory\app\utiles\decoratores.py", line 13, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\endpoints\hub_endpoints.py", line 39, in delete_hub_endpoint
+    res = await delete_hub(hub_id, hub_name, hub_manager)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\services\hub_service.py", line 119, in delete_hub
+    delta_days = (hub_closed_date - opening).days
+                  ~~~~~~~~~~~~~~~~^~~~~~~~~
+TypeError: can't subtract offset-naive and offset-aware datetimes
+2025-08-21 12:42:22,614 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 12:42:25,526 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 12:42:25,527 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 12:42:39,549 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 12:42:42,178 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 12:42:42,180 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 12:42:45,229 - app.utiles.decoratores - INFO - MainThread - Calling function: delete_hub_endpoint
+2025-08-21 12:42:45,265 - app.utiles.decoratores - ERROR - MainThread - Exception in function: delete_hub_endpoint - can't subtract offset-naive and offset-aware datetimes
+Traceback (most recent call last):
+  File "D:\Practice\Agentic_AI\smart-inventory\app\utiles\decoratores.py", line 13, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\endpoints\hub_endpoints.py", line 39, in delete_hub_endpoint
+    res = await delete_hub(hub_id, hub_name, hub_manager)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\services\hub_service.py", line 119, in delete_hub
+    delta_days = (hub_closed_date - opening).days
+                  ~~~~~~~~~~~~~~~~^~~~~~~~~
+TypeError: can't subtract offset-naive and offset-aware datetimes
+2025-08-21 12:46:25,426 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 12:46:31,604 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 12:46:31,604 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 12:46:31,697 - app.utiles.decoratores - INFO - MainThread - Calling function: delete_hub_endpoint
+2025-08-21 12:46:31,731 - app.utiles.decoratores - ERROR - MainThread - Exception in function: delete_hub_endpoint - can't subtract offset-naive and offset-aware datetimes
+Traceback (most recent call last):
+  File "D:\Practice\Agentic_AI\smart-inventory\app\utiles\decoratores.py", line 13, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\endpoints\hub_endpoints.py", line 39, in delete_hub_endpoint
+    res = await delete_hub(hub_id, hub_name, hub_manager)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\services\hub_service.py", line 119, in delete_hub
+    delta_days = (hub_closed_date - opening).days
+                  ~~~~~~~~~~~~~~~~^~~~~~~~~
+TypeError: can't subtract offset-naive and offset-aware datetimes
+2025-08-21 12:50:50,216 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 12:50:58,316 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 12:50:58,318 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 12:50:58,509 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 12:51:01,123 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 12:51:01,126 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 12:51:06,380 - app.utiles.decoratores - INFO - MainThread - Calling function: delete_hub_endpoint
+2025-08-21 12:51:06,501 - app.services.hub_service - INFO - MainThread - Hub Deleted successfully , Hub:ID  HUB_001
+2025-08-21 12:51:06,501 - app.utiles.decoratores - INFO - MainThread - Function delete_hub_endpoint completed successfully
+2025-08-21 12:51:12,388 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-08-21 12:51:12,422 - app.services.hub_service - INFO - MainThread - Inserting hub into MongoDB: {'hub_id': 'HUB_001', 'hub_name': 'Vijayawada Hub', 'hub_manager': 'Ravi Teja', 'hub_phone_number': '8885363301', 'hub_address': '22-16-H21, Singh Nagar 4 th line ,Vijayawada - 520014', 'status': 'Active', 'hub_opening_date': datetime.datetime(2025, 8, 21, 7, 21, 12, 388538, tzinfo=datetime.timezone.utc), 'created_at': datetime.datetime(2025, 8, 21, 7, 21, 12, 388538, tzinfo=datetime.timezone.utc), 'updated_at': None}
+2025-08-21 12:51:12,459 - app.services.hub_service - INFO - MainThread - ✅ Insert result: 68a6c8e86dbcdc2f92cab73d
+2025-08-21 12:51:12,460 - app.utiles.decoratores - INFO - MainThread - Function register_hub completed successfully
+2025-08-21 12:51:19,133 - app.utiles.decoratores - INFO - MainThread - Calling function: search_hub_endpoint
+2025-08-21 12:51:19,167 - app.services.hub_service - INFO - MainThread - returning Hub details 
+2025-08-21 12:51:19,169 - app.utiles.decoratores - INFO - MainThread - Function search_hub_endpoint completed successfully
+2025-08-21 12:52:38,852 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-21 12:52:43,802 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-21 12:52:43,804 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-21 12:52:56,324 - app.utiles.decoratores - INFO - MainThread - Calling function: delete_hub_endpoint
+2025-08-21 12:52:56,434 - app.services.hub_service - INFO - MainThread - Hub Deleted successfully , Hub:ID  HUB_001
+2025-08-21 12:52:56,435 - app.utiles.decoratores - INFO - MainThread - Function delete_hub_endpoint completed successfully
+2025-08-21 12:53:14,190 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-08-21 12:53:14,225 - app.services.hub_service - INFO - MainThread - Inserting hub into MongoDB: {'hub_id': 'HUB_001', 'hub_name': 'Vijayawada Hub', 'hub_manager': 'Ravi Teja', 'hub_phone_number': '8885363301', 'hub_address': '22-16-H21, Singh Nagar 4 th line ,Vijayawada - 520014', 'status': 'Active', 'hub_opening_date': datetime.datetime(2025, 8, 21, 7, 23, 14, 191965, tzinfo=datetime.timezone.utc), 'created_at': datetime.datetime(2025, 8, 21, 7, 23, 14, 191965, tzinfo=datetime.timezone.utc), 'updated_at': None}
+2025-08-21 12:53:14,264 - app.services.hub_service - INFO - MainThread - ✅ Insert result: 68a6c962581c7aa5fd47e89c
+2025-08-21 12:53:14,264 - app.utiles.decoratores - INFO - MainThread - Function register_hub completed successfully
+2025-08-21 12:55:37,863 - app.utiles.decoratores - INFO - MainThread - Calling function: hubs_by_status_endpoint
+2025-08-21 12:55:37,943 - app.services.hub_service - INFO - MainThread - Returning the list of results by Hub status
+2025-08-21 12:55:37,944 - app.utiles.decoratores - INFO - MainThread - Function hubs_by_status_endpoint completed successfully
+2025-08-21 12:56:03,463 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
