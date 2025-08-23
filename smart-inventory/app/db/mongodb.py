@@ -51,5 +51,20 @@ async def ensure_indexes():
     await db["StockTransactions"].create_index([("Product_ID", 1), ("Hub_ID", 1), ("timestamp", -1)])
     await db["Dispatches"].create_index([("Status", 1), ("Timestamp", -1)])
     
+    # ---------------- Drivers ----------------
+    await db["Drivers"].create_index("Driver_ID", unique=True)
+    await db["Drivers"].create_index("License_No", unique=True)
+    await db["Drivers"].create_index("Hub_ID")
+
+    await db["RetiredDrivers"].create_index("Driver_ID", unique=True)
+    await db["RetiredDrivers"].create_index("Retired_At")
+
+    # ---------------- Assignments ----------------
+    await db["Assignments"].create_index("Driver_ID")
+    await db["Assignments"].create_index("Vehicle_ID")
+    await db["Assignments"].create_index("Dispatch_ID")
+    await db["Assignments"].create_index("Status")
+
+    logger.info("✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections")
     logger.info("✅ Indexes ensured for Hubs and ClosedHubs collections")
  
