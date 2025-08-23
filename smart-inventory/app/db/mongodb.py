@@ -52,9 +52,9 @@ async def ensure_indexes():
     await db["Dispatches"].create_index([("Status", 1), ("Timestamp", -1)])
     
     # ---------------- Drivers ----------------
-    await db["Drivers"].create_index("Driver_ID", unique=True)
-    await db["Drivers"].create_index("License_No", unique=True)
-    await db["Drivers"].create_index("Hub_ID")
+    await db["drivers"].create_index("Driver_ID", unique=True)
+    await db["drivers"].create_index("License_No", unique=True)
+    await db["drivers"].create_index("Hub_ID")
 
     await db["RetiredDrivers"].create_index("Driver_ID", unique=True)
     await db["RetiredDrivers"].create_index("Retired_At")

@@ -20,15 +20,19 @@ class DriverBase(BaseModel):
 class DriverCreate(DriverBase):
     driver_id: str = Field(default_factory=lambda: str(uuid4()))
 
+class DriverIdRequest(BaseModel):
+    driver_id: UUID
+
 # ---------------------------
 # Update Schema
 # ---------------------------
 class DriverUpdate(BaseModel):
+    driver_id: UUID
     name: Optional[str] = None
     age: Optional[int] = None
     license_number: Optional[str] = None
     hub_id: Optional[str] = None
-    status: Optional[Literal["active", "retired", "deleted"]] = None
+    status: Optional[Literal["active", "retired", "deleted" ,"Inactive"]] = None
     retirement_reason: Optional[str] = None
  
 # ---------------------------

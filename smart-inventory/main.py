@@ -2,13 +2,15 @@
 from fastapi import FastAPI
 import uvicorn
 from app.db.mongodb import connect_to_mongo, close_mongo_connection
-from app.endpoints import hub_endpoints,inventory_endpoint
+from app.endpoints import hub_endpoints,inventory_endpoint,driver_endpoint
  
 app = FastAPI(title="Smart Inventory - Hub Management")
  
 
 app.include_router(hub_endpoints.router, prefix="/api/hub_mangement", tags=["Hub"])
-app.include_router(inventory_endpoint.router, prefix="/api/inventory_mangement", tags=["Inventory"])
+app.include_router(inventory_endpoint.router, prefix="/api/inventory_mangement")
+app.include_router(driver_endpoint.router, prefix="/api/driver_mangement")
+
 
 
 @app.on_event("startup")
