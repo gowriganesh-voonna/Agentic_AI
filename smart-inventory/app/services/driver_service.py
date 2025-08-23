@@ -6,6 +6,7 @@ from typing import List, Optional
 from app.models.driver import DriverCreate, DriverUpdate, DriverOut
 from app.db.mongodb import db  # your MongoDB/Motor async client
 import uuid
+from fastapi import HTTPException
 
 
 # ------------------------
@@ -24,6 +25,9 @@ async def create_driver(driver: DriverCreate) -> DriverOut:
         "updated_at": datetime.utcnow(),
         "retired_reason": None
     }
+    if driver.age> 50 :
+        raise HTTPException(status_code = 400,
+                            detail = "Age should be less than 50")
     await db.drivers.insert_one(driver_doc)
     return DriverOut(**driver_doc)
 

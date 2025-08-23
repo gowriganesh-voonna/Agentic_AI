@@ -52,18 +52,18 @@ async def ensure_indexes():
     await db["Dispatches"].create_index([("Status", 1), ("Timestamp", -1)])
     
     # ---------------- Drivers ----------------
-    await db["drivers"].create_index("Driver_ID", unique=True)
-    await db["drivers"].create_index("License_No", unique=True)
-    await db["drivers"].create_index("Hub_ID")
+    await db["drivers"].create_index("driver_id", unique=True)
+    await db["drivers"].create_index("license_number", unique=True)
+    await db["drivers"].create_index("hub_id")
 
-    await db["RetiredDrivers"].create_index("Driver_ID", unique=True)
-    await db["RetiredDrivers"].create_index("Retired_At")
+    await db["RetiredDrivers"].create_index("driver_id", unique=True)
+    await db["RetiredDrivers"].create_index("retired_at")
 
     # ---------------- Assignments ----------------
-    await db["Assignments"].create_index("Driver_ID")
-    await db["Assignments"].create_index("Vehicle_ID")
-    await db["Assignments"].create_index("Dispatch_ID")
-    await db["Assignments"].create_index("Status")
+    await db["Assignments"].create_index("driver_id")
+    await db["Assignments"].create_index("vehicle_id")
+    await db["Assignments"].create_index("dispatch_id")
+    await db["Assignments"].create_index("status")
 
     logger.info("✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections")
     logger.info("✅ Indexes ensured for Hubs and ClosedHubs collections")

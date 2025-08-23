@@ -632,3 +632,20 @@ TypeError: can't subtract offset-naive and offset-aware datetimes
 2025-08-23 13:18:22,237 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
 2025-08-23 13:18:22,241 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
 2025-08-23 13:22:51,965 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-23 16:22:14,209 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-23 16:22:14,214 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-23 16:22:14,219 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-23 16:22:47,856 - app.utiles.decoratores - INFO - MainThread - Calling function: register_inventory_endpoint
+2025-08-23 16:22:48,551 - app.services.inventory_service - INFO - MainThread - Inserted product master PROD_102
+2025-08-23 16:22:48,819 - app.services.inventory_service - INFO - MainThread - Created new batch PROD_102-HUB_003-20250823105248-9b5f1f for product PROD_102
+2025-08-23 16:22:49,536 - app.services.inventory_service - INFO - MainThread - Inserted stock transaction txn-36c3baa9c0474d599a3345fd58922c5c
+2025-08-23 16:22:49,655 - app.utiles.decoratores - INFO - MainThread - Function register_inventory_endpoint completed successfully
+2025-08-23 16:25:32,710 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-23 16:25:37,169 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-23 16:25:37,172 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-23 16:25:37,177 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-23 16:27:16,185 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-23 16:27:27,861 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-23 16:27:27,863 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-23 16:27:27,869 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-23 16:27:33,121 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
