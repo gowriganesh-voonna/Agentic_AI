@@ -117,6 +117,8 @@ class DispatchRequest(BaseModel):
     def strip_ids(cls, v: str) -> str:
         return v.strip()
  
+class DispatchReceiveRequest(BaseModel):
+    dispatch_id: str
  
 # -----------------------------
 # Output / Response Schemas
