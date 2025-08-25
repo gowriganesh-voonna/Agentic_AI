@@ -26,7 +26,7 @@ async def create_driver(driver: DriverCreate) -> DriverOut:
         logger.warning("Driver creation failed: Age %s is greater than 50", driver.age)
         raise HTTPException(status_code=400, detail="Age should be less than 50")
 
-    driver_id = str(uuid4())
+    driver_id = str(uuid4()) # Generate unique driver_id
     driver_doc = {
         "driver_id": driver_id,
         "name": driver.name,
@@ -52,6 +52,7 @@ async def get_driver_by_id(driver_id: str) -> Optional[DriverOut]:
     Fetch a driver by driver_id, ignoring deleted drivers.
     """
     logger.debug("Fetching driver by ID: %s", driver_id)
+    # Query only non-deleted drivers
     doc = await db.drivers.find_one({"driver_id": str(driver_id), "status": {"$ne": "deleted"}})
     if doc:
         logger.info("Driver found: driver_id=%s", driver_id)
