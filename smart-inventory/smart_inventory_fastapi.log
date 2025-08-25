@@ -699,3 +699,263 @@ TypeError: can't subtract offset-naive and offset-aware datetimes
 2025-08-25 13:49:03,559 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
 2025-08-25 13:49:03,567 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
 2025-08-25 13:49:03,772 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:07:31,015 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:07:31,021 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:07:31,024 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:09:30,381 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-08-25 20:09:30,498 - app.services.hub_service - INFO - MainThread - Inserting hub into MongoDB: {'hub_id': 'HUB_004', 'hub_name': 'Hyderabad Hub', 'hub_manager': 'Jaleel khan', 'hub_phone_number': '8885363300', 'hub_address': '22-12/A-45/A, Medchal , Hyderabad -520023', 'status': 'Active', 'hub_opening_date': datetime.datetime(2025, 8, 25, 14, 39, 30, 400891, tzinfo=datetime.timezone.utc), 'created_at': datetime.datetime(2025, 8, 25, 14, 39, 30, 400891, tzinfo=datetime.timezone.utc), 'updated_at': None}
+2025-08-25 20:09:30,592 - app.services.hub_service - INFO - MainThread - ✅ Insert result: 68ac75a2d1c5ee950090a37a
+2025-08-25 20:09:30,594 - app.utiles.decoratores - INFO - MainThread - Function register_hub completed successfully
+2025-08-25 20:10:13,467 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:10:19,475 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:10:19,476 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:10:19,480 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:10:34,333 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:10:46,120 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:10:46,121 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:10:46,123 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:13:49,888 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:13:54,965 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:13:54,967 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:13:54,972 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:14:02,429 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:14:07,324 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:14:07,326 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:14:07,331 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:14:19,246 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:14:24,083 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:14:24,084 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:14:24,091 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:14:32,944 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:14:37,508 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:14:37,509 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:14:37,510 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:15:51,698 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:15:57,396 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:15:57,398 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:15:57,404 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:16:32,066 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:16:37,460 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:16:37,462 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:16:37,470 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:16:51,615 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:16:56,483 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:16:56,483 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:16:56,486 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:17:16,269 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:17:23,616 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:17:23,617 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:17:23,618 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:17:46,996 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:17:52,417 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:17:52,419 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:17:52,435 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:18:06,090 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:18:11,086 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:18:11,086 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:18:11,093 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:18:20,386 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:18:28,457 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:18:28,458 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:18:28,464 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:18:37,373 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:18:43,971 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:18:43,973 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:18:43,977 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:19:17,228 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:19:22,589 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:19:22,617 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:19:22,619 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:19:35,740 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:19:41,268 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:19:41,270 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:19:41,275 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:19:41,477 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:19:47,107 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:19:47,108 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:19:47,111 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:19:47,280 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:19:52,638 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:19:52,640 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:19:52,646 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:20:07,916 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:20:13,516 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:20:13,518 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:20:13,525 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:20:32,755 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:20:38,517 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:20:38,518 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:20:38,520 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:20:50,595 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:20:56,107 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:20:56,108 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:20:56,110 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:21:18,097 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:21:23,566 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:21:23,568 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:21:23,575 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:21:31,147 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:21:36,213 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:21:36,215 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:21:36,220 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:21:46,711 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:21:51,890 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:21:51,891 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:21:51,900 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:22:21,425 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:22:26,980 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:22:26,982 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:22:26,986 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:22:43,062 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:22:51,841 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:22:51,843 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:22:51,846 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:25:13,515 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:25:19,251 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:25:19,254 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:25:19,267 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:25:42,435 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:25:48,271 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:25:48,272 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:25:48,273 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:25:48,395 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:25:53,682 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:25:53,684 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:25:53,686 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:26:02,301 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:26:07,692 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:26:07,693 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:26:07,699 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:26:32,204 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:26:37,534 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:26:37,535 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:26:37,541 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:26:58,833 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:27:04,133 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:27:04,135 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:27:04,140 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:27:11,007 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:27:17,251 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:27:17,253 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:27:17,259 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:27:20,946 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:27:26,621 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:27:26,623 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:27:26,627 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:30:41,095 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:30:48,259 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:30:48,260 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:30:48,263 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:30:49,167 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:30:57,088 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:30:57,090 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:30:57,095 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:31:05,100 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:31:10,236 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:31:10,239 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:31:10,247 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:31:17,995 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:31:23,223 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:31:23,226 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:31:23,230 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:31:43,602 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:31:49,040 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:31:49,041 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:31:49,044 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:32:06,128 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:32:11,763 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:32:11,764 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:32:11,768 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:32:16,672 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:32:22,210 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:32:22,212 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:32:22,217 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:32:29,973 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:32:35,725 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:32:35,726 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:32:35,729 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:32:38,763 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:32:45,373 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:32:45,374 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:32:45,377 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:32:47,829 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:32:54,310 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:32:54,311 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:32:54,315 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:33:13,209 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:33:18,566 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:33:18,566 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:33:18,571 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:33:48,689 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:33:53,982 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:33:53,984 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:33:53,990 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:34:07,987 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:34:15,848 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:34:15,850 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:34:15,855 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:34:19,154 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:34:24,407 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:34:24,407 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:34:24,410 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:34:28,163 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:34:33,348 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:34:33,350 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:34:33,355 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:36:12,564 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:36:17,931 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:36:17,933 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:36:17,957 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:36:33,810 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:36:39,011 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:36:39,013 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:36:39,017 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:36:45,080 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:36:50,601 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:36:50,601 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:36:50,604 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:37:01,147 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:37:06,268 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:37:06,268 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:37:06,275 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:37:09,006 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:37:14,315 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:37:14,315 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:37:14,317 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:37:25,669 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:37:31,307 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:37:31,309 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:37:31,314 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:37:31,494 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:37:36,680 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:37:36,682 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:37:36,686 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:37:46,923 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:37:52,871 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:37:52,872 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:37:52,873 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:38:06,428 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:38:11,645 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:38:11,647 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:38:11,652 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:38:35,868 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:38:40,912 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:38:40,914 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:38:40,919 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:38:49,308 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:38:54,785 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:38:54,787 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:38:54,790 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:39:01,039 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:39:12,629 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:39:12,630 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:39:12,637 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:39:13,039 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:39:20,308 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:39:20,309 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:39:20,313 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:39:24,508 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 20:39:29,712 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 20:39:29,714 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 20:39:29,723 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 20:39:29,890 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
