@@ -681,3 +681,21 @@ TypeError: can't subtract offset-naive and offset-aware datetimes
 2025-08-23 17:52:26,662 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
 2025-08-23 17:52:26,667 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
 2025-08-23 17:56:30,800 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 13:43:39,558 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 13:43:39,562 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 13:43:39,567 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 13:43:49,303 - app.services.vehicle_inventory_service - INFO - MainThread - Processing received dispatch: disp-8802e9e486954a299de6ae120206821a
+2025-08-25 13:43:49,338 - app.services.vehicle_inventory_service - INFO - MainThread - Updating inventory at destination hub HUB_002 for product PROD_101
+2025-08-25 13:43:49,454 - app.services.vehicle_inventory_service - INFO - MainThread - Driver 57901802-0e89-4def-9547-86144765cd3b reset to active
+2025-08-25 13:43:49,493 - app.services.vehicle_inventory_service - INFO - MainThread - Vehicle V001 reset to Available
+2025-08-25 13:43:49,533 - app.services.vehicle_inventory_service - INFO - MainThread - Dispatch disp-8802e9e486954a299de6ae120206821a marked as Completed at HUB_002
+2025-08-25 13:45:01,807 - app.utiles.decoratores - INFO - MainThread - Calling function: list_inventory_batches_endpoint
+2025-08-25 13:45:01,847 - app.utiles.decoratores - INFO - MainThread - Function list_inventory_batches_endpoint completed successfully
+2025-08-25 13:45:28,446 - app.utiles.decoratores - INFO - MainThread - Calling function: hubs_by_status_endpoint
+2025-08-25 13:45:28,482 - app.services.hub_service - INFO - MainThread - Returning the list of results by Hub status
+2025-08-25 13:45:28,483 - app.utiles.decoratores - INFO - MainThread - Function hubs_by_status_endpoint completed successfully
+2025-08-25 13:48:58,211 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-08-25 13:49:03,556 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections
+2025-08-25 13:49:03,559 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-25 13:49:03,567 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-25 13:49:03,772 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
