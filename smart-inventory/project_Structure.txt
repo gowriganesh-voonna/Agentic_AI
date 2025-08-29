@@ -40,17 +40,15 @@ smart-inventory/
 │   │
 │   ├── db/  
 │ │ ├── mongodb.py  
-│   │   │   # MongoDB connection setup (Motor client).  
-│   │   │
-│ │ └── collections.py  
-│   │       # MongoDB collection references (inventory, hubs, drivers, vehicles).  
+│   │       # MongoDB connection setup (Motor client).  
+│   │   
+│ │ |  
 │   │
 │   ├── core/  
 │ │ ├── config.py  
 │   │   │   # Central configuration (DB URLs, service URLs, env vars, etc.).  
 │   │   │
-│ │ └── constants.py  
-│   │       # Constants and static variables (e.g., DB/collection names).  
+│ │ | 
 │   │
 │   ├── endpoints/  
 │ │ ├── inventory_endpoints.py  
@@ -64,7 +62,9 @@ smart-inventory/
 │   │   │
 │ │ └── vehicle_endpoints.py  
 │   │       # Defines API routes for vehicle management.  
-│   │
+│   │── vehicle_inventory_endpoints.py
+|   |       $ Defines API route for vehicle_inventory management.
+| | |
 │   └── services/  
 │ ├── inventory_service.py  
 │       │   # Business logic for inventory (called from endpoints).  
@@ -76,4 +76,6 @@ smart-inventory/
 │       │   # Business logic for drivers.  
 │       │
 │ └── vehicle_service.py  
-│           # Business logic for vehicles.  
+│           # Business logic for vehicles.
+| └── vehicle_inventory_service.py 
+            # Business logic for Dispatched stock Receive.

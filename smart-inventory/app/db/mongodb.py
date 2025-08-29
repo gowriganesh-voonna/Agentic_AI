@@ -8,8 +8,7 @@ from app.utiles.logger import get_logger
 logger = get_logger(__name__)
  
 # Global client and db instances
-# client: Optional[AsyncIOMotorClient] = None
-# db = None
+
 client = AsyncIOMotorClient(MONGO_URI)
 db = client[MONGO_DB]
  
@@ -56,8 +55,8 @@ async def ensure_indexes():
     await db["drivers"].create_index("license_number", unique=True)
     await db["drivers"].create_index("hub_id")
 
-    await db["RetiredDrivers"].create_index("driver_id", unique=True)
-    await db["RetiredDrivers"].create_index("retired_at")
+    # await db["RetiredDrivers"].create_index("driver_id", unique=True)
+    # await db["RetiredDrivers"].create_index("retired_at")
 
     # ---------------- Assignments ----------------
     await db["Assignments"].create_index("driver_id")
@@ -65,6 +64,6 @@ async def ensure_indexes():
     await db["Assignments"].create_index("dispatch_id")
     await db["Assignments"].create_index("status")
 
-    logger.info("✅ Indexes ensured for Hubs, Inventory, Drivers, and Assignments collections")
+    logger.info("✅ Indexes ensured for Hubs, Inventory, Drivers")
     logger.info("✅ Indexes ensured for Hubs and ClosedHubs collections")
  

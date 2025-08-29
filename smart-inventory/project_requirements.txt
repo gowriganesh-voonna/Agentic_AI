@@ -33,7 +33,7 @@ requiring credit card/debit card APIs. It leverages open-source tools (like Open
  
    c) Allocate drivers to vehicles for deliveries.
 
-   d) Alert if any driver age is greater than 50 than move that record to new database (Reteriment db).
+   d) Alert if any driver age is greater than 50 than update the status field = Reteried.
 
 4) Hub  :
    
