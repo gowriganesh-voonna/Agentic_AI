@@ -1,5 +1,5 @@
 from passlib.context import CryptContext
-import jwt
+import jwt #PyJWT
 from datetime import datetime,timedelta, timezone
 from app.core.config import SECRET_KEY
 from fastapi import HTTPException

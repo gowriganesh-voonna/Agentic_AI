@@ -8,9 +8,9 @@ logger = get_logger(__name__)
 # Define session expiry duration (in minutes)
 SESSION_EXPIRY_MINUTES = 60
  
-# ----------------------------
+
 # Store a new session
-# ----------------------------
+
 async def store_session(email: str, username: str, token: str):
     # Remove any old sessions beyond expiry duration
     await session_collection.delete_many({
@@ -35,9 +35,9 @@ async def store_session(email: str, username: str, token: str):
     await session_collection.insert_one(session_doc)
     logger.info(f"Session created for user {username} with email {email}")
  
-# ----------------------------
+
 # Remove session on logout
-# ----------------------------
+
 async def remove_session(token: str):
     session = await session_collection.find_one({"token": token})
     if not session:
@@ -61,9 +61,9 @@ async def remove_session(token: str):
         logger.info(f"User {session['username']} logged out successfully")
         return "Logout successful"
  
-# ----------------------------
+
 # Validate session before protected endpoints (e.g., update, change password)
-# ----------------------------
+
 async def validate_session(token: str):
     # Check if token is blacklisted
     if await blacklist_collection.find_one({"token": token}):

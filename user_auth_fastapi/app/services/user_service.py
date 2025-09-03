@@ -304,7 +304,7 @@ async def verify_otp_and_reset_password(data:VerifyOtpRequest):
 
     for old_hased in user['password_history']:
         if verify_password(data.new_password,old_hased):
-            logger.warning(f"New password matches one of the old passwords for user: {change_request.email}")
+            logger.warning(f"New password matches one of the old passwords for user: {data.username_or_email}")
             raise HTTPException(
                 status_code = 400,
                 detail = "New Password must not match any of the previous passwords."
