@@ -9,3 +9,308 @@
 2025-08-26 15:33:37,916 - app.endpoints.inventory_endpoint - INFO - MainThread - API Response → Inventory registered successfully: product_id=PROD_103, hub_id=HUB_001
 2025-08-26 15:33:37,917 - app.utiles.decoratores - INFO - MainThread - Function register_inventory_endpoint completed successfully
 2025-08-26 15:33:59,991 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-26 11:35:56,754 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-26 11:35:56,757 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-26 11:35:56,759 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-26 11:37:58,532 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-09-26 11:37:58,533 - app.utiles.decoratores - ERROR - MainThread - Exception in function: register_hub - 'RegisterHub' object has no attribute 'Hub_ID'
+Traceback (most recent call last):
+  File "D:\Practice\Agentic_AI\smart-inventory\app\utiles\decoratores.py", line 13, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\endpoints\hub_endpoints.py", line 33, in register_hub
+    logger.info("API Request → Register Hub: id=%s, name=%s", payload.Hub_ID, payload.Hub_Name)
+                                                              ^^^^^^^^^^^^^^
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pydantic\main.py", line 991, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'RegisterHub' object has no attribute 'Hub_ID'. Did you mean: 'hub_id'?
+2025-09-26 11:39:33,483 - app.utiles.decoratores - INFO - MainThread - Calling function: register_inventory_endpoint
+2025-09-26 11:39:33,483 - app.endpoints.inventory_endpoint - INFO - MainThread - API Request → Register Inventory: product_id=PROD_104, hub_id=HUB_002, qty=100
+2025-09-26 11:39:33,640 - app.services.inventory_service - INFO - MainThread - Inserted product master PROD_104
+2025-09-26 11:39:33,732 - app.services.inventory_service - INFO - MainThread - Created new batch PROD_104-HUB_002-20250926060933-5a6303 for product PROD_104
+2025-09-26 11:39:33,786 - app.services.inventory_service - INFO - MainThread - Inserted stock transaction txn-43b8622bf07a46ebb27406b2ffb1ed43
+2025-09-26 11:39:33,833 - app.endpoints.inventory_endpoint - INFO - MainThread - API Response → Inventory registered successfully: product_id=PROD_104, hub_id=HUB_002
+2025-09-26 11:39:33,834 - app.utiles.decoratores - INFO - MainThread - Function register_inventory_endpoint completed successfully
+2025-09-26 11:40:36,299 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-09-26 11:40:36,299 - app.utiles.decoratores - ERROR - MainThread - Exception in function: register_hub - 'RegisterHub' object has no attribute 'Hub_ID'
+Traceback (most recent call last):
+  File "D:\Practice\Agentic_AI\smart-inventory\app\utiles\decoratores.py", line 13, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\endpoints\hub_endpoints.py", line 33, in register_hub
+    logger.info("API Request → Register Hub: id=%s, name=%s", payload.Hub_ID, payload.Hub_Name)
+                                                              ^^^^^^^^^^^^^^
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pydantic\main.py", line 991, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'RegisterHub' object has no attribute 'Hub_ID'. Did you mean: 'hub_id'?
+2025-09-26 11:41:39,263 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-26 11:41:44,318 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-26 11:41:44,319 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-26 11:41:44,321 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-26 11:41:44,545 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-09-26 11:41:44,545 - app.endpoints.hub_endpoints - INFO - MainThread - API Request → Register Hub: id=Hub_005, name=Vijayawada Hub
+2025-09-26 11:41:44,618 - app.services.hub_service - INFO - MainThread - Inserting hub into MongoDB: {'hub_id': 'HUB_005', 'hub_name': 'Vijayawada Hub', 'hub_manager': 'Tapas Reddy', 'hub_phone_number': '8885363312', 'hub_address': '22-12/3-F23 , 4th line , Brts Road , Vijayawada.', 'status': 'Active', 'hub_opening_date': datetime.datetime(2025, 9, 26, 6, 11, 44, 551974, tzinfo=datetime.timezone.utc), 'created_at': datetime.datetime(2025, 9, 26, 6, 11, 44, 551974, tzinfo=datetime.timezone.utc), 'updated_at': None}
+2025-09-26 11:41:44,678 - app.services.hub_service - ERROR - MainThread - Duplicate on create_hub
+Traceback (most recent call last):
+  File "D:\Practice\Agentic_AI\smart-inventory\app\services\hub_service.py", line 54, in create_hub
+    result = await db[COLLECTION_HUBS].insert_one(doc)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pymongo\synchronous\collection.py", line 891, in insert_one
+    self._insert_one(
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pymongo\synchronous\collection.py", line 831, in _insert_one
+    self._database.client._retryable_write(
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2061, in _retryable_write
+    return self._retry_with_session(retryable, func, s, bulk, operation, operation_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1947, in _retry_with_session
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pymongo\_csot.py", line 125, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1993, in _retry_internal
+    ).run()
+      ^^^^^
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2730, in run
+    return self._read() if self._is_read else self._write()
+                                              ^^^^^^^^^^^^^
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2862, in _write
+    return self._func(self._session, conn, self._retryable)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pymongo\synchronous\collection.py", line 829, in _insert_command
+    _check_write_command_response(result)
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pymongo\helpers_shared.py", line 288, in _check_write_command_response
+    _raise_last_write_error(write_errors)
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pymongo\helpers_shared.py", line 258, in _raise_last_write_error
+    raise DuplicateKeyError(error.get("errmsg"), 11000, error)
+pymongo.errors.DuplicateKeyError: E11000 duplicate key error collection: smart_inventory_db.Hubs index: hub_name_1 dup key: { hub_name: "Vijayawada Hub" }, full error: {'index': 0, 'code': 11000, 'errmsg': 'E11000 duplicate key error collection: smart_inventory_db.Hubs index: hub_name_1 dup key: { hub_name: "Vijayawada Hub" }', 'keyPattern': {'hub_name': 1}, 'keyValue': {'hub_name': 'Vijayawada Hub'}}
+2025-09-26 11:41:44,701 - app.endpoints.hub_endpoints - WARNING - MainThread - API Response → Conflict while registering hub: hub_id or hub_name already exists
+2025-09-26 11:41:44,712 - app.utiles.decoratores - ERROR - MainThread - Exception in function: register_hub - 409: hub_id or hub_name already exists
+Traceback (most recent call last):
+  File "D:\Practice\Agentic_AI\smart-inventory\app\services\hub_service.py", line 54, in create_hub
+    result = await db[COLLECTION_HUBS].insert_one(doc)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pymongo\synchronous\collection.py", line 891, in insert_one
+    self._insert_one(
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pymongo\synchronous\collection.py", line 831, in _insert_one
+    self._database.client._retryable_write(
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2061, in _retryable_write
+    return self._retry_with_session(retryable, func, s, bulk, operation, operation_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1947, in _retry_with_session
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pymongo\_csot.py", line 125, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1993, in _retry_internal
+    ).run()
+      ^^^^^
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2730, in run
+    return self._read() if self._is_read else self._write()
+                                              ^^^^^^^^^^^^^
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2862, in _write
+    return self._func(self._session, conn, self._retryable)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pymongo\synchronous\collection.py", line 829, in _insert_command
+    _check_write_command_response(result)
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pymongo\helpers_shared.py", line 288, in _check_write_command_response
+    _raise_last_write_error(write_errors)
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pymongo\helpers_shared.py", line 258, in _raise_last_write_error
+    raise DuplicateKeyError(error.get("errmsg"), 11000, error)
+pymongo.errors.DuplicateKeyError: E11000 duplicate key error collection: smart_inventory_db.Hubs index: hub_name_1 dup key: { hub_name: "Vijayawada Hub" }, full error: {'index': 0, 'code': 11000, 'errmsg': 'E11000 duplicate key error collection: smart_inventory_db.Hubs index: hub_name_1 dup key: { hub_name: "Vijayawada Hub" }', 'keyPattern': {'hub_name': 1}, 'keyValue': {'hub_name': 'Vijayawada Hub'}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Practice\Agentic_AI\smart-inventory\app\endpoints\hub_endpoints.py", line 35, in register_hub
+    res = await create_hub(payload)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\services\hub_service.py", line 60, in create_hub
+    raise ValueError("hub_id or hub_name already exists") from e
+ValueError: hub_id or hub_name already exists
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Practice\Agentic_AI\smart-inventory\app\utiles\decoratores.py", line 13, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\endpoints\hub_endpoints.py", line 40, in register_hub
+    raise HTTPException(status_code=409, detail=str(e))
+fastapi.exceptions.HTTPException: 409: hub_id or hub_name already exists
+2025-09-26 11:42:52,641 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-09-26 11:42:52,641 - app.endpoints.hub_endpoints - INFO - MainThread - API Request → Register Hub: id=Hub_006, name=pune hub
+2025-09-26 11:42:52,698 - app.services.hub_service - INFO - MainThread - Inserting hub into MongoDB: {'hub_id': 'HUB_006', 'hub_name': 'pune hub', 'hub_manager': 'Manish Reddy', 'hub_phone_number': '8885363323', 'hub_address': '22-12/3-F23 , 4th line , Brts Road , Maharasta.', 'status': 'Active', 'hub_opening_date': datetime.datetime(2025, 9, 26, 6, 12, 52, 644260, tzinfo=datetime.timezone.utc), 'created_at': datetime.datetime(2025, 9, 26, 6, 12, 52, 644260, tzinfo=datetime.timezone.utc), 'updated_at': None}
+2025-09-26 11:42:52,762 - app.services.hub_service - INFO - MainThread - ✅ Insert result: 68d62ee47b5c7cfb8073b1b7
+2025-09-26 11:42:52,763 - app.utiles.decoratores - ERROR - MainThread - Exception in function: register_hub - 'RegisterHub' object has no attribute 'Hub_ID'
+Traceback (most recent call last):
+  File "D:\Practice\Agentic_AI\smart-inventory\app\utiles\decoratores.py", line 13, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\endpoints\hub_endpoints.py", line 36, in register_hub
+    logger.info("API Response → Hub registered successfully: id=%s", payload.Hub_ID)
+                                                                     ^^^^^^^^^^^^^^
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pydantic\main.py", line 991, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'RegisterHub' object has no attribute 'Hub_ID'. Did you mean: 'hub_id'?
+2025-09-26 11:43:20,544 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-26 11:43:25,626 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-26 11:43:25,627 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-26 11:43:25,629 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-26 11:43:59,757 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-09-26 11:43:59,758 - app.endpoints.hub_endpoints - INFO - MainThread - API Request → Register Hub: id=Hub_007, name=Guntur hub
+2025-09-26 11:43:59,824 - app.services.hub_service - INFO - MainThread - Inserting hub into MongoDB: {'hub_id': 'HUB_007', 'hub_name': 'Guntur hub', 'hub_manager': 'Rahul', 'hub_phone_number': '8885363321', 'hub_address': '22-12/3-F23 , 4th line , Brts Road , Vijayawad', 'status': 'Active', 'hub_opening_date': datetime.datetime(2025, 9, 26, 6, 13, 59, 760422, tzinfo=datetime.timezone.utc), 'created_at': datetime.datetime(2025, 9, 26, 6, 13, 59, 760422, tzinfo=datetime.timezone.utc), 'updated_at': None}
+2025-09-26 11:43:59,889 - app.services.hub_service - INFO - MainThread - ✅ Insert result: 68d62f27ad06c9637d762da6
+2025-09-26 11:43:59,889 - app.endpoints.hub_endpoints - INFO - MainThread - API Response → Hub registered successfully: id=Hub_007
+2025-09-26 11:43:59,892 - app.utiles.decoratores - INFO - MainThread - Function register_hub completed successfully
+2025-09-26 11:44:49,116 - app.models.hub - ERROR - MainThread - Hub phone should be if landline 8 digits or phone number then 10 digits it should be
+2025-09-26 11:44:56,459 - app.models.hub - ERROR - MainThread - Hub phone should be if landline 8 digits or phone number then 10 digits it should be
+2025-09-26 11:45:23,612 - app.utiles.decoratores - INFO - MainThread - Calling function: update_hub_endpoint
+2025-09-26 11:45:23,612 - app.endpoints.hub_endpoints - INFO - MainThread - API Request → Update Hub: id=Hub_007
+2025-09-26 11:45:23,683 - app.endpoints.hub_endpoints - INFO - MainThread - API Response → Hub updated successfully: id=Hub_007
+2025-09-26 11:45:23,684 - app.utiles.decoratores - INFO - MainThread - Function update_hub_endpoint completed successfully
+2025-09-26 11:45:39,037 - app.utiles.decoratores - INFO - MainThread - Calling function: search_hub_endpoint
+2025-09-26 11:45:39,038 - app.endpoints.hub_endpoints - INFO - MainThread - API Request → Search Hub: id=None, name=None, skip=0, limit=50
+2025-09-26 11:45:39,108 - app.services.hub_service - INFO - MainThread - returning Hub details 
+2025-09-26 11:45:39,109 - app.endpoints.hub_endpoints - INFO - MainThread - API Response → Search completed. Found 6 hubs
+2025-09-26 11:45:39,112 - app.utiles.decoratores - INFO - MainThread - Function search_hub_endpoint completed successfully
+2025-09-26 11:46:19,055 - app.utiles.decoratores - INFO - MainThread - Calling function: hubs_by_status_endpoint
+2025-09-26 11:46:19,056 - app.endpoints.hub_endpoints - INFO - MainThread - API Request → List Hubs by Status: status=Active, skip=0, limit=50
+2025-09-26 11:46:19,133 - app.services.hub_service - INFO - MainThread - Returning the list of results by Hub status
+2025-09-26 11:46:19,134 - app.endpoints.hub_endpoints - INFO - MainThread - API Response → Found 6 hubs with status=Active
+2025-09-26 11:46:19,136 - app.utiles.decoratores - INFO - MainThread - Function hubs_by_status_endpoint completed successfully
+2025-09-26 11:47:11,123 - app.utiles.decoratores - INFO - MainThread - Calling function: update_inventory_endpoint
+2025-09-26 11:47:11,124 - app.utiles.decoratores - ERROR - MainThread - Exception in function: update_inventory_endpoint - 'UpdateInventory' object has no attribute 'Batch_ID'
+Traceback (most recent call last):
+  File "D:\Practice\Agentic_AI\smart-inventory\app\utiles\decoratores.py", line 13, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\endpoints\inventory_endpoint.py", line 55, in update_inventory_endpoint
+    payload.Batch_ID, payload.Product_ID, payload.Hub_ID)
+    ^^^^^^^^^^^^^^^^
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pydantic\main.py", line 991, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'UpdateInventory' object has no attribute 'Batch_ID'. Did you mean: 'Batch_No'?
+2025-09-26 11:48:18,376 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-26 11:48:23,649 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-26 11:48:23,649 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-26 11:48:23,655 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-26 11:48:23,837 - app.utiles.decoratores - INFO - MainThread - Calling function: update_inventory_endpoint
+2025-09-26 11:48:23,838 - app.endpoints.inventory_endpoint - INFO - MainThread - API Request → Update Inventory: batch_id=None, product_id=PROD_101, hub_id=HUB_001
+2025-09-26 11:48:23,963 - app.services.inventory_service - INFO - MainThread - Updating inventory for product PROD_101 in hub HUB_001
+2025-09-26 11:48:24,081 - app.services.inventory_service - INFO - MainThread - Created new batch PROD_101-HUB_001-20250926061824-e6ddaa for product PROD_101
+2025-09-26 11:48:24,140 - app.services.inventory_service - INFO - MainThread - Inserted stock transaction txn-a48bcc58bf5243a5896089ccd6b395ee
+2025-09-26 11:48:24,197 - app.utiles.decoratores - ERROR - MainThread - Exception in function: update_inventory_endpoint - 'UpdateInventory' object has no attribute 'Batch_ID'
+Traceback (most recent call last):
+  File "D:\Practice\Agentic_AI\smart-inventory\app\utiles\decoratores.py", line 13, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\endpoints\inventory_endpoint.py", line 58, in update_inventory_endpoint
+    logger.info("API Response → Inventory updated successfully: batch_id=%s", payload.Batch_ID)
+                                                                              ^^^^^^^^^^^^^^^^
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pydantic\main.py", line 991, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'UpdateInventory' object has no attribute 'Batch_ID'. Did you mean: 'Batch_No'?
+2025-09-26 11:48:40,474 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-26 11:48:45,187 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-26 11:48:45,188 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-26 11:48:45,191 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-26 11:48:46,907 - app.utiles.decoratores - INFO - MainThread - Calling function: update_inventory_endpoint
+2025-09-26 11:48:46,908 - app.endpoints.inventory_endpoint - INFO - MainThread - API Request → Update Inventory: batch_id=None, product_id=PROD_101, hub_id=HUB_001
+2025-09-26 11:48:47,025 - app.services.inventory_service - INFO - MainThread - Updating inventory for product PROD_101 in hub HUB_001
+2025-09-26 11:48:47,138 - app.services.inventory_service - INFO - MainThread - Merged stock into existing batch PROD_101-HUB_001-20250926061824-e6ddaa
+2025-09-26 11:48:47,194 - app.services.inventory_service - INFO - MainThread - Inserted stock transaction txn-dbd1478c3a36405480a87b4ba435b1db
+2025-09-26 11:48:47,255 - app.endpoints.inventory_endpoint - INFO - MainThread - API Response → Inventory updated successfully: batch_id=None
+2025-09-26 11:48:47,255 - app.utiles.decoratores - INFO - MainThread - Function update_inventory_endpoint completed successfully
+2025-09-26 11:49:20,675 - app.utiles.decoratores - INFO - MainThread - Calling function: dispatch_inventory_endpoint
+2025-09-26 11:49:20,675 - app.utiles.decoratores - ERROR - MainThread - Exception in function: dispatch_inventory_endpoint - 'DispatchRequest' object has no attribute 'From_Hub'
+Traceback (most recent call last):
+  File "D:\Practice\Agentic_AI\smart-inventory\app\utiles\decoratores.py", line 13, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Practice\Agentic_AI\smart-inventory\app\endpoints\inventory_endpoint.py", line 74, in dispatch_inventory_endpoint
+    payload.Product_ID, payload.From_Hub, payload.To_Hub, payload.Quantity)
+                        ^^^^^^^^^^^^^^^^
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\pydantic\main.py", line 991, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'DispatchRequest' object has no attribute 'From_Hub'. Did you mean: 'From_Hub_ID'?
+2025-09-26 11:50:12,835 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-26 11:50:18,105 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-26 11:50:18,105 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-26 11:50:18,113 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-26 11:50:18,325 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-26 11:50:22,702 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-26 11:50:22,703 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-26 11:50:22,705 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-26 11:50:22,950 - app.utiles.decoratores - INFO - MainThread - Calling function: dispatch_inventory_endpoint
+2025-09-26 11:50:22,951 - app.endpoints.inventory_endpoint - INFO - MainThread - API Request → Dispatch Inventory: product_id=PROD_101, from_hub=HUB_001, to_hub=HUB_002, qty=50
+2025-09-26 11:50:23,073 - app.services.inventory_service - INFO - MainThread - Dispatching 50 units of PROD_101 from hub HUB_001 to hub HUB_002
+2025-09-26 11:50:23,414 - app.services.inventory_service - INFO - MainThread - Batch PROD_101-HUB_001-20250821130617-26585e dispatched 50 units, Remaining to dispatch=0
+2025-09-26 11:50:23,479 - app.services.inventory_service - INFO - MainThread - 📦 Dispatch record created with ID=disp-ebf40f6860f043ceb977de7fefbb22a2
+2025-09-26 11:50:23,535 - app.services.inventory_service - INFO - MainThread - ✅ Dispatch completed: 50 units of PROD_101 from HUB_001 to HUB_002. Remaining stock at HUB_001 = 70
+2025-09-26 11:50:23,537 - app.endpoints.inventory_endpoint - INFO - MainThread - API Response → Inventory dispatched successfully: product_id=PROD_101
+2025-09-26 11:50:23,543 - app.utiles.decoratores - INFO - MainThread - Function dispatch_inventory_endpoint completed successfully
+2025-09-26 11:50:52,608 - app.utiles.decoratores - INFO - MainThread - Calling function: list_inventory_batches_endpoint
+2025-09-26 11:50:52,609 - app.endpoints.inventory_endpoint - INFO - MainThread - API Request → List Inventory Batches: product_id=PROD_101, hub_id=HUB_002, status=active, skip=0, limit=50
+2025-09-26 11:50:52,611 - app.services.inventory_service - INFO - MainThread - Fetching inventory batches | product_id=PROD_101 hub_id=HUB_002 status=active skip=0 limit=50
+2025-09-26 11:50:52,674 - app.endpoints.inventory_endpoint - INFO - MainThread - API Response → Found 2 batches for product_id=PROD_101
+2025-09-26 11:50:52,675 - app.utiles.decoratores - INFO - MainThread - Function list_inventory_batches_endpoint completed successfully
+2025-09-26 11:51:14,162 - app.utiles.decoratores - INFO - MainThread - Calling function: list_products_in_hub_endpoint
+2025-09-26 11:51:14,162 - app.endpoints.inventory_endpoint - INFO - MainThread - API Request → List Products in Hub: hub_id=HUB_001, search=Rice, skip=0, limit=50
+2025-09-26 11:51:14,165 - app.services.inventory_service - INFO - MainThread - Fetching products in hub | hub_id=HUB_001 search=Rice skip=0 limit=50
+2025-09-26 11:51:14,232 - app.endpoints.inventory_endpoint - INFO - MainThread - API Response → Found 2 products in hub_id=HUB_001
+2025-09-26 11:51:14,232 - app.utiles.decoratores - INFO - MainThread - Function list_products_in_hub_endpoint completed successfully
+2025-09-26 11:51:36,512 - app.endpoints.driver_endpoint - INFO - MainThread - API Request → Register Driver: name=Vivek, license=DL-TS24666321
+2025-09-26 11:51:36,513 - app.services.driver_service - INFO - MainThread - Creating new driver with name=Vivek, license=DL-TS24666321
+2025-09-26 11:51:36,584 - app.services.driver_service - INFO - MainThread - Driver created successfully: driver_id=f77d8496-390f-42d1-b4ef-3ecb0e69f44e
+2025-09-26 11:51:36,591 - app.endpoints.driver_endpoint - INFO - MainThread - API Response → Driver registered successfully: driver_id=f77d8496-390f-42d1-b4ef-3ecb0e69f44e
+2025-09-26 11:52:05,010 - app.endpoints.driver_endpoint - INFO - MainThread - API Request → Get Driver by ID: driver_id=f77d8496-390f-42d1-b4ef-3ecb0e69f44e
+2025-09-26 11:52:05,068 - app.services.driver_service - INFO - MainThread - Driver found: driver_id=f77d8496-390f-42d1-b4ef-3ecb0e69f44e
+2025-09-26 11:52:05,069 - app.endpoints.driver_endpoint - INFO - MainThread - API Response → Driver found: driver_id=f77d8496-390f-42d1-b4ef-3ecb0e69f44e
+2025-09-26 11:52:14,787 - app.endpoints.driver_endpoint - INFO - MainThread - API Request → Search Drivers: name=None, license=None, status=None, hub_id=None, limit=10, skip=0
+2025-09-26 11:52:14,837 - app.services.driver_service - INFO - MainThread - Search completed. Found 3 drivers
+2025-09-26 11:52:14,838 - app.endpoints.driver_endpoint - INFO - MainThread - API Response → Search completed. Found 3 drivers
+2025-09-26 11:52:33,664 - app.endpoints.driver_endpoint - INFO - MainThread - API Request → Update Driver: driver_id=fe59d73d-4439-44d8-b650-eb491afce367
+2025-09-26 11:52:33,665 - app.services.driver_service - INFO - MainThread - Updating driver: driver_id=fe59d73d-4439-44d8-b650-eb491afce367
+2025-09-26 11:52:33,729 - app.services.driver_service - WARNING - MainThread - Driver update failed: driver_id=fe59d73d-4439-44d8-b650-eb491afce367 not found or deleted
+2025-09-26 11:52:33,730 - app.endpoints.driver_endpoint - WARNING - MainThread - API Response → Driver not found or deleted: driver_id=fe59d73d-4439-44d8-b650-eb491afce367
+2025-09-26 11:53:30,715 - app.endpoints.driver_endpoint - INFO - MainThread - API Request → Update Driver: driver_id=f77d8496-390f-42d1-b4ef-3ecb0e69f44e
+2025-09-26 11:53:30,716 - app.services.driver_service - INFO - MainThread - Updating driver: driver_id=f77d8496-390f-42d1-b4ef-3ecb0e69f44e
+2025-09-26 11:53:30,784 - app.services.driver_service - INFO - MainThread - Driver updated successfully: driver_id=f77d8496-390f-42d1-b4ef-3ecb0e69f44e
+2025-09-26 11:53:30,785 - app.endpoints.driver_endpoint - INFO - MainThread - API Response → Driver updated successfully: driver_id=f77d8496-390f-42d1-b4ef-3ecb0e69f44e
+2025-09-26 11:53:38,803 - app.endpoints.driver_endpoint - INFO - MainThread - API Request → Retirement Audit started
+2025-09-26 11:53:38,803 - app.services.driver_service - INFO - MainThread - Running batch retirement for drivers age > 50
+2025-09-26 11:53:38,897 - app.services.driver_service - INFO - MainThread - Retired 0 drivers due to age > 50
+2025-09-26 11:53:38,898 - app.endpoints.driver_endpoint - INFO - MainThread - API Response → Retirement Audit completed. Retired 0 drivers
+2025-09-26 11:54:06,656 - app.endpoints.vehicle_endpoint - INFO - MainThread - API Request → Register Vehicle: ID=V004, Number=AP-01-JX23300
+2025-09-26 11:54:06,656 - app.services.vehicle_service - INFO - MainThread - Attempting to add vehicle → ID=V004, Number=AP-01-JX23300
+2025-09-26 11:54:06,805 - app.services.vehicle_service - INFO - MainThread - Vehicle registered successfully: Vehicle_ID=V004
+2025-09-26 11:54:06,806 - app.endpoints.vehicle_endpoint - INFO - MainThread - API Response → Vehicle registered successfully: ID=V004
+2025-09-26 11:54:28,933 - app.endpoints.vehicle_endpoint - INFO - MainThread - API Request → Update Vehicle: ID=V002
+2025-09-26 11:54:28,934 - app.services.vehicle_service - INFO - MainThread - Updating vehicle → Vehicle_ID=V002
+2025-09-26 11:54:42,399 - app.endpoints.vehicle_endpoint - INFO - MainThread - API Request → Update Vehicle: ID=V002
+2025-09-26 11:54:42,400 - app.services.vehicle_service - INFO - MainThread - Updating vehicle → Vehicle_ID=V002
+2025-09-26 11:54:42,463 - app.services.vehicle_service - INFO - MainThread - Vehicle updated successfully: Vehicle_ID=V002
+2025-09-26 11:54:42,463 - app.endpoints.vehicle_endpoint - INFO - MainThread - API Response → Vehicle updated successfully: ID=V002
+2025-09-26 11:54:54,398 - app.endpoints.vehicle_endpoint - INFO - MainThread - API Request → Search Vehicle (ID=V002, Number=None, Status=None)
+2025-09-26 11:54:54,449 - app.services.vehicle_service - INFO - MainThread - Search completed. Found 1 vehicles
+2025-09-26 11:54:54,450 - app.endpoints.vehicle_endpoint - INFO - MainThread - API Response → Search completed, found=1 vehicles
+2025-09-26 11:55:03,016 - app.endpoints.vehicle_endpoint - INFO - MainThread - API Request → Dispatch vehicle process initiated
+2025-09-26 11:55:03,017 - app.services.vehicle_service - INFO - MainThread - Starting vehicle dispatch process...
+2025-09-26 11:55:03,335 - app.services.vehicle_service - INFO - MainThread - Dispatch assigned → Vehicle_ID=V001, Driver=Rahul
+2025-09-26 11:55:03,335 - app.endpoints.vehicle_endpoint - INFO - MainThread - API Response → Dispatch result: Vehicle V001 and Driver Rahul assigned successfully
+2025-09-26 11:55:12,142 - app.services.vehicle_inventory_service - INFO - MainThread - Processing received dispatch: disp-8802e9e486954a299de6ae120206821a
+2025-09-26 11:55:12,204 - app.services.vehicle_inventory_service - WARNING - MainThread - Dispatch disp-8802e9e486954a299de6ae120206821a is not in transit. Current status: Completed
+2025-09-26 11:56:00,923 - app.services.vehicle_inventory_service - INFO - MainThread - Processing received dispatch: disp-ebf40f6860f043ceb977de7fefbb22a2
+2025-09-26 11:56:00,982 - app.services.vehicle_inventory_service - INFO - MainThread - Updating inventory at destination hub HUB_002 for product PROD_101
+2025-09-26 11:56:01,160 - app.services.vehicle_inventory_service - INFO - MainThread - Driver 57901802-0e89-4def-9547-86144765cd3b reset to active
+2025-09-26 11:56:01,226 - app.services.vehicle_inventory_service - INFO - MainThread - Vehicle V001 reset to Available
+2025-09-26 11:56:01,289 - app.services.vehicle_inventory_service - INFO - MainThread - Dispatch disp-ebf40f6860f043ceb977de7fefbb22a2 marked as Completed at HUB_002
+2025-09-26 11:58:09,061 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed

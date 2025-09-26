@@ -34,6 +34,7 @@ async def close_mongo_connection():
 async def ensure_indexes():
     """Create necessary indexes for collections."""
     # Unique indexes for Hubs
+    
     await db["Hubs"].create_index("hub_id", unique=True)
     await db["Hubs"].create_index("hub_name", unique=True)
  
@@ -59,10 +60,10 @@ async def ensure_indexes():
     # await db["RetiredDrivers"].create_index("retired_at")
 
     # ---------------- Assignments ----------------
-    await db["Assignments"].create_index("driver_id")
-    await db["Assignments"].create_index("vehicle_id")
-    await db["Assignments"].create_index("dispatch_id")
-    await db["Assignments"].create_index("status")
+    # await db["Assignments"].create_index("driver_id")
+    # await db["Assignments"].create_index("vehicle_id")
+    # await db["Assignments"].create_index("dispatch_id")
+    # await db["Assignments"].create_index("status")
 
     logger.info("✅ Indexes ensured for Hubs, Inventory, Drivers")
     logger.info("✅ Indexes ensured for Hubs and ClosedHubs collections")

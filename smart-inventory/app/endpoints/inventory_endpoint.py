@@ -52,10 +52,10 @@ async def update_inventory_endpoint(payload: UpdateInventory):
     Calls service layer → update_inventory.
     """
     logger.info("API Request → Update Inventory: batch_id=%s, product_id=%s, hub_id=%s",
-                payload.Batch_ID, payload.Product_ID, payload.Hub_ID)
+                payload.Batch_No, payload.Product_ID, payload.Hub_ID)
     try:
         res = await update_inventory(payload)
-        logger.info("API Response → Inventory updated successfully: batch_id=%s", payload.Batch_ID)
+        logger.info("API Response → Inventory updated successfully: batch_id=%s", payload.Batch_No)
         return res
     except ValueError as e:
         logger.warning("API Response → Failed to update inventory: %s", str(e))
@@ -71,7 +71,7 @@ async def dispatch_inventory_endpoint(payload: DispatchRequest):
     Calls service layer → dispatch_inventory.
     """
     logger.info("API Request → Dispatch Inventory: product_id=%s, from_hub=%s, to_hub=%s, qty=%s",
-                payload.Product_ID, payload.From_Hub, payload.To_Hub, payload.Quantity)
+                payload.Product_ID, payload.From_Hub_ID, payload.To_Hub_ID, payload.Quantity)
     try:
         res = await dispatch_inventory(payload)
         logger.info("API Response → Inventory dispatched successfully: product_id=%s", payload.Product_ID)

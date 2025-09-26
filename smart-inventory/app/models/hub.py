@@ -12,10 +12,11 @@ class RegisterHub(BaseModel):
     hub_phone_number : str = Field(...,example = "8885363301")
     hub_address : str = Field(...,example =" 22-16-H21, Singh Nagar 4 th line ,Vijayawada - 520014")
 
+
     @validator("hub_id","hub_name",pre= True)
     def strip_and_normalize(cls,v):
         if isinstance(v,str):
-            return v.strip()
+            return v.strip()    
         return v
     
     @validator("hub_phone_number")

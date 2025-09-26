@@ -30,10 +30,10 @@ async def register_hub(payload: RegisterHub):
     Endpoint: Register a new Hub.
     Calls service layer → create_hub.
     """
-    logger.info("API Request → Register Hub: id=%s, name=%s", payload.Hub_ID, payload.Hub_Name)
+    logger.info("API Request → Register Hub: id=%s, name=%s", payload.hub_id, payload.hub_name)
     try:
         res = await create_hub(payload)
-        logger.info("API Response → Hub registered successfully: id=%s", payload.Hub_ID)
+        logger.info("API Response → Hub registered successfully: id=%s", payload.hub_id)
         return res
     except ValueError as e:
         logger.warning("API Response → Conflict while registering hub: %s", str(e))
