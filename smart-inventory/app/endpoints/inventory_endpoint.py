@@ -5,10 +5,12 @@ from typing import Optional
 from app.models.inventory import RegisterInventory, UpdateInventory, DispatchRequest
 from app.services.inventory_service import (
     register_inventory, update_inventory, dispatch_inventory,
-    list_inventory_batches, list_products_in_hub, get_product_summary
+    list_inventory_batches, list_products_in_hub, get_product_summary , get_low_stock_items ,
+    get_expired_items , get_expiring_soon_items
 )
 from app.utiles.decoratores import handle_exceptions
 from app.utiles.logger import get_logger
+from fastapi.encoders import jsonable_encoder
 
 # Initialize router
 router = APIRouter(prefix="/inventory", tags=["Inventory Management"])
@@ -143,3 +145,51 @@ async def list_products_in_hub_endpoint(
     res = await list_products_in_hub(hub_id, search, skip, limit)
     logger.info("API Response → Found %s products in hub_id=%s", len(res), hub_id)
     return res
+
+
+
+
+
+@router.get("/low-stock")
+@handle_exceptions
+async def get_low_stock():
+    try:
+        logger.info("API /inventory/low-stock called")
+        results = await get_low_stock_items()
+        logger.info("API /inventory/low-stock completed successfully")
+        return {"low_stock": results}
+    except Exception as e:
+        logger.exception(f"Exception in /inventory/low-stock: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Exception : {str(e)}")
+    
+
+@router.get("/expired")
+@handle_exceptions
+async def get_expired_inventory():
+    try:
+        logger.info("API /inventory/expired called")
+        results = await get_expired_items()
+        logger.info("API /inventory/expired completed successfully")
+        if not results:
+            logger.info("No expired items found")
+            return {"message": "No expired items found"}
+        return {"expired_items": results}
+    except Exception as e:
+        logger.exception(f"Exception in /inventory/expired: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Exception : {str(e)}")
+
+
+@router.get("/expiring-soon")
+@handle_exceptions
+async def get_expiring_soon_inventory():
+    try:
+        logger.info("API /inventory/expiring-soon called")
+        results = await get_expiring_soon_items()
+        logger.info("API /inventory/expiring-soon completed successfully")
+        if not results:
+            logger.info("No Products was Expiring with in 30 days.")
+            return {"message": "No Products was Expiring with in 30 days."}
+        return {"expiring_soon_items": results}
+    except Exception as e:
+        logger.exception(f"Exception in /inventory/expiring-soon: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Exception : {str(e)}")

@@ -314,3 +314,390 @@ AttributeError: 'DispatchRequest' object has no attribute 'From_Hub'. Did you me
 2025-09-26 11:56:01,226 - app.services.vehicle_inventory_service - INFO - MainThread - Vehicle V001 reset to Available
 2025-09-26 11:56:01,289 - app.services.vehicle_inventory_service - INFO - MainThread - Dispatch disp-ebf40f6860f043ceb977de7fefbb22a2 marked as Completed at HUB_002
 2025-09-26 11:58:09,061 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-26 12:02:07,043 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-26 12:02:07,045 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-26 12:02:07,046 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-26 12:03:07,133 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-09-26 12:03:07,134 - app.endpoints.hub_endpoints - INFO - MainThread - API Request → Register Hub: id=Hub_008, name=Bangolre hub
+2025-09-26 12:03:07,188 - app.services.hub_service - INFO - MainThread - Inserting hub into MongoDB: {'hub_id': 'HUB_008', 'hub_name': 'Bangolre hub', 'hub_manager': 'Kumar', 'hub_phone_number': '8885363321', 'hub_address': '22-12/3-F23 , 4th line , Brts Road , Karanatka', 'status': 'Active', 'hub_opening_date': datetime.datetime(2025, 9, 26, 6, 33, 7, 135178, tzinfo=datetime.timezone.utc), 'created_at': datetime.datetime(2025, 9, 26, 6, 33, 7, 135178, tzinfo=datetime.timezone.utc), 'updated_at': None}
+2025-09-26 12:03:07,252 - app.services.hub_service - INFO - MainThread - ✅ Insert result: 68d633a386856539fe6477d1
+2025-09-26 12:03:07,252 - app.endpoints.hub_endpoints - INFO - MainThread - API Response → Hub registered successfully: id=Hub_008
+2025-09-26 12:03:07,253 - app.utiles.decoratores - INFO - MainThread - Function register_hub completed successfully
+2025-09-26 12:03:37,931 - app.utiles.decoratores - INFO - MainThread - Calling function: update_hub_endpoint
+2025-09-26 12:03:37,932 - app.endpoints.hub_endpoints - INFO - MainThread - API Request → Update Hub: id=Hub_008
+2025-09-26 12:03:37,993 - app.endpoints.hub_endpoints - INFO - MainThread - API Response → Hub updated successfully: id=Hub_008
+2025-09-26 12:03:37,993 - app.utiles.decoratores - INFO - MainThread - Function update_hub_endpoint completed successfully
+2025-09-26 12:04:18,357 - app.utiles.decoratores - INFO - MainThread - Calling function: search_hub_endpoint
+2025-09-26 12:04:18,358 - app.endpoints.hub_endpoints - INFO - MainThread - API Request → Search Hub: id=None, name=None, skip=0, limit=50
+2025-09-26 12:04:18,606 - app.services.hub_service - INFO - MainThread - returning Hub details 
+2025-09-26 12:04:18,606 - app.endpoints.hub_endpoints - INFO - MainThread - API Response → Search completed. Found 7 hubs
+2025-09-26 12:04:18,607 - app.utiles.decoratores - INFO - MainThread - Function search_hub_endpoint completed successfully
+2025-09-26 12:04:54,464 - app.utiles.decoratores - INFO - MainThread - Calling function: hubs_by_status_endpoint
+2025-09-26 12:04:54,464 - app.endpoints.hub_endpoints - INFO - MainThread - API Request → List Hubs by Status: status=Active, skip=0, limit=50
+2025-09-26 12:04:54,534 - app.services.hub_service - INFO - MainThread - Returning the list of results by Hub status
+2025-09-26 12:04:54,535 - app.endpoints.hub_endpoints - INFO - MainThread - API Response → Found 7 hubs with status=Active
+2025-09-26 12:04:54,536 - app.utiles.decoratores - INFO - MainThread - Function hubs_by_status_endpoint completed successfully
+2025-09-26 12:07:09,781 - app.utiles.decoratores - INFO - MainThread - Calling function: update_inventory_endpoint
+2025-09-26 12:07:09,781 - app.endpoints.inventory_endpoint - INFO - MainThread - API Request → Update Inventory: batch_id=None, product_id=PROD_101, hub_id=HUB_001
+2025-09-26 12:07:09,891 - app.services.inventory_service - INFO - MainThread - Updating inventory for product PROD_101 in hub HUB_001
+2025-09-26 12:07:10,028 - app.services.inventory_service - INFO - MainThread - Created new batch PROD_101-HUB_001-20250926063709-85c3c8 for product PROD_101
+2025-09-26 12:07:10,092 - app.services.inventory_service - INFO - MainThread - Inserted stock transaction txn-3f71aee0faba4bde92df12943aac878a
+2025-09-26 12:07:10,144 - app.endpoints.inventory_endpoint - INFO - MainThread - API Response → Inventory updated successfully: batch_id=None
+2025-09-26 12:07:10,144 - app.utiles.decoratores - INFO - MainThread - Function update_inventory_endpoint completed successfully
+2025-09-26 12:09:44,603 - app.utiles.decoratores - INFO - MainThread - Calling function: dispatch_inventory_endpoint
+2025-09-26 12:09:44,603 - app.endpoints.inventory_endpoint - INFO - MainThread - API Request → Dispatch Inventory: product_id=PROD_104, from_hub=HUB_002, to_hub=HUB_001, qty=10
+2025-09-26 12:09:44,722 - app.services.inventory_service - INFO - MainThread - Dispatching 10 units of PROD_104 from hub HUB_002 to hub HUB_001
+2025-09-26 12:09:45,039 - app.services.inventory_service - INFO - MainThread - Batch PROD_104-HUB_002-20250926060933-5a6303 dispatched 10 units, Remaining to dispatch=0
+2025-09-26 12:09:45,095 - app.services.inventory_service - INFO - MainThread - 📦 Dispatch record created with ID=disp-5ebb8a277ecb4fe0a81c84590420d1ec
+2025-09-26 12:09:45,147 - app.services.inventory_service - INFO - MainThread - ✅ Dispatch completed: 10 units of PROD_104 from HUB_002 to HUB_001. Remaining stock at HUB_002 = 90
+2025-09-26 12:09:45,147 - app.endpoints.inventory_endpoint - INFO - MainThread - API Response → Inventory dispatched successfully: product_id=PROD_104
+2025-09-26 12:09:45,149 - app.utiles.decoratores - INFO - MainThread - Function dispatch_inventory_endpoint completed successfully
+2025-09-26 12:10:34,818 - app.endpoints.vehicle_endpoint - INFO - MainThread - API Request → Dispatch vehicle process initiated
+2025-09-26 12:10:34,818 - app.services.vehicle_service - INFO - MainThread - Starting vehicle dispatch process...
+2025-09-26 12:10:35,166 - app.services.vehicle_service - INFO - MainThread - Dispatch assigned → Vehicle_ID=V001, Driver=Rahul
+2025-09-26 12:10:35,166 - app.endpoints.vehicle_endpoint - INFO - MainThread - API Response → Dispatch result: Vehicle V001 and Driver Rahul assigned successfully
+2025-09-26 12:11:03,456 - app.services.vehicle_inventory_service - INFO - MainThread - Processing received dispatch: disp-5ebb8a277ecb4fe0a81c84590420d1ec
+2025-09-26 12:11:03,521 - app.services.vehicle_inventory_service - INFO - MainThread - Updating inventory at destination hub HUB_001 for product PROD_104
+2025-09-26 12:11:03,706 - app.services.vehicle_inventory_service - INFO - MainThread - Driver 57901802-0e89-4def-9547-86144765cd3b reset to active
+2025-09-26 12:11:03,772 - app.services.vehicle_inventory_service - INFO - MainThread - Vehicle V001 reset to Available
+2025-09-26 12:11:03,827 - app.services.vehicle_inventory_service - INFO - MainThread - Dispatch disp-5ebb8a277ecb4fe0a81c84590420d1ec marked as Completed at HUB_001
+2025-09-26 12:11:58,663 - app.utiles.decoratores - INFO - MainThread - Calling function: list_products_in_hub_endpoint
+2025-09-26 12:11:58,664 - app.endpoints.inventory_endpoint - INFO - MainThread - API Request → List Products in Hub: hub_id=HUB_001, search=Rice, skip=0, limit=50
+2025-09-26 12:11:58,666 - app.services.inventory_service - INFO - MainThread - Fetching products in hub | hub_id=HUB_001 search=Rice skip=0 limit=50
+2025-09-26 12:11:58,818 - app.endpoints.inventory_endpoint - INFO - MainThread - API Response → Found 2 products in hub_id=HUB_001
+2025-09-26 12:11:58,818 - app.utiles.decoratores - INFO - MainThread - Function list_products_in_hub_endpoint completed successfully
+2025-09-26 12:12:53,560 - app.endpoints.driver_endpoint - INFO - MainThread - API Request → Register Driver: name=Nunna, license=TN-TS246663321
+2025-09-26 12:12:53,564 - app.services.driver_service - INFO - MainThread - Creating new driver with name=Nunna, license=TN-TS246663321
+2025-09-26 12:12:53,655 - app.services.driver_service - INFO - MainThread - Driver created successfully: driver_id=dbbc0c3a-6a53-47a9-ae76-bf0b793de792
+2025-09-26 12:12:53,665 - app.endpoints.driver_endpoint - INFO - MainThread - API Response → Driver registered successfully: driver_id=dbbc0c3a-6a53-47a9-ae76-bf0b793de792
+2025-09-26 12:13:23,465 - app.endpoints.driver_endpoint - INFO - MainThread - API Request → Get Driver by ID: driver_id=dbbc0c3a-6a53-47a9-ae76-bf0b793de792
+2025-09-26 12:13:23,525 - app.services.driver_service - INFO - MainThread - Driver found: driver_id=dbbc0c3a-6a53-47a9-ae76-bf0b793de792
+2025-09-26 12:13:23,526 - app.endpoints.driver_endpoint - INFO - MainThread - API Response → Driver found: driver_id=dbbc0c3a-6a53-47a9-ae76-bf0b793de792
+2025-09-26 12:13:44,189 - app.endpoints.driver_endpoint - INFO - MainThread - API Request → Search Drivers: name=None, license=None, status=None, hub_id=None, limit=10, skip=0
+2025-09-26 12:13:44,265 - app.services.driver_service - INFO - MainThread - Search completed. Found 4 drivers
+2025-09-26 12:13:44,266 - app.endpoints.driver_endpoint - INFO - MainThread - API Response → Search completed. Found 4 drivers
+2025-09-26 12:14:25,202 - app.endpoints.driver_endpoint - INFO - MainThread - API Request → Update Driver: driver_id=dbbc0c3a-6a53-47a9-ae76-bf0b793de792
+2025-09-26 12:14:25,202 - app.services.driver_service - INFO - MainThread - Updating driver: driver_id=dbbc0c3a-6a53-47a9-ae76-bf0b793de792
+2025-09-26 12:14:25,268 - app.services.driver_service - INFO - MainThread - Driver updated successfully: driver_id=dbbc0c3a-6a53-47a9-ae76-bf0b793de792
+2025-09-26 12:14:25,269 - app.endpoints.driver_endpoint - INFO - MainThread - API Response → Driver updated successfully: driver_id=dbbc0c3a-6a53-47a9-ae76-bf0b793de792
+2025-09-26 12:14:42,296 - app.endpoints.driver_endpoint - INFO - MainThread - API Request → Retirement Audit started
+2025-09-26 12:14:42,296 - app.services.driver_service - INFO - MainThread - Running batch retirement for drivers age > 50
+2025-09-26 12:14:42,370 - app.services.driver_service - INFO - MainThread - Retired 0 drivers due to age > 50
+2025-09-26 12:14:42,371 - app.endpoints.driver_endpoint - INFO - MainThread - API Response → Retirement Audit completed. Retired 0 drivers
+2025-09-26 12:15:17,783 - app.endpoints.vehicle_endpoint - INFO - MainThread - API Request → Register Vehicle: ID=V005, Number=AP-01-JX62213
+2025-09-26 12:15:17,783 - app.services.vehicle_service - INFO - MainThread - Attempting to add vehicle → ID=V005, Number=AP-01-JX62213
+2025-09-26 12:15:17,924 - app.services.vehicle_service - INFO - MainThread - Vehicle registered successfully: Vehicle_ID=V005
+2025-09-26 12:15:17,925 - app.endpoints.vehicle_endpoint - INFO - MainThread - API Response → Vehicle registered successfully: ID=V005
+2025-09-26 12:15:52,240 - app.endpoints.vehicle_endpoint - INFO - MainThread - API Request → Update Vehicle: ID=V003
+2025-09-26 12:15:52,240 - app.services.vehicle_service - INFO - MainThread - Updating vehicle → Vehicle_ID=V003
+2025-09-26 12:15:52,312 - app.services.vehicle_service - ERROR - MainThread - Vehicle update failed: Vehicle not found → Vehicle_ID=V003
+2025-09-26 12:16:06,264 - app.endpoints.vehicle_endpoint - INFO - MainThread - API Request → Update Vehicle: ID=V005
+2025-09-26 12:16:06,264 - app.services.vehicle_service - INFO - MainThread - Updating vehicle → Vehicle_ID=V005
+2025-09-26 12:16:06,323 - app.services.vehicle_service - INFO - MainThread - Vehicle updated successfully: Vehicle_ID=V005
+2025-09-26 12:16:06,323 - app.endpoints.vehicle_endpoint - INFO - MainThread - API Response → Vehicle updated successfully: ID=V005
+2025-09-26 12:16:19,927 - app.endpoints.vehicle_endpoint - INFO - MainThread - API Request → Update Vehicle: ID=V005
+2025-09-26 12:16:19,928 - app.services.vehicle_service - INFO - MainThread - Updating vehicle → Vehicle_ID=V005
+2025-09-26 12:16:19,981 - app.services.vehicle_service - INFO - MainThread - Vehicle updated successfully: Vehicle_ID=V005
+2025-09-26 12:16:19,982 - app.endpoints.vehicle_endpoint - INFO - MainThread - API Response → Vehicle updated successfully: ID=V005
+2025-09-26 12:16:35,645 - app.endpoints.vehicle_endpoint - INFO - MainThread - API Request → Search Vehicle (ID=V005, Number=None, Status=None)
+2025-09-26 12:16:35,705 - app.services.vehicle_service - INFO - MainThread - Search completed. Found 1 vehicles
+2025-09-26 12:16:35,706 - app.endpoints.vehicle_endpoint - INFO - MainThread - API Response → Search completed, found=1 vehicles
+2025-09-28 16:53:30,985 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 16:53:30,989 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 16:53:30,989 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 16:53:45,759 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-09-28 16:53:45,759 - app.endpoints.hub_endpoints - INFO - MainThread - API Request → Register Hub: id=Hub_008, name=Bangolre hub
+2025-09-28 16:53:45,987 - app.services.hub_service - ERROR - MainThread - Hub ID 'HUB_008' already exists
+2025-09-28 16:53:45,988 - app.endpoints.hub_endpoints - WARNING - MainThread - API Response → Conflict while registering hub: Hub ID 'HUB_008' already exists
+2025-09-28 16:53:56,660 - app.utiles.decoratores - INFO - MainThread - Calling function: register_hub
+2025-09-28 16:53:56,660 - app.endpoints.hub_endpoints - INFO - MainThread - API Request → Register Hub: id=Hub_009, name=Bangolre hub
+2025-09-28 16:53:56,803 - app.services.hub_service - ERROR - MainThread - Hub Name 'Bangolre hub' already exists
+2025-09-28 16:53:56,804 - app.endpoints.hub_endpoints - WARNING - MainThread - API Response → Conflict while registering hub: Hub Name 'Bangolre hub' already exists
+2025-09-28 16:54:33,893 - app.utiles.decoratores - INFO - MainThread - Calling function: register_inventory_endpoint
+2025-09-28 16:54:33,894 - app.endpoints.inventory_endpoint - INFO - MainThread - API Request → Register Inventory: product_id=PROD_104, hub_id=HUB_002, qty=100
+2025-09-28 16:54:34,154 - app.services.inventory_service - INFO - MainThread - Created new batch PROD_104-HUB_002-20250928112434-9d2992 for product PROD_104
+2025-09-28 16:54:34,228 - app.services.inventory_service - INFO - MainThread - Inserted stock transaction txn-d293cf685de0410080651f7652c986ea
+2025-09-28 16:54:34,284 - app.endpoints.inventory_endpoint - INFO - MainThread - API Response → Inventory registered successfully: product_id=PROD_104, hub_id=HUB_002
+2025-09-28 16:54:34,284 - app.utiles.decoratores - INFO - MainThread - Function register_inventory_endpoint completed successfully
+2025-09-28 17:06:26,354 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:06:31,007 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:06:31,009 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:06:31,019 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:06:48,289 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:06:52,558 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:06:52,560 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:06:52,564 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:07:24,580 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:07:28,943 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:07:28,945 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:07:28,951 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:08:08,323 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:08:12,813 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:08:12,815 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:08:12,819 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:08:34,585 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:08:41,502 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:08:41,503 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:08:41,506 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:08:49,723 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:08:56,338 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:08:56,339 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:08:56,339 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:09:20,488 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:09:24,776 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:09:24,778 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:09:24,784 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:09:24,941 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:09:28,909 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:09:28,911 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:09:28,919 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:11:04,897 - app.endpoints.inventory_endpoint - INFO - MainThread - API /inventory/low-stock called
+2025-09-28 17:11:04,898 - app.services.inventory_service - INFO - MainThread - Fetching low stock items with quantity < 10
+2025-09-28 17:11:04,961 - app.services.inventory_service - INFO - MainThread - Low stock query returned 1 items
+2025-09-28 17:11:04,962 - app.endpoints.inventory_endpoint - INFO - MainThread - API /inventory/low-stock completed successfully
+2025-09-28 17:13:48,116 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:13:52,232 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:13:52,232 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:13:52,234 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:14:44,175 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:14:48,377 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:14:48,378 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:14:48,379 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:15:01,558 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:15:05,694 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:15:05,695 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:15:05,698 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:15:07,640 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:15:14,382 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:15:14,384 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:15:14,390 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:15:15,104 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:15:21,821 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:15:21,823 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:15:21,828 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:15:25,750 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:16:10,297 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:16:10,299 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:16:10,305 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:16:10,518 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:16:14,698 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:16:14,700 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:16:14,705 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:16:21,866 - app.endpoints.inventory_endpoint - INFO - MainThread - API /inventory/low-stock called
+2025-09-28 17:16:21,867 - app.services.inventory_service - INFO - MainThread - Fetching low stock items with quantity < 10
+2025-09-28 17:16:21,942 - app.services.inventory_service - INFO - MainThread - Low stock query returned 1 items
+2025-09-28 17:16:21,943 - app.endpoints.inventory_endpoint - ERROR - MainThread - Exception in /inventory/low-stock: [TypeError("'ObjectId' object is not iterable"), TypeError('vars() argument must have __dict__ attribute')]
+Traceback (most recent call last):
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\fastapi\encoders.py", line 324, in jsonable_encoder
+    data = dict(obj)
+           ^^^^^^^^^
+TypeError: 'ObjectId' object is not iterable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\fastapi\encoders.py", line 329, in jsonable_encoder
+    data = vars(obj)
+           ^^^^^^^^^
+TypeError: vars() argument must have __dict__ attribute
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Practice\Agentic_AI\smart-inventory\app\endpoints\inventory_endpoint.py", line 166, in get_low_stock
+    results = jsonable_encoder(results)  # converts ObjectId to str automatically
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\fastapi\encoders.py", line 303, in jsonable_encoder
+    jsonable_encoder(
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\fastapi\encoders.py", line 289, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\svcs\anaconda3\envs\Python_llm_3.12\Lib\site-packages\fastapi\encoders.py", line 332, in jsonable_encoder
+    raise ValueError(errors) from e
+ValueError: [TypeError("'ObjectId' object is not iterable"), TypeError('vars() argument must have __dict__ attribute')]
+2025-09-28 17:19:28,502 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:19:32,979 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:19:32,981 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:19:32,988 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:20:25,632 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:20:30,752 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:20:30,753 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:20:30,756 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:20:55,144 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:20:59,123 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:20:59,125 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:20:59,134 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:20:59,376 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:21:03,654 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:21:03,654 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:21:03,656 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:21:14,338 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:21:19,204 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:21:19,205 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:21:19,212 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:21:19,374 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:21:23,659 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:21:23,661 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:21:23,666 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:21:23,839 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:21:28,324 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:21:28,326 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:21:28,331 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:21:38,137 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:21:42,215 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:21:42,216 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:21:42,218 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:21:45,876 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:21:49,960 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:21:49,962 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:21:49,968 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:21:56,240 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:22:00,489 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:22:00,490 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:22:00,499 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:22:25,441 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:22:29,855 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:22:29,858 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:22:29,863 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:22:55,444 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:22:59,997 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:23:00,000 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:23:00,006 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:23:08,050 - app.endpoints.inventory_endpoint - INFO - MainThread - API /inventory/low-stock called
+2025-09-28 17:23:08,051 - app.services.inventory_service - INFO - MainThread - Fetching low stock items with quantity < 10
+2025-09-28 17:23:08,122 - app.services.inventory_service - INFO - MainThread - Low stock query returned 1 items
+2025-09-28 17:23:08,122 - app.endpoints.inventory_endpoint - INFO - MainThread - API /inventory/low-stock completed successfully
+2025-09-28 17:23:38,641 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:23:42,733 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:23:42,735 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:23:42,740 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:25:23,195 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:25:27,670 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:25:27,671 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:25:27,672 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:25:43,285 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:25:47,483 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:25:47,485 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:25:47,490 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:26:05,296 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:26:09,775 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:26:09,781 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:26:09,783 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:26:34,384 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:26:38,855 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:26:38,856 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:26:38,857 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:26:51,246 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:26:55,699 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:26:55,700 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:26:55,706 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:26:56,540 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:27:01,055 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:27:01,056 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:27:01,058 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:27:23,564 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:27:27,956 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:27:27,958 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:27:27,965 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:27:30,775 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:27:35,032 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:27:35,033 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:27:35,036 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:27:37,299 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:27:46,217 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:27:46,219 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:27:46,225 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:27:46,384 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:27:50,854 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:27:50,855 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:27:50,860 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:28:49,741 - app.utiles.decoratores - INFO - MainThread - Calling function: get_expired_inventory
+2025-09-28 17:28:49,741 - app.endpoints.inventory_endpoint - INFO - MainThread - API /inventory/expired called
+2025-09-28 17:28:49,744 - app.services.inventory_service - INFO - MainThread - Fetching expired inventory items
+2025-09-28 17:28:49,826 - app.services.inventory_service - INFO - MainThread - Expired items query returned 0 items
+2025-09-28 17:28:49,827 - app.endpoints.inventory_endpoint - INFO - MainThread - API /inventory/expired completed successfully
+2025-09-28 17:28:49,830 - app.utiles.decoratores - INFO - MainThread - Function get_expired_inventory completed successfully
+2025-09-28 17:31:06,817 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:31:11,622 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:31:11,624 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:31:11,626 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:31:17,356 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:31:21,576 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:31:21,578 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:31:21,581 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:31:24,773 - app.utiles.decoratores - INFO - MainThread - Calling function: get_expired_inventory
+2025-09-28 17:31:24,774 - app.endpoints.inventory_endpoint - INFO - MainThread - API /inventory/expired called
+2025-09-28 17:31:24,775 - app.services.inventory_service - INFO - MainThread - Fetching expired inventory items
+2025-09-28 17:31:24,847 - app.services.inventory_service - INFO - MainThread - No expired items found
+2025-09-28 17:31:24,848 - app.endpoints.inventory_endpoint - INFO - MainThread - API /inventory/expired completed successfully
+2025-09-28 17:31:24,850 - app.utiles.decoratores - INFO - MainThread - Function get_expired_inventory completed successfully
+2025-09-28 17:31:57,468 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:32:01,874 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:32:01,875 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:32:01,878 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:32:12,955 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:32:17,046 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:32:17,048 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:32:17,053 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:32:18,801 - app.utiles.decoratores - INFO - MainThread - Calling function: get_expired_inventory
+2025-09-28 17:32:18,805 - app.endpoints.inventory_endpoint - INFO - MainThread - API /inventory/expired called
+2025-09-28 17:32:18,806 - app.services.inventory_service - INFO - MainThread - Fetching expired inventory items
+2025-09-28 17:32:18,871 - app.services.inventory_service - INFO - MainThread - Expired items query returned 0 items
+2025-09-28 17:32:18,879 - app.endpoints.inventory_endpoint - INFO - MainThread - API /inventory/expired completed successfully
+2025-09-28 17:32:18,881 - app.endpoints.inventory_endpoint - INFO - MainThread - No expired items found
+2025-09-28 17:32:18,884 - app.utiles.decoratores - INFO - MainThread - Function get_expired_inventory completed successfully
+2025-09-28 17:33:20,066 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:33:25,040 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:33:25,042 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:33:25,046 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:33:54,536 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:33:58,999 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:33:59,001 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:33:59,009 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:34:23,718 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:34:27,988 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:34:27,989 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:34:27,993 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:34:28,191 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:34:32,722 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:34:32,722 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:34:32,724 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:34:33,653 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:34:37,537 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:34:37,539 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:34:37,545 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:35:05,914 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:35:10,594 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:35:10,596 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:35:10,600 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:35:31,405 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:35:35,713 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:35:35,715 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:35:35,718 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:36:53,598 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:36:58,093 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:36:58,094 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:36:58,099 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:37:11,303 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:37:15,610 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:37:15,612 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:37:15,616 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:37:15,769 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:37:20,396 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:37:20,397 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:37:20,400 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:37:46,292 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:37:50,410 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:37:50,412 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:37:50,417 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:38:19,099 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
+2025-09-28 17:38:25,997 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-09-28 17:38:25,998 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-09-28 17:38:26,003 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-09-28 17:40:22,470 - app.utiles.decoratores - INFO - MainThread - Calling function: get_expiring_soon_inventory
+2025-09-28 17:40:22,471 - app.endpoints.inventory_endpoint - INFO - MainThread - API /inventory/expiring-soon called
+2025-09-28 17:40:22,473 - app.services.inventory_service - INFO - MainThread - Fetching items expiring within 1 month
+2025-09-28 17:40:22,549 - app.services.inventory_service - INFO - MainThread - Expiring soon query returned 1 items
+2025-09-28 17:40:22,549 - app.endpoints.inventory_endpoint - INFO - MainThread - API /inventory/expiring-soon completed successfully
+2025-09-28 17:40:22,551 - app.utiles.decoratores - INFO - MainThread - Function get_expiring_soon_inventory completed successfully
+2025-09-28 17:40:31,927 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed

@@ -5,6 +5,8 @@ Paste into app/services/inventory_service.py
 """
 from typing import Dict, List, Optional, Any
 from uuid import uuid4
+from fastapi import HTTPException
+from datetime import datetime, timezone , timedelta
 
 from pymongo.errors import DuplicateKeyError
 
@@ -14,6 +16,7 @@ from app.db.mongodb import db
 from app.utiles.logger import get_logger
 from app.core.config import COLLECTION_HUBS  # ensure this exists in your config
 from app.utiles.custom_helpers import _now_utc,_to_utc_datetime_from_date, _normalize_id, _gen_transaction_id, _gen_dispatch_id
+from fastapi.encoders import jsonable_encoder
 
 logger = get_logger(__name__)
 
@@ -589,3 +592,64 @@ async def list_products_in_hub(
     logger.debug("Fetched %d products in hub_id=%s", len(products), hub_id)
 
     return {"count": len(products), "products": products}
+
+
+async def get_low_stock_items():
+    try:
+        logger.info("Fetching low stock items with quantity < 10")
+        cursor = db[COL_INV_BATCHES].find({"Quantity": {"$lt": 10}})
+        results = await cursor.to_list(length=None)
+
+        # Convert ObjectId to string for each document
+        for item in results:
+            if "_id" in item:
+                item["_id"] = str(item["_id"])
+
+        logger.info(f"Low stock query returned {len(results)} items")
+        return results
+    except Exception as e:
+        logger.exception(f"Error fetching low stock items: {str(e)}")
+        raise HTTPException(status_code =500,detail = f"{str(e)}")
+    
+
+
+async def get_expired_items():
+    try:
+        logger.info("Fetching expired inventory items")
+        now = datetime.now(timezone.utc)
+        cursor = db[COL_INV_BATCHES].find({"Expiry_Date": {"$lt": now}})
+        results = await cursor.to_list(length=None)
+
+        # Convert ObjectId to string
+        for item in results:
+            if "_id" in item:
+                item["_id"] = str(item["_id"])
+        
+
+        logger.info(f"Expired items query returned {len(results)} items")
+        return results
+    except Exception as e:
+        logger.exception(f"Error fetching expired items: {str(e)}")
+        raise HTTPException(status_code = 500, detail= f"Exception : {str(e)}")
+    
+
+async def get_expiring_soon_items():
+    try:
+        logger.info("Fetching items expiring within 1 month")
+        now = datetime.now(timezone.utc)
+        one_month_later = now + timedelta(days=30)
+        cursor = db[COL_INV_BATCHES].find({
+            "Expiry_Date": {"$gte": now, "$lte": one_month_later}
+        })
+        results = await cursor.to_list(length=None)
+
+        # Convert ObjectId to string
+        for item in results:
+            if "_id" in item:
+                item["_id"] = str(item["_id"])
+
+        logger.info(f"Expiring soon query returned {len(results)} items")
+        return results
+    except Exception as e:
+        logger.exception(f"Error fetching expiring soon items: {str(e)}")
+        raise HTTPException(status_code = 500, detail= f"Exception : {str(e)}")

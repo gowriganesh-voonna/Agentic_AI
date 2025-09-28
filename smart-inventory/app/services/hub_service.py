@@ -38,7 +38,17 @@ async def create_hub(payload: RegisterHub) -> Dict:
         "updated_at": None
     }
 
-    
+    # check if hub_id already exists
+    existing_hub = await db[COLLECTION_HUBS].find_one({"hub_id": hub_id})
+    if existing_hub:
+        logger.error(f"Hub ID '{hub_id}' already exists")
+        raise ValueError(f"Hub ID '{hub_id}' already exists")
+
+    # check if hub_name already exists
+    existing_name = await db[COLLECTION_HUBS].find_one({"hub_name": hub_name})
+    if existing_name:
+        logger.error(f"Hub Name '{hub_name}' already exists")
+        raise ValueError(f"Hub Name '{hub_name}' already exists")
    
 
      # check if hub_manager already assigned to an ACTIVE hub
