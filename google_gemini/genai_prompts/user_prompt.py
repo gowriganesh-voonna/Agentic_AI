@@ -5,6 +5,10 @@ from google import genai
 from google.genai import types
 
 from models.schema_validation import TextRequest
+import pathlib
+
+
+
 
 app = FastAPI(title="GenAI Prompts")
 client = genai.Client()
@@ -44,8 +48,8 @@ async def zero_shot_prompt(request : TextRequest):
 
 
 # few shot promp endpoint
-@app.post("/few_shot_prompt")
-async def few_shot_prompt(request : TextRequest):
+@app.post("/role_based_prompt")
+async def role_based_prompt(request : TextRequest):
     if not request.text:
         raise HTTPException(status_code=204, detail= "No text found.")
     
@@ -57,6 +61,31 @@ async def few_shot_prompt(request : TextRequest):
     Assistant: Do you want to know anything else?
     User: {request.text}
     Assistant : 
+    """
+
+    response = client.models.generate_content(
+        model = "gemini-2.5-flash",
+        contents=[types.Part(text = prompt)]
+    )
+
+    return {"Response" : response.text}
+
+
+#few shot prompt
+@app.post("/few_shots_prompt")
+async def few_shots_prompt(request : TextRequest):
+
+    if not request.text:
+        raise HTTPException(status_code=204, detail="Empty response was received.")
+    
+    prompt = f""" Extract the cities from the text, include state they are in.
+
+    user : vijayawada is having famous  bus stand , railway station.
+    Model : vijayawada -Andhra Pradesh
+    user : Hyderabad is the heart for IT growth.
+    Model : Hyderabad: Telangana
+    user   : {request.text}
+    Model 
     """
 
     response = client.models.generate_content(
@@ -83,3 +112,5 @@ async def chain_of_thought_prompt():
                             detail="Empty prompt was given")
 
     return {"Response" : response.text}
+
+
