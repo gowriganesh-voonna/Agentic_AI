@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "title": "Submit project report",
+        "description": "Monthly report for Project Alpha",
+        "status": "Completed",
+        "priority": "High",
+        "deadline": "2025-07-10T18:00:00",
+        "assigned_to": "john_doe",
+        "created_at": "2025-06-30T15:32:35.084405"
+    },
+    {
+        "id": 2,
+        "title": "Team meeting preparation",
+        "description": "Prepare slides for team sync",
+        "status": "In Progress",
+        "priority": "Medium",
+        "deadline": "2025-07-15T09:30:00",
+        "assigned_to": "surendhra",
+        "created_at": "2025-06-30T15:33:23.321469"
+    },
+    {
+        "id": 3,
+        "title": "Update client database",
+        "description": "Clean up old client records and add new entries",
+        "status": "Pending",
+        "priority": "Low",
+        "deadline": "2025-08-01T12:00:00",
+        "assigned_to": null,
+        "created_at": "2025-06-30T15:33:45.249840"
+    },
+    {
+        "id": 4,
+        "title": "General Store Application",
+        "description": "Client want to track and need for billing for purposes as like dmart etc",
+        "status": "Pending",
+        "priority": "Medium",
+        "deadline": "2025-09-10T12:00:00",
+        "assigned_to": null,
+        "created_at": "2025-06-30T16:57:22.237967"
+    },
+    {
+        "id": 5,
+        "title": "College Application",
+        "description": "Client wants the application end to end ",
+        "status": "Pending",
+        "priority": "High",
+        "deadline": "2025-09-10T12:00:00",
+        "assigned_to": null,
+        "created_at": "2025-06-30T17:11:19.048145"
+    },
+    {
+        "id": 6,
+        "title": "Union Bank Application",
+        "description": "Need to develop an online application for customers",
+        "status": "In Progress",
+        "priority": "High",
+        "deadline": "2025-10-01T12:00:00",
+        "assigned_to": "Rahul_Gupta",
+        "created_at": "2025-06-30T17:13:08.703772"
+    }
+]

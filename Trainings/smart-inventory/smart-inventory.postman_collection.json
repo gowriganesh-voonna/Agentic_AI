@@ -1,0 +1,464 @@
+{
+	"info": {
+		"_postman_id": "77269b91-7d5d-437a-bb59-009d63ace0e5",
+		"name": "smart-inventory",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44740028",
+		"_collection_link": "https://gowriganesh-3377276.postman.co/workspace/Gowri-Ganesh's-Workspace~5bbfdbc9-9f88-4c51-8106-a52942eb2d78/collection/44740028-77269b91-7d5d-437a-bb59-009d63ace0e5?action=share&source=collection_link&creator=44740028"
+	},
+	"item": [
+		{
+			"name": "RegisterHub",
+			"request": {
+				"auth": {
+					"type": "bearer"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"hub_id\":\"Hub_001\",\r\n    \"hub_name\" : \"Vijayawada Hub\",\r\n    \"hub_manager\" : \"Ravi Teja\",\r\n    \"hub_phone_number\":\"8885363301\",\r\n    \"hub_address\":\"22-16-H21, Singh Nagar 4 th line ,Vijayawada - 520014\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/hub_mangement/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"hub_mangement",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update_Hub",
+			"request": {
+				"auth": {
+					"type": "bearer"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \r\n    \"hub_name\" : \"Vijayawada Hub\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/hub_mangement/update/Hub_001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"hub_mangement",
+						"update",
+						"Hub_001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/hub_mangement/delete/Hub_001?hub_name=Vijayawada%20Hub&hub_manager=Ravi%20Teja",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"hub_mangement",
+						"delete",
+						"Hub_001"
+					],
+					"query": [
+						{
+							"key": "hub_name",
+							"value": "Vijayawada%20Hub"
+						},
+						{
+							"key": "hub_manager",
+							"value": "Ravi%20Teja"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "by_status",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Register_Product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Hub_ID\": \"HUB_003\",\r\n  \"Product_ID\": \"PROD_102\",\r\n  \"Product_Name\": \"A1 Rice Ban Oil\",\r\n  \"Quantity\": 100,\r\n  \"Value\": 4000.0,\r\n  \"Selling_Price\": 195.0,\r\n  \"Category\": \"Cooking Oil\",\r\n  \"Product_Description\": \"1liter oil packets\",\r\n  \"Expiry_Date\": \"2026-01-01\",\r\n  \"Brand\": \"Rice Ban\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/inventory_mangement/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"inventory_mangement",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_product",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/inventory_mangement/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"inventory_mangement",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dispatch_inventory",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Invenotry_batches",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "list_products",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "register_driver",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"license_number\": \"DL-123456\",\r\n  \"age\": 35,\r\n  \"hub_id\": \"HUB_001\",\r\n  \"status\": \"Available\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/driver_mangement/register_driver\n",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"driver_mangement",
+						"register_driver\n"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_driver_by_id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/driver_mangement/get_driver_by_id/{driver_id}\n",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"driver_mangement",
+						"get_driver_by_id",
+						"{driver_id}\n"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search_driver",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n\"name \":\"John pal\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/driver_mangement/drivers/search_driver",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"driver_mangement",
+						"drivers",
+						"search_driver"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_driver",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"driver_id\" : \"fe59d73d-4439-44d8-b650-eb491afce367\",\r\n  \"age\": 40,\r\n  \"address\": \"123 Main Street\",\r\n  \"salary\": 28000,\r\n  \"status\": \"Inactive\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/driver_mangement/drivers/update_driver",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"driver_mangement",
+						"drivers",
+						"update_driver"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "retire_audit",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/driver_mangement/drivers/delete_driver",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"driver_mangement",
+						"drivers",
+						"delete_driver"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register_vehicle",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Vehicle_ID\":\"V001\",\r\n    \"Vehicle_Number\":\"AP-01-1234\",\r\n    \"Capacity\": 32,\r\n    \"Status\":\"Available\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/vehicle_mangement/vehicles/register_vehicle",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"vehicle_mangement",
+						"vehicles",
+						"register_vehicle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_vehicle",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/vehicle_mangement/vehicles/update_vehicle",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"vehicle_mangement",
+						"vehicles",
+						"update_vehicle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_vehicle",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "search_vehicle",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Dispatch_Vehicle",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "DispatchstockReceive",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"dispatch_id\" :\"disp-8802e9e486954a299de6ae120206821a\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/vehicle_inventory/mark_dispatch_received",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"vehicle_inventory",
+						"mark_dispatch_received"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

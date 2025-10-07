@@ -595,6 +595,10 @@ async def list_products_in_hub(
 
 
 async def get_low_stock_items():
+    """
+    It will return which item is less than having Product Quantity 10 it will return those else
+    it will return No low stock Message.
+    """
     try:
         logger.info("Fetching low stock items with quantity < 10")
         cursor = db[COL_INV_BATCHES].find({"Quantity": {"$lt": 10}})
@@ -614,6 +618,8 @@ async def get_low_stock_items():
 
 
 async def get_expired_items():
+    """ It will return expired items or Products List.
+    """
     try:
         logger.info("Fetching expired inventory items")
         now = datetime.now(timezone.utc)
@@ -634,6 +640,8 @@ async def get_expired_items():
     
 
 async def get_expiring_soon_items():
+    """ It will return Products exprining with in 30 days .
+    """
     try:
         logger.info("Fetching items expiring within 1 month")
         now = datetime.now(timezone.utc)

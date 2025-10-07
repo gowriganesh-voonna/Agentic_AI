@@ -14,7 +14,7 @@ slogan_prompt = PromptTemplate(
     template="Write a catchy slogan for a company named {company_name}."
 )
  
-# LLM: Initialize OpenAI GPT model
+# LLM: Initialize OpenAI GPT model (you can pass gpt4 ,gpt3 turbo model)
 llm = OpenAI(model_name="text-davinci-003", temperature=0.7)
  
 # Step 1 Chain: product → company_name

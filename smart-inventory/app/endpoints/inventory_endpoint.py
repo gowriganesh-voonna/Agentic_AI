@@ -149,7 +149,7 @@ async def list_products_in_hub_endpoint(
 
 
 
-
+#----------------- Low Stock Alert----------------------
 @router.get("/low-stock")
 @handle_exceptions
 async def get_low_stock():
@@ -163,6 +163,7 @@ async def get_low_stock():
         raise HTTPException(status_code=500, detail=f"Exception : {str(e)}")
     
 
+#----------------- Expired Products-------------------------
 @router.get("/expired")
 @handle_exceptions
 async def get_expired_inventory():
@@ -178,7 +179,7 @@ async def get_expired_inventory():
         logger.exception(f"Exception in /inventory/expired: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Exception : {str(e)}")
 
-
+#-------------------- Exprining with in 30 days Products Alert----------------
 @router.get("/expiring-soon")
 @handle_exceptions
 async def get_expiring_soon_inventory():

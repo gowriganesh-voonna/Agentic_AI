@@ -1,0 +1,11 @@
+2025-08-26 15:30:06,596 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs, Inventory, Drivers
+2025-08-26 15:30:06,598 - app.db.mongodb - INFO - MainThread - ✅ Indexes ensured for Hubs and ClosedHubs collections
+2025-08-26 15:30:06,600 - app.db.mongodb - INFO - MainThread - ✅ MongoDB connection established
+2025-08-26 15:33:37,440 - app.utiles.decoratores - INFO - MainThread - Calling function: register_inventory_endpoint
+2025-08-26 15:33:37,441 - app.endpoints.inventory_endpoint - INFO - MainThread - API Request → Register Inventory: product_id=PROD_103, hub_id=HUB_001, qty=100
+2025-08-26 15:33:37,639 - app.services.inventory_service - INFO - MainThread - Inserted product master PROD_103
+2025-08-26 15:33:37,796 - app.services.inventory_service - INFO - MainThread - Created new batch PROD_103-HUB_001-20250826100337-ca5fbb for product PROD_103
+2025-08-26 15:33:37,862 - app.services.inventory_service - INFO - MainThread - Inserted stock transaction txn-63b9892e741e4589959e8797646fe6c4
+2025-08-26 15:33:37,916 - app.endpoints.inventory_endpoint - INFO - MainThread - API Response → Inventory registered successfully: product_id=PROD_103, hub_id=HUB_001
+2025-08-26 15:33:37,917 - app.utiles.decoratores - INFO - MainThread - Function register_inventory_endpoint completed successfully
+2025-08-26 15:33:59,991 - app.db.mongodb - WARNING - MainThread - ⚠️ MongoDB connection closed
