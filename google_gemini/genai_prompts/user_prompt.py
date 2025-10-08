@@ -114,3 +114,18 @@ async def chain_of_thought_prompt():
     return {"Response" : response.text}
 
 
+@app.post("/pdf_qna")
+async def qna_pdf(request : TextRequest):
+    # Retrieve and encode the PDF byte
+    filepath = pathlib.Path('Surendra.pdf')
+
+    prompt = request.text
+    response = client.models.generate_content(
+    model="gemini-2.5-flash",
+    contents=[
+        types.Part.from_bytes(
+            data=filepath.read_bytes(),
+            mime_type='application/pdf',
+        ),
+        prompt])
+    return {"Response" : response.text}
