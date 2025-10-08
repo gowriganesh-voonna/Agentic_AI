@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "genai-demo-001",
+  "private_key_id": "6b3cc3ba6c4862615f2cd17745a790da33503007",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCzddJGNz5QY4A4\nt6d4d3MBDV5tlZl8kAZpIJDxLINWMP7fB7D0VbJXDxtYlDbYAlNy7OyrwbatBiBu\nIlkQ/n4I22Jf24eHkZpBATZjRS5hqP+fUPVxG5Gha5HgcAjz/9jjLGAcvtkSqM/a\nrSUF/xeUnFhOIssi69ZZ0mJHilY95+IQ0KBjIzK8QwnXkD0lMSgq3rBt4HaS68kI\n7Kulmy98xXYJIK0wFuhGHYx+i1+52Qf429vhfxEIV+l3sHQkHKgXP4rapPUQV85X\nIJ2iJsrmA/OzcJ9ZbVjpJ+PtA157P3hHiMqKwit5S531yPgFr0QMqoVocFKMZEEC\n5L/IranDAgMBAAECggEAEAqb9AcpIfdwSoxEGIpuNG20/00BjiGzqP8Duxh/BEaB\n6dQerGCNU1Hi4GKd77tu09WQ0Z48Ytqq2HK9N73VQfEWVI+OMv9AD3J5IZuD/1p4\nwGLKEG+7RKIVxT75Kz0MmUCUtiJrIKCytQ8ywYahXXkyPYhyVFn0waJYLaE/Ke5O\nMRQQXA1r/brhJGHm+s3RKWDiBiGjE3GmC/r1jd9s8ktAB+tsHuIZGglrlLQeaF+r\nI8KKSAMmq/UZiLYtLyjquVasdQYSxxsV8PUS607ocYEk0vbcqm7L1JXh6FGrSvF/\nMz86+dGtY7+O3l2h6Zo3mIGpuL4ZLyL7JtwwObWI+QKBgQDb7O+Nn2QDTDYEOycC\nkpJeNeVgvP39ad+YiEmjvx5T2eXgJCY7JXYb1AuTvi4jKEbPrTAQM6+NX3pkt3qa\nOpKwW4aNdOQAgDbM7V657sbD0szAJVbPCxxkotLe3FoSlEMRgU2PXbQW3/6nPJt0\nYMAs9wiDawOEqtdWUNifqoNL6QKBgQDQ5a0UpzhxVmPnCBenoX6MHQPxHe/9QO8q\nftSQHL/BaCWhEvtGJXqzT/gLnBWyAwi34UMEPRU8gwYquv5dTXBzwaJCpyCK3/Hw\nXG+DgEEImAPgVsEcuybldVu0xc7FeEoOipO6U0kYVMRrRDVRKS9zfgUjR1YZIQCg\n0iMfUFm4ywKBgQCYcrx3qnZUht6mvi5DbUDCx49yKG/T2zEgddC+DjxCmbfsUIKj\n20rs7Wb9CgbHXiL/0KiRgpJ9aCLacAkvocyPLVKu+ckWw8m48g4IywjDM3u08e0j\n5irPY8LSs2JIoLeBCeWurKCqfqjyWmPUH0D3qmIfXu34Z8iPT8lpnHQZCQKBgQCT\nmIP3IMOHiNOjbBtSjI9eLi4X0eA8HwIdE2navQVbgNt9eGzjvh14zlri0RCfKveg\n/F8ego4bqDPWQzLv94QptbmQwIcEuIA4JQeBcUAB825htspRI4ay/32hN1YGPhyN\nM6p3LttpfpMdex70zlXBk1vL9l5F+QR5nJ/GQz5xiwKBgGksa1tvlPppuqDqXXVW\nUCtjK2axEtbjZBik8mhd4nH2abE8uwxFpBi8495uuNBDrRlFlwNdmm9YHzfNGRRU\nHPaNpAOy0neXE/EYx+lcbMardnULplmt8o5jdugIjjrzBkgSGN+BtS5iyxUtgyAA\nblithSNtpZFCM5QRqbDRtIRh\n-----END PRIVATE KEY-----\n",
+  "client_email": "genai-client@genai-demo-001.iam.gserviceaccount.com",
+  "client_id": "112247485823082438199",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/genai-client%40genai-demo-001.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
