@@ -5,9 +5,10 @@ import numpy as np
 from langchain_community.docstore.in_memory import InMemoryDocstore
 from langchain_community.vectorstores import FAISS
 from langchain_core.documents import Document
+#create a vectorstore  with sample text
+from langchain_core.vectorstores import InMemoryVectorStore
 
 
-d=128
 index_file = "embeddings.faiss"
 
 embeddings = GoogleGenerativeAIEmbeddings(
@@ -75,3 +76,35 @@ for faiss_id, doc_id in vector_store.index_to_docstore_id.items():
     print(f"\nVector ID: {faiss_id}")
     print(f"Vector: {vector}")
     print(f"Text: {doc.page_content}")
+
+
+#------ embedding mutiple strings as a batch------------
+vectors = embeddings.embed_documents(
+    [
+        "Dell is the famous laptop brand",
+        "Samsung is the No.1 brand selling mobile",
+        "Pavan is an SRK college student"
+    ]
+)
+
+print("length of vectors :",len(vectors))
+print("vector index :",vectors[0])
+
+
+#Indexing and Retrieval
+#------------------- indexing and retriving data usig as_retrive-------------
+text = "Langchain is the part of LLM . which we use its components and models to process the data."
+
+vectorstore = InMemoryVectorStore.from_texts(
+    [text],
+    embedding= embeddings
+)
+
+# using vectorestore as retrieval
+retrival= vectorstore.as_retriever()
+
+# retrieve most similar text
+retrieved_document = retrival.invoke("What is langchain")
+
+print(f"Retrieved document  {retrieved_document[0].page_content}")
+

@@ -1,5 +1,4 @@
-from google.auth import default
+from google.generativeai import list_models
 
-creds, project = default()
-print("Credentials loaded successfully.")
-print(f"Project ID: {project}")
+for model in list_models():
+    print(model.name, model.supported_generation_methods)
