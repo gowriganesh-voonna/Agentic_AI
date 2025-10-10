@@ -100,9 +100,7 @@ def handle_query(query):
         result = conversation_chain.invoke({"question": query})
         answer = result.get("answer", "")
         if not answer.strip() or "I don't know" in answer:
-            fallback = llm.invoke([HumanMessage(content=query)])
-            return fallback.content
-                                  
+            return "🤖 I can't find any related information."
         return answer
     except Exception as e:
         return f"❌ Error during query: {e}"
@@ -111,53 +109,52 @@ def handle_query(query):
 # -----------------------
 # 🔄 Process User Interaction
 # -----------------------
-def process_and_respond(message, history, file):
+def process_and_respond(file, query):
     global chat_log, last_uploaded_file
 
     status_msg = ""
 
-    # Load new PDF if different from previous
-    if file is not None and (last_uploaded_file != file.name):
-        status_msg = load_pdf(file)
-        chat_log = []
-        last_uploaded_file = file.name
-        history = []  # reset chat history
+    # Load PDF only if new file is uploaded
+    if file is not None:
+        if last_uploaded_file != file.name:
+            status_msg = load_pdf(file)
+            chat_log = []  # reset chat history on new PDF
+            last_uploaded_file = file.name
 
-    # If no message
-    if not message.strip():
-        return history + [[message, "⚠️ Please enter a valid question."]], status_msg or "⚠️ No input."
+    if not query.strip():
+        return "", chat_log, status_msg or "⚠️ Please enter a question."
 
-    # Get bot response
-    response = handle_query(message)
+    response = handle_query(query)
 
-    # Update history
-    history.append([message, response])
-    return history, status_msg
+    # Update chat history in Gradio chatbot format (list of dicts with 'role' and 'content')
+    chat_log.append({"role": "user", "content": query})
+    chat_log.append({"role": "assistant", "content": response})
 
+    return response, chat_log, status_msg
 
 
 # -----------------------
 # 🎨 Gradio UI
 # -----------------------
 with gr.Blocks() as demo:
-    gr.Markdown("## 🤖 PDF Chatbot (Gemini + RAG)")
+    gr.Markdown("## 🤖 PDF Q&A Chatbot with Memory (RAG + Gemini Pro)")
 
     with gr.Row():
-        with gr.Column(scale=3):
-            file_input = gr.File(label="📎 Upload PDF", file_types=[".pdf"])
-        with gr.Column(scale=7):
-            status_output = gr.Textbox(label="📂 Status", interactive=False)
+        file_input = gr.File(label="📎 Upload your PDF", file_types=[".pdf"])
+        status_output = gr.Textbox(label="📂 PDF Status", interactive=False)
 
-    chatbot = gr.Chatbot(label="🗨️ Chat with your PDF", elem_id="chatbot")
-    user_msg = gr.Textbox(placeholder="Type your question and press Enter...", label="💬 Your Message", lines=1)
+    query_input = gr.Textbox(lines=2, label="💬 Ask a question about the PDF:")
+    submit_btn = gr.Button("📤 Submit")
 
-    # Main interaction function
-    user_msg.submit(
+    output = gr.Textbox(label="🤖 Bot Response", lines=6)
+    chat_history = gr.Chatbot(label="💬 Chat History", elem_id="chatbot", type="messages")
+
+    submit_btn.click(
         fn=process_and_respond,
-        inputs=[user_msg, chatbot, file_input],
-        outputs=[chatbot, status_output]
-    ).then(lambda: "", None, user_msg)  # Clear input after submit
-
+        inputs=[file_input, query_input],
+        outputs=[output, chat_history, status_output],
+        queue=True
+    ).then(lambda: "", inputs=None, outputs=query_input)  # Clear query box after submit
 
 
 # -----------------------
