@@ -1,0 +1,43 @@
+           ┌────────────────────────────────┐
+           │          User Uploads           │
+           │   (.pdf / .csv / .docx / .txt)  │
+           └──────────────┬──────────────────┘
+                          │
+              ┌───────────▼───────────┐
+              │ Extract & Chunk Text  │
+              │ (LangChain / pypdf /  │
+              │ docx / pandas / etc.) │
+              └───────────┬───────────┘
+                          │
+              ┌───────────▼───────────┐
+              │ Create Embeddings via │
+              │ textembedding-gecko   │
+              └───────────┬───────────┘
+                          │
+              ┌───────────▼───────────┐
+              │ Store Vectors in      │
+              │ FAISS (local)         │
+              └───────────┬───────────┘
+                          │
+           ┌──────────────▼──────────────┐
+           │ User Enters Chat Query      │
+           └──────────────┬──────────────┘
+                          │
+              ┌───────────▼────────────┐
+              │ Search local vectors   │
+              │ (retrieve top chunks)  │
+              └───────────┬────────────┘
+                          │
+           ┌──────────────▼───────────────┐
+           │ If no relevant context → use │
+           │ Vertex AI / Google Search    │
+           └──────────────┬───────────────┘
+                          │
+              ┌───────────▼──────────────┐
+              │ Combine context + query  │
+              │ → Gemini Pro prompt      │
+              └───────────┬──────────────┘
+                          │
+           ┌──────────────▼──────────────┐
+           │ Model responds in chat UI   │
+           └─────────────────────────────┘
