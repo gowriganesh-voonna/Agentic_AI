@@ -23,14 +23,19 @@ from google.genai import types
 
 client = genai.Client()
 
-prompt = " what is Deep learning?"
+prompt = input("Enter your prompt : ").strip()
 
-response = client.models.generate_content(
-    model = "gemini-2.5-flash",
-    contents = prompt,
-    config = types.GenerateContentConfig(
-        thinking_config=types.ThinkingConfig(thinking_budget=0)
-    ),
+config = types.GenerateContentConfig(
+    temperature= 0.4,
+    candidate_count=1,
+    thinking_config=types.ThinkingConfig(
+        thinking_budget=0
+    )
 )
 
+response = client.models.generate_content(
+    model="gemini-2.5-flash",
+    contents=prompt,  # string or list of TypeContent
+    config=config,
+)
 print(response.text)
