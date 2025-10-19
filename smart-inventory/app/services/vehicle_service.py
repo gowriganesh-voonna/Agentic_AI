@@ -104,9 +104,9 @@ async def search_vehicle_service(Vehicle_ID: str = None, Vehicle_Number: str = N
     if Vehicle_Number: query["Vehicle_Number"] = Vehicle_Number
     if Status: query["Status"] = Status
 
+    # If no criteria provided, return all vehicles
     if not query:
-        logger.warning("Search failed: No search criteria provided")
-        raise HTTPException(status_code=400, detail="No search criteria provided")
+        logger.info("No search criteria provided, returning all vehicles")
 
     #vehicles = await db["vehicles"].find(query).to_list(100)
     vehicles = await db["vehicles"].find(query, {"_id": 0}).to_list(100)

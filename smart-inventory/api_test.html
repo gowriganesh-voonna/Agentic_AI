@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Test Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; }
+        .success { color: green; }
+        .error { color: red; }
+        button { padding: 10px; margin: 5px; }
+        pre { background: #f5f5f5; padding: 10px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>Smart Inventory API Test</h1>
+    
+    <div class="test-section">
+        <h3>Test API Connection</h3>
+        <button onclick="testAPI()">Test API Root</button>
+        <div id="api-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>Test Hubs</h3>
+        <button onclick="testHubs()">Test Hubs</button>
+        <div id="hubs-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>Test Vehicles</h3>
+        <button onclick="testVehicles()">Test Vehicles</button>
+        <div id="vehicles-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>Test Drivers</h3>
+        <button onclick="testDrivers()">Test Drivers</button>
+        <div id="drivers-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>Test Inventory</h3>
+        <button onclick="testInventory()">Test Inventory</button>
+        <div id="inventory-result"></div>
+    </div>
+
+    <script>
+        const API_BASE_URL = 'http://127.0.0.1:8000/api';
+
+        async function apiCall(endpoint) {
+            try {
+                const response = await fetch(`${API_BASE_URL}${endpoint}`);
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                return await response.json();
+            } catch (error) {
+                throw error;
+            }
+        }
+
+        async function testAPI() {
+            const resultDiv = document.getElementById('api-result');
+            resultDiv.innerHTML = 'Testing...';
+            
+            try {
+                const data = await apiCall('');
+                resultDiv.innerHTML = `<div class="success">✅ API Connected!</div><pre>${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="error">❌ API Error: ${error.message}</div>`;
+            }
+        }
+
+        async function testHubs() {
+            const resultDiv = document.getElementById('hubs-result');
+            resultDiv.innerHTML = 'Testing...';
+            
+            try {
+                const data = await apiCall('/hub_mangement/hubs/search');
+                resultDiv.innerHTML = `<div class="success">✅ Hubs Loaded!</div><pre>${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="error">❌ Hubs Error: ${error.message}</div>`;
+            }
+        }
+
+        async function testVehicles() {
+            const resultDiv = document.getElementById('vehicles-result');
+            resultDiv.innerHTML = 'Testing...';
+            
+            try {
+                // Try without any parameters first
+                const data = await apiCall('/vehicle_mangement/vehicles/search_vehicle');
+                resultDiv.innerHTML = `<div class="success">✅ Vehicles Loaded!</div><pre>${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="error">❌ Vehicles Error: ${error.message}</div>`;
+            }
+        }
+
+        async function testDrivers() {
+            const resultDiv = document.getElementById('drivers-result');
+            resultDiv.innerHTML = 'Testing...';
+            
+            try {
+                const data = await apiCall('/driver_mangement/drivers/search_driver?name=&license_number=&status=&hub_id=&limit=1000&skip=0');
+                resultDiv.innerHTML = `<div class="success">✅ Drivers Loaded!</div><pre>${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="error">❌ Drivers Error: ${error.message}</div>`;
+            }
+        }
+
+        async function testInventory() {
+            const resultDiv = document.getElementById('inventory-result');
+            resultDiv.innerHTML = 'Testing...';
+            
+            try {
+                const data = await apiCall('/inventory_mangement/inventory/products?hub_id=&limit=1000');
+                resultDiv.innerHTML = `<div class="success">✅ Inventory Loaded!</div><pre>${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="error">❌ Inventory Error: ${error.message}</div>`;
+            }
+        }
+    </script>
+</body>
+</html>
