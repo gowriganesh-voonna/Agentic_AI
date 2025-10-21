@@ -432,6 +432,14 @@ async def dispatch_inventory(payload:DispatchRequest) -> Dict[str, Any]:
     await db[COL_DISPATCHES].insert_one(disp_doc)
     logger.info("📦 Dispatch record created with ID=%s", dispatch_id)
     
+    # Auto-assign driver and vehicle if available
+    try:
+        from app.services.vehicle_inventory_service import auto_assign_driver_vehicle_service
+        assignment_result = await auto_assign_driver_vehicle_service(dispatch_id)
+        logger.info(f"Auto-assignment result: {assignment_result.get('message', 'No assignment')}")
+    except Exception as e:
+        logger.warning(f"Auto-assignment failed for dispatch {dispatch_id}: {str(e)}")
+    
     # Check remaining stock after dispatch
     remaining_after = await _get_total_available(product_id, from_hub)
     logger.info(

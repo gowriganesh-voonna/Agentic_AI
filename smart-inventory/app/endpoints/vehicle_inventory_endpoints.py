@@ -1,7 +1,7 @@
 import logging
 from fastapi import APIRouter
 from app.utiles.decoratores import handle_exceptions
-from app.services.vehicle_inventory_service import mark_dispatch_received_service
+from app.services.vehicle_inventory_service import mark_dispatch_received_service, get_dispatch_status_service, list_dispatches_service, auto_assign_driver_vehicle_service, fix_existing_dispatches_service
 from app.models.inventory import DispatchReceiveRequest
 
 # Configure logger for this module
@@ -34,3 +34,53 @@ async def mark_dispatch_received(request: DispatchReceiveRequest):
         # Log the error before letting handle_exceptions decorator manage the exception
         logger.error(f"Error while marking dispatch {request.dispatch_id} as received: {str(e)}", exc_info=True)
         raise
+
+
+@handle_exceptions
+@router.get("/dispatch_status/{dispatch_id}")
+async def get_dispatch_status(dispatch_id: str):
+    """
+    Returns computed dispatch status with driver/vehicle availability messages
+    so UI can show precise guidance before assignment.
+    """
+    logger.info(f"Received request to get dispatch status. Dispatch ID: {dispatch_id}")
+    response = await get_dispatch_status_service(dispatch_id)
+    logger.info(f"Dispatch status computed for {dispatch_id}")
+    return response
+
+
+@handle_exceptions
+@router.get("/dispatches")
+async def list_dispatches(skip: int = 0, limit: int = 50):
+    """
+    List all dispatches with their current status and assignment details.
+    """
+    logger.info(f"Received request to list dispatches: skip={skip}, limit={limit}")
+    response = await list_dispatches_service(skip, limit)
+    logger.info(f"Found {len(response.get('dispatches', []))} dispatches")
+    return response
+
+
+@handle_exceptions
+@router.post("/auto_assign/{dispatch_id}")
+async def auto_assign_driver_vehicle(dispatch_id: str):
+    """
+    Automatically assign available driver and vehicle to a dispatch.
+    """
+    logger.info(f"Received request to auto-assign driver and vehicle for dispatch: {dispatch_id}")
+    response = await auto_assign_driver_vehicle_service(dispatch_id)
+    logger.info(f"Auto-assignment completed for dispatch: {dispatch_id}")
+    return response
+
+
+@handle_exceptions
+@router.post("/fix_existing_dispatches")
+async def fix_existing_dispatches():
+    """
+    Fix existing dispatch records that have "In-Progress" values.
+    This is a one-time fix for existing data.
+    """
+    logger.info("Received request to fix existing dispatch records")
+    response = await fix_existing_dispatches_service()
+    logger.info(f"Fixed {response.get('fixed_count', 0)} dispatch records")
+    return response

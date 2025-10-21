@@ -16,11 +16,17 @@ async def connect_to_mongo():
     """Connect to MongoDB when app starts."""
     global client, db
     
- 
-    # Ensure indexes are created
-    await ensure_indexes()
- 
-    logger.info("✅ MongoDB connection established")
+    try:
+        # Test the connection
+        await client.admin.command('ping')
+        logger.info("✅ MongoDB connection established")
+        
+        # Ensure indexes are created
+        await ensure_indexes()
+        
+    except Exception as e:
+        logger.error(f"❌ MongoDB connection failed: {e}")
+        raise e
  
  
 async def close_mongo_connection():

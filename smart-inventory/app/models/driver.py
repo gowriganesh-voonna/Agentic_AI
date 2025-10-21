@@ -11,7 +11,8 @@ class DriverBase(BaseModel):
     age: int = Field(..., ge=18, le=70, description="Driver age")
     license_number: str = Field(..., description="Unique driver license number")
     hub_id: str = Field(..., description="Assigned Hub ID")
-    status: Literal["active", "retired", "deleted"] = "active"
+    # Allow transient states used by dispatch assignment
+    status: Literal["active", "retired", "deleted", "Inactive", "Assigned"] = "active"
     retirement_reason: Optional[str] = None
 
 # ---------------------------
@@ -27,12 +28,13 @@ class DriverIdRequest(BaseModel):
 # Update Schema
 # ---------------------------
 class DriverUpdate(BaseModel):
-    driver_id: UUID
+    driver_id: str  # Changed from UUID to str to match frontend
     name: Optional[str] = None
     age: Optional[int] = None
     license_number: Optional[str] = None
     hub_id: Optional[str] = None
-    status: Optional[Literal["active", "retired", "deleted" ,"Inactive"]] = None
+    # Keep allowed set in sync with DriverBase.status
+    status: Optional[Literal["active", "retired", "deleted", "Inactive", "Assigned"]] = None
     retirement_reason: Optional[str] = None
  
 # ---------------------------
@@ -43,7 +45,7 @@ class DriverInDB(DriverCreate):
 
 # Output schema
 class DriverOut(BaseModel):
-    driver_id: UUID
+    driver_id: str  # Changed from UUID to str to match database
     name: str
     license_number: str
     age: int
