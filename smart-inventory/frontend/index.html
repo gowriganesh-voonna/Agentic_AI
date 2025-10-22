@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Smart Inventory & Dispatch</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+	<header class="app-header">
+		<div class="brand"><i class="fa-solid fa-cubes"></i><span>Smart Inventory</span></div>
+		<nav class="nav">
+			<button class="nav-link active" data-target="dashboard"><i class="fa-solid fa-gauge"></i><span>Dashboard</span></button>
+			<button class="nav-link" data-target="hubs"><i class="fa-solid fa-warehouse"></i><span>Hubs</span></button>
+			<button class="nav-link" data-target="inventory"><i class="fa-solid fa-boxes-stacked"></i><span>Inventory</span></button>
+			<button class="nav-link" data-target="drivers"><i class="fa-solid fa-id-card"></i><span>Drivers</span></button>
+			<button class="nav-link" data-target="vehicles"><i class="fa-solid fa-truck"></i><span>Vehicles</span></button>
+			<button class="nav-link" data-target="dispatches"><i class="fa-solid fa-dolly"></i><span>Dispatches</span></button>
+		</nav>
+	</header>
+
+	<main class="container">
+		<section id="dashboard" class="view visible">
+			<h1>Smart Inventory & Dispatch Management</h1>
+			<div class="cards">
+				<div class="card" id="stat-hubs">
+					<div class="card-icon"><i class="fa-solid fa-warehouse"></i></div>
+					<div class="card-title">Active Hubs</div>
+					<div class="card-value" data-stat="hubs">-</div>
+				</div>
+				<div class="card" id="stat-products">
+					<div class="card-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
+					<div class="card-title">Products</div>
+					<div class="card-value" data-stat="products">-</div>
+				</div>
+				<div class="card warning clickable" id="stat-low-stock" data-action="low-stock">
+					<div class="card-icon"><i class="fa-solid fa-exclamation-triangle"></i></div>
+					<div class="card-title">Low Stock Alerts</div>
+					<div class="card-value" data-stat="lowStock">-</div>
+					<div class="card-subtitle">Click to view details</div>
+				</div>
+				<div class="card danger clickable" id="stat-expiring" data-action="expiring">
+					<div class="card-icon"><i class="fa-solid fa-clock"></i></div>
+					<div class="card-title">Expiring Soon</div>
+					<div class="card-value" data-stat="expiring">-</div>
+					<div class="card-subtitle">Click to view details</div>
+				</div>
+			</div>
+			
+			<div class="info-cards">
+				<div class="info-card">
+					<div class="info-icon"><i class="fa-solid fa-cubes"></i></div>
+					<div class="info-content">
+						<h3>Batch Management</h3>
+						<p>Track inventory with batch-level precision, monitor expiry dates, and maintain FIFO dispatch logic for optimal stock rotation.</p>
+					</div>
+				</div>
+				<div class="info-card">
+					<div class="info-icon"><i class="fa-solid fa-truck"></i></div>
+					<div class="info-content">
+						<h3>Smart Dispatch</h3>
+						<p>Automatically assign drivers and vehicles to dispatches, track delivery status, and maintain complete audit trails.</p>
+					</div>
+				</div>
+				<div class="info-card">
+					<div class="info-icon"><i class="fa-solid fa-chart-line"></i></div>
+					<div class="info-content">
+						<h3>Real-time Analytics</h3>
+						<p>Monitor low stock alerts, expiring products, and dispatch status with comprehensive reporting and notifications.</p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="about">
+				<h2>System Overview</h2>
+				<p>
+					This comprehensive inventory management system provides end-to-end control over multi-hub operations with advanced features for modern supply chain management.
+				</p>
+				<div class="features-grid">
+					<div class="feature-item">
+						<i class="fa-solid fa-shield-alt"></i>
+						<span>Secure & Reliable</span>
+					</div>
+					<div class="feature-item">
+						<i class="fa-solid fa-mobile-alt"></i>
+						<span>Mobile Responsive</span>
+					</div>
+					<div class="feature-item">
+						<i class="fa-solid fa-sync-alt"></i>
+						<span>Real-time Updates</span>
+					</div>
+					<div class="feature-item">
+						<i class="fa-solid fa-cogs"></i>
+						<span>Automated Workflows</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="hubs" class="view">
+			<div class="section-header">
+				<h1>Hubs</h1>
+				<div class="actions">
+					<button class="btn primary" id="addHubBtn"><i class="fa-solid fa-plus"></i> Add Hub</button>
+					<select id="hubStatusFilter">
+						<option value="">All</option>
+						<option value="Active">Active</option>
+						<option value="Deactive">Deactive</option>
+					</select>
+					<input type="search" id="hubSearch" placeholder="Search by id or name">
+				</div>
+			</div>
+			<div class="list" id="hubsList"></div>
+		</section>
+
+		<section id="inventory" class="view">
+			<div class="section-header">
+				<h1>Inventory</h1>
+				<div class="actions">
+					<button class="btn primary" id="registerProductBtn"><i class="fa-solid fa-plus"></i> Register Product</button>
+					<button class="btn" id="updateStockBtn"><i class="fa-solid fa-layer-group"></i> Update Stock</button>
+					<button class="btn" id="dispatchBtn"><i class="fa-solid fa-truck-ramp-box"></i> Dispatch</button>
+					<input type="search" id="inventorySearch" placeholder="Search product, hub, brand">
+				</div>
+			</div>
+			<div class="list" id="inventoryList"></div>
+		</section>
+
+		<section id="drivers" class="view">
+			<div class="section-header">
+				<h1>Drivers</h1>
+				<div class="actions">
+					<button class="btn primary" id="addDriverBtn"><i class="fa-solid fa-user-plus"></i> Add Driver</button>
+					<input type="search" id="driverSearch" placeholder="Search by name, license, status">
+				</div>
+			</div>
+			<div class="status-cards" id="driverStats">
+				<div class="card"><div class="card-title">Available</div><div class="card-value" data-stat="available">-</div></div>
+				<div class="card"><div class="card-title">Assigned</div><div class="card-value" data-stat="assigned">-</div></div>
+				<div class="card"><div class="card-title">Total</div><div class="card-value" data-stat="total">-</div></div>
+			</div>
+			<div class="list" id="driversList"></div>
+		</section>
+
+		<section id="vehicles" class="view">
+			<div class="section-header">
+				<h1>Vehicles</h1>
+				<div class="actions">
+					<button class="btn primary" id="addVehicleBtn"><i class="fa-solid fa-truck"></i> Add Vehicle</button>
+					<input type="search" id="vehicleSearch" placeholder="Search by number, status">
+				</div>
+			</div>
+			<div class="status-cards" id="vehicleStats">
+				<div class="card"><div class="card-title">Available</div><div class="card-value" data-stat="available">-</div></div>
+				<div class="card"><div class="card-title">In-Transit</div><div class="card-value" data-stat="in-transit">-</div></div>
+				<div class="card"><div class="card-title">Under Maintenance</div><div class="card-value" data-stat="under-maintenance">-</div></div>
+				<div class="card"><div class="card-title">Total</div><div class="card-value" data-stat="total">-</div></div>
+			</div>
+			<div class="list" id="vehiclesList"></div>
+		</section>
+
+		<section id="dispatches" class="view">
+			<div class="section-header">
+				<h1>Dispatches</h1>
+				<div class="actions">
+					<button class="btn" id="autoAssignBtn"><i class="fa-solid fa-person-circle-check"></i> Auto Assign</button>
+					<button class="btn" id="showHistoryBtn"><i class="fa-solid fa-history"></i> Show History</button>
+				</div>
+			</div>
+			<div class="status-cards" id="dispatchStats">
+				<div class="card"><div class="card-title">In-Progress</div><div class="card-value" data-stat="in-progress">-</div></div>
+				<div class="card"><div class="card-title">In-Transit</div><div class="card-value" data-stat="in-transit">-</div></div>
+				<div class="card"><div class="card-title">Completed</div><div class="card-value" data-stat="completed">-</div></div>
+				<div class="card"><div class="card-title">Total</div><div class="card-value" data-stat="total">-</div></div>
+			</div>
+			<div class="list" id="dispatchesList"></div>
+		</section>
+	</main>
+
+	<div id="modal" class="modal hidden">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h2 id="modalTitle">Modal</h2>
+				<button id="modalClose" class="icon-btn"><i class="fa-solid fa-xmark"></i></button>
+			</div>
+			<div id="modalBody"></div>
+		</div>
+	</div>
+
+	<div id="toast" class="toast"></div>
+	<script src="script.js"></script>
+</body>
+</html>
+

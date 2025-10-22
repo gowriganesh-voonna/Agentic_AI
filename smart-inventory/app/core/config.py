@@ -1,6 +1,6 @@
 
 
-MONGO_URI = "mongodb+srv://gowriganeshvoonna:3EhpwdUK0FnSh3YP@resume-data.wz0y1el.mongodb.net/"
+MONGO_URI = "mongodb://localhost:27017/"
 
 # Database Name
 MONGO_DB = "smart_inventory_db"
