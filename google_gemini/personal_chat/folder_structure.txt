@@ -1,0 +1,39 @@
+chatbot_project/
+│
+├── main.py                      # Entry point (runs the chatbot app / orchestrator)
+│
+├── config/
+│   ├── settings.py               # API keys, paths, constants
+│   ├── prompts.py                # Prompt templates for agents
+│   └── __init__.py
+│
+├── agents/
+│   ├── __init__.py
+│   ├── upload_agent.py           # Handles user uploads, file parsing
+│   ├── embedding_agent.py        # Generates embeddings and stores in FAISS
+│   ├── retrieval_agent.py        # Searches local vectors for context
+│   ├── chat_agent.py             # Combines query + context → Gemini / LLM response
+│   ├── orchestrator.py           # Multi-agent coordinator (controls flow)
+│
+├── data/
+│   ├── uploads/                  # User uploaded files (.pdf, .csv, etc.)
+│   ├── processed/                # Extracted text chunks
+│   ├── vector_store/             # FAISS index files
+│   └── logs/                     # Chat logs / metadata
+│
+├── utils/
+│   ├── file_utils.py             # File loading helpers (pdf, csv, docx, txt)
+│   ├── text_splitter.py          # Chunking logic
+│   ├── embedding_utils.py        # Embedding helpers
+│   ├── vector_utils.py           # FAISS helper methods
+│   ├── chat_history.py           # Memory management
+│   └── __init__.py
+│
+├── ui/
+│   ├── app.py                    # Chat UI (Gradio / Streamlit)
+│   ├── components/               # UI component files (buttons, inputs, etc.)
+│   └── __init__.py
+│
+├── requirements.txt
+├── README.md
+└── .env                          # API keys (Vertex, Gemini, etc.)
