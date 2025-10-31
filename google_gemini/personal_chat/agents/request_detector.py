@@ -34,7 +34,7 @@ def detect_document_request(user_msg: str) -> dict:
     format_keywords = {
         'pdf': ['pdf', '.pdf', 'as pdf'],
         'docx': ['docx', 'word', 'doc', '.docx', 'word document'],
-        'txt': ['txt', 'text', 'notepad', '.txt', 'text file'],
+        'txt': ['txt', 'text', 'notepad', '.txt', 'text file','in txt','as text', 'text format'],
     }
     
     # Detect action
