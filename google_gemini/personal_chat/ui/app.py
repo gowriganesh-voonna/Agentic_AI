@@ -3,11 +3,10 @@ import uuid
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 from agents.orchestrator import process_and_respond
-from agents.upload_agent import load_file
+from agents.upload_agent import load_file, load_multiple_files, clear_session_files
 
-app = FastAPI(title="📄 PDF Chatbot (Gemini + RAG)")
+app = FastAPI(title="📄 Smart Document Assistant (Enhanced)")
 
-# ✅ Allow frontend (Gradio) to connect to FastAPI backend
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -16,40 +15,48 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ✅ Build Gradio UI
+# ✅ Generate persistent session ID
+PERSISTENT_SESSION_ID = str(uuid.uuid4())
+
 with gr.Blocks(theme=gr.themes.Soft()) as demo:
     gr.Markdown(
         """
-        # 🤖 Smart Document Assistant (Gemini + RAG)
+        # 🤖 Smart Document Assistant (Enhanced Edition)
         
-        Upload documents (PDF/DOCX) and chat with them. Ask for summaries, rewrites, or export as PDF/DOCX/TXT!
+        **✨ New Features:**
+        - 📚 Multi-file upload support
+        - 📊 Document comparison
+        - 💾 Conversation export
+        - 📖 Citation tracking
+        - 🖼️ Image extraction & analysis
         
-        **Example requests:**
-        - "Summarize this document"
-        - "Explain FastAPI in detail and give me as PDF"
-        - "Rewrite the MongoDB section as a Word document"
-        - "Create a summary report in txt format"
+        Upload documents (PDF/DOCX) and unlock powerful AI features!
         """
     )
 
     with gr.Row():
         with gr.Column(scale=2):
             file_input = gr.File(
-                label="📎 Upload Document", 
+                label="📎 Upload Documents (Single or Multiple)", 
                 file_types=[".pdf", ".docx"],
-                type="filepath"  # Changed from "binary" to "filepath"
+                file_count="multiple",
+                type="filepath"
             )
-            status_output = gr.Textbox(label="📂 Status", interactive=False, lines=2)
+            
+            # ✅ NEW: Clear button
+            with gr.Row():
+                clear_btn = gr.Button("🗑️ Clear All Files", variant="secondary", size="sm")
+            
+            status_output = gr.Textbox(label="📂 Status", interactive=False, lines=3)
         
         with gr.Column(scale=1):
             session_id_box = gr.Textbox(
                 label="🔑 Session ID",
-                value=str(uuid.uuid4()),
-                info="Keep this constant to resume memory.",
-                interactive=True
+                value=PERSISTENT_SESSION_ID,
+                info="Keeps your conversation context",
+                interactive=False
             )
             
-            # ✅ NEW: Download button for generated files
             download_output = gr.File(
                 label="📥 Download Generated Document",
                 interactive=False,
@@ -57,44 +64,108 @@ with gr.Blocks(theme=gr.themes.Soft()) as demo:
             )
 
     chatbot = gr.Chatbot(
-        label="🗨️ Chat with your Document",
-        height=400,
+        label="🗨️ Chat with your Documents",
+        height=450,
         show_label=True
     )
 
     with gr.Row():
         user_msg = gr.Textbox(
-            placeholder="Type your question or request (e.g., 'summarize as PDF')...",
+            placeholder="Ask questions, compare documents, export conversation...",
             label="💬 Your Message",
             scale=4
         )
         submit_btn = gr.Button("Send 🚀", scale=1, variant="primary")
 
-    # ✅ Example requests
-    gr.Examples(
-        examples=[
-            "What topics are covered in this document?",
-            "Summarize the entire document",
-            "Explain FastAPI concepts in detail",
-            "Give me all MongoDB topics as a PDF",
-            "Rewrite this content as a Word document",
-            "Create a summary report in txt format"
-        ],
-        inputs=user_msg,
-        label="💡 Try these examples:"
-    )
+    with gr.Accordion("💡 Quick Examples", open=False):
+        gr.Markdown("""
+        **📄 Questions:**
+        - "What is this document about?"
+        - "Summarize the key points"
+        - "Who is mentioned in this PDF?"
+        
+        **📊 Comparisons:**
+        - "Compare those 2 documents"
+        - "What are the differences?"
+        - "Compare FastAPI vs Django"
+        
+        **💾 Export:**
+        - "Export conversation as PDF"
+        - "Save chat as Word document"
+        
+        **📥 Document Generation (requires explicit format):**
+        - "Summarize this as PDF" ✅
+        - "Give me key points as Word document" ✅
+        - "Create a summary report in TXT format" ✅
+        
+        **🔍 Management:**
+        - "List my files"
+        - "Clear files"
+        - "Search for FastAPI"
+        """)
 
-    # ✅ When user uploads a document → process & create vectorstore
+    with gr.Accordion("📚 Feature Guide", open=False):
+        gr.Markdown("""
+        ### 🎯 How It Works:
+        
+        **✅ Normal Questions** (Just answers, no file generation):
+        - "What is MongoDB?" → Answers from PDF
+        - "Explain FastAPI in detail" → Detailed explanation
+        - "Whose PDF is this?" → Identifies the document
+        
+        **📥 Document Generation** (Creates downloadable files):
+        - Must include BOTH action + format:
+          - ✅ "Summarize **as PDF**"
+          - ✅ "Explain MongoDB **and give me as Word**"
+          - ✅ "Create report **in TXT format**"
+        - Or use explicit phrases:
+          - ✅ "Give me a file with summary"
+          - ✅ "Export this as DOCX"
+        
+        **📊 Comparisons** (Compares documents):
+        - "Compare those documents" → General comparison
+        - "Compare X vs Y" → Topic comparison
+        - To save comparison: "Compare X vs Y and export as PDF"
+        
+        **🗑️ Clear Files:**
+        - Click the "Clear All Files" button
+        - Or type: "Clear files" / "Reset session"
+        """)
+
+    def handle_file_upload(files, session_id):
+        if files is None:
+            return "❌ No files uploaded."
+        
+        print(f"📤 Uploading files with session_id: {session_id}")
+        
+        if isinstance(files, list) and len(files) > 1:
+            return load_multiple_files(files, session_id)
+        else:
+            single_file = files[0] if isinstance(files, list) else files
+            return load_file(single_file, session_id)
+    
+    def handle_clear_files(session_id):
+        """Clear all files and reset session"""
+        result = clear_session_files(session_id)
+        return result, []  # Also clear chat history
+    
     file_input.upload(
-        fn=load_file,
+        fn=handle_file_upload,
         inputs=[file_input, session_id_box],
         outputs=[status_output],
     )
+    
+    # ✅ NEW: Clear button handler
+    clear_btn.click(
+        fn=handle_clear_files,
+        inputs=[session_id_box],
+        outputs=[status_output, chatbot]
+    )
 
-    # ✅ When user sends message → process and potentially generate file
     def submit_message(msg, history, file, session_id):
+        print(f"💬 Processing message with session_id: {session_id}")
         history, status, generated_file = process_and_respond(msg, history, file, session_id)
-        return history, status, generated_file, ""  # Clear input after submit
+        return history, status, generated_file, ""
     
     submit_btn.click(
         fn=submit_message,
@@ -108,12 +179,23 @@ with gr.Blocks(theme=gr.themes.Soft()) as demo:
         outputs=[chatbot, status_output, download_output, user_msg]
     )
 
-# ✅ Mount Gradio app inside FastAPI
 gradio_app = gr.mount_gradio_app(app, demo, path="/chat")
 
 @app.get("/")
 def root():
-    return {"message": "Smart Document Assistant is running!", "chat_url": "/chat"}
+    return {
+        "message": "Smart Document Assistant (Enhanced) is running!",
+        "version": "2.0",
+        "features": [
+            "Multi-file upload",
+            "Document comparison",
+            "Conversation export",
+            "Citation tracking",
+            "Image extraction",
+            "Strict document generation (prevents false triggers)"
+        ],
+        "chat_url": "/chat"
+    }
 
 @app.get("/start_chatbot_application")
 def chatbot_application():

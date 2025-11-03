@@ -1,6 +1,6 @@
 """
-Detects user intent for document generation requests.
-Identifies: summarize, rewrite, create report, export, etc.
+Document Generation Request Detector - FINAL FIXED VERSION
+Only triggers on explicit file generation requests with both action + format
 """
 
 import re
@@ -9,32 +9,58 @@ import re
 def detect_document_request(user_msg: str) -> dict:
     """
     Detect if user is requesting document generation.
-    
-    Returns:
-        dict: {
-            'is_request': bool,
-            'action': str (summarize, rewrite, export, explain, etc.),
-            'format': str (pdf, docx, txt, or None),
-            'scope': str (full_document, specific_topic, or None)
-        }
+    STRICT: Requires explicit format specification AND action/generation phrase
     """
     msg_lower = user_msg.lower().strip()
     
-    # Define action keywords
+    # ✅ Step 1: Block all questions unless they have explicit generation phrases
+    if "?" in msg_lower:
+        explicit_gen = ["give me as", "save as", "export as", "download as", "and give in", "and give as"]
+        if not any(phrase in msg_lower for phrase in explicit_gen):
+            return {
+                'is_request': False,
+                'action': None,
+                'format': None,
+                'scope': None,
+                'original_message': user_msg
+            }
+    
+    # ✅ Step 2: Block comparison unless explicit export request
+    if any(word in msg_lower for word in ["compare", "comparison", "difference"]):
+        if not any(word in msg_lower for word in ["export", "save", "download", "generate file", "give me as"]):
+            return {
+                'is_request': False,
+                'action': None,
+                'format': None,
+                'scope': None,
+                'original_message': user_msg
+            }
+    
+    # Define action keywords (STRICT)
     action_keywords = {
-        'summarize': ['summarize', 'summary', 'summarise', 'brief', 'overview', 'tldr', 'tl;dr'],
-        'rewrite': ['rewrite', 'rephrase', 'paraphrase', 'reword', 'recreate'],
-        'explain': ['explain', 'elaborate', 'detail', 'clarify', 'describe in detail', 'end to end'],
-        'extract': ['extract', 'get all', 'list all', 'give me all', 'show all'],
-        'export': ['export', 'download', 'save as', 'convert to', 'generate', 'create document', 'make a file'],
-        'report': ['create report', 'generate report', 'make report', 'prepare report'],
+        'summarize': ['summarize'],
+        'rewrite': ['rewrite', 'rephrase'],
+        'extract': ['extract all', 'give those', 'give that', 'give me all'],
+        'export': ['export', 'download', 'save as'],
     }
     
-    # Define format keywords
-    format_keywords = {
-        'pdf': ['pdf', '.pdf', 'as pdf'],
-        'docx': ['docx', 'word', 'doc', '.docx', 'word document'],
-        'txt': ['txt', 'text', 'notepad', '.txt', 'text file','in txt','as text', 'text format'],
+    # Define format keywords (VERY STRICT - must have preposition)
+    format_patterns = {
+        'pdf': [
+            r'\bas\s+pdf\b', r'\bin\s+pdf\b', r'\bto\s+pdf\b',
+            r'\bpdf\s+format\b', r'\bpdf\s+file\b',
+            r'\band\s+give\s+(?:me\s+)?in\s+pdf\b'
+        ],
+        'docx': [
+            r'\bas\s+(?:docx|word)\b', r'\bin\s+(?:docx|word)\b', r'\bto\s+(?:docx|word)\b',
+            r'\bword\s+document\b', r'\bword\s+format\b', r'\bdocx\s+file\b',
+            r'\band\s+give\s+(?:me\s+)?in\s+(?:docx|word)\b'
+        ],
+        'txt': [
+            r'\bas\s+(?:txt|text)\b', r'\bin\s+(?:txt|text)\b', r'\bto\s+(?:txt|text)\b',
+            r'\btext\s+file\b', r'\btxt\s+file\b', r'\bnotepad\b',
+            r'\band\s+give\s+(?:me\s+)?in\s+(?:txt|text)\b'
+        ],
     }
     
     # Detect action
@@ -44,84 +70,62 @@ def detect_document_request(user_msg: str) -> dict:
             detected_action = action
             break
     
-    # Detect format
+    # Detect format (STRICT - must match pattern)
     detected_format = None
-    for fmt, keywords in format_keywords.items():
-        if any(keyword in msg_lower for keyword in keywords):
+    for fmt, patterns in format_patterns.items():
+        if any(re.search(pattern, msg_lower) for pattern in patterns):
             detected_format = fmt
             break
     
+    # ✅ CRITICAL: Explicit generation phrases that trigger regardless
+    explicit_phrases = [
+        r'\bgive\s+(?:me\s+)?(?:in|as)\s+(?:pdf|docx|word|txt|text)',
+        r'\band\s+give\s+(?:me\s+)?(?:in|as)\s+(?:pdf|docx|word|txt|text)',
+        r'\bexport\s+(?:as|to|in)\s+(?:pdf|docx|word|txt|text)',
+        r'\bsave\s+(?:as|to|in)\s+(?:pdf|docx|word|txt|text)',
+        r'\bdownload\s+(?:as|to|in)\s+(?:pdf|docx|word|txt|text)',
+        r'\bcreate\s+(?:a\s+)?(?:pdf|docx|word|txt|text)\s+file',
+        r'\bgenerate\s+(?:a\s+)?(?:pdf|docx|word|txt|text)',
+        r'\b(?:tell|explain|give|provide)\s+(?:me\s+)?(?:about|info|information)\s+.+?\s+(?:in|as)\s+(?:pdf|docx|word|txt|text)',
+        r'\b.+?\s+(?:in|as)\s+(?:pdf|docx|word|txt|text)\s+format',
+    ]
+    
+    has_explicit = any(re.search(pattern, msg_lower) for pattern in explicit_phrases)
+    
+    # ✅ RULE: Document generation ONLY if:
+    # 1. Has explicit generation phrase, OR
+    # 2. Has BOTH action AND format
+    is_request = has_explicit or (detected_action is not None and detected_format is not None)
+    
     # Detect scope
-    detected_scope = 'specific_topic'  # Default
-    full_doc_indicators = [
-        'entire', 'complete', 'full', 'whole', 'all topics', 
-        'everything', 'all content', 'entire document', 'full document'
-    ]
-    
-    if any(indicator in msg_lower for indicator in full_doc_indicators):
+    detected_scope = 'specific_topic'
+    if any(word in msg_lower for word in ['entire', 'complete', 'full', 'whole', 'all']):
         detected_scope = 'full_document'
-    
-    # Check if it's a document request
-    is_request = detected_action is not None or detected_format is not None
-    
-    # Additional patterns
-    generation_patterns = [
-        r'give\s+(?:me\s+)?(?:a\s+)?(?:file|document|report)',
-        r'create\s+(?:a\s+)?(?:file|document|report)',
-        r'generate\s+(?:a\s+)?(?:file|document|report)',
-        r'make\s+(?:a\s+)?(?:file|document|report)',
-        r'(?:can you|could you)\s+(?:create|make|generate)',
-    ]
-    
-    if any(re.search(pattern, msg_lower) for pattern in generation_patterns):
-        is_request = True
-        if not detected_action:
-            detected_action = 'export'
     
     return {
         'is_request': is_request,
         'action': detected_action,
-        'format': detected_format or 'txt',  # Default to txt
+        'format': detected_format or 'txt',
         'scope': detected_scope,
         'original_message': user_msg
     }
 
 
 def extract_topic_from_request(user_msg: str) -> str:
-    """
-    Extract the specific topic user wants info about.
-    E.g., "explain FastAPI" -> "FastAPI"
-    """
+    """Extract specific topic from request"""
     msg_lower = user_msg.lower()
     
-    # Common patterns
     patterns = [
-        r'(?:explain|summarize|rewrite|about)\s+(.+?)(?:\s+(?:in|from|and give)|$)',
-        r'(?:give me|create|generate)\s+(?:info|information|details)\s+(?:about|on)\s+(.+?)(?:\s+(?:in|from)|$)',
-        r'(?:all|complete)\s+(.+?)\s+(?:topics|info|details|content)',
+        r'(?:about|on)\s+(.+?)(?:\s+(?:in|as|and)|$)',
+        r'(?:explain|summarize|rewrite)\s+(?:the\s+)?(.+?)(?:\s+(?:in|as|and|section)|$)',
     ]
     
     for pattern in patterns:
         match = re.search(pattern, msg_lower)
         if match:
-            return match.group(1).strip()
+            topic = match.group(1).strip()
+            stopwords = ['this', 'that', 'the', 'a', 'an', 'it', 'pdf', 'document', 'file']
+            if topic not in stopwords and len(topic) > 2:
+                return topic
     
     return None
-
-
-# Example usage patterns for testing
-if __name__ == "__main__":
-    test_cases = [
-        "summarize this document",
-        "rewrite the FastAPI section and give me as PDF",
-        "explain MongoDB from end to end",
-        "give me all FastAPI topics as a Word document",
-        "create a summary report in txt format",
-        "can you generate a PDF with all the content?",
-        "what is dependency injection?",  # Not a generation request
-    ]
-    
-    for test in test_cases:
-        result = detect_document_request(test)
-        print(f"\nInput: {test}")
-        print(f"Result: {result}")
