@@ -18,10 +18,10 @@ def process_query(user_input: str):
     analysis_output = analyze_agent(state)
     state.update(analysis_output)
 
-    # Step 3: 🧠 Summarize using Gemini (LangChain)
+    # Step 3:  Summarize using Gemini (LangChain)
     summary_output = summarizer_agent(state)
 
-    # ✅ Return final summary, PDF, and references
+    #  Return final summary, PDF, and references
     return {
         "topic": user_input,
         "summary": summary_output.get("final_summary", ""),
