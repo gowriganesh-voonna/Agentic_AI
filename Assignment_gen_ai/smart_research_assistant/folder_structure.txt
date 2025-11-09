@@ -16,7 +16,7 @@ smart_research_assistant/
 │   ├── search_agent.py      # Fetches relevant research articles using Tavily API
 │   ├── analysis_agent.py    # Processes and extracts insights from retrieved documents
 │   ├── summarizer_agent.py  # Uses Gemini model to generate structured academic summary
-│   └── orchestrator.py      # (Optional) Early chain-based orchestrator before LangGraph integration
+│   └── formatter_agent.py      # generates the final PDF report
 │
 ├── utils/
 │   └── pdf_utils.py         # Generates downloadable PDF report using ReportLab

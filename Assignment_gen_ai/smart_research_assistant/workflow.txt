@@ -48,3 +48,19 @@ Final Output to UI (Streamlit)
                        │ Display in Streamlit │
                        └───────────────────┘
 
+ResearchState {
+  topic_query → raw_documents → analysis_result → validation_result → final_summary → formatted_report + pdf_path
+}
+
+Agent Responsibilities:
+
+Search Agent: Web data retrieval via Tavily API
+
+Analysis Agent: Pattern extraction & theme identification
+
+Validator Agent: Quality assessment & recommendations
+
+Summarizer Agent: Structured content generation using Gemini
+
+Formatter Agent: Professional PDF report creation
+

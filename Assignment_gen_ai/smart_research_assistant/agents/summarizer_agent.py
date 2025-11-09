@@ -1,12 +1,11 @@
 # agents/summarizer_agent.py
 
 import os
+from typing import Dict, Any
 from models.state_schema import ResearchState
-from utils.pdf_utils import generate_pdf
 
 # ✅ Use only LangChain-based Gemini model
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_core.messages import HumanMessage
 
 # 🔹 Enhanced academic summarizer prompt
 SUMMARIZER_PROMPT = """
@@ -57,11 +56,12 @@ List or summarize key papers, tools, or sources mentioned in the reference docum
 Write in a **formal, academic tone**, maintaining paragraph structure and logical flow. Ensure clarity, coherence, and professional readability.
 """
 
-def summarizer_agent(state: ResearchState) -> dict:
+def summarizer_agent(state: ResearchState) -> Dict[str, Any]:
     """Generate structured research summary using LangChain Gemini model."""
     topic = state.get("topic_query", "")
     docs = state.get("raw_documents", [])
     analysis = state.get("analysis_result", {})
+    validation = state.get("validation_result", {})
 
     # Combine all reference document texts
     docs_text = "\n\n".join(
@@ -71,23 +71,24 @@ def summarizer_agent(state: ResearchState) -> dict:
         ]
     )
 
-    # Prepare prompt
-    #prompt = SUMMARIZER_PROMPT.format(topic=topic, docs_text=docs_text)
+    # Prepare prompt with validation insights
     prompt = SUMMARIZER_PROMPT.format(
-    topic=topic,
-    docs_text=docs_text + "\n\nPlease summarize concisely within 600-700 words with bullet points,include clear points and short paragraphs"
-)
+        topic=topic,
+        docs_text=docs_text + "\n\nPlease summarize concisely within 600-700 words with bullet points, include clear points and short paragraphs"
+    )
 
     try:
         # 🚀 Initialize Gemini model via LangChain
         llm = ChatGoogleGenerativeAI(
             model="gemini-2.5-flash",
-            api_key=os.getenv("GOOGLE_API_KEY", "AIzaSyDgIuCfgQnqE4l_J4EX-ClysACAw7cNq8s")  # <- use env variable instead of hardcoding
+            api_key=os.getenv("GOOGLE_API_KEY", "AIzaSyDgIuCfgQnqE4l_J4EX-ClysACAw7cNq8s")
         )
 
         # ✅ Proper call to Gemini LLM
         response = llm.invoke(prompt)
         summary_text = response.content.strip()
+
+        print(f"[SUMMARIZER] Generated summary with {len(summary_text)} characters")
 
     except Exception as e:
         print(f"[ERROR] Summarization failed: {e}")
@@ -95,10 +96,8 @@ def summarizer_agent(state: ResearchState) -> dict:
             f"Topic: {topic}\nError generating structured summary. Please check your API configuration or input."
         )
 
-    # ✅ Generate formatted PDF report
-    pdf_path = generate_pdf(topic, summary_text, analysis, docs)
-
+    # ✅ Return only the summary - PDF generation moved to formatter_agent
     return {
-        "final_summary": summary_text,
-        "pdf_path": pdf_path
+        "final_summary": summary_text
+        # No pdf_path here anymore
     }
