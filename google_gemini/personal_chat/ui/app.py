@@ -162,10 +162,28 @@ with gr.Blocks(theme=gr.themes.Soft()) as demo:
         outputs=[status_output, chatbot]
     )
 
+    def format_for_gradio(history):
+        formatted = []
+        for h in history:
+            if isinstance(h, dict):
+                formatted.append(h)
+            elif isinstance(h, (list, tuple)) and len(h) == 2:
+                formatted.append({"role": "user", "content": h[0]})
+                formatted.append({"role": "assistant", "content": h[1]})
+        return formatted
+
+
     def submit_message(msg, history, file, session_id):
         print(f"💬 Processing message with session_id: {session_id}")
-        history, status, generated_file = process_and_respond(msg, history, file, session_id)
-        return history, status, generated_file, ""
+        
+        raw_history, status, generated_file = process_and_respond(
+            msg, history, file, session_id
+        )
+
+        gradio_history = format_for_gradio(raw_history)
+
+        return gradio_history, status, generated_file, ""
+
     
     submit_btn.click(
         fn=submit_message,

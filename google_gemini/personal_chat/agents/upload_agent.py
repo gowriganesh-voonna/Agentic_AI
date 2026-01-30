@@ -4,18 +4,26 @@ import os
 from langchain_community.document_loaders import PyPDFLoader, Docx2txtLoader, TextLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
-from langchain_google_genai import ChatGoogleGenerativeAI
+#from langchain_google_genai import ChatGoogleGenerativeAI
+import google.generativeai as genai
 from config.prompt import prompt_template
 from utils.memory_utils import build_memory_for_session
 from config.settings import GEMINI_API_KEY
-from langchain_huggingface import HuggingFaceEmbeddings
+#from langchain_huggingface import HuggingFaceEmbeddings
+from langchain.embeddings import HuggingFaceEmbeddings
+
 from datetime import datetime
 
+
+genai.configure(api_key=GEMINI_API_KEY)
+
 # Initialize LLM
-llm = ChatGoogleGenerativeAI(
-    model="gemini-2.5-flash",
-    google_api_key=GEMINI_API_KEY
-)
+# llm = ChatGoogleGenerativeAI(
+#     model="gemini-2.5-flash",
+#     google_api_key=GEMINI_API_KEY
+# )
+
+llm = genai.GenerativeModel("gemini-2.5-flash")
 
 # Use Hugging Face embeddings
 embeddings = HuggingFaceEmbeddings(

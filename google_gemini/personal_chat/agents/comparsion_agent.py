@@ -4,16 +4,20 @@ Compares content across multiple uploaded documents or topics
 """
 
 from agents.upload_agent import conversation_chain_by_session, uploaded_files_by_session
-from langchain_google_genai import ChatGoogleGenerativeAI
+#from langchain_google_genai import ChatGoogleGenerativeAI
+import google.generativeai as genai
 from config.settings import GEMINI_API_KEY
 import re
 
 # Initialize LLM
-llm = ChatGoogleGenerativeAI(
-    model="gemini-2.0-flash-exp",
-    google_api_key=GEMINI_API_KEY,
-    temperature=0.3  # Lower temperature for factual comparison
-)
+# llm = ChatGoogleGenerativeAI(
+#     model="gemini-2.0-flash-exp",
+#     google_api_key=GEMINI_API_KEY,
+#     temperature=0.3  # Lower temperature for factual comparison
+# )
+
+genai.configure(api_key=GEMINI_API_KEY)
+llm = genai.ChatModel.from_pretrained("gemini-2.5-flash")
 
 
 def detect_comparison_request(user_msg: str) -> dict:

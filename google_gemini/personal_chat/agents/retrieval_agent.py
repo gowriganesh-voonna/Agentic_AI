@@ -1,5 +1,8 @@
 # retrieval_agent.py - ENHANCED WITH CITATION TRACKING
+#from langchain.chains import ConversationalRetrievalChain
+#from langchain_community.chains import ConversationalRetrievalChain
 from langchain.chains import ConversationalRetrievalChain
+
 from config.prompt import prompt_template
 from utils.memory_utils import build_memory_for_session
 from .upload_agent import conversation_chain_by_session

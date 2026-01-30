@@ -21,3 +21,6 @@ async def summarize_text(request: TextRequest):
     )
     
     return {"summary": response.text}
+
+
+

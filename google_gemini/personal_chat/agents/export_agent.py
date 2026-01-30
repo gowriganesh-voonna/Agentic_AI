@@ -7,6 +7,7 @@ from utils.memory_utils import build_memory_for_session
 from utils.document_generator import generate_document
 from datetime import datetime
 import re
+import os
 
 
 def detect_export_request(user_msg: str) -> dict:

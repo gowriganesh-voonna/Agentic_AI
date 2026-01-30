@@ -3,18 +3,22 @@ Handles conversational responses using Gemini LLM.
 Works with or without uploaded PDFs.
 """
 
-from langchain_google_genai import ChatGoogleGenerativeAI
+#from langchain_google_genai import ChatGoogleGenerativeAI
+import google.generativeai as genai
 from config.settings import GEMINI_API_KEY
 from utils.memory_utils import build_memory_for_session
 from agents.web_agent import fetch_from_web
 
-# Initialize Gemini LLM
-llm = ChatGoogleGenerativeAI(
-    model="gemini-2.5-flash",
-    google_api_key=GEMINI_API_KEY,
-    temperature=0.7
-)
+genai.configure(api_key=GEMINI_API_KEY)
 
+# Initialize Gemini LLM
+# llm = ChatGoogleGenerativeAI(
+#     model="gemini-2.5-flash",
+#     google_api_key=GEMINI_API_KEY,
+#     temperature=0.7
+# )
+
+llm= genai.ChatModel.from_pretrained("gemini-2.5-flash")
 
 def get_conversational_response(session_id: str, question: str):
     """
